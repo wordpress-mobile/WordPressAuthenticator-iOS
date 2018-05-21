@@ -22,6 +22,8 @@ Pod::Spec.new do |s|
   s.requires_arc  = true
   s.header_dir    = 'WordPressAuthenticator'
 
+  s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
+
   s.dependency '1PasswordExtension', '1.8.5'
   s.dependency 'Alamofire', '4.7.2'
   s.dependency 'CocoaLumberjack', '3.4.2'
