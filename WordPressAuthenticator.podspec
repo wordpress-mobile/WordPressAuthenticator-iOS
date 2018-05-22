@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.source        = { :git => "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git", :tag => s.version.to_s }
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
   s.private_header_files = "WordPressAuthenticator/Private/*.h"
-  s.resources     = [ 'WordPressAuthenticator/**/*.{xcassets,storyboard,xib}' ]
+  s.resources     = [ 'WordPressAuthenticator/**/*.{xcassets,storyboard,xib,json}' ]
   s.requires_arc  = true
   s.header_dir    = 'WordPressAuthenticator'
 
