@@ -39,7 +39,7 @@ PODS:
   - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
   - Gridicons (0.15)
   - lottie-ios (2.5.0)
-  - NSObject-SafeExpectations (0.0.2)
+  - NSObject-SafeExpectations (0.0.3)
   - "NSURL+IDN (0.3)"
   - OCMock (3.4.1)
   - OHHTTPStubs (6.1.0):
@@ -60,18 +60,18 @@ PODS:
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (0.5.0)
-  - WordPressKit (1.0.2):
+  - WordPressKit (1.0.5):
     - AFNetworking (= 3.2.1)
     - Alamofire (= 4.7.2)
     - CocoaLumberjack (= 3.4.2)
+    - NSObject-SafeExpectations (= 0.0.3)
     - UIDeviceIdentifier (~> 0.4)
-    - WordPressShared (= 1.0.1)
+    - WordPressShared (= 1.0.3)
     - wpxmlrpc (= 0.8.3)
-  - WordPressShared (1.0.1):
+  - WordPressShared (1.0.3):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
-    - NSObject-SafeExpectations (= 0.0.2)
-  - WordPressUI (1.0.1)
+  - WordPressUI (1.0.2)
   - wpxmlrpc (0.8.3)
 
 DEPENDENCIES:
@@ -125,22 +125,22 @@ SPEC CHECKSUMS:
   CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
-  GoogleSignInRepacked: d62d96582bd9a5f3ca7488fad91134d9cc5a1d6b
+  GoogleSignInRepacked: d357702618c555f38923576924661325eb1ef22b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   Gridicons: 0e5e76ad9fc6f7cbc3da137a9751ef516c5aef73
   lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
-  NSObject-SafeExpectations: 7d7f48df90df4e11da7cfe86b64f45eff7a7f521
+  NSObject-SafeExpectations: b989b68a8a9b7b9f2b264a8b52ba9d7aab8f3129
   "NSURL+IDN": 82355a0afd532fe1de08f6417c134b49b1a1c4b3
   OCMock: 2cd0716969bab32a2283ff3a46fd26a8c8b4c5e3
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: a959a6d4f51036b4180dd31fb26483a820f1cc46
-  WordPressKit: 2c49fbbddb593bd8c04cda7410dd610d5e60bac5
-  WordPressShared: 13a743d923796382419e03521e47491e9322087e
-  WordPressUI: 9f90f8e1e629af13e1021c6281660623d62ff953
+  WordPressKit: afe6d2c23db6d4f110638c25e86b029e899ffc34
+  WordPressShared: b8e910d8133a54e9452ab7bd9d8e27e78dc2f5ba
+  WordPressUI: 70bceaff582bdd6fd8f3ed67aaa200e72fce245d
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: 969608dabf9a2c77f4b19c6d648015027e418b3c
+PODFILE CHECKSUM: adec9882e25404ab01a7a461fcdd3ddd937d5ba6
 
 COCOAPODS: 1.5.2

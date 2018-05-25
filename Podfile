@@ -1,4 +1,4 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://github.com/CocoaPods/specs.git'
 
 inhibit_all_warnings!
 use_frameworks!
