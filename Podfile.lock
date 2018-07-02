@@ -71,7 +71,7 @@ PODS:
   - WordPressShared (1.0.3):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
-  - WordPressUI (1.0.2)
+  - WordPressUI (1.0.4)
   - wpxmlrpc (0.8.3)
 
 DEPENDENCIES:
@@ -91,7 +91,7 @@ DEPENDENCIES:
   - UIDeviceIdentifier (~> 0.4)
   - WordPressKit (~> 1.0)
   - WordPressShared (~> 1.0)
-  - WordPressUI (~> 1.0)
+  - WordPressUI (from `https://github.com/wordpress-mobile/WordPressUI-iOS.git`, branch `feature/extension-render-bg-image`)
   - wpxmlrpc (~> 0.8)
 
 SPEC REPOS:
@@ -115,8 +115,17 @@ SPEC REPOS:
     - UIDeviceIdentifier
     - WordPressKit
     - WordPressShared
-    - WordPressUI
     - wpxmlrpc
+
+EXTERNAL SOURCES:
+  WordPressUI:
+    :branch: feature/extension-render-bg-image
+    :git: https://github.com/wordpress-mobile/WordPressUI-iOS.git
+
+CHECKOUT OPTIONS:
+  WordPressUI:
+    :commit: ebd678834f02d3d121d9273d5b9547c0b16c9904
+    :git: https://github.com/wordpress-mobile/WordPressUI-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
@@ -138,9 +147,9 @@ SPEC CHECKSUMS:
   UIDeviceIdentifier: a959a6d4f51036b4180dd31fb26483a820f1cc46
   WordPressKit: afe6d2c23db6d4f110638c25e86b029e899ffc34
   WordPressShared: b8e910d8133a54e9452ab7bd9d8e27e78dc2f5ba
-  WordPressUI: 70bceaff582bdd6fd8f3ed67aaa200e72fce245d
+  WordPressUI: f2348649b63b5a9392a72b1d2f46dd1d72e80ad9
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: adec9882e25404ab01a7a461fcdd3ddd937d5ba6
+PODFILE CHECKSUM: 1c73d53a28e80bbc3df964082230e60ff4ae016b
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
