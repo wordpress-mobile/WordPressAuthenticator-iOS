@@ -16,7 +16,7 @@ target 'WordPressAuthenticator' do
   ## ====================
   ##
   pod 'Gridicons', '~> 0.15'
-  pod 'WordPressUI', :git => 'https://github.com/wordpress-mobile/WordPressUI-iOS.git', :branch => 'feature/extension-render-bg-image'
+  pod 'WordPressUI', '~> 1.0'
   pod 'WordPressKit', '~> 1.0'
   pod 'WordPressShared', '~> 1.0'
   pod 'wpxmlrpc', '~> 0.8'
