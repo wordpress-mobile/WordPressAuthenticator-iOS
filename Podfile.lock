@@ -91,7 +91,7 @@ DEPENDENCIES:
   - UIDeviceIdentifier (~> 0.4)
   - WordPressKit (~> 1.0)
   - WordPressShared (~> 1.0)
-  - WordPressUI (from `https://github.com/wordpress-mobile/WordPressUI-iOS.git`, branch `feature/extension-render-bg-image`)
+  - WordPressUI (~> 1.0)
   - wpxmlrpc (~> 0.8)
 
 SPEC REPOS:
@@ -115,17 +115,8 @@ SPEC REPOS:
     - UIDeviceIdentifier
     - WordPressKit
     - WordPressShared
+    - WordPressUI
     - wpxmlrpc
-
-EXTERNAL SOURCES:
-  WordPressUI:
-    :branch: feature/extension-render-bg-image
-    :git: https://github.com/wordpress-mobile/WordPressUI-iOS.git
-
-CHECKOUT OPTIONS:
-  WordPressUI:
-    :commit: ebd678834f02d3d121d9273d5b9547c0b16c9904
-    :git: https://github.com/wordpress-mobile/WordPressUI-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
@@ -150,6 +141,6 @@ SPEC CHECKSUMS:
   WordPressUI: f2348649b63b5a9392a72b1d2f46dd1d72e80ad9
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: 1c73d53a28e80bbc3df964082230e60ff4ae016b
+PODFILE CHECKSUM: adec9882e25404ab01a7a461fcdd3ddd937d5ba6
 
 COCOAPODS: 1.5.3
