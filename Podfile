@@ -16,8 +16,7 @@ target 'WordPressAuthenticator' do
   ## ====================
   ##
   pod 'Gridicons', '~> 0.15'
-  ##pod 'WordPressUI', '~> 1.0'
-  pod 'WordPressUI', :git => 'https://github.com/wordpress-mobile/WordPressUI-iOS.git', :branch => 'fix/fancy-button-default-corner-radius'
+  pod 'WordPressUI', '~> 1.0'
   pod 'WordPressKit', '~> 1.0'
   pod 'WordPressShared', '~> 1.0'
   pod 'wpxmlrpc', '~> 0.8'
