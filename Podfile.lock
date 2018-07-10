@@ -75,7 +75,7 @@ DEPENDENCIES:
   - UIDeviceIdentifier (~> 0.4)
   - WordPressKit (~> 1.0)
   - WordPressShared (~> 1.0)
-  - WordPressUI (~> 1.0)
+  - WordPressUI (from `https://github.com/wordpress-mobile/WordPressUI-iOS.git`, branch `fix/fancy-button-default-corner-radius`)
   - wpxmlrpc (~> 0.8)
 
 SPEC REPOS:
@@ -98,8 +98,17 @@ SPEC REPOS:
     - UIDeviceIdentifier
     - WordPressKit
     - WordPressShared
-    - WordPressUI
     - wpxmlrpc
+
+EXTERNAL SOURCES:
+  WordPressUI:
+    :branch: fix/fancy-button-default-corner-radius
+    :git: https://github.com/wordpress-mobile/WordPressUI-iOS.git
+
+CHECKOUT OPTIONS:
+  WordPressUI:
+    :commit: 7aeeeee1a72247a0c385939f518a1366a0546209
+    :git: https://github.com/wordpress-mobile/WordPressUI-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
@@ -123,6 +132,6 @@ SPEC CHECKSUMS:
   WordPressUI: ab90086350f1e26bf39e578e443d0abf0347e542
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: adec9882e25404ab01a7a461fcdd3ddd937d5ba6
+PODFILE CHECKSUM: 8e9d16af08f433f743217d6e4ec7efb67e4cb972
 
 COCOAPODS: 1.5.3
