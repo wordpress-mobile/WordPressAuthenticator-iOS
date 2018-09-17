@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
   s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
 
   s.dependency '1PasswordExtension', '1.8.5'
-  s.dependency 'Alamofire', '4.7.2'
+  s.dependency 'Alamofire', '4.7.3'
   s.dependency 'CocoaLumberjack', '3.4.2'
   s.dependency 'lottie-ios', '2.5.0'
   s.dependency 'NSURL+IDN', '0.3'
