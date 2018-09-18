@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.0.6"
+  s.version       = "1.1.0-beta.1"
   s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
 
   s.description   = <<-DESC
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.license       = "GPLv2"
   s.author        = { "WordPress" => "mobile@automattic.com" }
   s.platform      = :ios, "10.0"
-  s.swift_version = '4.0'
+  s.swift_version = '4.2'
   s.source        = { :git => "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git", :tag => s.version.to_s }
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
   s.private_header_files = "WordPressAuthenticator/Private/*.h"
@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.dependency 'Gridicons', '~> 0.15'
   s.dependency 'GoogleSignInRepacked', '4.1.2'
   s.dependency 'WordPressUI', '~> 1.0'
-  s.dependency 'WordPressKit', '~> 1.0'
-  s.dependency 'WordPressShared', '~> 1.0'
+  s.dependency 'WordPressKit', '1.4.1-beta.2'
+  s.dependency 'WordPressShared', '1.1.1-beta.2'
   s.dependency 'wpxmlrpc', '~> 0.8'
 end
