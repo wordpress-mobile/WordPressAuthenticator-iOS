@@ -36,6 +36,6 @@ Pod::Spec.new do |s|
   s.dependency 'GoogleSignInRepacked', '4.1.2'
   s.dependency 'WordPressUI', '~> 1.0'
   s.dependency 'WordPressKit', '1.4.1-beta.2'
-  s.dependency 'WordPressShared', '1.1.1-beta.2'
+  s.dependency 'WordPressShared', '~> 1.1.1-beta.4'
   s.dependency 'wpxmlrpc', '~> 0.8'
 end
