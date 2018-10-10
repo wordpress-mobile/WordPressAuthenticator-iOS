@@ -17,15 +17,15 @@ target 'WordPressAuthenticator' do
   ##
   pod 'Gridicons', '~> 0.15'
   pod 'WordPressUI', '~> 1.0'
-  pod 'WordPressKit', '~> 1.0'
-  pod 'WordPressShared', '~> 1.0'
+  pod 'WordPressKit', '~> 1.4.1-beta.3'
+  pod 'WordPressShared', '~> 1.1.1-beta.4'
   pod 'wpxmlrpc', '~> 0.8'
 
   ## Third party libraries
   ## =====================
   ##
   pod '1PasswordExtension', '1.8.5'
-  pod 'Alamofire', '4.7.2'
+  pod 'Alamofire', '4.7.3'
   pod 'CocoaLumberjack', '3.4.2'
   pod 'GoogleSignInRepacked', '4.1.2'
   pod 'lottie-ios', '2.5.0'
