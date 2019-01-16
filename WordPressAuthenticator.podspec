@@ -30,7 +30,6 @@ Pod::Spec.new do |s|
   s.dependency 'lottie-ios', '2.5.2'
   s.dependency 'NSURL+IDN', '0.3'
   s.dependency 'SVProgressHUD', '2.2.5'
-  s.dependency 'UIDeviceIdentifier', '~> 0.4'
 
   s.dependency 'Gridicons', '~> 0.15'
   s.dependency 'GoogleSignInRepacked', '4.1.2'

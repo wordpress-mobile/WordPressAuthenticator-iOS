@@ -72,7 +72,6 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 6.1.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - UIDeviceIdentifier (~> 0.4)
   - WordPressKit (~> 1.4)
   - WordPressShared (~> 1.4)
   - WordPressUI (~> 1.0)
@@ -122,6 +121,6 @@ SPEC CHECKSUMS:
   WordPressUI: af141587ec444f9af753a00605bd0d3f14d8d8a3
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: 5323075cdd4e5a195e2fd3269e0b99f0eb8677b9
+PODFILE CHECKSUM: 0016d3f996c691924d69008b8d1ad7d310a58dbd
 
 COCOAPODS: 1.5.3
