@@ -30,7 +30,6 @@ target 'WordPressAuthenticator' do
   pod 'lottie-ios', '2.5.2'
   pod 'NSURL+IDN', '0.3'
   pod 'SVProgressHUD', '2.2.5'
-  pod 'UIDeviceIdentifier', '~> 0.4'
 
 
   ## Unit Tests
