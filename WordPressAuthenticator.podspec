@@ -37,5 +37,4 @@ Pod::Spec.new do |s|
   s.dependency 'WordPressUI', '~> 1.0'
   s.dependency 'WordPressKit', '~> 1.4'
   s.dependency 'WordPressShared', '~> 1.4'
-  s.dependency 'wpxmlrpc', '~> 0.8'
 end
