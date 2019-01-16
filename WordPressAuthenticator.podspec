@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                     Plus: WordPress.com *signup*  is supported.
                     DESC
 
-  s.homepage      = "http://apps.wordpress.com"
+  s.homepage      = "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS"
   s.license       = "GPLv2"
   s.author        = { "WordPress" => "mobile@automattic.com" }
   s.platform      = :ios, "10.0"
