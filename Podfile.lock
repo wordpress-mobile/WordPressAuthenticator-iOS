@@ -23,7 +23,7 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
   - Gridicons (0.16)
-  - lottie-ios (2.5.0)
+  - lottie-ios (2.5.2)
   - NSObject-SafeExpectations (0.0.3)
   - "NSURL+IDN (0.3)"
   - OCMock (3.4.2)
@@ -65,7 +65,7 @@ DEPENDENCIES:
   - Expecta (= 1.0.6)
   - GoogleSignInRepacked (= 4.1.2)
   - Gridicons (~> 0.15)
-  - lottie-ios (= 2.5.0)
+  - lottie-ios (= 2.5.2)
   - "NSURL+IDN (= 0.3)"
   - OCMock (~> 3.4)
   - OHHTTPStubs (= 6.1.0)
@@ -110,7 +110,7 @@ SPEC CHECKSUMS:
   GoogleSignInRepacked: d357702618c555f38923576924661325eb1ef22b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   Gridicons: 8cc5cb666d5ad8b8f1771d3c7a93d27ae25b7c2e
-  lottie-ios: d699fdee68d7b63e721d949388b015fef1aaa4ac
+  lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   NSObject-SafeExpectations: b989b68a8a9b7b9f2b264a8b52ba9d7aab8f3129
   "NSURL+IDN": 82355a0afd532fe1de08f6417c134b49b1a1c4b3
   OCMock: ebe9ee1dca7fbed0ff9193ac0b3e2d8862ea56f6
@@ -123,6 +123,6 @@ SPEC CHECKSUMS:
   WordPressUI: af141587ec444f9af753a00605bd0d3f14d8d8a3
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: c1f8e7670e27ecdf793469785706d7d25868f431
+PODFILE CHECKSUM: 788f3c69a8fe39993d1904b86cd94635bf781551
 
 COCOAPODS: 1.5.3
