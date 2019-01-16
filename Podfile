@@ -19,7 +19,6 @@ target 'WordPressAuthenticator' do
   pod 'WordPressUI', '~> 1.0'
   pod 'WordPressKit', '~> 1.4'
   pod 'WordPressShared', '~> 1.4'
-  pod 'wpxmlrpc', '~> 0.8'
 
   ## Third party libraries
   ## =====================

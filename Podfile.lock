@@ -76,7 +76,6 @@ DEPENDENCIES:
   - WordPressKit (~> 1.4)
   - WordPressShared (~> 1.4)
   - WordPressUI (~> 1.0)
-  - wpxmlrpc (~> 0.8)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -123,6 +122,6 @@ SPEC CHECKSUMS:
   WordPressUI: af141587ec444f9af753a00605bd0d3f14d8d8a3
   wpxmlrpc: bfc572f62ce7ee897f6f38b098d2ba08732ecef4
 
-PODFILE CHECKSUM: 788f3c69a8fe39993d1904b86cd94635bf781551
+PODFILE CHECKSUM: 5323075cdd4e5a195e2fd3269e0b99f0eb8677b9
 
 COCOAPODS: 1.5.3
