@@ -17,7 +17,7 @@ target 'WordPressAuthenticator' do
   ##
   pod 'Gridicons', '~> 0.15'
   pod 'WordPressUI', '~> 1.0'
-  pod 'WordPressKit', '~> 1.4'
+  pod 'WordPressKit', '~> 1.7'
   pod 'WordPressShared', '~> 1.4'
 
   ## Third party libraries
