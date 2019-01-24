@@ -16,7 +16,7 @@ jobs:
           command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
       - run:
           name: Pod Install
-          command: bundle exec pod install
+          command: bundle exec pod install --repo-update
           environment:
             COCOAPODS_DISABLE_STATS: true
       - save_cache:

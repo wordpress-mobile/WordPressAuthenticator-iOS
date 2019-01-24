@@ -14,19 +14,19 @@ PODS:
   - GoogleSignInRepacked (4.1.2):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
-  - GoogleToolboxForMac/DebugUtils (2.1.4):
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-  - GoogleToolboxForMac/Defines (2.1.4)
-  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.4)":
-    - GoogleToolboxForMac/DebugUtils (= 2.1.4)
-    - GoogleToolboxForMac/Defines (= 2.1.4)
-    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.4)"
-  - "GoogleToolboxForMac/NSString+URLArguments (2.1.4)"
-  - Gridicons (0.16)
+  - GoogleToolboxForMac/DebugUtils (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.2.0)":
+    - GoogleToolboxForMac/DebugUtils (= 2.2.0)
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
+  - Gridicons (0.18)
   - lottie-ios (2.5.2)
   - NSObject-SafeExpectations (0.0.3)
   - "NSURL+IDN (0.3)"
-  - OCMock (3.4.2)
+  - OCMock (3.4.3)
   - OHHTTPStubs (6.1.0):
     - OHHTTPStubs/Default (= 6.1.0)
   - OHHTTPStubs/Core (6.1.0)
@@ -45,17 +45,17 @@ PODS:
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.1.4)
-  - WordPressKit (1.7.0):
+  - WordPressKit (1.8.0-beta.1):
     - Alamofire (~> 4.7.3)
     - CocoaLumberjack (= 3.4.2)
     - NSObject-SafeExpectations (= 0.0.3)
     - UIDeviceIdentifier (~> 1.1.4)
     - WordPressShared (~> 1.4)
     - wpxmlrpc (= 0.8.4)
-  - WordPressShared (1.4.0):
+  - WordPressShared (1.6.0):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
-  - WordPressUI (1.0.6)
+  - WordPressUI (1.2.0)
   - wpxmlrpc (0.8.4)
 
 DEPENDENCIES:
@@ -72,7 +72,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 6.1.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 1.7)
+  - WordPressKit (~> 1.8-beta)
   - WordPressShared (~> 1.4)
   - WordPressUI (~> 1.0)
 
@@ -106,21 +106,21 @@ SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
   GoogleSignInRepacked: d357702618c555f38923576924661325eb1ef22b
-  GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
-  Gridicons: 8cc5cb666d5ad8b8f1771d3c7a93d27ae25b7c2e
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
+  Gridicons: 04261236382e9c62c62c9a104f2f532c1bdf6a78
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   NSObject-SafeExpectations: b989b68a8a9b7b9f2b264a8b52ba9d7aab8f3129
   "NSURL+IDN": 82355a0afd532fe1de08f6417c134b49b1a1c4b3
-  OCMock: ebe9ee1dca7fbed0ff9193ac0b3e2d8862ea56f6
+  OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 8f8a24b257a4d978c8d40ad1e7355b944ffbfa8c
-  WordPressKit: 8f862013a4a83bc20819e558f04b63b26fd9ea90
-  WordPressShared: f55be10963c8f6dbbc8e896450805ba1dd5353f7
-  WordPressUI: af141587ec444f9af753a00605bd0d3f14d8d8a3
+  WordPressKit: 6f7490df5367bb988acda5146b8b52bd1779a67c
+  WordPressShared: a2fc2db66c210a05d317ae9678b5823dd6a4d708
+  WordPressUI: 44fe43a9c5c504dfd534286e39e1ce6ebcd69ff5
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: cd63cfaba8f70b78fe639f5db17d4efa2049df04
+PODFILE CHECKSUM: 1b7831d7a214edf6e85e0d3e3ead39484c4058d4
 
 COCOAPODS: 1.5.3
