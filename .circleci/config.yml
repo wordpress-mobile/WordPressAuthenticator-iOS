@@ -1,35 +1,17 @@
-version: 2
-jobs:
-  build_and_test:
-    macos:
-      xcode: "10.1.0"
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - wordpress-authenticator-ios-{{ checksum "Gemfile.lock" }}-{{ checksum "Podfile.lock" }}
-      - run:
-          name: Bundle install
-          command: bundle install --path=vendor/bundle
-      - run:
-          name: Fetch CocoaPods Specs
-          command: curl https://cocoapods-specs.circleci.com/fetch-cocoapods-repo-from-s3.sh | bash -s cf
-      - run:
-          name: Pod Install
-          command: bundle exec pod install --repo-update
-          environment:
-            COCOAPODS_DISABLE_STATS: true
-      - save_cache:
-          key: wordpress-authenticator-ios-{{ checksum "Gemfile.lock" }}-{{ checksum "Podfile.lock" }}
-          paths:
-            - Pods/
-            - vendor/bundle
-      - run:
-          name: Test
-          command: bundle exec pod lib lint
-workflows:
-  version: 2
-  wordpress_ios:
-    jobs:
-      - build_and_test
+version: 2.1
 
+orbs:
+  # This uses the iOS Orb located at https://github.com/wordpress-mobile/circleci-orbs
+  ios: wordpress-mobile/ios@0.0.10
+
+workflows:
+  test_and_validate:
+    jobs:
+      - ios/test:
+          name: Test
+          workspace: WordPressAuthenticator.xcworkspace
+          scheme: WordPressAuthenticator
+          destination: "platform=iOS Simulator,name=iPhone XS,OS=latest"
+      - ios/validate-podspec:
+          name: Validate Podspec
+          podspec-path: WordPressAuthenticator.podspec
