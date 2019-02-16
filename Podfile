@@ -17,8 +17,7 @@ target 'WordPressAuthenticator' do
   ##
   pod 'Gridicons', '~> 0.15'
   pod 'WordPressUI', '~> 1.0'
-  #pod 'WordPressKit', '~> 2.0-beta'
-  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => '900a32001f4acbbd688b3677c0eee2a2be9e36d6'
+  pod 'WordPressKit', '~> 2.1.0-beta.1'
   pod 'WordPressShared', '~> 1.4'
 
   ## Third party libraries
