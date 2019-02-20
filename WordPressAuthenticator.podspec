@@ -34,6 +34,6 @@ Pod::Spec.new do |s|
   s.dependency 'Gridicons', '~> 0.15'
   s.dependency 'GoogleSignInRepacked', '4.1.2'
   s.dependency 'WordPressUI', '~> 1.0'
-  s.dependency 'WordPressKit', '~> 2.0-beta'
+  s.dependency 'WordPressKit', '~> 2.1.0-beta.2'
   s.dependency 'WordPressShared', '~> 1.4'
 end
