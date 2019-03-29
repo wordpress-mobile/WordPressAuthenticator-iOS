@@ -26,7 +26,7 @@ target 'WordPressAuthenticator' do
   pod '1PasswordExtension', '1.8.5'
   pod 'Alamofire', '4.7.3'
   pod 'CocoaLumberjack', '3.4.2'
-  pod 'GoogleSignInRepacked', '4.1.2'
+  pod 'GoogleSignIn', '4.1.2'
   pod 'lottie-ios', '2.5.2'
   pod 'NSURL+IDN', '0.3'
   pod 'SVProgressHUD', '2.2.5'
