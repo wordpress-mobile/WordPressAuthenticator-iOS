@@ -19,14 +19,12 @@ Pod::Spec.new do |s|
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
   s.private_header_files = "WordPressAuthenticator/Private/*.h"
   s.resource_bundles = {
-    'WordPressAuthenticatorResources': [
+    'WordPressAuthenticator': [
       'WordPressAuthenticator/Resources/Assets.xcassets',
-      'WordPressAuthenticator/Resources/Animations/*.json'
+      'WordPressAuthenticator/Resources/Animations/*.json',
+      'WordPressAuthenticator/**/*.{storyboard,xib}'
     ]
   }
-  s.resources     = [
-    'WordPressAuthenticator/**/*.{storyboard,xib}'
-  ]
   s.requires_arc  = true
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir    = 'WordPressAuthenticator'
