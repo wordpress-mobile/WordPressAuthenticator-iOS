@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.2.0"
+  s.version       = "1.2.1"
   s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
 
   s.description   = <<-DESC
@@ -18,8 +18,15 @@ Pod::Spec.new do |s|
   s.source        = { :git => "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git", :tag => s.version.to_s }
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
   s.private_header_files = "WordPressAuthenticator/Private/*.h"
-  s.resources     = [ 'WordPressAuthenticator/**/*.{xcassets,storyboard,xib,json}' ]
+  s.resource_bundles = {
+    'WordPressAuthenticator': [
+      'WordPressAuthenticator/Resources/Assets.xcassets',
+      'WordPressAuthenticator/Resources/Animations/*.json',
+      'WordPressAuthenticator/**/*.{storyboard,xib}'
+    ]
+  }
   s.requires_arc  = true
+  s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir    = 'WordPressAuthenticator'
 
   s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
@@ -32,8 +39,8 @@ Pod::Spec.new do |s|
   s.dependency 'SVProgressHUD', '2.2.5'
 
   s.dependency 'Gridicons', '~> 0.15'
-  s.dependency 'GoogleSignInRepacked', '4.1.2'
+  s.dependency 'GoogleSignIn', '4.1.2'
   s.dependency 'WordPressUI', '~> 1.0'
-  s.dependency 'WordPressKit', '~> 3.1'
+  s.dependency 'WordPressKit', '~> 3.2.2'
   s.dependency 'WordPressShared', '~> 1.4'
 end
