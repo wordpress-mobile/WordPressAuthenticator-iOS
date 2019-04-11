@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.3.1"
+  s.version       = "1.4.0-beta.1"
   s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
 
   s.description   = <<-DESC
@@ -41,6 +41,6 @@ Pod::Spec.new do |s|
   s.dependency 'Gridicons', '~> 0.15'
   s.dependency 'GoogleSignIn', '4.1.2'
   s.dependency 'WordPressUI', '~> 1.0'
-  s.dependency 'WordPressKit', '~> 3.2.2'
+  s.dependency 'WordPressKit', '~> 4.0.0-beta'
   s.dependency 'WordPressShared', '~> 1.4'
 end
