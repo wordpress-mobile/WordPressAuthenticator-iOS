@@ -1,12 +1,9 @@
 PODS:
   - 1PasswordExtension (1.8.5)
   - Alamofire (4.7.3)
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
+  - CocoaLumberjack (3.5.2):
+    - CocoaLumberjack/Core (= 3.5.2)
+  - CocoaLumberjack/Core (3.5.2)
   - Expecta (1.0.6)
   - FormatterKit/Resources (1.8.2)
   - FormatterKit/TimeIntervalFormatter (1.8.2):
@@ -70,7 +67,7 @@ PODS:
 DEPENDENCIES:
   - 1PasswordExtension (= 1.8.5)
   - Alamofire (= 4.7.3)
-  - CocoaLumberjack (= 3.4.2)
+  - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
   - GoogleSignIn (= 4.1.2)
   - Gridicons (~> 0.15)
@@ -113,7 +110,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
   GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
@@ -134,6 +131,6 @@ SPEC CHECKSUMS:
   WordPressUI: 44fe43a9c5c504dfd534286e39e1ce6ebcd69ff5
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: 848201f7ff6e344d19066be1a6cb86eaddd1ab9e
+PODFILE CHECKSUM: 58892be1d6a99de79becd76fb805e3235baeadcb
 
 COCOAPODS: 1.6.1
