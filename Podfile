@@ -42,8 +42,8 @@ target 'WordPressAuthenticatorTests' do
   project 'WordPressAuthenticator.xcodeproj'
   wordpress_authenticator_pods
 
-  pod 'OHHTTPStubs', '6.1.0'
-  pod 'OHHTTPStubs/Swift', '6.1.0'
+  pod 'OHHTTPStubs', '8.0.0'
+  pod 'OHHTTPStubs/Swift', '8.0.0'
   pod 'OCMock', '~> 3.4'
   pod 'Expecta', '1.0.6'
   pod 'Specta', '1.0.7'
