@@ -33,13 +33,13 @@ Pod::Spec.new do |s|
 
   s.dependency '1PasswordExtension', '1.8.5'
   s.dependency 'Alamofire', '4.7.3'
-  s.dependency 'CocoaLumberjack', '~> 3.4'
+  s.dependency 'CocoaLumberjack', '~> 3.5'
   s.dependency 'lottie-ios', '2.5.2'
   s.dependency 'NSURL+IDN', '0.3'
   s.dependency 'SVProgressHUD', '2.2.5'
 
   s.dependency 'Gridicons', '~> 0.15'
-  s.dependency 'GoogleSignIn', '4.1.2'
+  s.dependency 'GoogleSignIn', '~> 4.4'
   s.dependency 'WordPressUI', '~> 1.0'
   s.dependency 'WordPressKit', '~> 4.0.0-beta'
   s.dependency 'WordPressShared', '~> 1.4'
