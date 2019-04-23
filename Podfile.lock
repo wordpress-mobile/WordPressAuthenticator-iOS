@@ -1,20 +1,16 @@
 PODS:
   - 1PasswordExtension (1.8.5)
   - Alamofire (4.7.3)
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
+  - CocoaLumberjack (3.5.2):
+    - CocoaLumberjack/Core (= 3.5.2)
+  - CocoaLumberjack/Core (3.5.2)
   - Expecta (1.0.6)
   - FormatterKit/Resources (1.8.2)
   - FormatterKit/TimeIntervalFormatter (1.8.2):
     - FormatterKit/Resources
-  - GoogleSignIn (4.1.2):
+  - GoogleSignIn (4.4.0):
     - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
     - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
-    - GTMOAuth2 (~> 1.0)
     - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/DebugUtils (2.2.0):
     - GoogleToolboxForMac/Defines (= 2.2.0)
@@ -25,43 +21,37 @@ PODS:
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.0)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.0)"
   - Gridicons (0.18)
-  - GTMOAuth2 (1.1.6):
-    - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.2.1):
-    - GTMSessionFetcher/Full (= 1.2.1)
   - GTMSessionFetcher/Core (1.2.1)
-  - GTMSessionFetcher/Full (1.2.1):
-    - GTMSessionFetcher/Core (= 1.2.1)
   - lottie-ios (2.5.2)
   - NSObject-SafeExpectations (0.0.3)
   - "NSURL+IDN (0.3)"
   - OCMock (3.4.3)
-  - OHHTTPStubs (6.1.0):
-    - OHHTTPStubs/Default (= 6.1.0)
-  - OHHTTPStubs/Core (6.1.0)
-  - OHHTTPStubs/Default (6.1.0):
+  - OHHTTPStubs (8.0.0):
+    - OHHTTPStubs/Default (= 8.0.0)
+  - OHHTTPStubs/Core (8.0.0)
+  - OHHTTPStubs/Default (8.0.0):
     - OHHTTPStubs/Core
     - OHHTTPStubs/JSON
     - OHHTTPStubs/NSURLSession
     - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (6.1.0):
+  - OHHTTPStubs/JSON (8.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (6.1.0):
+  - OHHTTPStubs/NSURLSession (8.0.0):
     - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (6.1.0)
-  - OHHTTPStubs/Swift (6.1.0):
+  - OHHTTPStubs/OHPathHelpers (8.0.0)
+  - OHHTTPStubs/Swift (8.0.0):
     - OHHTTPStubs/Default
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.1.4)
-  - WordPressKit (4.0.0-beta.1):
+  - WordPressKit (4.1.0-beta.1):
     - Alamofire (~> 4.7.3)
     - CocoaLumberjack (~> 3.4)
     - NSObject-SafeExpectations (= 0.0.3)
     - UIDeviceIdentifier (~> 1.1.4)
     - WordPressShared (~> 1.4)
     - wpxmlrpc (= 0.8.4)
-  - WordPressShared (1.7.2):
+  - WordPressShared (1.7.4):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
   - WordPressUI (1.2.0)
@@ -70,18 +60,18 @@ PODS:
 DEPENDENCIES:
   - 1PasswordExtension (= 1.8.5)
   - Alamofire (= 4.7.3)
-  - CocoaLumberjack (= 3.4.2)
+  - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
-  - GoogleSignIn (= 4.1.2)
+  - GoogleSignIn (= 4.4.0)
   - Gridicons (~> 0.15)
   - lottie-ios (= 2.5.2)
   - "NSURL+IDN (= 0.3)"
   - OCMock (~> 3.4)
-  - OHHTTPStubs (= 6.1.0)
-  - OHHTTPStubs/Swift (= 6.1.0)
+  - OHHTTPStubs (= 8.0.0)
+  - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.0.0-beta)
+  - WordPressKit (~> 4.1.0-beta)
   - WordPressShared (~> 1.4)
   - WordPressUI (~> 1.0)
 
@@ -95,7 +85,6 @@ SPEC REPOS:
     - GoogleSignIn
     - GoogleToolboxForMac
     - Gridicons
-    - GTMOAuth2
     - GTMSessionFetcher
     - lottie-ios
     - NSObject-SafeExpectations
@@ -113,27 +102,26 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
-  GoogleSignIn: d9ef55b10f0aa401a5de2747f59b725e4b9732ac
+  GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
   Gridicons: 04261236382e9c62c62c9a104f2f532c1bdf6a78
-  GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   NSObject-SafeExpectations: b989b68a8a9b7b9f2b264a8b52ba9d7aab8f3129
   "NSURL+IDN": 82355a0afd532fe1de08f6417c134b49b1a1c4b3
   OCMock: 43565190abc78977ad44a61c0d20d7f0784d35ab
-  OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
+  OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 8f8a24b257a4d978c8d40ad1e7355b944ffbfa8c
-  WordPressKit: eba19968587a2e088b6eb097c309710a1be11869
-  WordPressShared: 63d57a4a07ad9f9a1ee5e8a7162e48fbb5192014
+  WordPressKit: ab450fc37b54d8fe6839fb6e4074962980480cc0
+  WordPressShared: e707496f12f29d69aa66b1fcd3b55f0b8b70f2f6
   WordPressUI: 44fe43a9c5c504dfd534286e39e1ce6ebcd69ff5
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: 848201f7ff6e344d19066be1a6cb86eaddd1ab9e
+PODFILE CHECKSUM: 3948c11558517fa428dbde47440a11ef0f274986
 
 COCOAPODS: 1.6.1
