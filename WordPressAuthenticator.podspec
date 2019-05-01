@@ -29,8 +29,6 @@ Pod::Spec.new do |s|
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir    = 'WordPressAuthenticator'
 
-  s.pod_target_xcconfig = { 'ENABLE_BITCODE' => 'NO' }
-
   s.dependency '1PasswordExtension', '1.8.5'
   s.dependency 'Alamofire', '4.7.3'
   s.dependency 'CocoaLumberjack', '~> 3.4'
