@@ -13,7 +13,7 @@ def wordpress_authenticator_pods
   pod 'Gridicons', '~> 0.15'
   pod 'WordPressUI', '~> 1.0'
   pod 'WordPressKit', '~> 4.1.0-beta'
-  pod 'WordPressShared', '~> 1.7.5-beta.1'
+  pod 'WordPressShared', '~> 1.8.0-beta.1'
 
   ## Third party libraries
   ## =====================
