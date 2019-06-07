@@ -3,7 +3,7 @@ source 'https://github.com/CocoaPods/specs.git'
 inhibit_all_warnings!
 use_frameworks!
 
-platform :ios, '10.0'
+platform :ios, '11.0'
 plugin 'cocoapods-repo-update'
 
 def wordpress_authenticator_pods
