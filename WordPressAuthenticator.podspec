@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.homepage      = "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS"
   s.license       = "GPLv2"
   s.author        = { "WordPress" => "mobile@automattic.com" }
-  s.platform      = :ios, "10.0"
+  s.platform      = :ios, "11.0"
   s.swift_version = '4.2'
   s.source        = { :git => "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git", :tag => s.version.to_s }
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
