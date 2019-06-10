@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
   s.private_header_files = "WordPressAuthenticator/Private/*.h"
   s.resource_bundles = {
-    'WordPressAuthenticator': [
+    'WordPressAuthenticatorResources': [
       'WordPressAuthenticator/Resources/Assets.xcassets',
       'WordPressAuthenticator/Resources/Animations/*.json',
       'WordPressAuthenticator/**/*.{storyboard,xib}'
