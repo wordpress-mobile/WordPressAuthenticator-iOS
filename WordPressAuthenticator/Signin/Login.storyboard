@@ -1206,10 +1206,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="383" height="539"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkO-HN-aFE" userLabel="Header" customClass="SiteInfoHeaderView" customModule="WordPressAuthenticator">
-                                                <rect key="frame" x="20" y="27" width="343" height="200.5"/>
+                                                <rect key="frame" x="20" y="87" width="343" height="140.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Ak2-b4-JSG">
-                                                        <rect key="frame" x="8" y="98.5" width="327" height="94"/>
+                                                        <rect key="frame" x="8" y="38.5" width="327" height="94"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="Log in with your WordPress.com account to manage your WooCommerce stores" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="au1-mY-r58">
                                                                 <rect key="frame" x="0.0" y="0.0" width="327" height="38"/>
@@ -1221,23 +1221,23 @@
                                                                 <rect key="frame" x="0.0" y="58" width="327" height="36"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="750" image="icon-url-field" translatesAutoresizingMaskIntoConstraints="NO" id="Gak-2q-wul" userLabel="Icon">
-                                                                        <rect key="frame" x="0.0" y="7" width="18" height="22"/>
+                                                                        <rect key="frame" x="0.0" y="10" width="16" height="16"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="40" id="c8o-Eq-kBi"/>
                                                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="40" id="r0G-JB-SfD"/>
                                                                         </constraints>
                                                                     </imageView>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DWy-yy-er4">
-                                                                        <rect key="frame" x="28" y="0.0" width="299" height="36"/>
+                                                                        <rect key="frame" x="26" y="0.0" width="301" height="36"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cCX-uI-ruO" userLabel="Title">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="299" height="18"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="301" height="18"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <color key="textColor" red="0.18039215689999999" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUi-aQ-0SQ" userLabel="Subtitle">
-                                                                                <rect key="frame" x="0.0" y="18" width="299" height="18"/>
+                                                                                <rect key="frame" x="0.0" y="18" width="301" height="18"/>
                                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                                 <color key="textColor" red="0.18039215689999999" green="0.2666666667" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
@@ -1251,7 +1251,7 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="Ak2-b4-JSG" firstAttribute="top" secondItem="vkO-HN-aFE" secondAttribute="topMargin" constant="30.5" id="2y2-1S-Mz7"/>
+                                                    <constraint firstItem="Ak2-b4-JSG" firstAttribute="top" secondItem="vkO-HN-aFE" secondAttribute="topMargin" constant="20" id="2y2-1S-Mz7"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="Ak2-b4-JSG" secondAttribute="trailing" id="QqO-mA-5h2"/>
                                                     <constraint firstItem="Ak2-b4-JSG" firstAttribute="leading" secondItem="vkO-HN-aFE" secondAttribute="leadingMargin" id="Vxa-nk-4aC"/>
                                                     <constraint firstAttribute="bottomMargin" secondItem="Ak2-b4-JSG" secondAttribute="bottom" id="qz8-VS-Xcz"/>
