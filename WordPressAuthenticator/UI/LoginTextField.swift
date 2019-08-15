@@ -31,7 +31,11 @@ open class LoginTextField: WPWalkthroughTextField {
 
     override open var leftViewImage: UIImage! {
         set {
-            let newImage = newValue.imageWithTintColor(WordPressAuthenticator.shared.style.placeholderColor)
+            #if !XCODE11
+                let newImage = newValue.imageWithTintColor(.red)
+            #else
+                let newImage = newValue.imageWithTintColor(WordPressAuthenticator.shared.style.placeholderColor)
+            #endif
             super.leftViewImage = newImage
         }
         get {

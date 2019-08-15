@@ -140,6 +140,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		173D9A592302F155005163CF /* WordPressAuthenticator.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = WordPressAuthenticator.xcconfig; sourceTree = "<group>"; };
 		1A21EE9722832BC200C940C6 /* WordPressComOAuthClientFacade+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WordPressComOAuthClientFacade+Swift.swift"; sourceTree = "<group>"; };
 		1A4095152271AEFC009AA86D /* WPAuthenticator-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WPAuthenticator-Swift.h"; sourceTree = "<group>"; };
 		276354F054C34AD36CA32AB6 /* Pods-WordPressAuthenticator.release-alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressAuthenticator.release-alpha.xcconfig"; path = "Pods/Target Support Files/Pods-WordPressAuthenticator/Pods-WordPressAuthenticator.release-alpha.xcconfig"; sourceTree = "<group>"; };
@@ -522,6 +523,7 @@
 				B5A5273F20B477F70065BE81 /* Resources */,
 				B5ED78F7207E976500A8FD8C /* WordPressAuthenticator.h */,
 				B5ED78F8207E976500A8FD8C /* Info.plist */,
+				173D9A592302F155005163CF /* WordPressAuthenticator.xcconfig */,
 			);
 			path = WordPressAuthenticator;
 			sourceTree = "<group>";
@@ -709,15 +711,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-WordPressAuthenticatorTests/Pods-WordPressAuthenticatorTests-resources.sh",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
