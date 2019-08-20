@@ -39,7 +39,6 @@ Pod::Spec.new do |s|
   s.dependency 'Gridicons', '~> 0.15'
   s.dependency 'GoogleSignIn', '~> 4.4'
   s.dependency 'WordPressUI', '~> 1.3'
-#  s.dependency 'WordPressKit', '~> 4.1'
-  s.dependency 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'feature/create_account_with_apple'
+  s.dependency 'WordPressKit', '~> 4.5'
   s.dependency 'WordPressShared', '~> 1.8'
 end
