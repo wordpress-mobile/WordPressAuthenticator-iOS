@@ -105,7 +105,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   WordPressKit:
-    :commit: 1baa2f730cbf436a765d9efd7c97fd43af962de1
+    :commit: 16c7d184a8e086e7b67a96cfc3624ef88faab69b
     :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
@@ -131,6 +131,6 @@ SPEC CHECKSUMS:
   WordPressUI: 0ea6df25bf6e63f0619376fa23870177cb37646f
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: 1d6e808b640088ca91414184ea1b53247265bf5c
+PODFILE CHECKSUM: 83ebaa465d8c91a7fa86f20d35aaced3de4303a6
 
 COCOAPODS: 1.6.1
