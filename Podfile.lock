@@ -105,7 +105,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   WordPressKit:
-    :commit: 7ff68231765d7ffa1cb24bf704c3babf2e818020
+    :commit: f38cb66852fa03d5f98c14659ed37a9edd477063
     :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
