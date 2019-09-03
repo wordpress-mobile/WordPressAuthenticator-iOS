@@ -125,7 +125,7 @@ extension WPStyleGuide {
         #if XCODE11
         if #available(iOS 13.0, *) {
             let traits = UITraitCollection.current
-            let buttonStyle: ASAuthorizationAppleIDButton.Style = (traits.userInterfaceStyle == .dark) ? .white : .black
+            let buttonStyle: ButtonStyle = (traits.userInterfaceStyle == .dark) ? .white : .black
 
             let appleButton = ASAuthorizationAppleIDButton(authorizationButtonType: .continue, authorizationButtonStyle: buttonStyle)
             appleButton.translatesAutoresizingMaskIntoConstraints = false
