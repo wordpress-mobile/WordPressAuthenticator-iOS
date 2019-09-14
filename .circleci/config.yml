@@ -21,7 +21,7 @@ workflows:
           update-specs-repo: true
       - ios/publish-podspec:
           name: Publish to Trunk
-          xcode-version: "10.2.0"
+          xcode-version: "11.0"
           podspec-path: WordPressAuthenticator.podspec
           filters:
             tags:
