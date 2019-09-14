@@ -12,8 +12,8 @@ workflows:
           xcode-version: "11.0"
           workspace: WordPressAuthenticator.xcworkspace
           scheme: WordPressAuthenticator
-          device: iPhone XS
-          ios-version: "12.2"
+          device: iPhone 11
+          ios-version: "13.0"
       - ios/validate-podspec:
           name: Validate Podspec
           xcode-version: "11.0"
