@@ -27,7 +27,7 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
     // MARK: - URL Validation
     
     private lazy var urlErrorDebouncer = Debouncer(delay: 2) { [weak self] in
-        let errorMessage = NSLocalizedString("Enter a valid URL eg. example.com.", comment: "Error message shown when a URL is invalid.")
+        let errorMessage = NSLocalizedString("Please enter a complete website address, like example.com.", comment: "Error message shown when a URL is invalid.")
         
         self?.displayError(message: errorMessage)
     }
@@ -286,10 +286,8 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
     }
 
     private func appleTapped() {
-        #if XCODE11
         AppleAuthenticator.sharedInstance.delegate = self
         AppleAuthenticator.sharedInstance.showFrom(viewController: self)
-        #endif
     }
 
     /// Whether the form can be submitted.
@@ -368,7 +366,6 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
     }
 }
 
-#if XCODE11
 extension LoginSiteAddressViewController: AppleAuthenticatorDelegate {
 
     func showWPComLogin(loginFields: LoginFields) {
@@ -380,4 +377,3 @@ extension LoginSiteAddressViewController: AppleAuthenticatorDelegate {
         displayErrorAlert(message, sourceTag: .loginApple)
     }
 }
-#endif

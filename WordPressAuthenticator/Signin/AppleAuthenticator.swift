@@ -3,8 +3,6 @@ import AuthenticationServices
 import WordPressKit
 import SVProgressHUD
 
-#if XCODE11
-
 @objc protocol AppleAuthenticatorDelegate {
     func showWPComLogin(loginFields: LoginFields)
     func authFailedWithError(message: String)
@@ -101,12 +99,13 @@ private extension AppleAuthenticator {
 
     func signupSuccessful(with credentials: AuthenticatorCredentials) {
         WordPressAuthenticator.track(.createdAccount, properties: ["source": "apple"])
-        WordPressAuthenticator.track(.signupSocialSuccess)
+        WordPressAuthenticator.track(.signupSocialSuccess, properties: ["source": "apple"])
         showSignupEpilogue(for: credentials)
     }
     
     func loginSuccessful(with credentials: AuthenticatorCredentials) {
-        // TODO: Tracks events for login
+        WordPressAuthenticator.track(.signedIn, properties: ["source": "apple"])
+        WordPressAuthenticator.track(.loginSocialSuccess, properties: ["source": "apple"])
         showSigninEpilogue(for: credentials)
     }
     
@@ -132,13 +131,13 @@ private extension AppleAuthenticator {
     
     func signupFailed(with error: Error) {
         DDLogError("Apple Authenticator: Signup failed. error: \(error.localizedDescription)")
-        WPAnalytics.track(.signupSocialFailure)
+        WordPressAuthenticator.track(.signupSocialFailure, properties: ["source": "apple"])
         delegate?.authFailedWithError(message: error.localizedDescription)
     }
     
     func logInInstead() {
-        WordPressAuthenticator.track(.signupSocialToLogin)
-        WordPressAuthenticator.track(.loginSocialSuccess)
+        WordPressAuthenticator.track(.signupSocialToLogin, properties: ["source": "apple"])
+        WordPressAuthenticator.track(.loginSocialSuccess, properties: ["source": "apple"])
         delegate?.showWPComLogin(loginFields: loginFields)
     }
     
@@ -193,5 +192,3 @@ extension AppleAuthenticator: ASAuthorizationControllerPresentationContextProvid
         return showFromViewController?.view.window ?? UIWindow()
     }
 }
-
-#endif

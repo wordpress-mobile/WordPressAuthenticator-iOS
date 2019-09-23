@@ -49,7 +49,7 @@ class LoginPrologueSignupMethodViewController: NUXViewController {
 
         buttonViewController.setupBottomButton(title: createTitle, isPrimary: false, accessibilityIdentifier: "Sign up with Google Button") { [weak self] in
             defer {
-                WordPressAuthenticator.track(.signupSocialButtonTapped)
+                WordPressAuthenticator.track(.signupSocialButtonTapped, properties: ["source": "google"])
             }
 
             self?.dismiss(animated: true)
@@ -71,13 +71,11 @@ class LoginPrologueSignupMethodViewController: NUXViewController {
         buttonViewController.stackView?.insertArrangedSubview(termsButton, at: 0)
 
         if WordPressAuthenticator.shared.configuration.enableSignInWithApple {
-            #if XCODE11
             if #available(iOS 13.0, *) {
                 let appleButton = WPStyleGuide.appleLoginButton()
                 appleButton.addTarget(self, action: #selector(handleAppleButtonTapped), for: .touchDown)
-                buttonViewController.stackView?.insertArrangedSubview(appleButton, at: 1)
+                buttonViewController.stackView?.insertArrangedSubview(appleButton, at: 3)
             }
-            #endif
         }
 
         buttonViewController.backgroundColor = WordPressAuthenticator.shared.style.viewControllerBackgroundColor
@@ -89,6 +87,8 @@ class LoginPrologueSignupMethodViewController: NUXViewController {
     }
 
     @objc func handleAppleButtonTapped() {
+        WordPressAuthenticator.track(.signupSocialButtonTapped, properties: ["source": "apple"])
+        
         dismiss(animated: true)
         appleTapped?()
     }

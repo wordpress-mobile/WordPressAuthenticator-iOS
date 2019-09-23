@@ -122,7 +122,6 @@ extension WPStyleGuide {
     ///
     
     class func appleLoginButton() -> UIControl {
-        #if XCODE11
         if #available(iOS 13.0, *) {
             let traits = UITraitCollection.current
             let buttonStyle: ASAuthorizationAppleIDButton.Style = (traits.userInterfaceStyle == .dark) ? .white : .black
@@ -132,7 +131,6 @@ extension WPStyleGuide {
             appleButton.heightAnchor.constraint(greaterThanOrEqualToConstant: Constants.buttonMinHeight).isActive = true
             return appleButton
         }
-        #endif
         
         return UIControl()
     }
@@ -156,7 +154,7 @@ extension WPStyleGuide {
             
             button = textButton(normal: attrStrNormal, highlighted: attrStrHighlight, font: font, alignment: alignment)
         } else {
-            let baseString = NSLocalizedString("Log in by entering your site address.", comment: "Label for button to log in using your site address.")
+            let baseString = NSLocalizedString("Enter the address of the WordPress site you'd like to connect.", comment: "Label for button to log in using your site address.")
             
             let attrStrNormal = selfHostedButtonString(baseString, linkColor:  style.textButtonColor)
             let attrStrHighlight = selfHostedButtonString(baseString, linkColor: style.textButtonHighlightColor)
