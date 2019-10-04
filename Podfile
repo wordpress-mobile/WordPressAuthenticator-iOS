@@ -12,8 +12,7 @@ def wordpress_authenticator_pods
   ##
   pod 'Gridicons', '~> 0.15'
   pod 'WordPressUI', '~> 1.3'
-  # pod 'WordPressKit', '~> 4.5.1-beta.1'
-  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'issue/12556-siwa_add_data_to_error'
+  pod 'WordPressKit', '~> 4.5.1-beta.1'
   pod 'WordPressShared', '~> 1.8'
 
   ## Third party libraries
