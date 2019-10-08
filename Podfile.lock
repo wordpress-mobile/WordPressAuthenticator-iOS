@@ -73,10 +73,10 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - WordPressKit (~> 4.5.1)
   - WordPressShared (~> 1.8)
-  - WordPressUI (from `https://github.com/wordpress-mobile/WordPressUI-iOS`, branch `update-fancy-button-style`)
+  - WordPressUI (~> 1.4-beta.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - 1PasswordExtension
     - Alamofire
     - CocoaLumberjack
@@ -96,17 +96,8 @@ SPEC REPOS:
     - UIDeviceIdentifier
     - WordPressKit
     - WordPressShared
+    - WordPressUI
     - wpxmlrpc
-
-EXTERNAL SOURCES:
-  WordPressUI:
-    :branch: update-fancy-button-style
-    :git: https://github.com/wordpress-mobile/WordPressUI-iOS
-
-CHECKOUT OPTIONS:
-  WordPressUI:
-    :commit: 09c29e4df34c1c7bdde7a53322a3f2a89f80f9e9
-    :git: https://github.com/wordpress-mobile/WordPressUI-iOS
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
@@ -128,9 +119,9 @@ SPEC CHECKSUMS:
   UIDeviceIdentifier: 8f8a24b257a4d978c8d40ad1e7355b944ffbfa8c
   WordPressKit: c35230114bbd380d63250b6d9a43337c29266c9b
   WordPressShared: 34f7a1386d28d7e4650c1a225c554ee024401ca3
-  WordPressUI: b149c4291b558ac6e7b72c30e88d37ff37bd564a
+  WordPressUI: 35b144885c8e5817ba6874b68accc200bda61ee1
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: 9337ddbfaafb94ff13a86978c0dfb3097f1edc62
+PODFILE CHECKSUM: b05f4412c5750cced061f2cb949db1bfeb629807
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.8.3

@@ -11,7 +11,7 @@ def wordpress_authenticator_pods
   ## ====================
   ##
   pod 'Gridicons', '~> 0.15'
-  pod 'WordPressUI', :git => 'https://github.com/wordpress-mobile/WordPressUI-iOS', :branch => 'update-fancy-button-style'
+  pod 'WordPressUI', '~> 1.4-beta.1'
   pod 'WordPressKit', '~> 4.5.1'
   pod 'WordPressShared', '~> 1.8'
 
