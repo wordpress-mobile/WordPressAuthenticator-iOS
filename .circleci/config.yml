@@ -22,7 +22,7 @@ workflows:
           name: Publish to Trunk
           xcode-version: "11.0"
           podspec-path: WordPressAuthenticator.podspec
-          post-to-slack: true
+          post-to-slack: false
           filters:
             tags:
               only: /.*/
