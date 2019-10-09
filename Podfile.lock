@@ -20,7 +20,7 @@ PODS:
     - GoogleToolboxForMac/Defines (= 2.2.1)
     - "GoogleToolboxForMac/NSString+URLArguments (= 2.2.1)"
   - "GoogleToolboxForMac/NSString+URLArguments (2.2.1)"
-  - Gridicons (0.18)
+  - Gridicons (0.19)
   - GTMSessionFetcher/Core (1.2.2)
   - lottie-ios (2.5.2)
   - NSObject-SafeExpectations (0.0.3)
@@ -51,7 +51,7 @@ PODS:
     - UIDeviceIdentifier (~> 1.1.4)
     - WordPressShared (~> 1.8.0)
     - wpxmlrpc (= 0.8.4)
-  - WordPressShared (1.8.2):
+  - WordPressShared (1.8.7):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
   - WordPressUI (1.4-beta.1)
@@ -76,7 +76,7 @@ DEPENDENCIES:
   - WordPressUI (~> 1.4-beta.1)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - 1PasswordExtension
     - Alamofire
     - CocoaLumberjack
@@ -107,7 +107,7 @@ SPEC CHECKSUMS:
   FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
   GoogleToolboxForMac: b3553629623a3b1bff17f555e736cd5a6d95ad55
-  Gridicons: 04261236382e9c62c62c9a104f2f532c1bdf6a78
+  Gridicons: dc92efbe5fd60111d2e8ea051d84a60cca552abc
   GTMSessionFetcher: 61bb0f61a4cb560030f1222021178008a5727a23
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   NSObject-SafeExpectations: b989b68a8a9b7b9f2b264a8b52ba9d7aab8f3129
@@ -118,10 +118,10 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 8f8a24b257a4d978c8d40ad1e7355b944ffbfa8c
   WordPressKit: c35230114bbd380d63250b6d9a43337c29266c9b
-  WordPressShared: 34f7a1386d28d7e4650c1a225c554ee024401ca3
+  WordPressShared: 09cf184caa614835f5811e8609227165201e6d3e
   WordPressUI: 35b144885c8e5817ba6874b68accc200bda61ee1
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: f6be249641ac6e50ae1d99aa607bab567f7aa1cb
+PODFILE CHECKSUM: 831117be8f1a447aaa2277d2b421a8e64fe6f02c
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3
