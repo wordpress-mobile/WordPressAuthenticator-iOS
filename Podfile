@@ -1,17 +1,16 @@
-source 'https://github.com/CocoaPods/specs.git'
+source 'https://cdn.cocoapods.org/'
 
 inhibit_all_warnings!
 use_frameworks!
 
 platform :ios, '11.0'
-plugin 'cocoapods-repo-update'
 
 def wordpress_authenticator_pods
   ## Automattic libraries
   ## ====================
   ##
   pod 'Gridicons', '~> 0.15'
-  pod 'WordPressUI', '~> 1.3'
+  pod 'WordPressUI', '~> 1.4-beta.1'
   pod 'WordPressKit', '~> 4.5.1'
   pod 'WordPressShared', '~> 1.8'
 
