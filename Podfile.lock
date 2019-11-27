@@ -44,7 +44,7 @@ PODS:
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.1.4)
-  - WordPressKit (4.5.1):
+  - WordPressKit (4.5.4-beta.1):
     - Alamofire (~> 4.7.3)
     - CocoaLumberjack (~> 3.4)
     - NSObject-SafeExpectations (= 0.0.3)
@@ -71,7 +71,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.5.1)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `issue/apple_2fa_auth`)
   - WordPressShared (~> 1.8)
   - WordPressUI (~> 1.4-beta.1)
 
@@ -94,10 +94,19 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
-    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
+
+EXTERNAL SOURCES:
+  WordPressKit:
+    :branch: issue/apple_2fa_auth
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
+
+CHECKOUT OPTIONS:
+  WordPressKit:
+    :commit: 87b02503b34a91f5714bb1fb2317d95ce2c3c496
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
@@ -117,11 +126,11 @@ SPEC CHECKSUMS:
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 8f8a24b257a4d978c8d40ad1e7355b944ffbfa8c
-  WordPressKit: c35230114bbd380d63250b6d9a43337c29266c9b
+  WordPressKit: deaebd8e75514c2ca9f6f3d53a5e0f5508c0409b
   WordPressShared: 09cf184caa614835f5811e8609227165201e6d3e
   WordPressUI: 35b144885c8e5817ba6874b68accc200bda61ee1
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: 831117be8f1a447aaa2277d2b421a8e64fe6f02c
+PODFILE CHECKSUM: 1cf7ba2d02f99dc82cc3043a5a9975fa2763c4e1
 
 COCOAPODS: 1.8.3
