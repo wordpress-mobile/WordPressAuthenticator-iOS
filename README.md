@@ -12,5 +12,5 @@ WordPressAuthenticator is available through [CocoaPods](http://cocoapods.org). T
 it, simply add the following line to your Podfile:
 
 ```bash
-pod "WordPressAuthenticator" 
+pod "WordPressAuthenticator"
 ```
