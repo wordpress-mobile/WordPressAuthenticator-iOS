@@ -166,7 +166,6 @@ private extension AppleAuthenticator {
     }
     
     func show2FA() {
-        WordPressAuthenticator.track(.signupSocialToLogin, properties: ["source": "apple"])
         delegate?.showApple2FA(loginFields: loginFields)
     }
     
