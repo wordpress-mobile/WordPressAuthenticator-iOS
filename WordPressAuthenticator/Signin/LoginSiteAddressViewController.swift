@@ -47,6 +47,7 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
         loginFields.meta.userIsDotCom = false
 
         configureTextFields()
+        configureSiteAddressHelpButton()
         configureSubmitButton(animating: false)
         configureViewForEditingIfNeeded()
 
@@ -87,7 +88,6 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
         siteAddressHelpButton.setTitle(siteAddressHelpTitle, for: .normal)
         siteAddressHelpButton.setTitle(siteAddressHelpTitle, for: .highlighted)
         siteAddressHelpButton.titleLabel?.numberOfLines = 0
-        siteAddressHelpButton.applyTextButtonStyle()
     }
 
 
@@ -131,6 +131,10 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
         if SigninEditingState.signinEditingStateActive {
             siteURLField.becomeFirstResponder()
         }
+    }
+
+    private func configureSiteAddressHelpButton() {
+        WPStyleGuide.configureTextButton(siteAddressHelpButton)
     }
 
 

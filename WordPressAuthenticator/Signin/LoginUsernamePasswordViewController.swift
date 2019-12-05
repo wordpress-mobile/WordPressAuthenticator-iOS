@@ -87,7 +87,6 @@ class LoginUsernamePasswordViewController: LoginViewController, NUXKeyboardRespo
         forgotPasswordButton.setTitle(forgotPasswordTitle, for: .normal)
         forgotPasswordButton.setTitle(forgotPasswordTitle, for: .highlighted)
         forgotPasswordButton.titleLabel?.numberOfLines = 0
-        forgotPasswordButton.applyTextButtonStyle()
     }
 
 
@@ -114,6 +113,7 @@ class LoginUsernamePasswordViewController: LoginViewController, NUXKeyboardRespo
     ///
     @objc func configureForgotPasswordButton() {
         forgotPasswordButton.isEnabled = enableSubmit(animating: false)
+        WPStyleGuide.configureTextButton(forgotPasswordButton)
     }
 
 

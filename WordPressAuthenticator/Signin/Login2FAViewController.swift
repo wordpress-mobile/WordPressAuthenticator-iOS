@@ -78,6 +78,7 @@ class Login2FAViewController: LoginViewController, NUXKeyboardResponder, UITextF
     private func styleSendCodeButton() {
         sendCodeButton.titleLabel?.adjustsFontForContentSizeCategory = true
         sendCodeButton.titleLabel?.adjustsFontSizeToFitWidth = true
+        WPStyleGuide.configureTextButton(sendCodeButton)
     }
 
     // MARK: Configuration Methods
@@ -97,7 +98,6 @@ class Login2FAViewController: LoginViewController, NUXKeyboardResponder, UITextF
         sendCodeButton.setTitle(NSLocalizedString("Text me a code instead", comment: "Button title"),
                                 for: .normal)
         sendCodeButton.titleLabel?.numberOfLines = 0
-        sendCodeButton.applyTextButtonStyle()
     }
 
     /// configures the text fields
