@@ -87,6 +87,7 @@ class LoginSelfHostedViewController: LoginViewController, NUXKeyboardResponder {
         forgotPasswordButton.setTitle(forgotPasswordTitle, for: .normal)
         forgotPasswordButton.setTitle(forgotPasswordTitle, for: .highlighted)
         forgotPasswordButton.titleLabel?.numberOfLines = 0
+        forgotPasswordButton.applyTextButtonStyle()
     }
 
 

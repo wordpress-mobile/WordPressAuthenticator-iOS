@@ -87,6 +87,7 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
         siteAddressHelpButton.setTitle(siteAddressHelpTitle, for: .normal)
         siteAddressHelpButton.setTitle(siteAddressHelpTitle, for: .highlighted)
         siteAddressHelpButton.titleLabel?.numberOfLines = 0
+        siteAddressHelpButton.applyTextButtonStyle()
     }
 
 

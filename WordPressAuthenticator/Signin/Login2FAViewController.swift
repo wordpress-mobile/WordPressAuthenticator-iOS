@@ -97,6 +97,7 @@ class Login2FAViewController: LoginViewController, NUXKeyboardResponder, UITextF
         sendCodeButton.setTitle(NSLocalizedString("Text me a code instead", comment: "Button title"),
                                 for: .normal)
         sendCodeButton.titleLabel?.numberOfLines = 0
+        sendCodeButton.applyTextButtonStyle()
     }
 
     /// configures the text fields
