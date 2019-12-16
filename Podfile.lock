@@ -44,7 +44,7 @@ PODS:
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.4.0)
-  - WordPressKit (4.5.4):
+  - WordPressKit (4.5.5):
     - Alamofire (~> 4.7.3)
     - CocoaLumberjack (~> 3.4)
     - NSObject-SafeExpectations (= 0.0.3)
@@ -71,7 +71,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.5.4)
+  - WordPressKit (~> 4.5.5)
   - WordPressShared (~> 1.8)
   - WordPressUI (~> 1.4-beta.1)
 
@@ -117,11 +117,11 @@ SPEC CHECKSUMS:
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 44f805037d21b94394821828f4fcaba34b38c2d0
-  WordPressKit: 1d365775fac17903a76ad5723bc146ab1739ec82
+  WordPressKit: 8029cb93a89de79442254c346523da11c2706d7b
   WordPressShared: 09cf184caa614835f5811e8609227165201e6d3e
   WordPressUI: 35b144885c8e5817ba6874b68accc200bda61ee1
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: 6f930e58860031b74be490800e49e91a4f3cd75f
+PODFILE CHECKSUM: e4f5f036a95bf5e1df937bfa7d2d24b4ee5bbb18
 
 COCOAPODS: 1.8.4
