@@ -11,6 +11,12 @@ extension UIImage {
         return UIImage(named: "icon-url-field", in: bundle, compatibleWith: nil)!
     }
 
+    /// Returns the Default Magic Link Image.
+    ///
+    @objc
+    public static var magicLinkImage: UIImage {
+        return UIImage(named: "login-magic-link", in: bundle, compatibleWith: nil)!
+    }
 
     /// Returns the Default Site Icon Placeholder Image.
     ///
