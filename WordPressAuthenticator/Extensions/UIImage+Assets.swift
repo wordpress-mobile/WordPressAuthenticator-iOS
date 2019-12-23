@@ -4,6 +4,13 @@ import Foundation
 // MARK: - Named Assets
 //
 extension UIImage {
+    /// Returns the Link Image.
+    ///
+    @objc
+    public static var linkFieldImage: UIImage {
+        return UIImage(named: "icon-url-field", in: bundle, compatibleWith: nil)!
+    }
+
 
     /// Returns the Default Site Icon Placeholder Image.
     ///
