@@ -6,15 +6,13 @@ import Foundation
 extension UIImage {
     /// Returns the Link Image.
     ///
-    @objc
-    public static var linkFieldImage: UIImage {
+    static var linkFieldImage: UIImage {
         return UIImage(named: "icon-url-field", in: bundle, compatibleWith: nil)!
     }
 
     /// Returns the Default Magic Link Image.
     ///
-    @objc
-    public static var magicLinkImage: UIImage {
+    static var magicLinkImage: UIImage {
         return UIImage(named: "login-magic-link", in: bundle, compatibleWith: nil)!
     }
 
