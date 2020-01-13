@@ -5,7 +5,6 @@ import WordPressShared
 /// before presenting this view controller.
 ///
 class LoginUsernamePasswordViewController: LoginViewController, NUXKeyboardResponder {
-    @IBOutlet private weak var promptLabel: UILabel!
     @IBOutlet var siteHeaderView: SiteInfoHeaderView!
     @IBOutlet var usernameField: WPWalkthroughTextField!
     @IBOutlet var passwordField: WPWalkthroughTextField!
@@ -46,7 +45,6 @@ class LoginUsernamePasswordViewController: LoginViewController, NUXKeyboardRespo
         // Update special case login fields.
         loginFields.meta.userIsDotCom = true
 
-        configurePromptLabel()
         configureTextFields()
         configureSubmitButton(animating: false)
         configureViewForEditingIfNeeded()
@@ -98,10 +96,6 @@ class LoginUsernamePasswordViewController: LoginViewController, NUXKeyboardRespo
         WPStyleGuide.configureOnePasswordButtonForTextfield(usernameField,
                                                             target: self,
                                                             selector: #selector(handleOnePasswordButtonTapped(_:)))
-    }
-
-    private func configurePromptLabel() {
-        promptLabel.textColor = WordPressAuthenticator.shared.style.instructionColor
     }
 
 
