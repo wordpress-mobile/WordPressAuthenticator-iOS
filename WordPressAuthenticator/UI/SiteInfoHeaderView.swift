@@ -101,11 +101,11 @@ private extension SiteInfoHeaderView {
     func refreshLabelStyles() {
         let titleWeight: UIFont.Weight = subtitleIsHidden ? .regular  : .semibold
         titleLabel.font = WPStyleGuide.fontForTextStyle(.subheadline, fontWeight: titleWeight)
-        titleLabel.textColor = WordPressAuthenticator.shared.style.subheadlineColor
+        titleLabel.textColor = WPStyleGuide.darkGrey()
 
         subtitleLabel.isHidden = subtitleIsHidden
         subtitleLabel.font = WPStyleGuide.fontForTextStyle(.footnote)
-        subtitleLabel.textColor = WordPressAuthenticator.shared.style.subheadlineColor
+        subtitleLabel.textColor = WPStyleGuide.darkGrey()
     }
 
     func refreshBlavatarStyle() {
