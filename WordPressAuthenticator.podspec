@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'WordPressAuthenticatorResources': [
       'WordPressAuthenticator/Resources/Assets.xcassets',
+      'WordPressAuthenticator/Resources/SupportedEmailClients/*.plist',
       'WordPressAuthenticator/Resources/Animations/*.json',
       'WordPressAuthenticator/**/*.{storyboard,xib}'
     ]
