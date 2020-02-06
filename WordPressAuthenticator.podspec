@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.10.6"
+  s.version       = "1.10.7-beta.1"
   s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
 
   s.description   = <<-DESC
@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'WordPressAuthenticatorResources': [
       'WordPressAuthenticator/Resources/Assets.xcassets',
+      'WordPressAuthenticator/Resources/SupportedEmailClients/*.plist',
       'WordPressAuthenticator/Resources/Animations/*.json',
       'WordPressAuthenticator/**/*.{storyboard,xib}'
     ]
