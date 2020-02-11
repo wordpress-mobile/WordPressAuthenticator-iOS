@@ -157,10 +157,10 @@
         <!--Signup Email Entry-->
         <scene sceneID="gjg-iE-qSx">
             <objects>
-                <viewControllerPlaceholder storyboardName="Signup" referencedIdentifier="emailEntry" id="klu-4U-PyL" userLabel="Signup Email Entry" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Signup" referencedIdentifier="SignupEmailViewController" id="klu-4U-PyL" userLabel="Signup Email Entry" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OWM-SL-SwW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2387" y="-231"/>
+            <point key="canvasLocation" x="2539" y="-262"/>
         </scene>
         <!--Login Email View Controller-->
         <scene sceneID="w6Y-pB-a3f">
@@ -375,10 +375,10 @@
             </objects>
             <point key="canvasLocation" x="1914" y="129"/>
         </scene>
-        <!--emailEntry-->
+        <!--SignupEmailViewController-->
         <scene sceneID="CQL-qu-sjW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Signup" referencedIdentifier="emailEntry" id="T5n-nb-cOW" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Signup" referencedIdentifier="SignupEmailViewController" id="T5n-nb-cOW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UdV-y0-6AN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-530" y="760"/>

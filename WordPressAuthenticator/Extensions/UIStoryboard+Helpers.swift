@@ -4,6 +4,7 @@ import Foundation
 // MARK - Storyboard enum
 enum Storyboard: String {
     case login
+    case signup
 
     var instance: UIStoryboard {
         return UIStoryboard(name: self.rawValue.capitalized, bundle: WordPressAuthenticator.bundle)
