@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.header_dir    = 'WordPressAuthenticator'
 
   s.dependency '1PasswordExtension', '1.8.5'
-  s.dependency 'Alamofire', '4.7.3'
+  s.dependency 'Alamofire', '4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
   s.dependency 'lottie-ios', '2.5.2'
   s.dependency 'NSURL+IDN', '0.3'
