@@ -1,6 +1,6 @@
 PODS:
   - 1PasswordExtension (1.8.5)
-  - Alamofire (4.7.3)
+  - Alamofire (4.8.0)
   - CocoaLumberjack (3.5.2):
     - CocoaLumberjack/Core (= 3.5.2)
   - CocoaLumberjack/Core (3.5.2)
@@ -44,14 +44,14 @@ PODS:
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.4.0)
-  - WordPressKit (4.5.6-beta.1):
-    - Alamofire (~> 4.7.3)
+  - WordPressKit (4.5.8-beta):
+    - Alamofire (~> 4.8.0)
     - CocoaLumberjack (~> 3.4)
     - NSObject-SafeExpectations (= 0.0.3)
     - UIDeviceIdentifier (~> 1)
-    - WordPressShared (~> 1.8.0)
+    - WordPressShared (~> 1.8.13-beta)
     - wpxmlrpc (= 0.8.4)
-  - WordPressShared (1.8.7):
+  - WordPressShared (1.8.13):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
   - WordPressUI (1.4-beta.1)
@@ -59,7 +59,7 @@ PODS:
 
 DEPENDENCIES:
   - 1PasswordExtension (= 1.8.5)
-  - Alamofire (= 4.7.3)
+  - Alamofire (= 4.8)
   - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
   - GoogleSignIn (= 4.4.0)
@@ -71,8 +71,8 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.5.6-beta.1)
-  - WordPressShared (~> 1.8)
+  - WordPressKit (~> 4.5.8-beta)
+  - WordPressShared (~> 1.8.13-beta)
   - WordPressUI (~> 1.4-beta.1)
 
 SPEC REPOS:
@@ -101,7 +101,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   FormatterKit: 4b8f29acc9b872d5d12a63efb560661e8f2e1b98
@@ -117,11 +117,11 @@ SPEC CHECKSUMS:
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 44f805037d21b94394821828f4fcaba34b38c2d0
-  WordPressKit: eb6742df639843f5e7b2da9450da39d222b22ab8
-  WordPressShared: 09cf184caa614835f5811e8609227165201e6d3e
+  WordPressKit: 7cb92f7c1a4fdeeb2c3cd417e6bfcda5cef898ee
+  WordPressShared: fde9523bd00696fc1dfa45ed5299e16de111ebcc
   WordPressUI: 35b144885c8e5817ba6874b68accc200bda61ee1
   wpxmlrpc: 6ba55c773cfa27083ae4a2173e69b19f46da98e2
 
-PODFILE CHECKSUM: 0efdfa2e4fbdc215152337ee314105a404d69957
+PODFILE CHECKSUM: fd11c4c5f723e33f2e1bee7fc74813df0233e045
 
 COCOAPODS: 1.8.4
