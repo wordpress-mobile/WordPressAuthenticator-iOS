@@ -4,17 +4,17 @@ import WordPressShared
 
 
 @objc
-protocol LoginSocialErrorViewControllerDelegate {
+protocol AuthLoginSocialErrorViewControllerDelegate {
     func retryWithEmail()
     func retryWithAddress()
     func retryAsSignup()
 }
 
 /// ViewController for presenting recovery options when social login fails
-class LoginSocialErrorViewController: NUXTableViewController {
+class AuthLoginSocialErrorViewController: AuthNUXTableViewController {
     fileprivate var errorTitle: String
     fileprivate var errorDescription: String
-    @objc var delegate: LoginSocialErrorViewControllerDelegate?
+    @objc var delegate: AuthLoginSocialErrorViewControllerDelegate?
 
     fileprivate enum Sections: Int {
         case titleAndDescription = 0
@@ -87,7 +87,7 @@ class LoginSocialErrorViewController: NUXTableViewController {
 
 // MARK: UITableViewDelegate methods
 
-extension LoginSocialErrorViewController {
+extension AuthLoginSocialErrorViewController {
     private struct RowHeightConstants {
         static let estimate: CGFloat = 45.0
         static let automatic: CGFloat = UITableView.automaticDimension
@@ -105,7 +105,7 @@ extension LoginSocialErrorViewController {
 
 // MARK: UITableViewDataSource methods
 
-extension LoginSocialErrorViewController {
+extension AuthLoginSocialErrorViewController {
     private func numberOfButtonsToShow() -> Int {
         return loginFields.restrictToWPCom ? Buttons.count - 1 : Buttons.count
     }
