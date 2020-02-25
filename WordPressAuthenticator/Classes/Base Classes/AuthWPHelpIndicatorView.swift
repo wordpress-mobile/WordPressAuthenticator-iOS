@@ -1,7 +1,7 @@
 import UIKit
 import WordPressShared
 
-open class WPHelpIndicatorView: UIView {
+open class AuthWPHelpIndicatorView: UIView {
 
     struct Constants {
         static let defaultInsets = UIEdgeInsets.zero
