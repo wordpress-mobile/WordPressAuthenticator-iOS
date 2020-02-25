@@ -1,6 +1,6 @@
 import UIKit
 
-@objc public protocol NUXButtonViewControllerDelegate {
+@objc public protocol AuthNUXButtonViewControllerDelegate {
     func primaryButtonPressed()
     @objc optional func secondaryButtonPressed()
     @objc optional func tertiaryButtonPressed()
@@ -22,24 +22,24 @@ private struct NUXButtonConfig {
     }
 }
 
-open class NUXButtonViewController: UIViewController {
+open class AuthNUXButtonViewController: UIViewController {
     typealias CallBackType = () -> Void
 
     // MARK: - Properties
 
     @IBOutlet var shadowView: UIView?
     @IBOutlet var stackView: UIStackView?
-    @IBOutlet var bottomButton: NUXButton?
-    @IBOutlet var topButton: NUXButton?
-    @IBOutlet var tertiaryButton: NUXButton?
+    @IBOutlet var bottomButton: AuthNUXButton?
+    @IBOutlet var topButton: AuthNUXButton?
+    @IBOutlet var tertiaryButton: AuthNUXButton?
     @IBOutlet var buttonHolder: UIView?
 
-    open var delegate: NUXButtonViewControllerDelegate?
+    open var delegate: AuthNUXButtonViewControllerDelegate?
     open var backgroundColor: UIColor?
 
-    private var topButtonConfig: NUXButtonConfig?
-    private var bottomButtonConfig: NUXButtonConfig?
-    private var tertiaryButtonConfig: NUXButtonConfig?
+    private var topButtonConfig: AuthNUXButtonConfig?
+    private var bottomButtonConfig: AuthNUXButtonConfig?
+    private var tertiaryButtonConfig: AuthNUXButtonConfig?
 
     // MARK: - View
 
@@ -59,7 +59,7 @@ open class NUXButtonViewController: UIViewController {
         }
     }
 
-    private func configure(button: NUXButton?, withConfig buttonConfig: NUXButtonConfig?) {
+    private func configure(button: AuthNUXButton?, withConfig buttonConfig: AuthNUXButtonConfig?) {
         if let buttonConfig = buttonConfig, let button = button {
             button.setTitle(buttonConfig.title, for: .normal)
             button.accessibilityIdentifier = buttonConfig.accessibilityIdentifier ?? accessibilityIdentifier(for: buttonConfig.title)
@@ -83,26 +83,26 @@ open class NUXButtonViewController: UIViewController {
     ///   - tertiaryAccessibilityId: Accessibility identifier string for tertiary button. Optional.
     ///
     public func setButtonTitles(primary: String, primaryAccessibilityId: String? = nil, secondary: String? = nil, secondaryAccessibilityId: String? = nil, tertiary: String? = nil, tertiaryAccessibilityId: String? = nil) {
-        bottomButtonConfig = NUXButtonConfig(title: primary, isPrimary: true, accessibilityIdentifier: primaryAccessibilityId, callback: nil)
+        bottomButtonConfig = AuthNUXButtonConfig(title: primary, isPrimary: true, accessibilityIdentifier: primaryAccessibilityId, callback: nil)
         if let secondaryTitle = secondary {
-            topButtonConfig = NUXButtonConfig(title: secondaryTitle, isPrimary: false, accessibilityIdentifier: secondaryAccessibilityId, callback: nil)
+            topButtonConfig = AuthNUXButtonConfig(title: secondaryTitle, isPrimary: false, accessibilityIdentifier: secondaryAccessibilityId, callback: nil)
         }
         if let tertiaryTitle = tertiary {
-            tertiaryButtonConfig = NUXButtonConfig(title: tertiaryTitle, isPrimary: false, accessibilityIdentifier: tertiaryAccessibilityId, callback: nil)
+            tertiaryButtonConfig = AuthNUXButtonConfig(title: tertiaryTitle, isPrimary: false, accessibilityIdentifier: tertiaryAccessibilityId, callback: nil)
         }
     }
 
     func setupTopButton(title: String, isPrimary: Bool = false, accessibilityIdentifier: String? = nil, onTap callback: @escaping CallBackType) {
-        topButtonConfig = NUXButtonConfig(title: title, isPrimary: isPrimary, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
+        topButtonConfig = AuthNUXButtonConfig(title: title, isPrimary: isPrimary, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
     }
 
     func setupBottomButton(title: String, isPrimary: Bool = false, accessibilityIdentifier: String? = nil, onTap callback: @escaping CallBackType) {
-        bottomButtonConfig = NUXButtonConfig(title: title, isPrimary: isPrimary, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
+        bottomButtonConfig = AuthNUXButtonConfig(title: title, isPrimary: isPrimary, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
     }
 
     func setupTertiaryButton(title: String, isPrimary: Bool = false, accessibilityIdentifier: String? = nil, onTap callback: @escaping CallBackType) {
         tertiaryButton?.isHidden = false
-        tertiaryButtonConfig = NUXButtonConfig(title: title, isPrimary: isPrimary, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
+        tertiaryButtonConfig = AuthNUXButtonConfig(title: title, isPrimary: isPrimary, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
     }
 
     // MARK: - Helpers
@@ -145,7 +145,7 @@ open class NUXButtonViewController: UIViewController {
     }
 }
 
-extension NUXButtonViewController {
+extension AuthNUXButtonViewController {
     override open func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
@@ -154,7 +154,7 @@ extension NUXButtonViewController {
     }
 }
 
-extension NUXButtonViewController {
+extension AuthNUXButtonViewController {
 
     /// Sets the parentViewControlleras the receiver instance's container. Plus: the containerView will also get the receiver's
     /// view, attached to it's edges. This is effectively analog to using an Embed Segue with the NUXButtonViewController.
@@ -171,9 +171,9 @@ extension NUXButtonViewController {
 
     /// Returns a new NUXButtonViewController Instance
     ///
-    public class func instance() -> NUXButtonViewController {
+    public class func instance() -> AuthNUXButtonViewController {
         let storyboard = UIStoryboard(name: "NUXButtonView", bundle: WordPressAuthenticator.bundle)
-        guard let buttonViewController = storyboard.instantiateViewController(withIdentifier: "ButtonView") as? NUXButtonViewController else {
+        guard let buttonViewController = storyboard.instantiateViewController(withIdentifier: "ButtonView") as? AuthNUXButtonViewController else {
             fatalError()
         }
 
