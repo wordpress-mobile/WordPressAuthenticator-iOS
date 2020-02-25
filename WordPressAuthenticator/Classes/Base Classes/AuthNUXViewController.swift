@@ -5,7 +5,7 @@ import WordPressUI
 /// Base class to use for NUX view controllers that aren't a table view
 /// Note: shares most of its code with NUXTableViewController and NUXCollectionViewController. Look to make
 ///       most changes in either the base protocol NUXViewControllerBase or further subclasses like LoginViewController
-open class NUXViewController: UIViewController, NUXViewControllerBase, UIViewControllerTransitioningDelegate, NUXSegueHandler {
+open class AuthNUXViewController: UIViewController, AuthNUXViewControllerBase, UIViewControllerTransitioningDelegate, AuthNUXSegueHandler {
     // MARK: NUXViewControllerBase properties
     /// these properties comply with NUXViewControllerBase and are duplicated with NUXTableViewController
     public var helpNotificationIndicator: WPHelpIndicatorView = WPHelpIndicatorView()
@@ -52,7 +52,7 @@ open class NUXViewController: UIViewController, NUXViewControllerBase, UIViewCon
     }
 
     // properties specific to NUXViewController
-    @IBOutlet var submitButton: NUXButton?
+    @IBOutlet var submitButton: AuthNUXButton?
     @IBOutlet var errorLabel: UILabel?
 
     func configureSubmitButton(animating: Bool) {
@@ -69,13 +69,13 @@ open class NUXViewController: UIViewController, NUXViewControllerBase, UIViewCon
     }
 }
 
-extension NUXViewController {
+extension AuthNUXViewController {
     // Required so that any FancyAlertViewControllers presented within the NUX
     // use the correct dimmed backing view.
     open func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
         if presented is FancyAlertViewController ||
-            presented is LoginPrologueSignupMethodViewController ||
-            presented is LoginPrologueLoginMethodViewController {
+            presented is AuthLoginPrologueSignupMethodViewController ||
+            presented is AuthLoginPrologueLoginMethodViewController {
             return FancyAlertPresentationController(presentedViewController: presented, presenting: presenting)
         }
 
