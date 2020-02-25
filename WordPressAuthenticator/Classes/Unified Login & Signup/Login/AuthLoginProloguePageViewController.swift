@@ -2,7 +2,7 @@ import UIKit
 import WordPressShared
 
 
-class LoginProloguePageViewController: UIPageViewController {
+class AuthLoginProloguePageViewController: UIPageViewController {
     @objc var pages: [UIViewController] = []
     fileprivate var pageControl: UIPageControl?
     fileprivate var bgAnimation: UIViewPropertyAnimator?
@@ -16,11 +16,11 @@ class LoginProloguePageViewController: UIPageViewController {
         dataSource = self
         delegate = self
 
-        pages.append(LoginProloguePromoViewController(as: .post))
-        pages.append(LoginProloguePromoViewController(as: .stats))
-        pages.append(LoginProloguePromoViewController(as: .reader))
-        pages.append(LoginProloguePromoViewController(as: .notifications))
-        pages.append(LoginProloguePromoViewController(as: .jetpack))
+        pages.append(AuthLoginProloguePromoViewController(as: .post))
+        pages.append(AuthLoginProloguePromoViewController(as: .stats))
+        pages.append(AuthLoginProloguePromoViewController(as: .reader))
+        pages.append(AuthLoginProloguePromoViewController(as: .notifications))
+        pages.append(AuthLoginProloguePromoViewController(as: .jetpack))
 
         setViewControllers([pages[0]], direction: .forward, animated: false)
         view.backgroundColor = WordPressAuthenticator.shared.style.prologueBackgroundColor
@@ -57,7 +57,7 @@ class LoginProloguePageViewController: UIPageViewController {
     }
 }
 
-extension LoginProloguePageViewController: UIPageViewControllerDataSource {
+extension AuthLoginProloguePageViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let index = pages.index(of: viewController) else {
@@ -80,7 +80,7 @@ extension LoginProloguePageViewController: UIPageViewControllerDataSource {
     }
 }
 
-extension LoginProloguePageViewController: UIPageViewControllerDelegate {
+extension AuthLoginProloguePageViewController: UIPageViewControllerDelegate {
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let toVC = previousViewControllers[0]
         guard let index = pages.index(of: toVC) else {
