@@ -13,7 +13,7 @@ private enum Constants {
 }
 
 /// base protocol for NUX view controllers
-public protocol NUXViewControllerBase {
+public protocol AuthNUXViewControllerBase {
     var sourceTag: WordPressSupportSourceTag { get }
     var helpNotificationIndicator: WPHelpIndicatorView { get }
     var helpButton: UIButton { get }
@@ -32,7 +32,7 @@ public protocol NUXViewControllerBase {
 }
 
 /// extension for NUXViewControllerBase where the base class is UIViewController (and thus also NUXTableViewController)
-extension NUXViewControllerBase where Self: UIViewController, Self: UIViewControllerTransitioningDelegate {
+extension AuthNUXViewControllerBase where Self: UIViewController, Self: UIViewControllerTransitioningDelegate {
 
     /// Indicates if the Help Button should be displayed, or not.
     ///
