@@ -3,7 +3,7 @@ import WordPressShared
 import WordPressUI
 
 /// A stylized button used by Login controllers. It also can display a `UIActivityIndicatorView`.
-@objc open class NUXButton: UIButton {
+@objc open class AuthNUXButton: UIButton {
     @objc var isAnimating: Bool {
         return activityIndicator.isAnimating
     }
@@ -150,7 +150,7 @@ import WordPressUI
 
 // MARK: -
 //
-extension NUXButton {
+extension AuthNUXButton {
     override open func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
