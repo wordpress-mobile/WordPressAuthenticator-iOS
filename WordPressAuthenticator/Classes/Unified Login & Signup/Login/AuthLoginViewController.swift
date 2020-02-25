@@ -4,7 +4,7 @@ import GoogleSignIn
 
 
 /// View Controller for login-specific screens
-open class LoginViewController: NUXViewController, LoginFacadeDelegate {
+open class AuthLoginViewController: AuthNUXViewController, LoginFacadeDelegate {
     @IBOutlet var instructionLabel: UILabel?
     @objc var errorToPresent: Error?
 
@@ -163,7 +163,7 @@ open class LoginViewController: NUXViewController, LoginFacadeDelegate {
     /// Manages data transfer when seguing to a new VC
     ///
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let source = segue.source as? LoginViewController, let destination = segue.destination as? LoginViewController else {
+        guard let source = segue.source as? AuthLoginViewController, let destination = segue.destination as? AuthLoginViewController else {
             return
         }
 
@@ -227,7 +227,7 @@ open class LoginViewController: NUXViewController, LoginFacadeDelegate {
 
 // MARK: - Sync Helpers
 //
-extension LoginViewController {
+extension AuthLoginViewController {
 
 
     /// Signals the Main App to synchronize the specified WordPress.com account. On completion, the epilogue will be pushed (if needed).
@@ -336,7 +336,7 @@ extension LoginViewController {
 
 // MARK: - Handle changes in traitCollections. In particular, changes in Dynamic Type
 //
-extension LoginViewController {
+extension AuthLoginViewController {
     override open func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
@@ -350,10 +350,10 @@ extension LoginViewController {
 // MARK: - Google Sign In Handling
 
 // This is needed to set self as uiDelegate, even though none of the methods are called
-extension LoginViewController: GIDSignInUIDelegate {
+extension AuthLoginViewController: GIDSignInUIDelegate {
 }
 
-extension LoginViewController {
+extension AuthLoginViewController {
 
     @objc func googleLoginTapped(withDelegate delegate: GIDSignInDelegate?) {
         awaitingGoogle = true
@@ -479,7 +479,7 @@ extension LoginViewController {
     
 }
 
-extension LoginViewController: LoginSocialErrorViewControllerDelegate {
+extension AuthLoginViewController: LoginSocialErrorViewControllerDelegate {
     private func cleanupAfterSocialErrors() {
         dismiss(animated: true) {}
     }
