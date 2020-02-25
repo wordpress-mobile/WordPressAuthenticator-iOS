@@ -3,7 +3,7 @@ import Lottie
 import WordPressShared
 
 
-class LoginProloguePromoViewController: UIViewController {
+class AuthLoginProloguePromoViewController: UIViewController {
     fileprivate let type: PromoType
     fileprivate let stackView: UIStackView
     fileprivate let headingLabel: UILabel
@@ -151,7 +151,7 @@ class LoginProloguePromoViewController: UIViewController {
     }
 }
 
-extension LoginProloguePromoViewController {
+extension AuthLoginProloguePromoViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
