@@ -7,10 +7,10 @@ import WordPressShared
 /// authentication link be emailed to the user.  Allows the user to signin via
 /// email instead of their password.
 ///
-class LoginLinkRequestViewController: LoginViewController {
+class AuthLoginLinkRequestViewController: AuthLoginViewController {
     @IBOutlet var gravatarView: UIImageView?
     @IBOutlet var label: UILabel?
-    @IBOutlet var sendLinkButton: NUXButton?
+    @IBOutlet var sendLinkButton: AuthNUXButton?
     @IBOutlet var usePasswordButton: UIButton?
     override var sourceTag: WordPressSupportSourceTag {
         get {
@@ -147,7 +147,7 @@ class LoginLinkRequestViewController: LoginViewController {
     }
 }
 
-extension LoginLinkRequestViewController {
+extension AuthLoginLinkRequestViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
