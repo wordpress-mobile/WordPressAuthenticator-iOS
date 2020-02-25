@@ -1,7 +1,7 @@
 import WordPressShared
 
 
-open class LoginSocialErrorCell: UITableViewCell {
+open class AuthLoginSocialErrorCell: UITableViewCell {
     private let errorTitle: String
     private let errorDescription: String
     private var errorDescriptionStyled: NSAttributedString?
