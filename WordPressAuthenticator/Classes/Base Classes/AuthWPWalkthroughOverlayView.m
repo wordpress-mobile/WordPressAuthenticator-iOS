@@ -33,7 +33,7 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        _overlayMode = WPWalkthroughGrayOverlayViewOverlayModePrimaryButton;
+        _overlayMode = AuthWPWalkthroughGrayOverlayViewOverlayModePrimaryButton;
 
         self.accessibilityViewIsModal = YES;
 
@@ -153,8 +153,8 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
     _bottomLabel.frame = CGRectIntegral(CGRectMake(x, y, bottomLabelSize.width, bottomLabelSize.height));
 
     // Layout Bottom Buttons
-    if (self.overlayMode == WPWalkthroughGrayOverlayViewOverlayModePrimaryButton ||
-        self.overlayMode == WPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode) {
+    if (self.overlayMode == AuthWPWalkthroughGrayOverlayViewOverlayModePrimaryButton ||
+        self.overlayMode == AuthWPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode) {
 
         x = _viewWidth - CGRectGetWidth(_primaryButton.frame) - WPWalkthroughGrayOverlayStandardOffset;
         y = (_viewHeight - WPWalkthroughGrayOverlayBottomPanelHeight + WPWalkthroughGrayOverlayStandardOffset);
@@ -163,7 +163,7 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
         _primaryButton.frame = CGRectZero;
     }
 
-    if (self.overlayMode == WPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode) {
+    if (self.overlayMode == AuthWPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode) {
 
         x = WPWalkthroughGrayOverlayStandardOffset;
         y = (_viewHeight - WPWalkthroughGrayOverlayBottomPanelHeight + WPWalkthroughGrayOverlayStandardOffset);
@@ -253,14 +253,14 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
     [self addSubview:_bottomLabel];
 
     // Add Button 1
-    _secondaryButton = [[WPNUXSecondaryButton alloc] init];
+    _secondaryButton = [[AuthWPNUXSecondaryButton alloc] init];
     [_secondaryButton setTitle:self.secondaryButtonText forState:UIControlStateNormal];
     [_secondaryButton sizeToFit];
     [_secondaryButton addTarget:self action:@selector(secondaryButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_secondaryButton];
 
     // Add Button 2
-    _primaryButton = [[WPNUXPrimaryButton alloc] init];
+    _primaryButton = [[AuthWPNUXPrimaryButton alloc] init];
     [_primaryButton setTitle:self.primaryButtonText forState:UIControlStateNormal];
     [_primaryButton sizeToFit];
     [_primaryButton addTarget:self action:@selector(primaryButtonAction) forControlEvents:UIControlEventTouchUpInside];
@@ -270,7 +270,7 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
 - (void)configureIcon
 {
     UIImage *image;
-    if (self.icon == WPWalkthroughGrayOverlayViewWarningIcon) {
+    if (self.icon == AuthWPWalkthroughGrayOverlayViewWarningIcon) {
         image = [UIImage imageNamed:@"icon-alert"];
     } else {
         image = [UIImage imageNamed:@"icon-check-blue"];

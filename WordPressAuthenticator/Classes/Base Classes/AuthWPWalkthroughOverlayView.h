@@ -1,14 +1,14 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSUInteger, AuthWPWalkthroughOverlayViewOverlayMode) {
-    WPWalkthroughGrayOverlayViewOverlayModeTapToDismiss,
-    WPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode,
-    WPWalkthroughGrayOverlayViewOverlayModePrimaryButton
+    AuthWPWalkthroughGrayOverlayViewOverlayModeTapToDismiss,
+    AuthWPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode,
+    AuthWPWalkthroughGrayOverlayViewOverlayModePrimaryButton
 };
 
 typedef NS_ENUM(NSUInteger, AuthWPWalkthroughOverlayViewIcon) {
-    WPWalkthroughGrayOverlayViewWarningIcon,
-    WPWalkthroughGrayOverlayViewBlueCheckmarkIcon,
+    AuthWPWalkthroughGrayOverlayViewWarningIcon,
+    AuthWPWalkthroughGrayOverlayViewBlueCheckmarkIcon,
 };
 
 @interface AuthWPWalkthroughOverlayView : UIView
