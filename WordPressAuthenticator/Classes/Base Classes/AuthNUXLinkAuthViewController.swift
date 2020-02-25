@@ -7,7 +7,7 @@ import WordPressShared
 /// The expectation is this controller will be momentarily visible when the app
 /// is resumed/launched via the appropriate custom scheme, and quickly dismiss.
 ///
-class NUXLinkAuthViewController: LoginViewController {
+class AuthNUXLinkAuthViewController: AuthLoginViewController {
     @IBOutlet weak var statusLabel: UILabel?
     @objc var token: String = ""
     @objc var didSync: Bool = false
