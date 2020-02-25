@@ -22,7 +22,7 @@
 		B501C045208FC68700D1E58F /* LoginFieldsValidationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B501C03C208FC52400D1E58F /* LoginFieldsValidationTests.swift */; };
 		B501C046208FC6A700D1E58F /* WordPressAuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B501C03E208FC52500D1E58F /* WordPressAuthenticatorTests.swift */; };
 		B501C048208FC79C00D1E58F /* LoginFacadeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B501C040208FC52500D1E58F /* LoginFacadeTests.m */; };
-		B55272C220B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = B55272C020B2FE4000E18BC5 /* WPAuthenticatorLoggingPrivate.h */; };
+		B55272C220B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = B55272C020B2FE4000E18BC5 /* WPAuthenticatorLoggingPrivate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B55272C320B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = B55272C120B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.m */; };
 		B56052A42090B2ED001B91FD /* CircularImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56052A32090B2ED001B91FD /* CircularImageView.swift */; };
 		B56090C6208A4F5400399AE4 /* NUXButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56090B8208A4F5300399AE4 /* NUXButtonViewController.swift */; };
@@ -109,10 +109,10 @@
 		CE0F94BD24056CBE00A345DD /* AuthNUXSegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94A624056CBC00A345DD /* AuthNUXSegueHandler.swift */; };
 		CE0F94BE24056CBE00A345DD /* AuthWPNUXMainButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94A724056CBC00A345DD /* AuthWPNUXMainButton.m */; };
 		CE0F94BF24056CBE00A345DD /* AuthNUXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94A824056CBC00A345DD /* AuthNUXViewController.swift */; };
-		CE0F94C024056CBE00A345DD /* AuthWPNUXPrimaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94A924056CBC00A345DD /* AuthWPNUXPrimaryButton.h */; };
-		CE0F94C124056CBE00A345DD /* AuthWPNUXSecondaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94AA24056CBC00A345DD /* AuthWPNUXSecondaryButton.h */; };
+		CE0F94C024056CBE00A345DD /* AuthWPNUXPrimaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94A924056CBC00A345DD /* AuthWPNUXPrimaryButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CE0F94C124056CBE00A345DD /* AuthWPNUXSecondaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94AA24056CBC00A345DD /* AuthWPNUXSecondaryButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0F94C224056CBE00A345DD /* AuthWPNUXSecondaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AB24056CBC00A345DD /* AuthWPNUXSecondaryButton.m */; };
-		CE0F94C324056CBE00A345DD /* AuthWPWalkthroughOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94AC24056CBC00A345DD /* AuthWPWalkthroughOverlayView.h */; };
+		CE0F94C324056CBE00A345DD /* AuthWPWalkthroughOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94AC24056CBC00A345DD /* AuthWPWalkthroughOverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0F94C424056CBE00A345DD /* AuthWPWalkthroughOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AD24056CBC00A345DD /* AuthWPWalkthroughOverlayView.m */; };
 		CE0F94C524056CBE00A345DD /* AuthWPWalkthroughTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AE24056CBC00A345DD /* AuthWPWalkthroughTextField.m */; };
 		CE0F94C624056CBE00A345DD /* AuthNUXLinkAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AF24056CBC00A345DD /* AuthNUXLinkAuthViewController.swift */; };
@@ -123,10 +123,10 @@
 		CE0F94CB24056CBE00A345DD /* AuthNUXKeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B424056CBD00A345DD /* AuthNUXKeyboardResponder.swift */; };
 		CE0F94CC24056CBE00A345DD /* AuthNUXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B524056CBD00A345DD /* AuthNUXNavigationController.swift */; };
 		CE0F94CD24056CBE00A345DD /* AuthNUXTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B624056CBD00A345DD /* AuthNUXTableViewController.swift */; };
-		CE0F94CE24056CBE00A345DD /* AuthWPNUXMainButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94B724056CBD00A345DD /* AuthWPNUXMainButton.h */; };
+		CE0F94CE24056CBE00A345DD /* AuthWPNUXMainButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94B724056CBD00A345DD /* AuthWPNUXMainButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0F94CF24056CBE00A345DD /* AuthWPNUXPrimaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B824056CBD00A345DD /* AuthWPNUXPrimaryButton.m */; };
 		CE0F94D024056CBE00A345DD /* AuthNUXViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B924056CBE00A345DD /* AuthNUXViewControllerBase.swift */; };
-		CE0F94D124056CBE00A345DD /* AuthWPWalkthroughTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94BA24056CBE00A345DD /* AuthWPWalkthroughTextField.h */; };
+		CE0F94D124056CBE00A345DD /* AuthWPWalkthroughTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94BA24056CBE00A345DD /* AuthWPWalkthroughTextField.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE0F94D224056CBE00A345DD /* AuthWPHelpIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94BB24056CBE00A345DD /* AuthWPHelpIndicatorView.swift */; };
 		CE0F94D324056CBE00A345DD /* AuthNUXLinkMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94BC24056CBE00A345DD /* AuthNUXLinkMailViewController.swift */; };
 		CE0F951224056DE000A345DD /* AuthSignupGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94F924056DE000A345DD /* AuthSignupGoogleViewController.swift */; };
@@ -823,22 +823,22 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE0F94CE24056CBE00A345DD /* AuthWPNUXMainButton.h in Headers */,
 				B5609111208A54F800399AE4 /* WordPressXMLRPCAPIFacade.h in Headers */,
-				CE0F94C324056CBE00A345DD /* AuthWPWalkthroughOverlayView.h in Headers */,
 				B56090DF208A4F9D00399AE4 /* WPNUXPrimaryButton.h in Headers */,
 				B56090E5208A4F9D00399AE4 /* WPWalkthroughTextField.h in Headers */,
 				B560910E208A54F800399AE4 /* LoginFacade.h in Headers */,
-				CE0F94C124056CBE00A345DD /* AuthWPNUXSecondaryButton.h in Headers */,
 				B56090E7208A4F9D00399AE4 /* WPNUXSecondaryButton.h in Headers */,
 				1A4095182271AEFC009AA86D /* WPAuthenticator-Swift.h in Headers */,
 				B56090E0208A4F9D00399AE4 /* WPWalkthroughOverlayView.h in Headers */,
-				B5ED7905207E976500A8FD8C /* WordPressAuthenticator.h in Headers */,
-				B56090E3208A4F9D00399AE4 /* WPNUXMainButton.h in Headers */,
+				CE0F94CE24056CBE00A345DD /* AuthWPNUXMainButton.h in Headers */,
+				CE0F94C324056CBE00A345DD /* AuthWPWalkthroughOverlayView.h in Headers */,
+				CE0F94C124056CBE00A345DD /* AuthWPNUXSecondaryButton.h in Headers */,
 				B55272C220B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.h in Headers */,
-				B5ED791D207E993E00A8FD8C /* WPAuthenticatorLogging.h in Headers */,
 				CE0F94D124056CBE00A345DD /* AuthWPWalkthroughTextField.h in Headers */,
 				CE0F94C024056CBE00A345DD /* AuthWPNUXPrimaryButton.h in Headers */,
+				B5ED7905207E976500A8FD8C /* WordPressAuthenticator.h in Headers */,
+				B56090E3208A4F9D00399AE4 /* WPNUXMainButton.h in Headers */,
+				B5ED791D207E993E00A8FD8C /* WPAuthenticatorLogging.h in Headers */,
 				B5609108208A54F800399AE4 /* WordPressComOAuthClientFacade.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
