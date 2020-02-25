@@ -5,12 +5,12 @@ import WordPressShared
 /// Step two in the auth link flow. This VC prompts the user to open their email
 /// app to look for the emailed authentication link.
 ///
-class NUXLinkMailViewController: LoginViewController {
+class AuthNUXLinkMailViewController: AuthLoginViewController {
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet var label: UILabel?
-    @IBOutlet var openMailButton: NUXButton?
+    @IBOutlet var openMailButton: AuthNUXButton?
     @IBOutlet var usePasswordButton: UIButton?
-    var emailMagicLinkSource: EmailMagicLinkSource?
+    var emailMagicLinkSource: AuthEmailMagicLinkSource?
     override var sourceTag: WordPressSupportSourceTag {
         get {
             if let emailMagicLinkSource = emailMagicLinkSource,
@@ -115,7 +115,7 @@ class NUXLinkMailViewController: LoginViewController {
     }
 }
 
-extension NUXLinkMailViewController {
+extension AuthNUXLinkMailViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
