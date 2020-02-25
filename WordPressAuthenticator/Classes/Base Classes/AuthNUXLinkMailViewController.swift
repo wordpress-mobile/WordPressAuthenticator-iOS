@@ -10,7 +10,7 @@ class AuthNUXLinkMailViewController: AuthLoginViewController {
     @IBOutlet var label: UILabel?
     @IBOutlet var openMailButton: AuthNUXButton?
     @IBOutlet var usePasswordButton: UIButton?
-    var emailMagicLinkSource: AuthEmailMagicLinkSource?
+    var emailMagicLinkSource: EmailMagicLinkSource?
     override var sourceTag: WordPressSupportSourceTag {
         get {
             if let emailMagicLinkSource = emailMagicLinkSource,
