@@ -106,8 +106,53 @@
 		B5ED791D207E993E00A8FD8C /* WPAuthenticatorLogging.h in Headers */ = {isa = PBXBuildFile; fileRef = B5ED7918207E993E00A8FD8C /* WPAuthenticatorLogging.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B5ED791F207E993E00A8FD8C /* CocoaLumberjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5ED791A207E993E00A8FD8C /* CocoaLumberjack.swift */; };
 		B5ED7920207E993E00A8FD8C /* WPAuthenticatorLogging.m in Sources */ = {isa = PBXBuildFile; fileRef = B5ED791B207E993E00A8FD8C /* WPAuthenticatorLogging.m */; };
-		CE0F949D2405692F00A345DD /* AuthLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F949C2405692F00A345DD /* AuthLogin.storyboard */; };
-		CE0F94A1240569F500A345DD /* AuthNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94A0240569F500A345DD /* AuthNavigationController.swift */; };
+		CE0F94BD24056CBE00A345DD /* AuthNUXSegueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94A624056CBC00A345DD /* AuthNUXSegueHandler.swift */; };
+		CE0F94BE24056CBE00A345DD /* AuthWPNUXMainButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94A724056CBC00A345DD /* AuthWPNUXMainButton.m */; };
+		CE0F94BF24056CBE00A345DD /* AuthNUXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94A824056CBC00A345DD /* AuthNUXViewController.swift */; };
+		CE0F94C024056CBE00A345DD /* AuthWPNUXPrimaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94A924056CBC00A345DD /* AuthWPNUXPrimaryButton.h */; };
+		CE0F94C124056CBE00A345DD /* AuthWPNUXSecondaryButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94AA24056CBC00A345DD /* AuthWPNUXSecondaryButton.h */; };
+		CE0F94C224056CBE00A345DD /* AuthWPNUXSecondaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AB24056CBC00A345DD /* AuthWPNUXSecondaryButton.m */; };
+		CE0F94C324056CBE00A345DD /* AuthWPWalkthroughOverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94AC24056CBC00A345DD /* AuthWPWalkthroughOverlayView.h */; };
+		CE0F94C424056CBE00A345DD /* AuthWPWalkthroughOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AD24056CBC00A345DD /* AuthWPWalkthroughOverlayView.m */; };
+		CE0F94C524056CBE00A345DD /* AuthWPWalkthroughTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AE24056CBC00A345DD /* AuthWPWalkthroughTextField.m */; };
+		CE0F94C624056CBE00A345DD /* AuthNUXLinkAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94AF24056CBC00A345DD /* AuthNUXLinkAuthViewController.swift */; };
+		CE0F94C724056CBE00A345DD /* AuthNUXCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B024056CBD00A345DD /* AuthNUXCollectionViewController.swift */; };
+		CE0F94C824056CBE00A345DD /* AuthNUXButtonView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F94B124056CBD00A345DD /* AuthNUXButtonView.storyboard */; };
+		CE0F94C924056CBE00A345DD /* AuthNUXButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B224056CBD00A345DD /* AuthNUXButton.swift */; };
+		CE0F94CA24056CBE00A345DD /* AuthNUXButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B324056CBD00A345DD /* AuthNUXButtonViewController.swift */; };
+		CE0F94CB24056CBE00A345DD /* AuthNUXKeyboardResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B424056CBD00A345DD /* AuthNUXKeyboardResponder.swift */; };
+		CE0F94CC24056CBE00A345DD /* AuthNUXNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B524056CBD00A345DD /* AuthNUXNavigationController.swift */; };
+		CE0F94CD24056CBE00A345DD /* AuthNUXTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B624056CBD00A345DD /* AuthNUXTableViewController.swift */; };
+		CE0F94CE24056CBE00A345DD /* AuthWPNUXMainButton.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94B724056CBD00A345DD /* AuthWPNUXMainButton.h */; };
+		CE0F94CF24056CBE00A345DD /* AuthWPNUXPrimaryButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B824056CBD00A345DD /* AuthWPNUXPrimaryButton.m */; };
+		CE0F94D024056CBE00A345DD /* AuthNUXViewControllerBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94B924056CBE00A345DD /* AuthNUXViewControllerBase.swift */; };
+		CE0F94D124056CBE00A345DD /* AuthWPWalkthroughTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = CE0F94BA24056CBE00A345DD /* AuthWPWalkthroughTextField.h */; };
+		CE0F94D224056CBE00A345DD /* AuthWPHelpIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94BB24056CBE00A345DD /* AuthWPHelpIndicatorView.swift */; };
+		CE0F94D324056CBE00A345DD /* AuthNUXLinkMailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94BC24056CBE00A345DD /* AuthNUXLinkMailViewController.swift */; };
+		CE0F951224056DE000A345DD /* AuthSignupGoogleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94F924056DE000A345DD /* AuthSignupGoogleViewController.swift */; };
+		CE0F951324056DE000A345DD /* AuthSignupNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94FA24056DE000A345DD /* AuthSignupNavigationController.swift */; };
+		CE0F951424056DE000A345DD /* AuthSignup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F94FB24056DE000A345DD /* AuthSignup.storyboard */; };
+		CE0F951524056DE000A345DD /* AuthSignupEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94FC24056DE000A345DD /* AuthSignupEmailViewController.swift */; };
+		CE0F951624056DE000A345DD /* AuthLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94FE24056DE000A345DD /* AuthLoginViewController.swift */; };
+		CE0F951724056DE000A345DD /* AuthLoginPrologueSignupMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F94FF24056DE000A345DD /* AuthLoginPrologueSignupMethodViewController.swift */; };
+		CE0F951824056DE000A345DD /* AuthAppleAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950024056DE000A345DD /* AuthAppleAuthenticator.swift */; };
+		CE0F951924056DE000A345DD /* AuthLoginSelfHostedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950124056DE000A345DD /* AuthLoginSelfHostedViewController.swift */; };
+		CE0F951A24056DE000A345DD /* AuthLoginPrologueLoginMethodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950224056DE000A345DD /* AuthLoginPrologueLoginMethodViewController.swift */; };
+		CE0F951B24056DE000A345DD /* AuthLogin.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F950324056DE000A345DD /* AuthLogin.storyboard */; };
+		CE0F951C24056DE000A345DD /* AuthLoginLinkRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950424056DE000A345DD /* AuthLoginLinkRequestViewController.swift */; };
+		CE0F951D24056DE000A345DD /* AuthLoginSocialErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950524056DE000A345DD /* AuthLoginSocialErrorCell.swift */; };
+		CE0F951E24056DE000A345DD /* AuthEmailMagicLink.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F950624056DE000A345DD /* AuthEmailMagicLink.storyboard */; };
+		CE0F951F24056DE000A345DD /* AuthLoginUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950724056DE000A345DD /* AuthLoginUsernamePasswordViewController.swift */; };
+		CE0F952024056DE000A345DD /* AuthLoginNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950824056DE000A345DD /* AuthLoginNavigationController.swift */; };
+		CE0F952124056DE000A345DD /* AuthLoginWPComViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950924056DE000A345DD /* AuthLoginWPComViewController.swift */; };
+		CE0F952224056DE000A345DD /* AuthLoginEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950A24056DE000A345DD /* AuthLoginEmailViewController.swift */; };
+		CE0F952324056DE000A345DD /* AuthLogin2FAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950B24056DE000A345DD /* AuthLogin2FAViewController.swift */; };
+		CE0F952424056DE000A345DD /* AuthLoginProloguePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950C24056DE000A345DD /* AuthLoginProloguePageViewController.swift */; };
+		CE0F952524056DE000A345DD /* AuthLoginSiteAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950D24056DE000A345DD /* AuthLoginSiteAddressViewController.swift */; };
+		CE0F952624056DE000A345DD /* AuthLoginProloguePromoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950E24056DE000A345DD /* AuthLoginProloguePromoViewController.swift */; };
+		CE0F952724056DE000A345DD /* AuthLoginSocialErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F950F24056DE000A345DD /* AuthLoginSocialErrorViewController.swift */; };
+		CE0F952824056DE000A345DD /* AuthSigninEditingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F951024056DE000A345DD /* AuthSigninEditingState.swift */; };
+		CE0F952924056DE000A345DD /* AuthLoginPrologueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F951124056DE000A345DD /* AuthLoginPrologueViewController.swift */; };
 		CE16177521B6D82200B82A47 /* WordPressAuthenticatorDisplayStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16177421B6D82200B82A47 /* WordPressAuthenticatorDisplayStrings.swift */; };
 		CE16177821B70C1A00B82A47 /* WordPressAuthenticatorDisplayTextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE16177721B70C1A00B82A47 /* WordPressAuthenticatorDisplayTextTests.swift */; };
 		CE1B18C920EEC2C200BECC3F /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B18C820EEC2C200BECC3F /* SocialService.swift */; };
@@ -262,8 +307,53 @@
 		B5ED791A207E993E00A8FD8C /* CocoaLumberjack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaLumberjack.swift; sourceTree = "<group>"; };
 		B5ED791B207E993E00A8FD8C /* WPAuthenticatorLogging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WPAuthenticatorLogging.m; sourceTree = "<group>"; };
 		C736FF243DE333FCAB1C2614 /* Pods_WordPressAuthenticator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WordPressAuthenticator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE0F949C2405692F00A345DD /* AuthLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthLogin.storyboard; sourceTree = "<group>"; };
-		CE0F94A0240569F500A345DD /* AuthNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNavigationController.swift; sourceTree = "<group>"; };
+		CE0F94A624056CBC00A345DD /* AuthNUXSegueHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXSegueHandler.swift; sourceTree = "<group>"; };
+		CE0F94A724056CBC00A345DD /* AuthWPNUXMainButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthWPNUXMainButton.m; sourceTree = "<group>"; };
+		CE0F94A824056CBC00A345DD /* AuthNUXViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXViewController.swift; sourceTree = "<group>"; };
+		CE0F94A924056CBC00A345DD /* AuthWPNUXPrimaryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthWPNUXPrimaryButton.h; sourceTree = "<group>"; };
+		CE0F94AA24056CBC00A345DD /* AuthWPNUXSecondaryButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthWPNUXSecondaryButton.h; sourceTree = "<group>"; };
+		CE0F94AB24056CBC00A345DD /* AuthWPNUXSecondaryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthWPNUXSecondaryButton.m; sourceTree = "<group>"; };
+		CE0F94AC24056CBC00A345DD /* AuthWPWalkthroughOverlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthWPWalkthroughOverlayView.h; sourceTree = "<group>"; };
+		CE0F94AD24056CBC00A345DD /* AuthWPWalkthroughOverlayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthWPWalkthroughOverlayView.m; sourceTree = "<group>"; };
+		CE0F94AE24056CBC00A345DD /* AuthWPWalkthroughTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthWPWalkthroughTextField.m; sourceTree = "<group>"; };
+		CE0F94AF24056CBC00A345DD /* AuthNUXLinkAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXLinkAuthViewController.swift; sourceTree = "<group>"; };
+		CE0F94B024056CBD00A345DD /* AuthNUXCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXCollectionViewController.swift; sourceTree = "<group>"; };
+		CE0F94B124056CBD00A345DD /* AuthNUXButtonView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthNUXButtonView.storyboard; sourceTree = "<group>"; };
+		CE0F94B224056CBD00A345DD /* AuthNUXButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXButton.swift; sourceTree = "<group>"; };
+		CE0F94B324056CBD00A345DD /* AuthNUXButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXButtonViewController.swift; sourceTree = "<group>"; };
+		CE0F94B424056CBD00A345DD /* AuthNUXKeyboardResponder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXKeyboardResponder.swift; sourceTree = "<group>"; };
+		CE0F94B524056CBD00A345DD /* AuthNUXNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXNavigationController.swift; sourceTree = "<group>"; };
+		CE0F94B624056CBD00A345DD /* AuthNUXTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXTableViewController.swift; sourceTree = "<group>"; };
+		CE0F94B724056CBD00A345DD /* AuthWPNUXMainButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthWPNUXMainButton.h; sourceTree = "<group>"; };
+		CE0F94B824056CBD00A345DD /* AuthWPNUXPrimaryButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthWPNUXPrimaryButton.m; sourceTree = "<group>"; };
+		CE0F94B924056CBE00A345DD /* AuthNUXViewControllerBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXViewControllerBase.swift; sourceTree = "<group>"; };
+		CE0F94BA24056CBE00A345DD /* AuthWPWalkthroughTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthWPWalkthroughTextField.h; sourceTree = "<group>"; };
+		CE0F94BB24056CBE00A345DD /* AuthWPHelpIndicatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthWPHelpIndicatorView.swift; sourceTree = "<group>"; };
+		CE0F94BC24056CBE00A345DD /* AuthNUXLinkMailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthNUXLinkMailViewController.swift; sourceTree = "<group>"; };
+		CE0F94F924056DE000A345DD /* AuthSignupGoogleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSignupGoogleViewController.swift; sourceTree = "<group>"; };
+		CE0F94FA24056DE000A345DD /* AuthSignupNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSignupNavigationController.swift; sourceTree = "<group>"; };
+		CE0F94FB24056DE000A345DD /* AuthSignup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthSignup.storyboard; sourceTree = "<group>"; };
+		CE0F94FC24056DE000A345DD /* AuthSignupEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSignupEmailViewController.swift; sourceTree = "<group>"; };
+		CE0F94FE24056DE000A345DD /* AuthLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginViewController.swift; sourceTree = "<group>"; };
+		CE0F94FF24056DE000A345DD /* AuthLoginPrologueSignupMethodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginPrologueSignupMethodViewController.swift; sourceTree = "<group>"; };
+		CE0F950024056DE000A345DD /* AuthAppleAuthenticator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthAppleAuthenticator.swift; sourceTree = "<group>"; };
+		CE0F950124056DE000A345DD /* AuthLoginSelfHostedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginSelfHostedViewController.swift; sourceTree = "<group>"; };
+		CE0F950224056DE000A345DD /* AuthLoginPrologueLoginMethodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginPrologueLoginMethodViewController.swift; sourceTree = "<group>"; };
+		CE0F950324056DE000A345DD /* AuthLogin.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthLogin.storyboard; sourceTree = "<group>"; };
+		CE0F950424056DE000A345DD /* AuthLoginLinkRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginLinkRequestViewController.swift; sourceTree = "<group>"; };
+		CE0F950524056DE000A345DD /* AuthLoginSocialErrorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginSocialErrorCell.swift; sourceTree = "<group>"; };
+		CE0F950624056DE000A345DD /* AuthEmailMagicLink.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthEmailMagicLink.storyboard; sourceTree = "<group>"; };
+		CE0F950724056DE000A345DD /* AuthLoginUsernamePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginUsernamePasswordViewController.swift; sourceTree = "<group>"; };
+		CE0F950824056DE000A345DD /* AuthLoginNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginNavigationController.swift; sourceTree = "<group>"; };
+		CE0F950924056DE000A345DD /* AuthLoginWPComViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginWPComViewController.swift; sourceTree = "<group>"; };
+		CE0F950A24056DE000A345DD /* AuthLoginEmailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginEmailViewController.swift; sourceTree = "<group>"; };
+		CE0F950B24056DE000A345DD /* AuthLogin2FAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLogin2FAViewController.swift; sourceTree = "<group>"; };
+		CE0F950C24056DE000A345DD /* AuthLoginProloguePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginProloguePageViewController.swift; sourceTree = "<group>"; };
+		CE0F950D24056DE000A345DD /* AuthLoginSiteAddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginSiteAddressViewController.swift; sourceTree = "<group>"; };
+		CE0F950E24056DE000A345DD /* AuthLoginProloguePromoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginProloguePromoViewController.swift; sourceTree = "<group>"; };
+		CE0F950F24056DE000A345DD /* AuthLoginSocialErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginSocialErrorViewController.swift; sourceTree = "<group>"; };
+		CE0F951024056DE000A345DD /* AuthSigninEditingState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthSigninEditingState.swift; sourceTree = "<group>"; };
+		CE0F951124056DE000A345DD /* AuthLoginPrologueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthLoginPrologueViewController.swift; sourceTree = "<group>"; };
 		CE16177421B6D82200B82A47 /* WordPressAuthenticatorDisplayStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPressAuthenticatorDisplayStrings.swift; sourceTree = "<group>"; };
 		CE16177721B70C1A00B82A47 /* WordPressAuthenticatorDisplayTextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPressAuthenticatorDisplayTextTests.swift; sourceTree = "<group>"; };
 		CE1B18C820EEC2C200BECC3F /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
@@ -565,18 +655,16 @@
 		B5ED78F6207E976500A8FD8C /* WordPressAuthenticator */ = {
 			isa = PBXGroup;
 			children = (
+				B5609099208A4EAF00399AE4 /* Authenticator */,
 				CE0F94952405659100A345DD /* Classes */,
 				CE1B18CA20EEC31000BECC3F /* Credentials */,
-				B5609099208A4EAF00399AE4 /* Authenticator */,
 				3F550D4F23DA4A6B007E5897 /* Email Client Picker */,
 				B560909B208A4EB000399AE4 /* Extensions */,
 				B5ED7917207E993E00A8FD8C /* Logging */,
+				CE0F952A24056E1A00A345DD /* Legacy */,
 				B5609098208A4EAF00399AE4 /* Model */,
-				B5609097208A4EAF00399AE4 /* NUX */,
 				1A4095132271AEFC009AA86D /* Private */,
 				B560909A208A4EAF00399AE4 /* Services */,
-				B5609095208A4EAF00399AE4 /* Signin */,
-				B5609096208A4EAF00399AE4 /* Signup */,
 				B5609094208A4EAF00399AE4 /* UI */,
 				B5A5273F20B477F70065BE81 /* Resources */,
 				B5ED78F7207E976500A8FD8C /* WordPressAuthenticator.h */,
@@ -634,8 +722,8 @@
 		CE0F9496240566D200A345DD /* Unified Login & Signup */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F94A0240569F500A345DD /* AuthNavigationController.swift */,
-				CE0F949C2405692F00A345DD /* AuthLogin.storyboard */,
+				CE0F94FD24056DE000A345DD /* Login */,
+				CE0F94F824056DE000A345DD /* Signup */,
 			);
 			path = "Unified Login & Signup";
 			sourceTree = "<group>";
@@ -643,8 +731,79 @@
 		CE0F949B2405686000A345DD /* Base Classes */ = {
 			isa = PBXGroup;
 			children = (
+				CE0F94B224056CBD00A345DD /* AuthNUXButton.swift */,
+				CE0F94B124056CBD00A345DD /* AuthNUXButtonView.storyboard */,
+				CE0F94B324056CBD00A345DD /* AuthNUXButtonViewController.swift */,
+				CE0F94B024056CBD00A345DD /* AuthNUXCollectionViewController.swift */,
+				CE0F94B424056CBD00A345DD /* AuthNUXKeyboardResponder.swift */,
+				CE0F94AF24056CBC00A345DD /* AuthNUXLinkAuthViewController.swift */,
+				CE0F94BC24056CBE00A345DD /* AuthNUXLinkMailViewController.swift */,
+				CE0F94B524056CBD00A345DD /* AuthNUXNavigationController.swift */,
+				CE0F94A624056CBC00A345DD /* AuthNUXSegueHandler.swift */,
+				CE0F94B624056CBD00A345DD /* AuthNUXTableViewController.swift */,
+				CE0F94A824056CBC00A345DD /* AuthNUXViewController.swift */,
+				CE0F94B924056CBE00A345DD /* AuthNUXViewControllerBase.swift */,
+				CE0F94BB24056CBE00A345DD /* AuthWPHelpIndicatorView.swift */,
+				CE0F94B724056CBD00A345DD /* AuthWPNUXMainButton.h */,
+				CE0F94A724056CBC00A345DD /* AuthWPNUXMainButton.m */,
+				CE0F94A924056CBC00A345DD /* AuthWPNUXPrimaryButton.h */,
+				CE0F94B824056CBD00A345DD /* AuthWPNUXPrimaryButton.m */,
+				CE0F94AA24056CBC00A345DD /* AuthWPNUXSecondaryButton.h */,
+				CE0F94AB24056CBC00A345DD /* AuthWPNUXSecondaryButton.m */,
+				CE0F94AC24056CBC00A345DD /* AuthWPWalkthroughOverlayView.h */,
+				CE0F94AD24056CBC00A345DD /* AuthWPWalkthroughOverlayView.m */,
+				CE0F94BA24056CBE00A345DD /* AuthWPWalkthroughTextField.h */,
+				CE0F94AE24056CBC00A345DD /* AuthWPWalkthroughTextField.m */,
 			);
 			path = "Base Classes";
+			sourceTree = "<group>";
+		};
+		CE0F94F824056DE000A345DD /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F94F924056DE000A345DD /* AuthSignupGoogleViewController.swift */,
+				CE0F94FA24056DE000A345DD /* AuthSignupNavigationController.swift */,
+				CE0F94FB24056DE000A345DD /* AuthSignup.storyboard */,
+				CE0F94FC24056DE000A345DD /* AuthSignupEmailViewController.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		CE0F94FD24056DE000A345DD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F94FE24056DE000A345DD /* AuthLoginViewController.swift */,
+				CE0F94FF24056DE000A345DD /* AuthLoginPrologueSignupMethodViewController.swift */,
+				CE0F950024056DE000A345DD /* AuthAppleAuthenticator.swift */,
+				CE0F950124056DE000A345DD /* AuthLoginSelfHostedViewController.swift */,
+				CE0F950224056DE000A345DD /* AuthLoginPrologueLoginMethodViewController.swift */,
+				CE0F950324056DE000A345DD /* AuthLogin.storyboard */,
+				CE0F950424056DE000A345DD /* AuthLoginLinkRequestViewController.swift */,
+				CE0F950524056DE000A345DD /* AuthLoginSocialErrorCell.swift */,
+				CE0F950624056DE000A345DD /* AuthEmailMagicLink.storyboard */,
+				CE0F950724056DE000A345DD /* AuthLoginUsernamePasswordViewController.swift */,
+				CE0F950824056DE000A345DD /* AuthLoginNavigationController.swift */,
+				CE0F950924056DE000A345DD /* AuthLoginWPComViewController.swift */,
+				CE0F950A24056DE000A345DD /* AuthLoginEmailViewController.swift */,
+				CE0F950B24056DE000A345DD /* AuthLogin2FAViewController.swift */,
+				CE0F950C24056DE000A345DD /* AuthLoginProloguePageViewController.swift */,
+				CE0F950D24056DE000A345DD /* AuthLoginSiteAddressViewController.swift */,
+				CE0F950E24056DE000A345DD /* AuthLoginProloguePromoViewController.swift */,
+				CE0F950F24056DE000A345DD /* AuthLoginSocialErrorViewController.swift */,
+				CE0F951024056DE000A345DD /* AuthSigninEditingState.swift */,
+				CE0F951124056DE000A345DD /* AuthLoginPrologueViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		CE0F952A24056E1A00A345DD /* Legacy */ = {
+			isa = PBXGroup;
+			children = (
+				B5609097208A4EAF00399AE4 /* NUX */,
+				B5609095208A4EAF00399AE4 /* Signin */,
+				B5609096208A4EAF00399AE4 /* Signup */,
+			);
+			path = Legacy;
 			sourceTree = "<group>";
 		};
 		CE1B18CA20EEC31000BECC3F /* Credentials */ = {
@@ -664,10 +823,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0F94CE24056CBE00A345DD /* AuthWPNUXMainButton.h in Headers */,
 				B5609111208A54F800399AE4 /* WordPressXMLRPCAPIFacade.h in Headers */,
+				CE0F94C324056CBE00A345DD /* AuthWPWalkthroughOverlayView.h in Headers */,
 				B56090DF208A4F9D00399AE4 /* WPNUXPrimaryButton.h in Headers */,
 				B56090E5208A4F9D00399AE4 /* WPWalkthroughTextField.h in Headers */,
 				B560910E208A54F800399AE4 /* LoginFacade.h in Headers */,
+				CE0F94C124056CBE00A345DD /* AuthWPNUXSecondaryButton.h in Headers */,
 				B56090E7208A4F9D00399AE4 /* WPNUXSecondaryButton.h in Headers */,
 				1A4095182271AEFC009AA86D /* WPAuthenticator-Swift.h in Headers */,
 				B56090E0208A4F9D00399AE4 /* WPWalkthroughOverlayView.h in Headers */,
@@ -675,6 +837,8 @@
 				B56090E3208A4F9D00399AE4 /* WPNUXMainButton.h in Headers */,
 				B55272C220B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.h in Headers */,
 				B5ED791D207E993E00A8FD8C /* WPAuthenticatorLogging.h in Headers */,
+				CE0F94D124056CBE00A345DD /* AuthWPWalkthroughTextField.h in Headers */,
+				CE0F94C024056CBE00A345DD /* AuthWPNUXPrimaryButton.h in Headers */,
 				B5609108208A54F800399AE4 /* WordPressComOAuthClientFacade.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -772,11 +936,14 @@
 			files = (
 				B5E07FF4208FD13800657A9A /* Assets.xcassets in Resources */,
 				B56090CA208A4F5400399AE4 /* NUXButtonView.storyboard in Resources */,
-				CE0F949D2405692F00A345DD /* AuthLogin.storyboard in Resources */,
 				B560911E208A555E00399AE4 /* Signup.storyboard in Resources */,
 				B5609118208A555600399AE4 /* SearchTableViewCell.xib in Resources */,
+				CE0F951424056DE000A345DD /* AuthSignup.storyboard in Resources */,
+				CE0F94C824056CBE00A345DD /* AuthNUXButtonView.storyboard in Resources */,
+				CE0F951B24056DE000A345DD /* AuthLogin.storyboard in Resources */,
 				B560913F208A563800399AE4 /* Login.storyboard in Resources */,
 				B5609137208A563800399AE4 /* EmailMagicLink.storyboard in Resources */,
+				CE0F951E24056DE000A345DD /* AuthEmailMagicLink.storyboard in Resources */,
 				3FFF2FC123D7ED7C00D38C77 /* EmailClients.plist in Resources */,
 				FF629D9622393500004C4106 /* WordPressAuthenticator.podspec in Resources */,
 			);
@@ -927,6 +1094,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE0F94C724056CBE00A345DD /* AuthNUXCollectionViewController.swift in Sources */,
+				CE0F952124056DE000A345DD /* AuthLoginWPComViewController.swift in Sources */,
 				982C8E7923021C20003F1BA0 /* LoginPrologueLoginMethodViewController.swift in Sources */,
 				B5609144208A563800399AE4 /* LoginPrologueSignupMethodViewController.swift in Sources */,
 				B56090CD208A4F5400399AE4 /* NUXSegueHandler.swift in Sources */,
@@ -941,22 +1110,35 @@
 				B56090F8208A533200399AE4 /* WordPressAuthenticator+Notifications.swift in Sources */,
 				B56090EA208A51D000399AE4 /* LoginFields+Validation.swift in Sources */,
 				CE1B18CC20EEC32400BECC3F /* WordPressComCredentials.swift in Sources */,
+				CE0F94C524056CBE00A345DD /* AuthWPWalkthroughTextField.m in Sources */,
+				CE0F952024056DE000A345DD /* AuthLoginNavigationController.swift in Sources */,
 				98AA5A5720AA1A7000A5958A /* WPHelpIndicatorView.swift in Sources */,
+				CE0F952924056DE000A345DD /* AuthLoginPrologueViewController.swift in Sources */,
 				B560913C208A563800399AE4 /* LoginProloguePromoViewController.swift in Sources */,
 				B560910F208A54F800399AE4 /* SafariCredentialsService.swift in Sources */,
+				CE0F951224056DE000A345DD /* AuthSignupGoogleViewController.swift in Sources */,
 				B5CDBED420B4714500BC1EF2 /* UIImage+Assets.swift in Sources */,
 				B5609116208A555600399AE4 /* LoginTextField.swift in Sources */,
 				B56090E2208A4F9D00399AE4 /* WPNUXSecondaryButton.m in Sources */,
+				CE0F94CF24056CBE00A345DD /* AuthWPNUXPrimaryButton.m in Sources */,
+				CE0F94D024056CBE00A345DD /* AuthNUXViewControllerBase.swift in Sources */,
 				B56090E6208A4F9D00399AE4 /* WPNUXPrimaryButton.m in Sources */,
+				CE0F94C924056CBE00A345DD /* AuthNUXButton.swift in Sources */,
+				CE0F951F24056DE000A345DD /* AuthLoginUsernamePasswordViewController.swift in Sources */,
 				B5609135208A563800399AE4 /* LoginWPComViewController.swift in Sources */,
 				B5609119208A555600399AE4 /* SiteInfoHeaderView.swift in Sources */,
 				B560913E208A563800399AE4 /* SigninEditingState.swift in Sources */,
 				B56090CF208A4F5400399AE4 /* NUXCollectionViewController.swift in Sources */,
 				1A21EE9822832BC300C940C6 /* WordPressComOAuthClientFacade+Swift.swift in Sources */,
 				B5ED7920207E993E00A8FD8C /* WPAuthenticatorLogging.m in Sources */,
+				CE0F951A24056DE000A345DD /* AuthLoginPrologueLoginMethodViewController.swift in Sources */,
+				CE0F952624056DE000A345DD /* AuthLoginProloguePromoViewController.swift in Sources */,
+				CE0F94CD24056CBE00A345DD /* AuthNUXTableViewController.swift in Sources */,
 				B5609138208A563800399AE4 /* LoginSiteAddressViewController.swift in Sources */,
+				CE0F951924056DE000A345DD /* AuthLoginSelfHostedViewController.swift in Sources */,
 				B560910B208A54F800399AE4 /* LoginFacade.m in Sources */,
 				CE30A2AD2257CECC00DF3CDA /* AuthenticatorCredentials.swift in Sources */,
+				CE0F952224056DE000A345DD /* AuthLoginEmailViewController.swift in Sources */,
 				B5609145208A563800399AE4 /* LoginViewController.swift in Sources */,
 				B5609139208A563800399AE4 /* LoginEmailViewController.swift in Sources */,
 				3F550D5323DA4AC6007E5897 /* URLHandler.swift in Sources */,
@@ -964,25 +1146,37 @@
 				B56090F9208A533200399AE4 /* WordPressAuthenticator+Events.swift in Sources */,
 				020BE74A23B0BD2E007FE54C /* WordPressAuthenticatorDisplayImages.swift in Sources */,
 				B560913A208A563800399AE4 /* LoginLinkRequestViewController.swift in Sources */,
+				CE0F952324056DE000A345DD /* AuthLogin2FAViewController.swift in Sources */,
+				CE0F94CB24056CBE00A345DD /* AuthNUXKeyboardResponder.swift in Sources */,
+				CE0F951524056DE000A345DD /* AuthSignupEmailViewController.swift in Sources */,
+				CE0F951624056DE000A345DD /* AuthLoginViewController.swift in Sources */,
 				B560910C208A54F800399AE4 /* WordPressComOAuthClientFacade.m in Sources */,
 				B55272C320B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.m in Sources */,
+				CE0F952524056DE000A345DD /* AuthLoginSiteAddressViewController.swift in Sources */,
 				B56090C7208A4F5400399AE4 /* NUXKeyboardResponder.swift in Sources */,
+				CE0F94CC24056CBE00A345DD /* AuthNUXNavigationController.swift in Sources */,
 				CE1B18D020EEC41600BECC3F /* WordPressAuthenticatorConfiguration.swift in Sources */,
+				CE0F94BE24056CBE00A345DD /* AuthWPNUXMainButton.m in Sources */,
 				CE1B18D220EEC44400BECC3F /* WordPressAuthenticatorStyles.swift in Sources */,
 				B56090F0208A527000399AE4 /* FancyAlertViewController+LoginError.swift in Sources */,
 				CE16177521B6D82200B82A47 /* WordPressAuthenticatorDisplayStrings.swift in Sources */,
 				CE1B18CE20EEC3CB00BECC3F /* WordPressAuthenticatorDelegateProtocol.swift in Sources */,
+				CE0F94C424056CBE00A345DD /* AuthWPWalkthroughOverlayView.m in Sources */,
 				B5609110208A54F800399AE4 /* OnePasswordFacade.swift in Sources */,
 				B5609109208A54F800399AE4 /* SignupService.swift in Sources */,
-				CE0F94A1240569F500A345DD /* AuthNavigationController.swift in Sources */,
 				B560913D208A563800399AE4 /* LoginProloguePageViewController.swift in Sources */,
 				B5609117208A555600399AE4 /* SearchTableViewCell.swift in Sources */,
 				B56090C9208A4F5400399AE4 /* NUXLinkMailViewController.swift in Sources */,
 				B56090F1208A527000399AE4 /* String+Underline.swift in Sources */,
 				B56052A42090B2ED001B91FD /* CircularImageView.swift in Sources */,
+				CE0F952724056DE000A345DD /* AuthLoginSocialErrorViewController.swift in Sources */,
 				B5609141208A563800399AE4 /* LoginPrologueViewController.swift in Sources */,
 				B56090EB208A51D000399AE4 /* LoginFields.swift in Sources */,
+				CE0F94C624056CBE00A345DD /* AuthNUXLinkAuthViewController.swift in Sources */,
 				B56090FB208A533200399AE4 /* WordPressSupportSourceTag.swift in Sources */,
+				CE0F94BD24056CBE00A345DD /* AuthNUXSegueHandler.swift in Sources */,
+				CE0F94CA24056CBE00A345DD /* AuthNUXButtonViewController.swift in Sources */,
+				CE0F951824056DE000A345DD /* AuthAppleAuthenticator.swift in Sources */,
 				B56090C6208A4F5400399AE4 /* NUXButtonViewController.swift in Sources */,
 				B5609121208A555E00399AE4 /* SignupEmailViewController.swift in Sources */,
 				B5609107208A54F800399AE4 /* WordPressComBlogService.swift in Sources */,
@@ -990,17 +1184,27 @@
 				B5ED791F207E993E00A8FD8C /* CocoaLumberjack.swift in Sources */,
 				B5609123208A557700399AE4 /* WordPressComSiteInfo.swift in Sources */,
 				B56090CC208A4F5400399AE4 /* NUXTableViewController.swift in Sources */,
+				CE0F951324056DE000A345DD /* AuthSignupNavigationController.swift in Sources */,
 				CE30A2A722579F4100DF3CDA /* LoginUsernamePasswordViewController.swift in Sources */,
 				CE30A2A92257C60500DF3CDA /* WordPressOrgCredentials.swift in Sources */,
+				CE0F951D24056DE000A345DD /* AuthLoginSocialErrorCell.swift in Sources */,
 				B56090CB208A4F5400399AE4 /* NUXNavigationController.swift in Sources */,
 				B560911F208A555E00399AE4 /* SignupGoogleViewController.swift in Sources */,
 				B5609142208A563800399AE4 /* LoginNavigationController.swift in Sources */,
+				CE0F952424056DE000A345DD /* AuthLoginProloguePageViewController.swift in Sources */,
 				B56090E4208A4F9D00399AE4 /* WPNUXMainButton.m in Sources */,
+				CE0F94D224056CBE00A345DD /* AuthWPHelpIndicatorView.swift in Sources */,
+				CE0F94D324056CBE00A345DD /* AuthNUXLinkMailViewController.swift in Sources */,
 				3FFF2FC323D7F53200D38C77 /* AppSelector.swift in Sources */,
+				CE0F94BF24056CBE00A345DD /* AuthNUXViewController.swift in Sources */,
+				CE0F951C24056DE000A345DD /* AuthLoginLinkRequestViewController.swift in Sources */,
 				B560913B208A563800399AE4 /* LoginSelfHostedViewController.swift in Sources */,
+				CE0F952824056DE000A345DD /* AuthSigninEditingState.swift in Sources */,
 				B5609136208A563800399AE4 /* Login2FAViewController.swift in Sources */,
 				B56090E1208A4F9D00399AE4 /* WPWalkthroughTextField.m in Sources */,
+				CE0F94C224056CBE00A345DD /* AuthWPNUXSecondaryButton.m in Sources */,
 				B56090EF208A527000399AE4 /* WPStyleGuide+Login.swift in Sources */,
+				CE0F951724056DE000A345DD /* AuthLoginPrologueSignupMethodViewController.swift in Sources */,
 				B56090D0208A4F5400399AE4 /* NUXViewControllerBase.swift in Sources */,
 				3F550D5123DA4A9C007E5897 /* LinkMailPresenter.swift in Sources */,
 				B56090DE208A4F9D00399AE4 /* WPWalkthroughOverlayView.m in Sources */,
