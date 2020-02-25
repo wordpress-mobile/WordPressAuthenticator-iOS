@@ -6,7 +6,7 @@ import UIKit
     @objc optional func tertiaryButtonPressed()
 }
 
-private struct NUXButtonConfig {
+private struct AuthNUXButtonConfig {
     typealias CallBackType = () -> Void
 
     let title: String
