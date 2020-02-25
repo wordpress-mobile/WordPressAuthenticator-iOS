@@ -159,10 +159,10 @@
             </objects>
             <point key="canvasLocation" x="2669.5999999999999" y="146.17691154422789"/>
         </scene>
-        <!--LoginWPcomPassword-->
+        <!--AuthLoginWPcomPassword-->
         <scene sceneID="mn2-Hn-7VV">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AuthLoginWPcomPassword" storyboardName="AuthLogin" referencedIdentifier="LoginWPcomPassword" id="x7Q-Q4-j7h" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="AuthLoginWPcomPassword" storyboardName="AuthLogin" referencedIdentifier="AuthLoginWPcomPassword" id="x7Q-Q4-j7h" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODH-aE-Rej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2670" y="616"/>
