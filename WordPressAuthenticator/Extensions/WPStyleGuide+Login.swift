@@ -281,4 +281,25 @@ extension WPStyleGuide {
 
         return labelString
     }
+
+    // MARK: - Duplicated login buttons
+    /// Adds a 1password button to an AuthWPWalkthroughTextField, if available
+    ///
+    class func configureOnePasswordButtonForTextfield(_ textField: AuthWPWalkthroughTextField, target: NSObject, selector: Selector) {
+        guard OnePasswordFacade.isOnePasswordEnabled else {
+            return
+        }
+
+        let onePasswordButton = UIButton(type: .custom)
+        onePasswordButton.setImage(.onePasswordImage, for: .normal)
+        onePasswordButton.sizeToFit()
+
+        onePasswordButton.accessibilityLabel =
+            NSLocalizedString("Fill with password manager", comment: "The password manager button in login pages. The button opens a dialog showing which password manager to use (e.g. 1Password, LastPass). ")
+
+        textField.rightView = onePasswordButton
+        textField.rightViewMode = .always
+
+        onePasswordButton.addTarget(target, action: selector, for: .touchUpInside)
+    }
 }
