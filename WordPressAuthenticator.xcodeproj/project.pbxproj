@@ -561,6 +561,7 @@
 		B5ED78F6207E976500A8FD8C /* WordPressAuthenticator */ = {
 			isa = PBXGroup;
 			children = (
+				CE0F94952405659100A345DD /* Classes */,
 				CE1B18CA20EEC31000BECC3F /* Credentials */,
 				B5609099208A4EAF00399AE4 /* Authenticator */,
 				3F550D4F23DA4A6B007E5897 /* Email Client Picker */,
@@ -615,6 +616,30 @@
 				B55272C120B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.m */,
 			);
 			path = Logging;
+			sourceTree = "<group>";
+		};
+		CE0F94952405659100A345DD /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F949B2405686000A345DD /* Base Classes */,
+				CE0F9496240566D200A345DD /* Unified Login & Signup */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		CE0F9496240566D200A345DD /* Unified Login & Signup */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F9497240567F900A345DD /* AuthEmailMagicLink.storyboard */,
+			);
+			path = "Unified Login & Signup";
+			sourceTree = "<group>";
+		};
+		CE0F949B2405686000A345DD /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Base Classes";
 			sourceTree = "<group>";
 		};
 		CE1B18CA20EEC31000BECC3F /* Credentials */ = {
