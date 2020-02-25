@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Link Auth View Controller-->
+        <!--AuthNUX Link Auth View Controller-->
         <scene sceneID="SIF-Pr-Kgx">
             <objects>
-                <viewController storyboardIdentifier="LinkAuthView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VcT-PA-0lj" customClass="NUXLinkAuthViewController" customModule="WordPressAuthenticator" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LinkAuthView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VcT-PA-0lj" customClass="AuthNUXLinkAuthViewController" customModule="WordPressAuthenticator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e8j-zJ-CeU"/>
                         <viewControllerLayoutGuide type="bottom" id="ftd-m3-Cpd"/>
@@ -27,7 +24,7 @@
                                 <color key="color" red="0.18039215689999999" green="0.2274509804" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bnl-db-peA">
-                                <rect key="frame" x="170.5" y="359.5" width="33" height="16"/>
+                                <rect key="frame" x="171" y="359.5" width="33" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.18039215689999999" green="0.2274509804" blue="0.32549019610000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -49,10 +46,10 @@
             </objects>
             <point key="canvasLocation" x="3385" y="146"/>
         </scene>
-        <!--Link Mail View Controller-->
+        <!--AuthNUX Link Mail View Controller-->
         <scene sceneID="zhV-IL-bW4">
             <objects>
-                <viewController storyboardIdentifier="LinkMailView" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GSd-vy-rpZ" customClass="NUXLinkMailViewController" customModule="WordPressAuthenticator" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LinkMailView" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GSd-vy-rpZ" customClass="AuthNUXLinkMailViewController" customModule="WordPressAuthenticator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="s8Z-uG-nj5"/>
                         <viewControllerLayoutGuide type="bottom" id="vKK-Mm-0yR"/>
@@ -72,7 +69,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your magic link is on its way! Check your email on this device, and tap the link in the email you receive from WordPress.com" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkM-xx-821">
-                                        <rect key="frame" x="0.0" y="190" width="303" height="86.5"/>
+                                        <rect key="frame" x="1" y="190" width="301" height="86.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="21" id="0nV-Yg-je4"/>
                                             <constraint firstAttribute="width" constant="320" id="2JY-7V-RVK"/>
@@ -91,7 +88,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Iy-9H-ykD" customClass="NUXButton" customModule="WordPressAuthenticator" >
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Iy-9H-ykD" customClass="NUXButton" customModule="WordPressAuthenticator">
                                         <rect key="frame" x="114" y="306.5" width="75" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="tyz-kt-Arb"/>
@@ -122,7 +119,7 @@
                                     </mask>
                                 </variation>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-LO-6ax" customClass="SubheadlineButton" customModule="WordPressAuthenticator" >
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b0O-LO-6ax" customClass="SubheadlineButton" customModule="WordPressAuthenticator">
                                 <rect key="frame" x="0.0" y="617" width="375" height="30"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <state key="normal" title="Enter your password instead">
@@ -165,7 +162,7 @@
         <!--LoginWPcomPassword-->
         <scene sceneID="mn2-Hn-7VV">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="LoginWPcomPassword" storyboardName="Login" referencedIdentifier="LoginWPcomPassword" id="x7Q-Q4-j7h" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="AuthLoginWPcomPassword" storyboardName="AuthLogin" referencedIdentifier="LoginWPcomPassword" id="x7Q-Q4-j7h" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODH-aE-Rej" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2670" y="616"/>
