@@ -5,9 +5,9 @@ import WordPressUI
 import GoogleSignIn
 import WordPressKit
 
-class LoginPrologueViewController: LoginViewController {
+class AuthLoginPrologueViewController: AuthLoginViewController {
 
-    private var buttonViewController: NUXButtonViewController?
+    private var buttonViewController: AuthNUXButtonViewController?
     var showCancel = false
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -42,10 +42,10 @@ class LoginPrologueViewController: LoginViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let vc = segue.destination as? NUXButtonViewController {
+        if let vc = segue.destination as? AuthNUXButtonViewController {
             buttonViewController = vc
         }
-        else if let vc = segue.destination as? LoginPrologueSignupMethodViewController {
+        else if let vc = segue.destination as? AuthLoginPrologueSignupMethodViewController {
             vc.transitioningDelegate = self
             vc.emailTapped = { [weak self] in
                 self?.performSegue(withIdentifier: .showSigninV2, sender: self)
@@ -59,7 +59,7 @@ class LoginPrologueViewController: LoginViewController {
             vc.modalPresentationStyle = .custom
         }
 
-        else if let vc = segue.destination as? LoginPrologueLoginMethodViewController {
+        else if let vc = segue.destination as? AuthLoginPrologueLoginMethodViewController {
             vc.transitioningDelegate = self
             
             vc.emailTapped = { [weak self] in
@@ -128,7 +128,7 @@ class LoginPrologueViewController: LoginViewController {
 
 // MARK: - AppleAuthenticatorDelegate
 
-extension LoginPrologueViewController: AppleAuthenticatorDelegate {
+extension AuthLoginPrologueViewController: AuthAppleAuthenticatorDelegate {
 
     func showWPComLogin(loginFields: LoginFields) {
         self.loginFields = loginFields
@@ -148,7 +148,7 @@ extension LoginPrologueViewController: AppleAuthenticatorDelegate {
 
 // MARK: - Social LoginFacadeDelegate Methods
 
-extension LoginPrologueViewController {
+extension AuthLoginPrologueViewController {
     
     override open func displayRemoteError(_ error: Error) {
         configureViewLoading(false)
@@ -173,7 +173,7 @@ extension LoginPrologueViewController {
 
 // MARK: - GIDSignInDelegate
 
-extension LoginPrologueViewController: GIDSignInDelegate {
+extension AuthLoginPrologueViewController: GIDSignInDelegate {
     open func sign(_ signIn: GIDSignIn?, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
         signInGoogleAccount(signIn, didSignInFor: user, withError: error)
     }
