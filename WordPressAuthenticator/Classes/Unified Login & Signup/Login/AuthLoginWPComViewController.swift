@@ -4,8 +4,8 @@ import WordPressKit
 
 /// Provides a form and functionality for signing a user in to WordPress.com
 ///
-class LoginWPComViewController: LoginViewController, NUXKeyboardResponder {
-    @IBOutlet weak var passwordField: WPWalkthroughTextField?
+class AuthLoginWPComViewController: AuthLoginViewController, AuthNUXKeyboardResponder {
+    @IBOutlet weak var passwordField: AuthWPWalkthroughTextField?
     @IBOutlet weak var forgotPasswordButton: UIButton?
     @IBOutlet weak var bottomContentConstraint: NSLayoutConstraint?
     @IBOutlet weak var verticalCenterConstraint: NSLayoutConstraint?
@@ -75,7 +75,7 @@ class LoginWPComViewController: LoginViewController, NUXKeyboardResponder {
         guard let emailStackView = emailStackView else { return }
         WPStyleGuide.configureOnePasswordButtonForStackView(emailStackView,
                                                             target: self,
-                                                            selector: #selector(LoginWPComViewController.handleOnePasswordButtonTapped(_:)))
+                                                            selector: #selector(AuthLoginWPComViewController.handleOnePasswordButtonTapped(_:)))
     }
 
     /// Configures the appearance and state of the submit button.
@@ -247,7 +247,7 @@ class LoginWPComViewController: LoginViewController, NUXKeyboardResponder {
     }
 }
 
-extension LoginWPComViewController: UITextFieldDelegate {
+extension AuthLoginWPComViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if enableSubmit(animating: false) {
             validateForm()
@@ -256,7 +256,7 @@ extension LoginWPComViewController: UITextFieldDelegate {
     }
 }
 
-extension LoginWPComViewController {
+extension AuthLoginWPComViewController {
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
