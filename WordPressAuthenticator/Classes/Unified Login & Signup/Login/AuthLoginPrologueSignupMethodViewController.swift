@@ -3,9 +3,9 @@ import WordPressUI
 import WordPressShared
 
 
-class LoginPrologueSignupMethodViewController: NUXViewController {
+class AuthLoginPrologueSignupMethodViewController: AuthNUXViewController {
     /// Buttons at bottom of screen
-    private var buttonViewController: NUXButtonViewController?
+    private var buttonViewController: AuthNUXButtonViewController?
 
     /// Gesture recognizer for taps on the dialog if no buttons are present
     fileprivate var dismissGestureRecognizer: UITapGestureRecognizer?
