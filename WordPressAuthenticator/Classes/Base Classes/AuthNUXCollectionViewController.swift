@@ -1,7 +1,7 @@
 // MARK: - NUXCollectionViewController
 /// Base class to use for NUX view controllers that are also a table view controller
 /// Note: shares most of its code with NUXViewController and NUXTableViewController.
-open class NUXCollectionViewController: UICollectionViewController, NUXViewControllerBase, UIViewControllerTransitioningDelegate {
+open class AuthNUXCollectionViewController: UICollectionViewController, AuthNUXViewControllerBase, UIViewControllerTransitioningDelegate {
     // MARK: NUXViewControllerBase properties
     /// these properties comply with NUXViewControllerBase and are duplicated with NUXTableViewController
     public var helpNotificationIndicator: WPHelpIndicatorView = WPHelpIndicatorView()
