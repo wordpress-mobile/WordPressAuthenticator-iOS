@@ -6,13 +6,13 @@ import WordPressKit
 
 /// This is the first screen following the log in prologue screen if the user chooses to log in.
 ///
-open class LoginEmailViewController: LoginViewController, NUXKeyboardResponder {
-    @IBOutlet var emailTextField: WPWalkthroughTextField!
+open class AuthLoginEmailViewController: AuthLoginViewController, AuthNUXKeyboardResponder {
+    @IBOutlet var emailTextField: AuthWPWalkthroughTextField!
     @IBOutlet open var bottomContentConstraint: NSLayoutConstraint?
     @IBOutlet open var verticalCenterConstraint: NSLayoutConstraint?
     @IBOutlet var inputStack: UIStackView?
     @IBOutlet var alternativeLoginLabel: UILabel?
-    @IBOutlet var hiddenPasswordField: WPWalkthroughTextField?
+    @IBOutlet var hiddenPasswordField: AuthWPWalkthroughTextField?
 
     var googleLoginButton: UIButton?
     var selfHostedLoginButton: UIButton?
@@ -496,7 +496,7 @@ open class LoginEmailViewController: LoginViewController, NUXKeyboardResponder {
 // MARK: - Google Sign In
 
 // LoginFacadeDelegate methods for Google Google Sign In
-extension LoginEmailViewController {
+extension AuthLoginEmailViewController {
     func finishedLogin(withGoogleIDToken googleIDToken: String, authToken: String) {
         googleFinishedLogin(withGoogleIDToken: googleIDToken, authToken: authToken)
     }
@@ -512,7 +512,7 @@ extension LoginEmailViewController {
     }
 }
 
-extension LoginEmailViewController: GIDSignInDelegate {
+extension AuthLoginEmailViewController: GIDSignInDelegate {
     open func sign(_ signIn: GIDSignIn?, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
         signInGoogleAccount(signIn, didSignInFor: user, withError: error)
     }
