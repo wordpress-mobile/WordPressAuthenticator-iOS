@@ -1,7 +1,7 @@
-#import "WPNUXPrimaryButton.h"
+#import "AuthWPNUXPrimaryButton.h"
 #import <WordPressShared/WPFontManager.h>
 
-@implementation WPNUXPrimaryButton
+@implementation AuthWPNUXPrimaryButton
 
 - (id)initWithFrame:(CGRect)frame
 {
