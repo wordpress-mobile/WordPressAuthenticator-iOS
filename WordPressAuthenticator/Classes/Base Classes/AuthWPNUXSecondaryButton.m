@@ -1,11 +1,11 @@
-#import "WPNUXSecondaryButton.h"
+#import "AuthWPNUXSecondaryButton.h"
 #import <WordPressShared/WPFontManager.h>
 
 
 static UIEdgeInsets const WPNUXSecondaryButtonTitleEdgeInsets = {0, 15.0, 0, 15.0};
 
 
-@implementation WPNUXSecondaryButton
+@implementation AuthWPNUXSecondaryButton
 
 - (instancetype)initWithFrame:(CGRect)frame
 {

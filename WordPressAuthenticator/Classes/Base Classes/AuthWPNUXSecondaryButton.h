@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface WPNUXSecondaryButton : UIButton
+@interface AuthWPNUXSecondaryButton : UIButton
 
 @end
