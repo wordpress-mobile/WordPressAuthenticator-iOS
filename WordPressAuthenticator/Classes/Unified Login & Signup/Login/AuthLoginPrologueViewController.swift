@@ -120,8 +120,8 @@ class AuthLoginPrologueViewController: AuthLoginViewController {
     }
 
     private func appleTapped() {
-        AppleAuthenticator.sharedInstance.delegate = self
-        AppleAuthenticator.sharedInstance.showFrom(viewController: self)
+        AuthAppleAuthenticator.sharedInstance.delegate = self
+        AuthAppleAuthenticator.sharedInstance.showFrom(viewController: self)
     }
 
 }
