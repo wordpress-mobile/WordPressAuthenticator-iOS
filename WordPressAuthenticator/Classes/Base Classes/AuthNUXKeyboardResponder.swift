@@ -1,12 +1,12 @@
 // The signin forms are centered, and then adjusted for the combined height of
 // the status bar and navigation bar. -(20 + 44).
 // If this value is changed be sure to update the storyboard for consistency.
-let NUXKeyboardDefaultFormVerticalOffset: CGFloat = -64.0
+let AuthNUXKeyboardDefaultFormVerticalOffset: CGFloat = -64.0
 
 /// A protocol and extension encapsulating common keyboard releated logic for
 /// Signin controllers.
 ///
-public protocol NUXKeyboardResponder: class {
+public protocol AuthNUXKeyboardResponder: class {
     var bottomContentConstraint: NSLayoutConstraint? {get}
     var verticalCenterConstraint: NSLayoutConstraint? {get}
 
@@ -19,7 +19,7 @@ public protocol NUXKeyboardResponder: class {
     func keyboardWillHide(_ notification: Foundation.Notification)
 }
 
-public extension NUXKeyboardResponder where Self: NUXViewController {
+public extension AuthNUXKeyboardResponder where Self: AuthNUXViewController {
 
     /// Registeres the receiver for keyboard events using the passed selectors.
     /// We pass the selectors this way so we can encapsulate functionality in a
