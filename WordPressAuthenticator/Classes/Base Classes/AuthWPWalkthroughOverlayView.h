@@ -1,20 +1,20 @@
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSUInteger, WPWalkthroughOverlayViewOverlayMode) {
+typedef NS_ENUM(NSUInteger, AuthWPWalkthroughOverlayViewOverlayMode) {
     WPWalkthroughGrayOverlayViewOverlayModeTapToDismiss,
     WPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode,
     WPWalkthroughGrayOverlayViewOverlayModePrimaryButton
 };
 
-typedef NS_ENUM(NSUInteger, WPWalkthroughOverlayViewIcon) {
+typedef NS_ENUM(NSUInteger, AuthWPWalkthroughOverlayViewIcon) {
     WPWalkthroughGrayOverlayViewWarningIcon,
     WPWalkthroughGrayOverlayViewBlueCheckmarkIcon,
 };
 
-@interface WPWalkthroughOverlayView : UIView
+@interface AuthWPWalkthroughOverlayView : UIView
 
-@property (nonatomic, assign) WPWalkthroughOverlayViewOverlayMode overlayMode;
-@property (nonatomic, assign) WPWalkthroughOverlayViewIcon icon;
+@property (nonatomic, assign) AuthWPWalkthroughOverlayViewOverlayMode overlayMode;
+@property (nonatomic, assign) AuthWPWalkthroughOverlayViewIcon icon;
 @property (nonatomic, strong) NSString *overlayTitle;
 @property (nonatomic, strong) NSString *overlayDescription;
 @property (nonatomic, strong) NSString *footerDescription;
@@ -22,9 +22,9 @@ typedef NS_ENUM(NSUInteger, WPWalkthroughOverlayViewIcon) {
 @property (nonatomic, strong) NSString *primaryButtonText;
 @property (nonatomic, assign) BOOL hideBackgroundView;
 
-@property (nonatomic, copy) void (^dismissCompletionBlock)(WPWalkthroughOverlayView *);
-@property (nonatomic, copy) void (^secondaryButtonCompletionBlock)(WPWalkthroughOverlayView *);
-@property (nonatomic, copy) void (^primaryButtonCompletionBlock)(WPWalkthroughOverlayView *);
+@property (nonatomic, copy) void (^dismissCompletionBlock)(AuthWPWalkthroughOverlayView *);
+@property (nonatomic, copy) void (^secondaryButtonCompletionBlock)(AuthWPWalkthroughOverlayView *);
+@property (nonatomic, copy) void (^primaryButtonCompletionBlock)(AuthWPWalkthroughOverlayView *);
 
 - (void)dismiss;
 

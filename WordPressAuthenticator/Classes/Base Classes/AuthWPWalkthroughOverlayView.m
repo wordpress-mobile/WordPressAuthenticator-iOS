@@ -1,17 +1,17 @@
-#import "WPWalkthroughOverlayView.h"
-#import "WPNUXPrimaryButton.h"
-#import "WPNUXSecondaryButton.h"
+#import "AuthWPWalkthroughOverlayView.h"
+#import "AuthWPNUXPrimaryButton.h"
+#import "AuthWPNUXSecondaryButton.h"
 #import <WordPressUI/UILabel+SuggestSize.h>
 #import <WordPressShared/WPFontManager.h>
 #import <WordPressShared/WPNUXUtility.h>
 
-@interface WPWalkthroughOverlayView() {
+@interface AuthWPWalkthroughOverlayView() {
     UIImageView *_logo;
     UILabel *_title;
     UILabel *_description;
     UILabel *_bottomLabel;
-    WPNUXSecondaryButton *_secondaryButton;
-    WPNUXPrimaryButton *_primaryButton;
+    AuthWPNUXSecondaryButton *_secondaryButton;
+    AuthWPNUXPrimaryButton *_primaryButton;
 
     CGFloat _viewWidth;
     CGFloat _viewHeight;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation WPWalkthroughOverlayView
+@implementation AuthWPWalkthroughOverlayView
 
 CGFloat const WPWalkthroughGrayOverlayIconVerticalOffset = 75.0;
 CGFloat const WPWalkthroughGrayOverlayStandardOffset = 16.0;
@@ -45,7 +45,7 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
     return self;
 }
 
-- (void)setOverlayMode:(WPWalkthroughOverlayViewOverlayMode)overlayMode
+- (void)setOverlayMode:(AuthWPWalkthroughOverlayViewOverlayMode)overlayMode
 {
     if (_overlayMode != overlayMode) {
         _overlayMode = overlayMode;
@@ -101,7 +101,7 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
     }
 }
 
-- (void)setIcon:(WPWalkthroughOverlayViewIcon)icon
+- (void)setIcon:(AuthWPWalkthroughOverlayViewIcon)icon
 {
     if (_icon != icon) {
         _icon = icon;
