@@ -3,7 +3,7 @@
 
 
 
-NSInteger const LeftImageSpacing = 8;
+NSInteger const AuthLeftImageSpacing = 8;
 
 @import Gridicons;
 
@@ -97,7 +97,7 @@ NSInteger const LeftImageSpacing = 8;
     }
 
     if (@available(iOS 13.0, *)) {
-        self.leadingViewInsets = UIEdgeInsetsMake(0, 0, 0, LeftImageSpacing);
+        self.leadingViewInsets = UIEdgeInsetsMake(0, 0, 0, AuthLeftImageSpacing);
     }
 }
 

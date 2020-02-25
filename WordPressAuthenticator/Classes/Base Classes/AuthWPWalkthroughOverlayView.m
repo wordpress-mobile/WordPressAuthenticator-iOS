@@ -23,11 +23,11 @@
 
 @implementation AuthWPWalkthroughOverlayView
 
-CGFloat const WPWalkthroughGrayOverlayIconVerticalOffset = 75.0;
-CGFloat const WPWalkthroughGrayOverlayStandardOffset = 16.0;
-CGFloat const WPWalkthroughGrayOverlayBottomLabelOffset = 91.0;
-CGFloat const WPWalkthroughGrayOverlayBottomPanelHeight = 64.0;
-CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
+CGFloat const AuthWPWalkthroughGrayOverlayIconVerticalOffset = 75.0;
+CGFloat const AuthWPWalkthroughGrayOverlayStandardOffset = 16.0;
+CGFloat const AuthWPWalkthroughGrayOverlayBottomLabelOffset = 91.0;
+CGFloat const AuthWPWalkthroughGrayOverlayBottomPanelHeight = 64.0;
+CGFloat const AuthWPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -131,33 +131,33 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
     // Layout Logo
     [self configureIcon];
     x = (_viewWidth - CGRectGetWidth(_logo.frame))/2.0;
-    y = WPWalkthroughGrayOverlayIconVerticalOffset;
+    y = AuthWPWalkthroughGrayOverlayIconVerticalOffset;
     _logo.frame = CGRectIntegral(CGRectMake(x, y, CGRectGetWidth(_logo.frame), CGRectGetHeight(_logo.frame)));
 
     // Layout Title
-    CGSize titleSize = [_title suggestedSizeForWidth:WPWalkthroughGrayOverlayMaxLabelWidth];
+    CGSize titleSize = [_title suggestedSizeForWidth:AuthWPWalkthroughGrayOverlayMaxLabelWidth];
     x = (_viewWidth - titleSize.width)/2.0;
-    y = CGRectGetMaxY(_logo.frame) + 0.5*WPWalkthroughGrayOverlayStandardOffset;
+    y = CGRectGetMaxY(_logo.frame) + 0.5 * AuthWPWalkthroughGrayOverlayStandardOffset;
     _title.frame = CGRectIntegral(CGRectMake(x, y, titleSize.width, titleSize.height));
 
     // Layout Description
-    CGSize labelSize = [_description suggestedSizeForWidth:WPWalkthroughGrayOverlayMaxLabelWidth];
+    CGSize labelSize = [_description suggestedSizeForWidth: AuthWPWalkthroughGrayOverlayMaxLabelWidth];
     x = (_viewWidth - labelSize.width)/2.0;
-    y = CGRectGetMaxY(_title.frame) + 0.5*WPWalkthroughGrayOverlayStandardOffset;
+    y = CGRectGetMaxY(_title.frame) + 0.5 * AuthWPWalkthroughGrayOverlayStandardOffset;
     _description.frame = CGRectIntegral(CGRectMake(x, y, labelSize.width, labelSize.height));
 
     // Layout Bottom Label
     CGSize bottomLabelSize = [_bottomLabel.text sizeWithAttributes:@{NSFontAttributeName:_bottomLabel.font}];
     x = (_viewWidth - bottomLabelSize.width)/2.0;
-    y = _viewHeight - WPWalkthroughGrayOverlayBottomLabelOffset;
+    y = _viewHeight - AuthWPWalkthroughGrayOverlayBottomLabelOffset;
     _bottomLabel.frame = CGRectIntegral(CGRectMake(x, y, bottomLabelSize.width, bottomLabelSize.height));
 
     // Layout Bottom Buttons
     if (self.overlayMode == AuthWPWalkthroughGrayOverlayViewOverlayModePrimaryButton ||
         self.overlayMode == AuthWPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode) {
 
-        x = _viewWidth - CGRectGetWidth(_primaryButton.frame) - WPWalkthroughGrayOverlayStandardOffset;
-        y = (_viewHeight - WPWalkthroughGrayOverlayBottomPanelHeight + WPWalkthroughGrayOverlayStandardOffset);
+        x = _viewWidth - CGRectGetWidth(_primaryButton.frame) - AuthWPWalkthroughGrayOverlayStandardOffset;
+        y = (_viewHeight - AuthWPWalkthroughGrayOverlayBottomPanelHeight + AuthWPWalkthroughGrayOverlayStandardOffset);
         _primaryButton.frame = CGRectIntegral(CGRectMake(x, y, CGRectGetWidth(_primaryButton.frame), CGRectGetHeight(_primaryButton.frame)));
     } else {
         _primaryButton.frame = CGRectZero;
@@ -165,8 +165,8 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
 
     if (self.overlayMode == AuthWPWalkthroughGrayOverlayViewOverlayModeTwoButtonMode) {
 
-        x = WPWalkthroughGrayOverlayStandardOffset;
-        y = (_viewHeight - WPWalkthroughGrayOverlayBottomPanelHeight + WPWalkthroughGrayOverlayStandardOffset);
+        x = AuthWPWalkthroughGrayOverlayStandardOffset;
+        y = (_viewHeight - AuthWPWalkthroughGrayOverlayBottomPanelHeight + AuthWPWalkthroughGrayOverlayStandardOffset);
         _secondaryButton.frame = CGRectIntegral(CGRectMake(x, y, CGRectGetWidth(_secondaryButton.frame), CGRectGetHeight(_secondaryButton.frame)));
     } else {
         _secondaryButton.frame = CGRectZero;
@@ -291,8 +291,8 @@ CGFloat const WPWalkthroughGrayOverlayMaxLabelWidth = 289.0;
 
     // To avoid accidentally dismissing the view when the user was trying to tap one of the buttons,
     // add some padding around the button frames.
-    CGRect button1Frame = CGRectInset(_secondaryButton.frame, -2 * WPWalkthroughGrayOverlayStandardOffset, -WPWalkthroughGrayOverlayStandardOffset);
-    CGRect button2Frame = CGRectInset(_primaryButton.frame, -2 * WPWalkthroughGrayOverlayStandardOffset, -WPWalkthroughGrayOverlayStandardOffset);
+    CGRect button1Frame = CGRectInset(_secondaryButton.frame, -2 * AuthWPWalkthroughGrayOverlayStandardOffset, -AuthWPWalkthroughGrayOverlayStandardOffset);
+    CGRect button2Frame = CGRectInset(_primaryButton.frame, -2 * AuthWPWalkthroughGrayOverlayStandardOffset, -AuthWPWalkthroughGrayOverlayStandardOffset);
 
     BOOL touchedButton1 = CGRectContainsPoint(button1Frame, touchPoint);
     BOOL touchedButton2 = CGRectContainsPoint(button2Frame, touchPoint);
