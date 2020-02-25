@@ -1,7 +1,7 @@
 #import <UIKit/UIKit.h>
 
 IB_DESIGNABLE
-@interface WPWalkthroughTextField : UITextField
+@interface AuthWPWalkthroughTextField : UITextField
 
 @property (nonatomic) IBInspectable BOOL showTopLineSeparator;
 @property (nonatomic) IBInspectable BOOL showSecureTextEntryToggle;

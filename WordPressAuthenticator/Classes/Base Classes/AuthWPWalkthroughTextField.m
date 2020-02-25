@@ -1,4 +1,4 @@
-#import "WPWalkthroughTextField.h"
+#import "AuthWPWalkthroughTextField.h"
 #import <WordPressShared/WordPressShared.h>
 
 
@@ -7,13 +7,13 @@ NSInteger const LeftImageSpacing = 8;
 
 @import Gridicons;
 
-@interface WPWalkthroughTextField ()
+@interface AuthWPWalkthroughTextField ()
 @property (nonatomic, strong) UIButton *secureTextEntryToggle;
 @property (nonatomic, strong) UIImage *secureTextEntryImageVisible;
 @property (nonatomic, strong) UIImage *secureTextEntryImageHidden;
 @end
 
-@implementation WPWalkthroughTextField
+@implementation AuthWPWalkthroughTextField
 
 - (instancetype)init
 {
