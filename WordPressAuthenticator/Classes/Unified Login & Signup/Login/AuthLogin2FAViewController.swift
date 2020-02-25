@@ -7,7 +7,7 @@ import WordPressKit
 /// Provides a form and functionality for entering a two factor auth code and
 /// signing into WordPress.com
 ///
-class Login2FAViewController: LoginViewController, NUXKeyboardResponder, UITextFieldDelegate {
+class AuthLogin2FAViewController: AuthLoginViewController, AuthNUXKeyboardResponder, UITextFieldDelegate {
 
     @IBOutlet weak var verificationCodeField: LoginTextField!
     @IBOutlet weak var sendCodeButton: UIButton!
@@ -315,7 +315,7 @@ class Login2FAViewController: LoginViewController, NUXKeyboardResponder, UITextF
 }
 
 
-extension Login2FAViewController {
+extension AuthLogin2FAViewController {
 
     override func displayRemoteError(_ error: Error) {
         displayError(message: "")
