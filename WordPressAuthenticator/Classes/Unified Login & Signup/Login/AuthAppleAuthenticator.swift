@@ -3,21 +3,21 @@ import AuthenticationServices
 import WordPressKit
 import SVProgressHUD
 
-@objc protocol AppleAuthenticatorDelegate {
+@objc protocol AuthAppleAuthenticatorDelegate {
     func showWPComLogin(loginFields: LoginFields)
     func showApple2FA(loginFields: LoginFields)
     func authFailedWithError(message: String)
 }
 
-class AppleAuthenticator: NSObject {
+class AuthAppleAuthenticator: NSObject {
 
     // MARK: - Properties
 
-    static var sharedInstance: AppleAuthenticator = AppleAuthenticator()
+    static var sharedInstance: AuthAppleAuthenticator = AuthAppleAuthenticator()
     private override init() {}
     private var showFromViewController: UIViewController?
     private let loginFields = LoginFields()
-    weak var delegate: AppleAuthenticatorDelegate?
+    weak var delegate: AuthAppleAuthenticatorDelegate?
     
     @available(iOS 13.0, *)
     static let credentialRevokedNotification = ASAuthorizationAppleIDProvider.credentialRevokedNotification
@@ -39,7 +39,7 @@ class AppleAuthenticator: NSObject {
 
 }
 
-private extension AppleAuthenticator {
+private extension AuthAppleAuthenticator {
 
     func requestAuthorization() {
         if #available(iOS 13.0, *) {
@@ -193,7 +193,7 @@ private extension AppleAuthenticator {
 }
 
 @available(iOS 13.0, *)
-extension AppleAuthenticator: ASAuthorizationControllerDelegate {
+extension AuthAppleAuthenticator: ASAuthorizationControllerDelegate {
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         switch authorization.credential {
@@ -220,14 +220,14 @@ extension AppleAuthenticator: ASAuthorizationControllerDelegate {
 }
 
 @available(iOS 13.0, *)
-extension AppleAuthenticator: ASAuthorizationControllerPresentationContextProviding {
+extension AuthAppleAuthenticator: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return showFromViewController?.view.window ?? UIWindow()
     }
 }
 
 @available(iOS 13.0, *)
-extension AppleAuthenticator {
+extension AuthAppleAuthenticator {
     func getAppleIDCredentialState(for userID: String,
                                    completion: @escaping (ASAuthorizationAppleIDProvider.CredentialState, Error?) -> Void) {
         ASAuthorizationAppleIDProvider().getCredentialState(forUserID: userID, completion: completion)
