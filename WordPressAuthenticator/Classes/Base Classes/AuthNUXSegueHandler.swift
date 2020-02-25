@@ -1,12 +1,12 @@
 // Based on this article by @NatashaTheRobot:
 // https://www.natashatherobot.com/protocol-oriented-segue-identifiers-swift/
 
-public protocol NUXSegueHandler {
+public protocol AuthNUXSegueHandler {
     associatedtype SegueIdentifier: RawRepresentable
 }
 
-extension NUXSegueHandler where Self: NUXViewController {
-    public func performSegue(withIdentifier identifier: NUXViewController.SegueIdentifier, sender: AnyObject?) {
+extension AuthNUXSegueHandler where Self: AuthNUXViewController {
+    public func performSegue(withIdentifier identifier: AuthNUXViewController.SegueIdentifier, sender: AnyObject?) {
         performSegue(withIdentifier: identifier.rawValue, sender: sender)
     }
 }
