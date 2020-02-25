@@ -4,8 +4,8 @@ import WordPressKit
 import WordPressUI
 
 
-class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder {
-    @IBOutlet weak var siteURLField: WPWalkthroughTextField!
+class AuthLoginSiteAddressViewController: AuthLoginViewController, AuthNUXKeyboardResponder {
+    @IBOutlet weak var siteURLField: AuthWPWalkthroughTextField!
     @IBOutlet var siteAddressHelpButton: UIButton!
     @IBOutlet var bottomContentConstraint: NSLayoutConstraint?
     @IBOutlet var verticalCenterConstraint: NSLayoutConstraint?
@@ -280,7 +280,7 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         
-        if let vc = segue.destination as? LoginPrologueLoginMethodViewController {
+        if let vc = segue.destination as? AuthLoginPrologueLoginMethodViewController {
             vc.transitioningDelegate = self
             
             vc.emailTapped = { [weak self] in
@@ -378,7 +378,7 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
     }
 }
 
-extension LoginSiteAddressViewController: AppleAuthenticatorDelegate {
+extension AuthLoginSiteAddressViewController: AuthAppleAuthenticatorDelegate {
 
     func showWPComLogin(loginFields: LoginFields) {
         self.loginFields = loginFields
