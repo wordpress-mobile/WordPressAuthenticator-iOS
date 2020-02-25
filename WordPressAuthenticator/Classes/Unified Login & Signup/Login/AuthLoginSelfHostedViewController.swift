@@ -6,9 +6,9 @@ import WordPressShared
 ///
 class AuthLoginSelfHostedViewController: AuthLoginViewController, AuthNUXKeyboardResponder {
     @IBOutlet var siteHeaderView: SiteInfoHeaderView!
-    @IBOutlet var usernameField: WPWalkthroughTextField!
-    @IBOutlet var passwordField: WPWalkthroughTextField!
-    @IBOutlet var forgotPasswordButton: WPNUXSecondaryButton!
+    @IBOutlet var usernameField: AuthWPWalkthroughTextField!
+    @IBOutlet var passwordField: AuthWPWalkthroughTextField!
+    @IBOutlet var forgotPasswordButton: AuthWPNUXSecondaryButton!
     @IBOutlet var bottomContentConstraint: NSLayoutConstraint?
     @IBOutlet var verticalCenterConstraint: NSLayoutConstraint?
     @objc var onePasswordButton: UIButton!

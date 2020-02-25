@@ -149,7 +149,7 @@ extension AuthLoginSocialErrorViewController {
     }
 
     private func titleAndDescriptionCell() -> UITableViewCell {
-        return LoginSocialErrorCell(title: errorTitle, description: errorDescription)
+        return AuthLoginSocialErrorCell(title: errorTitle, description: errorDescription)
     }
 
     private func buttonCell(index: Int) -> UITableViewCell {

@@ -3,7 +3,7 @@ import WordPressShared
 import WordPressKit
 
 
-class SignupEmailViewController: LoginViewController, NUXKeyboardResponder {
+class AuthSignupEmailViewController: AuthLoginViewController, AuthNUXKeyboardResponder {
 
     // MARK: - NUXKeyboardResponder Properties
 
@@ -87,8 +87,8 @@ class SignupEmailViewController: LoginViewController, NUXKeyboardResponder {
     ///
     private func configureViewForEditingIfNeeded() {
         // Check the helper to determine whether an editing state should be assumed.
-        adjustViewForKeyboard(SigninEditingState.signinEditingStateActive)
-        if SigninEditingState.signinEditingStateActive {
+        adjustViewForKeyboard(AuthSigninEditingState.signinEditingStateActive)
+        if AuthSigninEditingState.signinEditingStateActive {
             emailField.becomeFirstResponder()
         }
     }
@@ -164,7 +164,7 @@ class SignupEmailViewController: LoginViewController, NUXKeyboardResponder {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
         // Configure login flow to allow only .com login and prefill the email
-        if let destination = segue.destination as? LoginEmailViewController {
+        if let destination = segue.destination as? AuthLoginEmailViewController {
             destination.loginFields.restrictToWPCom = true
             destination.loginFields.username = loginFields.emailAddress
         }

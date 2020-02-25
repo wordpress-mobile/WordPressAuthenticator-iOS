@@ -3,7 +3,7 @@ import SVProgressHUD
 import WordPressShared
 
 /// View controller that handles the google signup code
-class SignupGoogleViewController: LoginViewController {
+class AuthSignupGoogleViewController: AuthLoginViewController {
 
     // MARK: - Properties
 
@@ -62,7 +62,7 @@ class SignupGoogleViewController: LoginViewController {
 
 // MARK: - GIDSignInDelegate
 
-extension SignupGoogleViewController: GIDSignInDelegate {
+extension AuthSignupGoogleViewController: GIDSignInDelegate {
 
     func sign(_ signIn: GIDSignIn?, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
         GIDSignIn.sharedInstance().disconnect()
@@ -81,7 +81,7 @@ extension SignupGoogleViewController: GIDSignInDelegate {
 
 // MARK: - WordPress.com Account Creation Methods
 //
-private extension SignupGoogleViewController {
+private extension AuthSignupGoogleViewController {
 
     /// Creates a WordPress.com account with the associated GoogleUser + GoogleToken + GoogleEmail.
     ///

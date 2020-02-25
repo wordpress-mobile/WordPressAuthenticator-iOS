@@ -239,8 +239,8 @@ open class AuthLoginEmailViewController: AuthLoginViewController, AuthNUXKeyboar
     ///
     func configureViewForEditingIfNeeded() {
         // Check the helper to determine whether an editiing state should be assumed.
-        adjustViewForKeyboard(SigninEditingState.signinEditingStateActive)
-        if SigninEditingState.signinEditingStateActive {
+        adjustViewForKeyboard(AuthSigninEditingState.signinEditingStateActive)
+        if AuthSigninEditingState.signinEditingStateActive {
             emailTextField.becomeFirstResponder()
         }
     }
@@ -392,7 +392,7 @@ open class AuthLoginEmailViewController: AuthLoginViewController, AuthNUXKeyboar
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
 
-        if let vc = segue.destination as? LoginPrologueSignupMethodViewController {
+        if let vc = segue.destination as? AuthLoginPrologueSignupMethodViewController {
             vc.transitioningDelegate = self
             vc.emailTapped = { [weak self] in
                 self?.performSegue(withIdentifier: .showSigninV2, sender: self)
@@ -475,7 +475,7 @@ open class AuthLoginEmailViewController: AuthLoginViewController, AuthNUXKeyboar
 
     func adjustAlternativeLogInElementsVisibility(_ visible: Bool) {
         let errorLength = errorLabel?.text?.count ?? 0
-        let keyboardTallEnough = SigninEditingState.signinLastKeyboardHeightDelta > Constants.keyboardThreshold
+        let keyboardTallEnough = AuthSigninEditingState.signinLastKeyboardHeightDelta > Constants.keyboardThreshold
         let keyboardVisible = visible && keyboardTallEnough
 
         let baseAlpha: CGFloat = errorLength > 0 ? 0.0 : 1.0

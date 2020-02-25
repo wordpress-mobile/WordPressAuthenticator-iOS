@@ -109,8 +109,8 @@ class AuthLoginWPComViewController: AuthLoginViewController, AuthNUXKeyboardResp
     @objc func configureViewForEditingIfNeeded() {
         // Check the helper to determine whether an editiing state should be assumed.
         // Check the helper to determine whether an editiing state should be assumed.
-        adjustViewForKeyboard(SigninEditingState.signinEditingStateActive)
-        if SigninEditingState.signinEditingStateActive {
+        adjustViewForKeyboard(AuthSigninEditingState.signinEditingStateActive)
+        if AuthigninEditingState.signinEditingStateActive {
             passwordField?.becomeFirstResponder()
         }
     }

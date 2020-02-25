@@ -149,8 +149,8 @@ class AuthLoginUsernamePasswordViewController: AuthLoginViewController, AuthNUXK
     ///
     @objc func configureViewForEditingIfNeeded() {
         // Check the helper to determine whether an editiing state should be assumed.
-        adjustViewForKeyboard(SigninEditingState.signinEditingStateActive)
-        if SigninEditingState.signinEditingStateActive {
+        adjustViewForKeyboard(AuthSigninEditingState.signinEditingStateActive)
+        if AuthSigninEditingState.signinEditingStateActive {
             usernameField.becomeFirstResponder()
         }
     }

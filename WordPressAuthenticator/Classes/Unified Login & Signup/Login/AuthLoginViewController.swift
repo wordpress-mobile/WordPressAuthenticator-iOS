@@ -498,7 +498,7 @@ extension AuthLoginViewController: LoginSocialErrorViewControllerDelegate {
         cleanupAfterSocialErrors()
 
         let storyboard = UIStoryboard(name: "Signup", bundle: WordPressAuthenticator.bundle)
-        if let controller = storyboard.instantiateViewController(withIdentifier: "emailEntry") as? SignupEmailViewController {
+        if let controller = storyboard.instantiateViewController(withIdentifier: "emailEntry") as? AuthSignupEmailViewController {
             controller.loginFields = loginFields
             navigationController?.pushViewController(controller, animated: true)
         }

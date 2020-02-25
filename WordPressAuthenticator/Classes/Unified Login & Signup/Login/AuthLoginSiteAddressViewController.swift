@@ -134,8 +134,8 @@ class AuthLoginSiteAddressViewController: AuthLoginViewController, AuthNUXKeyboa
     ///
     @objc func configureViewForEditingIfNeeded() {
         // Check the helper to determine whether an editing state should be assumed.
-        adjustViewForKeyboard(SigninEditingState.signinEditingStateActive)
-        if SigninEditingState.signinEditingStateActive {
+        adjustViewForKeyboard(AuthSigninEditingState.signinEditingStateActive)
+        if AuthSigninEditingState.signinEditingStateActive {
             siteURLField.becomeFirstResponder()
         }
     }
@@ -298,8 +298,8 @@ class AuthLoginSiteAddressViewController: AuthLoginViewController, AuthNUXKeyboa
     }
 
     private func appleTapped() {
-        AppleAuthenticator.sharedInstance.delegate = self
-        AppleAuthenticator.sharedInstance.showFrom(viewController: self)
+        AuthAppleAuthenticator.sharedInstance.delegate = self
+        AuthAppleAuthenticator.sharedInstance.showFrom(viewController: self)
     }
 
     /// Whether the form can be submitted.
