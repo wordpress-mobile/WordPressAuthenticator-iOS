@@ -1,7 +1,7 @@
-#import "WPNUXMainButton.h"
+#import "AuthWPNUXMainButton.h"
 #import <WordPressShared/WPFontManager.h>
 
-@implementation WPNUXMainButton {
+@implementation AuthWPNUXMainButton {
     UIActivityIndicatorView *activityIndicator;
 }
 

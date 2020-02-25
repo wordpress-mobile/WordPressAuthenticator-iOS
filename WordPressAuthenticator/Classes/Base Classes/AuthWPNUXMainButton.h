@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-@interface WPNUXMainButton : UIButton
+@interface AuthWPNUXMainButton : UIButton
 
 - (void)showActivityIndicator:(BOOL)show;
 - (void)setColor:(UIColor *)color;
