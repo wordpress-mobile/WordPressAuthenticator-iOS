@@ -4,7 +4,7 @@ import WordPressShared
 /// Part two of the self-hosted sign in flow. A valid site address should be acquired
 /// before presenting this view controller.
 ///
-class LoginSelfHostedViewController: LoginViewController, NUXKeyboardResponder {
+class AuthLoginSelfHostedViewController: AuthLoginViewController, AuthNUXKeyboardResponder {
     @IBOutlet var siteHeaderView: SiteInfoHeaderView!
     @IBOutlet var usernameField: WPWalkthroughTextField!
     @IBOutlet var passwordField: WPWalkthroughTextField!
@@ -286,7 +286,7 @@ class LoginSelfHostedViewController: LoginViewController, NUXKeyboardResponder {
 }
 
 
-extension LoginSelfHostedViewController {
+extension AuthLoginSelfHostedViewController {
 
     func finishedLogin(withUsername username: String, password: String, xmlrpc: String, options: [AnyHashable: Any]) {
         displayLoginMessage("")
@@ -325,7 +325,7 @@ extension LoginSelfHostedViewController {
 }
 
 
-extension LoginSelfHostedViewController: UITextFieldDelegate {
+extension AuthLoginSelfHostedViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == usernameField {
             passwordField.becomeFirstResponder()
