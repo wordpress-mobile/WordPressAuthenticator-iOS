@@ -10,7 +10,7 @@
         <!--googleSignup-->
         <scene sceneID="GBa-1v-wvb">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Signup" storyboardName="Signup" referencedIdentifier="googleSignup" id="MEg-KS-Afs" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="Signup" storyboardName="AuthSignup" referencedIdentifier="googleSignup" id="MEg-KS-Afs" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjg-XU-5Rh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1384" y="-231"/>
@@ -1188,7 +1188,7 @@
         <!--LinkMailView-->
         <scene sceneID="UUd-M2-Fvg">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="AuthLinkMailView" storyboardName="EmailMagicLink" referencedIdentifier="LinkMailView" id="Aii-0z-zLC" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardIdentifier="AuthLinkMailView" storyboardName="AuthEmailMagicLink" referencedIdentifier="LinkMailView" id="Aii-0z-zLC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTT-3e-E71" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3355" y="255"/>
@@ -1467,14 +1467,14 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5hL-j3-eMs"/>
-        <segue reference="bK1-J1-hfT"/>
-        <segue reference="2Bq-Nv-ZkV"/>
+        <segue reference="Njv-lY-Lyi"/>
+        <segue reference="qLI-qX-rkG"/>
         <segue reference="8p6-rS-9Ml"/>
         <segue reference="TkG-0R-c3i"/>
-        <segue reference="sIC-Hv-FJw"/>
-        <segue reference="D3h-Su-Jwk"/>
+        <segue reference="nCA-u7-fKm"/>
+        <segue reference="1xT-tL-sp6"/>
         <segue reference="JN3-Ck-2w7"/>
-        <segue reference="EmH-Av-vhT"/>
+        <segue reference="gD5-d0-X3t"/>
         <segue reference="pe1-D0-Mpg"/>
     </inferredMetricsTieBreakers>
 </document>
