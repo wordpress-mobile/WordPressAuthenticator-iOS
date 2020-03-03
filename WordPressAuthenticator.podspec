@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.header_dir    = 'WordPressAuthenticator'
 
   s.dependency '1PasswordExtension', '1.8.5'
-  s.dependency 'Alamofire', '4.7.3'
+  s.dependency 'Alamofire', '4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
   s.dependency 'lottie-ios', '2.5.2'
   s.dependency 'NSURL+IDN', '0.3'
@@ -40,6 +40,6 @@ Pod::Spec.new do |s|
   s.dependency 'Gridicons', '~> 0.15'
   s.dependency 'GoogleSignIn', '~> 4.4'
   s.dependency 'WordPressUI', '~> 1.4-beta.1'
-  s.dependency 'WordPressKit', '~> 4.5.6-beta.1'
-  s.dependency 'WordPressShared', '~> 1.8'
+  s.dependency 'WordPressKit', '~> 4.5.8-beta-1'
+  s.dependency 'WordPressShared', '~> 1.8.13-beta'
 end
