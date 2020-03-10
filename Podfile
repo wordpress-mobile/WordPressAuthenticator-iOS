@@ -9,7 +9,7 @@ def wordpress_authenticator_pods
   ## Automattic libraries
   ## ====================
   ##
-  pod 'Gridicons', '~> 0.15'
+  pod 'Gridicons', '~> 0.20-beta.1'
   pod 'WordPressUI', '~> 1.4-beta.1'
   pod 'WordPressKit', '~> 4.6.0-beta.1'
   #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'issue/224-update-wpxmlrpc-pod'
