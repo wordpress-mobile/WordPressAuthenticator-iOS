@@ -11,8 +11,8 @@ def wordpress_authenticator_pods
   ##
   pod 'Gridicons', '~> 0.20-beta.1'
   pod 'WordPressUI', '~> 1.4-beta.1'
-  pod 'WordPressKit', '~> 4.6.0-beta.2'
-  #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'issue/224-update-wpxmlrpc-pod'
+  #pod 'WordPressKit', '~> 4.6.0-beta.6'
+  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'issue/79-migrate-swift-5'
   pod 'WordPressShared', '~> 1.8.13'
 
   ## Third party libraries
@@ -23,7 +23,7 @@ def wordpress_authenticator_pods
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '4.4.0'
   pod 'lottie-ios', '2.5.2'
-  pod 'NSURL+IDN', '0.3'
+  pod 'NSURL+IDN', '0.4'
   pod 'SVProgressHUD', '2.2.5'
 end
 
