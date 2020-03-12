@@ -24,7 +24,7 @@ PODS:
   - GTMSessionFetcher/Core (1.3.1)
   - lottie-ios (2.5.2)
   - NSObject-SafeExpectations (0.0.3)
-  - "NSURL+IDN (0.3)"
+  - "NSURL+IDN (0.4)"
   - OCMock (3.6)
   - OHHTTPStubs (8.0.0):
     - OHHTTPStubs/Default (= 8.0.0)
@@ -65,7 +65,7 @@ DEPENDENCIES:
   - GoogleSignIn (= 4.4.0)
   - Gridicons (~> 0.20-beta.1)
   - lottie-ios (= 2.5.2)
-  - "NSURL+IDN (= 0.3)"
+  - "NSURL+IDN (= 0.4)"
   - OCMock (~> 3.4)
   - OHHTTPStubs (= 8.0.0)
   - OHHTTPStubs/Swift (= 8.0.0)
@@ -111,7 +111,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
   NSObject-SafeExpectations: b989b68a8a9b7b9f2b264a8b52ba9d7aab8f3129
-  "NSURL+IDN": 82355a0afd532fe1de08f6417c134b49b1a1c4b3
+  "NSURL+IDN": afc873e639c18138a1589697c3add197fe8679ca
   OCMock: 5ea90566be239f179ba766fd9fbae5885040b992
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
@@ -122,6 +122,6 @@ SPEC CHECKSUMS:
   WordPressUI: ce0ac522146dabcd0a68ace24c0104dfdf6f4b0d
   wpxmlrpc: d758b6ad17723d31d06493acc932f6d9b340de95
 
-PODFILE CHECKSUM: 52b3df23b7561e96f203b0752935d9e9477b1f10
+PODFILE CHECKSUM: ca3bc3f2f64b30695a77edc0565eee0486e3853a
 
 COCOAPODS: 1.8.4
