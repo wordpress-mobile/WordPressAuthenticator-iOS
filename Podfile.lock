@@ -23,7 +23,7 @@ PODS:
   - Gridicons (0.20-beta.1)
   - GTMSessionFetcher/Core (1.3.1)
   - lottie-ios (2.5.2)
-  - NSObject-SafeExpectations (0.0.3)
+  - NSObject-SafeExpectations (0.0.4)
   - "NSURL+IDN (0.4)"
   - OCMock (3.6)
   - OHHTTPStubs (8.0.0):
@@ -44,12 +44,12 @@ PODS:
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.4.0)
-  - WordPressKit (4.6.0-beta.2):
+  - WordPressKit (4.6.0-beta.6):
     - Alamofire (~> 4.8.0)
     - CocoaLumberjack (~> 3.4)
-    - NSObject-SafeExpectations (= 0.0.3)
+    - NSObject-SafeExpectations (= 0.0.4)
     - UIDeviceIdentifier (~> 1)
-    - WordPressShared (~> 1.8.13-beta)
+    - WordPressShared (~> 1.8.15-beta)
     - wpxmlrpc (= 0.8.5-beta.1)
   - WordPressShared (1.8.15):
     - CocoaLumberjack (~> 3.4)
@@ -71,7 +71,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.6.0-beta.2)
+  - WordPressKit (~> 4.6.0-beta.6)
   - WordPressShared (~> 1.8.13)
   - WordPressUI (~> 1.4-beta.1)
 
@@ -110,18 +110,18 @@ SPEC CHECKSUMS:
   Gridicons: a89c04840b560895223a2c5c1e1299b518e0fc6f
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   lottie-ios: 3fef45d3fabe63e3c7c2eb603dd64ddfffc73062
-  NSObject-SafeExpectations: b989b68a8a9b7b9f2b264a8b52ba9d7aab8f3129
+  NSObject-SafeExpectations: ab8fe623d36b25aa1f150affa324e40a2f3c0374
   "NSURL+IDN": afc873e639c18138a1589697c3add197fe8679ca
   OCMock: 5ea90566be239f179ba766fd9fbae5885040b992
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 44f805037d21b94394821828f4fcaba34b38c2d0
-  WordPressKit: 36f3dd07e27cee3153ea0d77b9802bc4fec48c19
+  WordPressKit: c6f6f2b4a47bd042bfb35f4f7b0225fd857d5007
   WordPressShared: 02e0947034648cbd7251ffcc10f64d512f93a53b
   WordPressUI: ce0ac522146dabcd0a68ace24c0104dfdf6f4b0d
   wpxmlrpc: d758b6ad17723d31d06493acc932f6d9b340de95
 
-PODFILE CHECKSUM: ca3bc3f2f64b30695a77edc0565eee0486e3853a
+PODFILE CHECKSUM: 068e02be265114c0d3e8b5505b680cb23aceddcd
 
 COCOAPODS: 1.8.4
