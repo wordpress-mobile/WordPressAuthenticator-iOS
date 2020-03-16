@@ -22,7 +22,7 @@ def wordpress_authenticator_pods
   pod 'Alamofire', '4.8'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '4.4.0'
-  pod 'lottie-ios', '2.5.2'
+  pod 'lottie-ios', '3.1.6'
   pod 'NSURL+IDN', '0.4'
   pod 'SVProgressHUD', '2.2.5'
 end
