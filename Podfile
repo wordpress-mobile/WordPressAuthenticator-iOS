@@ -11,9 +11,9 @@ def wordpress_authenticator_pods
   ##
   pod 'Gridicons', '~> 0.20-beta.1'
   pod 'WordPressUI', '~> 1.4-beta.1'
-  #pod 'WordPressKit', '~> 4.6.0-beta.7'
+  pod 'WordPressKit', '~> 4.6.0-beta.8'
   #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => ''
-  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => '161e25634814566c260fb48530179d70279b2d66'
+  #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => ''
   pod 'WordPressShared', '~> 1.8.13'
 
   ## Third party libraries
