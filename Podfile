@@ -13,7 +13,7 @@ def wordpress_authenticator_pods
   pod 'WordPressUI', '~> 1.4-beta.1'
   #pod 'WordPressKit', '~> 4.6.0-beta.7'
   #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => ''
-  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => '553c6a80173914d104bea74f531f29cf9ce18c9f'
+  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => '161e25634814566c260fb48530179d70279b2d66'
   pod 'WordPressShared', '~> 1.8.13'
 
   ## Third party libraries
