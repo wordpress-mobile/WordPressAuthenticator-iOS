@@ -19,7 +19,7 @@ def wordpress_authenticator_pods
   ## Third party libraries
   ## =====================
   ##
-  pod '1PasswordExtension', '1.8.5'
+  pod '1PasswordExtension', '1.8.6'
   pod 'Alamofire', '4.8'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '4.4.0'
