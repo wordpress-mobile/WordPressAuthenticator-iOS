@@ -1,5 +1,5 @@
 PODS:
-  - 1PasswordExtension (1.8.5)
+  - 1PasswordExtension (1.8.6)
   - Alamofire (4.8.0)
   - CocoaLumberjack (3.5.2):
     - CocoaLumberjack/Core (= 3.5.2)
@@ -58,7 +58,7 @@ PODS:
   - wpxmlrpc (0.8.5-beta.1)
 
 DEPENDENCIES:
-  - 1PasswordExtension (= 1.8.5)
+  - 1PasswordExtension (= 1.8.6)
   - Alamofire (= 4.8)
   - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
@@ -109,7 +109,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Automattic/Gridicons-iOS.git
 
 SPEC CHECKSUMS:
-  1PasswordExtension: 0e95bdea64ec8ff2f4f693be5467a09fac42a83d
+  1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
@@ -131,6 +131,6 @@ SPEC CHECKSUMS:
   WordPressUI: 77907b59f39530af1003a30e6148a3ad0d2b179f
   wpxmlrpc: d758b6ad17723d31d06493acc932f6d9b340de95
 
-PODFILE CHECKSUM: c4b7f3ce4eacf096c4484c4aef985f3ce0538a66
+PODFILE CHECKSUM: 8730d3ae506c86a5a89637a9af5477f14f5aede3
 
 COCOAPODS: 1.8.4
