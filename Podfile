@@ -9,7 +9,7 @@ def wordpress_authenticator_pods
   ## Automattic libraries
   ## ====================
   ##
-  pod 'Gridicons', :git => 'https://github.com/Automattic/Gridicons-iOS.git', :branch => 'release/1.0' 
+  pod 'Gridicons', '~> 1.0-beta.1' 
   pod 'WordPressUI', '~> 1.4-beta.1'
   pod 'WordPressKit', '~> 4.6.0-beta.8'
   #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => ''

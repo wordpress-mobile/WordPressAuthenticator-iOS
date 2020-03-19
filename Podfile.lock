@@ -63,7 +63,7 @@ DEPENDENCIES:
   - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
   - GoogleSignIn (= 4.4.0)
-  - Gridicons (from `https://github.com/Automattic/Gridicons-iOS.git`, branch `release/1.0`)
+  - Gridicons (~> 1.0-beta.1)
   - lottie-ios (= 3.1.6)
   - "NSURL+IDN (= 0.4)"
   - OCMock (~> 3.4)
@@ -84,6 +84,7 @@ SPEC REPOS:
     - FormatterKit
     - GoogleSignIn
     - GoogleToolboxForMac
+    - Gridicons
     - GTMSessionFetcher
     - lottie-ios
     - NSObject-SafeExpectations
@@ -97,16 +98,6 @@ SPEC REPOS:
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
-
-EXTERNAL SOURCES:
-  Gridicons:
-    :branch: release/1.0
-    :git: https://github.com/Automattic/Gridicons-iOS.git
-
-CHECKOUT OPTIONS:
-  Gridicons:
-    :commit: 760a6901b8edf203453e653d06449d7cda359f27
-    :git: https://github.com/Automattic/Gridicons-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -131,6 +122,6 @@ SPEC CHECKSUMS:
   WordPressUI: 77907b59f39530af1003a30e6148a3ad0d2b179f
   wpxmlrpc: d758b6ad17723d31d06493acc932f6d9b340de95
 
-PODFILE CHECKSUM: 8730d3ae506c86a5a89637a9af5477f14f5aede3
+PODFILE CHECKSUM: 2e5021849975679c2bb33ac20f23b10422ca8b52
 
 COCOAPODS: 1.8.4
