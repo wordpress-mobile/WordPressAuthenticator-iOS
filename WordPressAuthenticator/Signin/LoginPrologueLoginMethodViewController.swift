@@ -45,16 +45,8 @@ class LoginPrologueLoginMethodViewController: NUXViewController {
             self?.dismiss(animated: true)
             self?.emailTapped?()
         }
-
-        let googleTitle = NSLocalizedString("Continue with Google", comment: "Button title. Tapping begins log in using Google.")
-        buttonViewController.setupBottomButton(title: googleTitle, isPrimary: false, accessibilityIdentifier: "Log in with Google Button") { [weak self] in
-            defer {
-                WordPressAuthenticator.track(.loginSocialButtonClick, properties: ["source": "google"])
-            }
-
-            self?.dismiss(animated: true)
-            self?.googleTapped?()
-        }
+        
+        buttonViewController.setupButtomButtonFor(socialService: .google, onTap: handleGoogleButtonTapped)
 
         if !LoginFields().restrictToWPCom && selfHostedTapped != nil {
             let selfHostedLoginButton = WPStyleGuide.selfHostedLoginButton(alignment: .center)
@@ -64,13 +56,11 @@ class LoginPrologueLoginMethodViewController: NUXViewController {
 
         if WordPressAuthenticator.shared.configuration.enableSignInWithApple {
             if #available(iOS 13.0, *) {
-                let appleButton = WPStyleGuide.appleLoginButton()
-                appleButton.addTarget(self, action: #selector(handleAppleButtonTapped), for: .touchDown)
-                buttonViewController.stackView?.insertArrangedSubview(appleButton, at: 2)
+                buttonViewController.setupTertiaryButtonFor(socialService: .apple, onTap: handleAppleButtonTapped)
             }
         }
-        
-        buttonViewController.backgroundColor = WordPressAuthenticator.shared.style.viewControllerBackgroundColor
+
+        buttonViewController.backgroundColor = WordPressAuthenticator.shared.style.buttonViewBackgroundColor
     }
 
     @IBAction func dismissTapped() {
@@ -89,6 +79,13 @@ class LoginPrologueLoginMethodViewController: NUXViewController {
         appleTapped?()
     }
 
+    @objc func handleGoogleButtonTapped() {
+        WordPressAuthenticator.track(.loginSocialButtonClick, properties: ["source": "google"])
+
+        dismiss(animated: true)
+        googleTapped?()
+    }
+    
     // MARK: - Accessibility
 
     private func configureForAccessibility() {

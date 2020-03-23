@@ -63,7 +63,12 @@ class LoginPrologueViewController: LoginViewController {
             vc.transitioningDelegate = self
             
             vc.emailTapped = { [weak self] in
-                self?.performSegue(withIdentifier: .showEmailLogin, sender: self)
+                guard let vc = LoginEmailViewController.instantiate(from: .login) else {
+                    DDLogError("Failed to navigate to LoginEmailViewController")
+                    return
+                }
+
+                self?.navigationController?.pushViewController(vc, animated: true)
             }
             vc.googleTapped = { [weak self] in
                 self?.googleLoginTapped(withDelegate: self)
@@ -99,7 +104,7 @@ class LoginPrologueViewController: LoginViewController {
                 self?.dismiss(animated: true, completion: nil)
             }
         }
-        buttonViewController.backgroundColor = WordPressAuthenticator.shared.style.viewControllerBackgroundColor
+        buttonViewController.backgroundColor = WordPressAuthenticator.shared.style.buttonViewBackgroundColor
     }
 
     // MARK: - Actions
@@ -108,7 +113,12 @@ class LoginPrologueViewController: LoginViewController {
         if WordPressAuthenticator.shared.configuration.showLoginOptions {
             performSegue(withIdentifier: .showLoginMethod, sender: self)
         } else {
-            performSegue(withIdentifier: .showEmailLogin, sender: self)
+            guard let vc = LoginEmailViewController.instantiate(from: .login) else {
+                DDLogError("Failed to navigate to LoginEmailViewController from LoginPrologueViewController")
+                return
+            }
+
+            navigationController?.pushViewController(vc, animated: true)
         }
     }
 

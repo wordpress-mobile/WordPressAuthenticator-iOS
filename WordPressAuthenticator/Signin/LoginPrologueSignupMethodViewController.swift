@@ -42,7 +42,6 @@ class LoginPrologueSignupMethodViewController: NUXViewController {
         }
 
         let loginTitle = NSLocalizedString("Sign up with Email", comment: "Button title. Tapping begins our normal sign up process.")
-        let createTitle = NSLocalizedString("Sign up with Google", comment: "Button title. Tapping begins sign up using Google.")
         buttonViewController.setupTopButton(title: loginTitle, isPrimary: false, accessibilityIdentifier: "Sign up with Email Button") { [weak self] in
             defer {
                 WordPressAuthenticator.track(.signupEmailButtonTapped)
@@ -51,14 +50,8 @@ class LoginPrologueSignupMethodViewController: NUXViewController {
             self?.emailTapped?()
         }
 
-        buttonViewController.setupBottomButton(title: createTitle, isPrimary: false, accessibilityIdentifier: "Sign up with Google Button") { [weak self] in
-            defer {
-                WordPressAuthenticator.track(.signupSocialButtonTapped, properties: ["source": "google"])
-            }
+        buttonViewController.setupButtomButtonFor(socialService: .google, onTap: handleGoogleButtonTapped)
 
-            self?.dismiss(animated: true)
-            self?.googleTapped?()
-        }
         let termsButton = WPStyleGuide.termsButton()
         termsButton.on(.touchUpInside) { [weak self] button in
             defer {
@@ -76,13 +69,11 @@ class LoginPrologueSignupMethodViewController: NUXViewController {
 
         if WordPressAuthenticator.shared.configuration.enableSignInWithApple {
             if #available(iOS 13.0, *) {
-                let appleButton = WPStyleGuide.appleLoginButton()
-                appleButton.addTarget(self, action: #selector(handleAppleButtonTapped), for: .touchDown)
-                buttonViewController.stackView?.insertArrangedSubview(appleButton, at: 3)
+                buttonViewController.setupTertiaryButtonFor(socialService: .apple, onTap: handleAppleButtonTapped)
             }
         }
 
-        buttonViewController.backgroundColor = WordPressAuthenticator.shared.style.viewControllerBackgroundColor
+        buttonViewController.backgroundColor = WordPressAuthenticator.shared.style.buttonViewBackgroundColor
     }
 
     @IBAction func dismissTapped() {
@@ -96,6 +87,13 @@ class LoginPrologueSignupMethodViewController: NUXViewController {
         appleTapped?()
     }
 
+    @objc func handleGoogleButtonTapped() {
+        WordPressAuthenticator.track(.signupSocialButtonTapped, properties: ["source": "google"])
+
+        dismiss(animated: true)
+        googleTapped?()
+    }
+    
     private func trackCancellationAndThenDismiss() {
         WordPressAuthenticator.track(.signupCancelled)
         dismiss(animated: true)

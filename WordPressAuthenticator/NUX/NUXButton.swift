@@ -1,6 +1,7 @@
 import UIKit
 import WordPressShared
 import WordPressUI
+import WordPressKit
 
 /// A stylized button used by Login controllers. It also can display a `UIActivityIndicatorView`.
 @objc open class NUXButton: UIButton {
@@ -28,6 +29,8 @@ import WordPressUI
         return indicator
     }()
 
+    static let titleFont = WPStyleGuide.mediumWeightFont(forStyle: .title3)
+    
     override open func layoutSubviews() {
         super.layoutSubviews()
 
@@ -40,6 +43,18 @@ import WordPressUI
             activityIndicator.frame = frm.integral
         }
     }
+
+    open override func tintColorDidChange() {
+        // Update colors when toggling light/dark mode.
+        super.tintColorDidChange()
+        configureBackgrounds()
+        configureTitleColors()
+        
+        if socialService == .apple {
+            setAttributedTitle(WPStyleGuide.formattedAppleString(), for: .normal)
+        }
+    }
+
 
     // MARK: - Instance Methods
 
@@ -71,6 +86,7 @@ import WordPressUI
         }
     }
 
+    var socialService: SocialServiceName?
 
     // MARK: - LifeCycle Methods
 
@@ -95,16 +111,9 @@ import WordPressUI
     /// Setup: Everything = [Insets, Backgrounds, titleColor(s), titleLabel]
     ///
     private func configureAppearance() {
-        configureInsets()
         configureBackgrounds()
         configureTitleColors()
         configureTitleLabel()
-    }
-
-    /// Setup: NUXButton's Default Settings
-    ///
-    private func configureInsets() {
-        contentEdgeInsets = UIImage.DefaultRenderMetrics.contentInsets
     }
 
     /// Setup: BackgroundImage
@@ -142,7 +151,7 @@ import WordPressUI
     /// Setup: TitleLabel
     ///
     private func configureTitleLabel() {
-        titleLabel?.font = WPFontManager.systemSemiBoldFont(ofSize: 17.0)
+        titleLabel?.font = NUXButton.titleFont
         titleLabel?.adjustsFontForContentSizeCategory = true
         titleLabel?.textAlignment = .center
     }
@@ -156,9 +165,5 @@ extension NUXButton {
         if previousTraitCollection?.preferredContentSizeCategory != traitCollection.preferredContentSizeCategory {
             didChangePreferredContentSize()
         }
-    }
-
-    private struct Metrics {
-        static let maxFontSize = CGFloat(22)
     }
 }

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.10.9"
+  s.version       = "1.11.0"
   s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
 
   s.description   = <<-DESC
@@ -30,16 +30,16 @@ Pod::Spec.new do |s|
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir    = 'WordPressAuthenticator'
 
-  s.dependency '1PasswordExtension', '1.8.5'
+  s.dependency '1PasswordExtension', '1.8.6'
   s.dependency 'Alamofire', '4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
-  s.dependency 'lottie-ios', '2.5.2'
-  s.dependency 'NSURL+IDN', '0.3'
+  s.dependency 'lottie-ios', '3.1.6'
+  s.dependency 'NSURL+IDN', '0.4'
   s.dependency 'SVProgressHUD', '2.2.5'
 
-  s.dependency 'Gridicons', '~> 0.15'
+  s.dependency 'Gridicons', '~> 1.0'
   s.dependency 'GoogleSignIn', '~> 4.4'
-  s.dependency 'WordPressUI', '~> 1.4-beta.1'
-  s.dependency 'WordPressKit', '~> 4.5.9-beta'
-  s.dependency 'WordPressShared', '~> 1.8.13-beta'
+  s.dependency 'WordPressUI', '~> 1.5.2'
+  s.dependency 'WordPressKit', '~> 4.6.0'
+  s.dependency 'WordPressShared', '~> 1.8.16'
 end

@@ -9,21 +9,22 @@ def wordpress_authenticator_pods
   ## Automattic libraries
   ## ====================
   ##
-  pod 'Gridicons', '~> 0.15'
-  pod 'WordPressUI', '~> 1.4-beta.1'
-  pod 'WordPressKit', '~> 4.5.9-beta'
-  # pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'issue/apple_2fa_auth'
-  pod 'WordPressShared', '~> 1.8.13'
+  pod 'Gridicons', '~> 1.0'
+  pod 'WordPressUI', '~> 1.5.2'
+  pod 'WordPressKit', '~> 4.6.0'
+  #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => ''
+  #pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => ''
+  pod 'WordPressShared', '~> 1.8.16'
 
   ## Third party libraries
   ## =====================
   ##
-  pod '1PasswordExtension', '1.8.5'
+  pod '1PasswordExtension', '1.8.6'
   pod 'Alamofire', '4.8'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '4.4.0'
-  pod 'lottie-ios', '2.5.2'
-  pod 'NSURL+IDN', '0.3'
+  pod 'lottie-ios', '3.1.6'
+  pod 'NSURL+IDN', '0.4'
   pod 'SVProgressHUD', '2.2.5'
 end
 
