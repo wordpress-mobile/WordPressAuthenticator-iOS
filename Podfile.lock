@@ -44,7 +44,7 @@ PODS:
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.4.0)
-  - WordPressKit (4.7.0):
+  - WordPressKit (4.8.0-beta.1):
     - Alamofire (~> 4.8.0)
     - CocoaLumberjack (~> 3.4)
     - NSObject-SafeExpectations (= 0.0.4)
@@ -71,7 +71,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.7.0)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `fix/11771-gravatar_user_not_found`)
   - WordPressShared (~> 1.8.16)
   - WordPressUI (~> 1.5.2)
 
@@ -94,10 +94,19 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
-    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
+
+EXTERNAL SOURCES:
+  WordPressKit:
+    :branch: fix/11771-gravatar_user_not_found
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
+
+CHECKOUT OPTIONS:
+  WordPressKit:
+    :commit: 864eec7eb314cf89e3c7defedf631db87c1af42b
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -117,11 +126,11 @@ SPEC CHECKSUMS:
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: 44f805037d21b94394821828f4fcaba34b38c2d0
-  WordPressKit: 0602e8188245b3267269570d3d78c138e64a4eba
+  WordPressKit: 636f3f7e1c879b22f1d46e61d662ad640161f8b2
   WordPressShared: 1bc316ed162f42af4e0fa2869437e9e28b532b01
   WordPressUI: 70cc58a253c352330b23cd8fa6dd6a2021570e18
   wpxmlrpc: 6a9bdd6ab9d1b159b384b0df0f3f39de9af4fecf
 
-PODFILE CHECKSUM: d2a5f1cb57eeb9eb2ac2cb22d29b6b827ccf8ce4
+PODFILE CHECKSUM: db5d0ce73f34dcea3781f77c6dd0bedec53217a2
 
 COCOAPODS: 1.8.4
