@@ -29,7 +29,6 @@ open class NUXViewController: UIViewController, NUXViewControllerBase, UIViewCon
         case showDomains
         case showCreateSite
         case showSignupEmail
-        case showUsernames
         case showLoginMethod
     }
 
