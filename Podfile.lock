@@ -73,7 +73,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - WordPressKit (~> 4.8.0)
   - WordPressShared (~> 1.8.16)
-  - WordPressUI (~> 1.5.0-beta)
+  - WordPressUI (~> 1.5.4-beta)
 
 SPEC REPOS:
   trunk:
@@ -122,6 +122,6 @@ SPEC CHECKSUMS:
   WordPressUI: 3fb26abb771534e6eb545a53c1e02a35830d051d
   wpxmlrpc: 6a9bdd6ab9d1b159b384b0df0f3f39de9af4fecf
 
-PODFILE CHECKSUM: 87b002a89556dca2a84f7c32ddc1c2047b13dbda
+PODFILE CHECKSUM: bac3545d372dd4e32543a371945e1df6c796188b
 
 COCOAPODS: 1.8.4
