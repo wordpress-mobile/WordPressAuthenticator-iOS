@@ -75,7 +75,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `fix/244-redact-tokens`)
+  - WordPressKit (~> 4.9.0-beta.1)
   - WordPressShared (~> 1.8.16)
   - WordPressUI (~> 1.7.0)
 
@@ -99,19 +99,10 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
+    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
-
-EXTERNAL SOURCES:
-  WordPressKit:
-    :branch: fix/244-redact-tokens
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
-
-CHECKOUT OPTIONS:
-  WordPressKit:
-    :commit: 4b722addeb01b379ffb40f852ffda647d92b9d44
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -137,6 +128,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: 6a9bdd6ab9d1b159b384b0df0f3f39de9af4fecf
 
-PODFILE CHECKSUM: cc34c5d3096dac598bf8a0bd4f435a75d33c67e6
+PODFILE CHECKSUM: 3e9cd981cf4d2a9c5ada6222d095fb980976653e
 
 COCOAPODS: 1.8.4
