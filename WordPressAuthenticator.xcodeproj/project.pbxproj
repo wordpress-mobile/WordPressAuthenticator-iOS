@@ -572,6 +572,7 @@
 			children = (
 				CE1B18CA20EEC31000BECC3F /* Credentials */,
 				B5609099208A4EAF00399AE4 /* Authenticator */,
+				CE97BCD724786BAA00612FE2 /* Unified Auth */,
 				3F550D4F23DA4A6B007E5897 /* Email Client Picker */,
 				B560909B208A4EB000399AE4 /* Extensions */,
 				B5ED7917207E993E00A8FD8C /* Logging */,
@@ -634,6 +635,13 @@
 				CE30A2AC2257CECC00DF3CDA /* AuthenticatorCredentials.swift */,
 			);
 			path = Credentials;
+			sourceTree = "<group>";
+		};
+		CE97BCD724786BAA00612FE2 /* Unified Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Unified Auth";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
