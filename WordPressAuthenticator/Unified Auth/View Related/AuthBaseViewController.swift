@@ -9,5 +9,15 @@ class AuthBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        styleBackground()
+    }
+
+    // MARK: - Setup and configuration
+
+    /// Styles the view's background color.
+    ///
+    func styleBackground() {
+        view.backgroundColor = WordPressAuthenticator.shared.style.viewControllerBackgroundColor
     }
 }
