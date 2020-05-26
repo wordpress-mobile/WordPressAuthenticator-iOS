@@ -471,7 +471,16 @@ open class LoginEmailViewController: LoginViewController, NUXKeyboardResponder {
     }
 
     @IBAction func handleSelfHostedButtonTapped(_ sender: UIButton) {
-        loginToSelfHostedSite()
+        guard let vc = LoginSiteAddressViewController.instantiate(from: .login) else {
+            DDLogError("Failed to navigate from LoginViewController to LoginSiteAddressViewController")
+            return
+        }
+
+        vc.loginFields = loginFields
+        vc.dismissBlock = dismissBlock
+        vc.errorToPresent = errorToPresent
+
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     private func appleTapped() {
