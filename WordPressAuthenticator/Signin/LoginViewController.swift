@@ -133,21 +133,6 @@ open class LoginViewController: NUXViewController, LoginFacadeDelegate {
         }
     }
 
-    /// Displays the self-hosted sign in form.
-    ///
-    func loginToSelfHostedSite() {
-        guard let vc = LoginSiteAddressViewController.instantiate(from: .login) else {
-            DDLogError("Failed to navigate from LoginViewController to LoginSiteAddressViewController")
-            return
-        }
-
-        vc.loginFields = loginFields
-        vc.dismissBlock = dismissBlock
-        vc.errorToPresent = errorToPresent
-
-        navigationController?.pushViewController(vc, animated: true)
-    }
-
     /// Validates what is entered in the various form fields and, if valid,
     /// proceeds with login.
     ///
@@ -378,10 +363,9 @@ extension LoginViewController {
     
 }
 
+
+// MARK: - LoginSocialErrorViewControllerDelegate methods
 extension LoginViewController: LoginSocialErrorViewControllerDelegate {
-    private func cleanupAfterSocialErrors() {
-        dismiss(animated: true) {}
-    }
 
     func retryWithEmail() {
         loginFields.username = ""
@@ -400,5 +384,25 @@ extension LoginViewController: LoginSocialErrorViewControllerDelegate {
             controller.loginFields = loginFields
             navigationController?.pushViewController(controller, animated: true)
         }
+    }
+
+    // Private methods
+    private func cleanupAfterSocialErrors() {
+        dismiss(animated: true) {}
+    }
+
+    /// Displays the self-hosted sign in form.
+    ///
+    private func loginToSelfHostedSite() {
+        guard let vc = LoginSiteAddressViewController.instantiate(from: .login) else {
+            DDLogError("Failed to navigate from LoginViewController to LoginSiteAddressViewController")
+            return
+        }
+
+        vc.loginFields = loginFields
+        vc.dismissBlock = dismissBlock
+        vc.errorToPresent = errorToPresent
+
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
