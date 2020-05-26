@@ -97,7 +97,7 @@ class LoginPrologueViewController: LoginViewController {
 
             // Site address text link button action
             vc.selfHostedTapped = { [weak self] in
-                self?.loginToSelfHostedSite()
+                self?.siteAddressTapped()
             }
 
             // Sign In With Apple (SIWA) button action
@@ -155,6 +155,29 @@ class LoginPrologueViewController: LoginViewController {
         }
 
         navigationController?.present(vc, animated: true, completion: nil)
+    }
+
+    /// Navigate the user to the Login by Site Address flow.
+    ///
+    private func siteAddressTapped() {
+        // Navigate to the unified flow, if enabled.
+        if WordPressAuthenticator.shared.configuration.enableUnifiedSiteAddress {
+            let vc = AuthBaseViewController()
+            navigationController?.pushViewController(vc, animated: true)
+            return
+        }
+
+        // Otherwise navigate to the old flow.
+        guard let vc = LoginSiteAddressViewController.instantiate(from: .login) else {
+            DDLogError("Failed to navigate from LoginViewController to LoginSiteAddressViewController")
+            return
+        }
+
+        vc.loginFields = loginFields
+        vc.dismissBlock = dismissBlock
+        vc.errorToPresent = errorToPresent
+
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     private func appleTapped() {
