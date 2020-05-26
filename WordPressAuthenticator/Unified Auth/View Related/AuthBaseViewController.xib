@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AuthBaseViewController" customModule="WordPressAuthenticator" customModuleProvider="target">
             <connections>
-                <outlet property="view" destination="QGO-dd-MUv" id="j0y-MA-5Au"/>
+                <outlet property="formButton" destination="4sD-zY-m4N" id="Khf-tu-4vv"/>
+                <outlet property="tableView" destination="qj9-Rx-Zyw" id="7mN-RV-2WR"/>
+                <outlet property="view" destination="Cmn-FD-cuO" id="5FY-JT-Uyp"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,10 +20,15 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <containerView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGO-dd-MUv">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qj9-Rx-Zyw">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="583"/>
-                </containerView>
-                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-1T-bjG">
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="bYc-Id-Lp2"/>
+                        <outlet property="delegate" destination="-1" id="vRc-SC-B8Q"/>
+                    </connections>
+                </tableView>
+                <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-1T-bjG" userLabel="Top Line Container View">
                     <rect key="frame" x="0.0" y="583" width="375" height="84"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9mL-eT-Xvl" userLabel="Top Line">
@@ -59,16 +66,16 @@
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="qj9-Rx-Zyw" firstAttribute="top" secondItem="PTT-fD-3L4" secondAttribute="top" id="4gk-xj-UTE"/>
                 <constraint firstItem="PTT-fD-3L4" firstAttribute="bottom" secondItem="4sD-zY-m4N" secondAttribute="bottom" constant="20" id="Amv-fV-zk7"/>
                 <constraint firstItem="PTT-fD-3L4" firstAttribute="leading" secondItem="fcm-1T-bjG" secondAttribute="leading" id="IsS-8X-Z1b"/>
+                <constraint firstItem="fcm-1T-bjG" firstAttribute="top" secondItem="qj9-Rx-Zyw" secondAttribute="bottom" id="Izm-We-Et3"/>
                 <constraint firstItem="4sD-zY-m4N" firstAttribute="top" secondItem="fcm-1T-bjG" secondAttribute="top" constant="20" id="P3b-7a-N5h"/>
-                <constraint firstItem="PTT-fD-3L4" firstAttribute="trailing" secondItem="QGO-dd-MUv" secondAttribute="trailing" id="Rha-G8-n2p"/>
-                <constraint firstItem="4sD-zY-m4N" firstAttribute="leading" secondItem="QGO-dd-MUv" secondAttribute="leading" constant="20" id="Yob-7Z-pvM"/>
-                <constraint firstItem="QGO-dd-MUv" firstAttribute="leading" secondItem="PTT-fD-3L4" secondAttribute="leading" id="akE-nC-aFd"/>
-                <constraint firstItem="QGO-dd-MUv" firstAttribute="trailing" secondItem="4sD-zY-m4N" secondAttribute="trailing" constant="20" id="dhN-T1-zVa"/>
-                <constraint firstItem="fcm-1T-bjG" firstAttribute="top" secondItem="QGO-dd-MUv" secondAttribute="bottom" id="pcy-Dj-0h9"/>
+                <constraint firstItem="4sD-zY-m4N" firstAttribute="leading" secondItem="PTT-fD-3L4" secondAttribute="leading" constant="20" id="TkY-14-cI9"/>
+                <constraint firstItem="qj9-Rx-Zyw" firstAttribute="leading" secondItem="PTT-fD-3L4" secondAttribute="leading" id="USk-tS-81H"/>
+                <constraint firstItem="PTT-fD-3L4" firstAttribute="trailing" secondItem="4sD-zY-m4N" secondAttribute="trailing" constant="20" id="UzN-vd-ybO"/>
+                <constraint firstItem="PTT-fD-3L4" firstAttribute="trailing" secondItem="qj9-Rx-Zyw" secondAttribute="trailing" id="ZMI-xJ-oyf"/>
                 <constraint firstItem="fcm-1T-bjG" firstAttribute="trailing" secondItem="PTT-fD-3L4" secondAttribute="trailing" id="vGz-dc-hNA"/>
-                <constraint firstItem="QGO-dd-MUv" firstAttribute="top" secondItem="PTT-fD-3L4" secondAttribute="top" id="xVb-uv-tcw"/>
                 <constraint firstItem="fcm-1T-bjG" firstAttribute="bottom" secondItem="Cmn-FD-cuO" secondAttribute="bottom" id="zDP-hp-UcG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="PTT-fD-3L4"/>
@@ -76,6 +83,6 @@
         </view>
     </objects>
     <resources>
-        <image name="beveled-blue-button-down" width="128" height="128"/>
+        <image name="beveled-blue-button-down" width="18.5" height="19.5"/>
     </resources>
 </document>
