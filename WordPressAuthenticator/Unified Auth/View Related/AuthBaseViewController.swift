@@ -3,7 +3,7 @@ import UIKit
 
 /// AuthBaseViewController: the base view controller for the Unified Auth flows.
 ///
-class AuthBaseViewController: UIViewController {
+open class AuthBaseViewController: UIViewController {
     /// The "call to action" button.
     ///
     @IBOutlet var formButton: UIButton!
@@ -13,7 +13,19 @@ class AuthBaseViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
 
     // MARK: - View lifecycle
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
     }
 }
+
+
+//final class AuthTableDataSource: NSObject {
+//    enum Row {
+//        case textInstructions
+//
+//        var reuseIdentifier: String {
+//            case .textInstructions:
+//            return TextInstructionTableViewCell.reuseIdentifier
+//        }
+//    }
+//}

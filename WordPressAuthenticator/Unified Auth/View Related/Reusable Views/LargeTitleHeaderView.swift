@@ -3,7 +3,11 @@ import UIKit
 
 /// LargeTitleHeaderView: the header view for the entire table.
 ///
-class LargeTitleHeaderView: UIView {
+final public class LargeTitleHeaderView: UIView {
 
-    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet public weak var titleLabel: UILabel!
+
+    public override class func awakeFromNib() {
+        super.awakeFromNib()
+    }
 }
