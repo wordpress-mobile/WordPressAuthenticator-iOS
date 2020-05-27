@@ -10,4 +10,8 @@ final public class LargeTitleHeaderView: UIView {
     public override class func awakeFromNib() {
         super.awakeFromNib()
     }
+
+    class func makeFromNib() -> LargeTitleHeaderView {
+        return Bundle.main.loadNibNamed("LargeTitleHeaderView", owner: self, options: nil)?.first as! LargeTitleHeaderView
+    }
 }
