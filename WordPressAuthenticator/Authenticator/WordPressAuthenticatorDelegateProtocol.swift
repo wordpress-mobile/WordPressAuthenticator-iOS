@@ -108,4 +108,8 @@ public protocol WordPressAuthenticatorDelegate: class {
     /// such as "Find your site address" or "Reset your password".
     ///
     var hintButtonsEnabled: Bool { get }
+
+    /// Indicates if the Host App wants the error labels to display or not.
+    ///
+    var errorLabelsEnabled: Bool { get }
 }
