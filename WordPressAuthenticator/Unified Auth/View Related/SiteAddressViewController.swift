@@ -36,7 +36,7 @@ class SiteAddressViewController: AuthBaseViewController {
     func createTableHeaderViewIfNeeded() {
         if authDelegate.largeTitlesEnabled,
             let title = displayStrings.siteAddressTitle.nonEmptyString() {
-            let headerView = LargeTitleHeaderView()
+            let headerView = LargeTitleHeaderView.makeFromNib()
             headerView.titleLabel.text = title
             tableView.tableHeaderView = headerView
         }
