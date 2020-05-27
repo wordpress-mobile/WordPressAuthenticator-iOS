@@ -162,7 +162,7 @@ class LoginPrologueViewController: LoginViewController {
     private func siteAddressTapped() {
         // Navigate to the unified flow, if enabled.
         if WordPressAuthenticator.shared.configuration.enableUnifiedSiteAddress {
-            let vc = SiteAddressViewController()
+            let vc = SiteAddressViewController.loadFromNib()
             navigationController?.pushViewController(vc, animated: true)
             return
         }
