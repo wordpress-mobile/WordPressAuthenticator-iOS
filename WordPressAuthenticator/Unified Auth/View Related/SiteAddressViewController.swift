@@ -30,5 +30,27 @@ class SiteAddressViewController: AuthBaseViewController {
 
         // Don't assume the user's baseURL is https://wordpress.com.
         loginFields.meta.userIsDotCom = false
+        createTableHeaderViewIfNeeded()
+    }
+
+    func createTableHeaderViewIfNeeded() {
+        if authDelegate.largeTitlesEnabled,
+            let title = displayStrings.siteAddressTitle.nonEmptyString() {
+            let headerView = LargeTitleHeaderView()
+            headerView.titleLabel.text = title
+            tableView.tableHeaderView = headerView
+        }
+    }
+}
+
+
+// MARK: - UITableViewDataSource
+extension SiteAddressViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
     }
 }
