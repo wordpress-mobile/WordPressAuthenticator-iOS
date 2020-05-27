@@ -113,6 +113,8 @@
 		CE1B18D020EEC41600BECC3F /* WordPressAuthenticatorConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B18CF20EEC41600BECC3F /* WordPressAuthenticatorConfiguration.swift */; };
 		CE1B18D220EEC44400BECC3F /* WordPressAuthenticatorStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1B18D120EEC44400BECC3F /* WordPressAuthenticatorStyles.swift */; };
 		CE2180C1247DC2C000BEFE57 /* SiteAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2180C0247DC2C000BEFE57 /* SiteAddressViewController.swift */; };
+		CE2180C4247EF13A00BEFE57 /* LargeTitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2180C3247EF13A00BEFE57 /* LargeTitleHeaderView.swift */; };
+		CE2180C6247EF16D00BEFE57 /* LargeTitleHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2180C5247EF16D00BEFE57 /* LargeTitleHeaderView.xib */; };
 		CE30A2A722579F4100DF3CDA /* LoginUsernamePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A2A622579F4100DF3CDA /* LoginUsernamePasswordViewController.swift */; };
 		CE30A2A92257C60500DF3CDA /* WordPressOrgCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A2A82257C60500DF3CDA /* WordPressOrgCredentials.swift */; };
 		CE30A2AD2257CECC00DF3CDA /* AuthenticatorCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE30A2AC2257CECC00DF3CDA /* AuthenticatorCredentials.swift */; };
@@ -272,6 +274,8 @@
 		CE1B18CF20EEC41600BECC3F /* WordPressAuthenticatorConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPressAuthenticatorConfiguration.swift; sourceTree = "<group>"; };
 		CE1B18D120EEC44400BECC3F /* WordPressAuthenticatorStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPressAuthenticatorStyles.swift; sourceTree = "<group>"; };
 		CE2180C0247DC2C000BEFE57 /* SiteAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteAddressViewController.swift; sourceTree = "<group>"; };
+		CE2180C3247EF13A00BEFE57 /* LargeTitleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleHeaderView.swift; sourceTree = "<group>"; };
+		CE2180C5247EF16D00BEFE57 /* LargeTitleHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LargeTitleHeaderView.xib; sourceTree = "<group>"; };
 		CE30A2A622579F4100DF3CDA /* LoginUsernamePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginUsernamePasswordViewController.swift; sourceTree = "<group>"; };
 		CE30A2A82257C60500DF3CDA /* WordPressOrgCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPressOrgCredentials.swift; sourceTree = "<group>"; };
 		CE30A2AC2257CECC00DF3CDA /* AuthenticatorCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorCredentials.swift; sourceTree = "<group>"; };
@@ -640,6 +644,15 @@
 			path = Credentials;
 			sourceTree = "<group>";
 		};
+		CE2180C2247EF07B00BEFE57 /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE2180C3247EF13A00BEFE57 /* LargeTitleHeaderView.swift */,
+				CE2180C5247EF16D00BEFE57 /* LargeTitleHeaderView.xib */,
+			);
+			path = "Reusable Views";
+			sourceTree = "<group>";
+		};
 		CE97BCD724786BAA00612FE2 /* Unified Auth */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +667,7 @@
 				CE97BCDE24786F6000612FE2 /* AuthBaseViewController.swift */,
 				CE97BCDF24786F6000612FE2 /* AuthBaseViewController.xib */,
 				CE2180C0247DC2C000BEFE57 /* SiteAddressViewController.swift */,
+				CE2180C2247EF07B00BEFE57 /* Reusable Views */,
 			);
 			path = "View Related";
 			sourceTree = "<group>";
@@ -773,6 +787,7 @@
 			files = (
 				B5E07FF4208FD13800657A9A /* Assets.xcassets in Resources */,
 				B56090CA208A4F5400399AE4 /* NUXButtonView.storyboard in Resources */,
+				CE2180C6247EF16D00BEFE57 /* LargeTitleHeaderView.xib in Resources */,
 				B560911E208A555E00399AE4 /* Signup.storyboard in Resources */,
 				B5609118208A555600399AE4 /* SearchTableViewCell.xib in Resources */,
 				B560913F208A563800399AE4 /* Login.storyboard in Resources */,
@@ -1012,6 +1027,7 @@
 				B56090DE208A4F9D00399AE4 /* WPWalkthroughOverlayView.m in Sources */,
 				B560910A208A54F800399AE4 /* WordPressComAccountService.swift in Sources */,
 				B56090FA208A533200399AE4 /* WordPressAuthenticator.swift in Sources */,
+				CE2180C4247EF13A00BEFE57 /* LargeTitleHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
