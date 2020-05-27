@@ -1,7 +1,13 @@
 
 
 // MARK: - WordPressAuthenticator Delegate Protocol
-//
+/// - Note: In the future, it would be great if many of the variables and methods
+///         could be marked as `optional` to reduce noise when implementing this delegate.
+///         The class and the parameter types would need to support `@objc` by inheriting
+///         from `NSObject`. That would require significant changes to Authenticator's
+///         types and to the Host Apps, which is why it hasn't been implemented yet.
+///         - 2020.05.27 tc
+///
 public protocol WordPressAuthenticatorDelegate: class {
 
     /// Indicates if the active Authenticator can be dismissed, or not.
