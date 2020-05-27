@@ -8,6 +8,23 @@ class SiteAddressViewController: AuthBaseViewController {
     ///
     var loginFields = LoginFields()
 
+    /// Host App decisions are communicated to the Authenticator via the delegate.
+    /// Creating a local variable to signal this VC's dependency upfront.
+    ///
+    var authDelegate: WordPressAuthenticatorDelegate {
+        guard let delegate = WordPressAuthenticator.shared.delegate else {
+            fatalError()
+        }
+
+        return delegate
+    }
+
+    /// Make dependencies obvious.
+    ///
+    var displayStrings: WordPressAuthenticatorDisplayStrings {
+        return WordPressAuthenticator.shared.displayStrings
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
