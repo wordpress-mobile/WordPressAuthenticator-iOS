@@ -104,7 +104,8 @@ public protocol WordPressAuthenticatorDelegate: class {
     ///
     var largeTitlesEnabled: Bool { get }
 
-    /// Indicates if the Host App wants to display hint buttons, such as "Find your site address" or "Reset your password"
+    /// Indicates if the Host App wants to display hint buttons,
+    /// such as "Find your site address" or "Reset your password".
     ///
     var hintButtonsEnabled: Bool { get }
 }
