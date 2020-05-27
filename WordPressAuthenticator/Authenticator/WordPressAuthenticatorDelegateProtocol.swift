@@ -91,4 +91,14 @@ public protocol WordPressAuthenticatorDelegate: class {
     /// Signals the Host App that a given Analytics Event (with an associated Error) has occurred.
     ///
     func track(event: WPAnalyticsStat, error: Error)
+
+    // MARK: - Unified Login and Signup delegate protocol methods
+
+    /// Indicates if the Host App wants to display large page titles or not.
+    ///
+    var largeTitlesEnabled: Bool { get }
+
+    /// Indicates if the Host App wants to display hint buttons, such as "Find your site address" or "Reset your password"
+    ///
+    var hintButtonsEnabled: Bool { get }
 }
