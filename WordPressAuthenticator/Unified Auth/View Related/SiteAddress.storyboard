@@ -212,7 +212,6 @@ Not seeing the email? Check your Spam or Junk Mail folder.</string>
                         <constraints>
                             <constraint firstItem="ihD-pY-rg9" firstAttribute="bottom" secondItem="dFS-Ic-byk" secondAttribute="bottom" id="Dva-c1-u2U"/>
                             <constraint firstItem="dFS-Ic-byk" firstAttribute="top" secondItem="ihD-pY-rg9" secondAttribute="top" id="YEy-EW-XmD"/>
-                            <constraint firstItem="dFS-Ic-byk" firstAttribute="centerX" secondItem="ljV-kF-TaY" secondAttribute="centerX" id="fDj-fP-6Uh"/>
                             <constraint firstItem="dFS-Ic-byk" firstAttribute="leading" secondItem="ljV-kF-TaY" secondAttribute="leading" id="msS-7X-Za9"/>
                             <constraint firstItem="dFS-Ic-byk" firstAttribute="trailing" secondItem="ljV-kF-TaY" secondAttribute="trailing" id="zY1-Yz-kTf"/>
                         </constraints>
@@ -222,7 +221,6 @@ Not seeing the email? Check your Spam or Junk Mail folder.</string>
                         <outlet property="bottomContentConstraint" destination="Dva-c1-u2U" id="cA6-Wt-5oj"/>
                         <outlet property="submitButton" destination="ClH-Cn-49d" id="kBa-QN-0oH"/>
                         <outlet property="tableView" destination="KLl-Uz-wEP" id="ntt-cX-m20"/>
-                        <outlet property="verticalCenterConstraint" destination="fDj-fP-6Uh" id="JKb-0e-bwt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipm-G3-kY7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
