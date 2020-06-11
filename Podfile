@@ -11,10 +11,8 @@ def wordpress_authenticator_pods
   ##
   pod 'Gridicons', '~> 1.0'
   pod 'WordPressUI', '~> 1.7.0'
-#  pod 'WordPressKit', '~> 5.0.0-beta.1'
-  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'issue/update_shared_pod'
-#  pod 'WordPressShared', '~> 1.9.0-beta.1'
-  pod 'WordPressShared', :git => 'https://github.com/wordpress-mobile/WordPress-iOS-Shared.git', :branch => 'issue/remove_giphy_tracks'
+  pod 'WordPressKit', '~> 5.0.0-beta.1'
+  pod 'WordPressShared', '~> 1.9.0-beta.1'
 
   ## Third party libraries
   ## =====================

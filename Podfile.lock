@@ -75,8 +75,8 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `issue/update_shared_pod`)
-  - WordPressShared (from `https://github.com/wordpress-mobile/WordPress-iOS-Shared.git`, branch `issue/remove_giphy_tracks`)
+  - WordPressKit (~> 5.0.0-beta.1)
+  - WordPressShared (~> 1.9.0-beta.1)
   - WordPressUI (~> 1.7.0)
 
 SPEC REPOS:
@@ -99,24 +99,10 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
+    - WordPressKit
+    - WordPressShared
     - WordPressUI
     - wpxmlrpc
-
-EXTERNAL SOURCES:
-  WordPressKit:
-    :branch: issue/update_shared_pod
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
-  WordPressShared:
-    :branch: issue/remove_giphy_tracks
-    :git: https://github.com/wordpress-mobile/WordPress-iOS-Shared.git
-
-CHECKOUT OPTIONS:
-  WordPressKit:
-    :commit: 6ac31e3d3533baaec9ff1dbf5a240ca76c1dfd23
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
-  WordPressShared:
-    :commit: d67ca763c83e561f7058db626c0d99779c1f18fc
-    :git: https://github.com/wordpress-mobile/WordPress-iOS-Shared.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -142,6 +128,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: 6a9bdd6ab9d1b159b384b0df0f3f39de9af4fecf
 
-PODFILE CHECKSUM: 5f0d8e96b85a647693797064e22584aa70b23e48
+PODFILE CHECKSUM: 326efb1141f938a0c9d270f88375459deced22fd
 
 COCOAPODS: 1.8.4
