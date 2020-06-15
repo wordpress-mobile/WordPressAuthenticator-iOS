@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.dependency '1PasswordExtension', '1.8.6'
   s.dependency 'Alamofire', '4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
-  s.dependency 'lottie-ios', '3.1.6'
+  s.dependency 'lottie-ios', '~> 3.0'
   s.dependency 'NSURL+IDN', '0.4'
   s.dependency 'SVProgressHUD', '2.2.5'
 
