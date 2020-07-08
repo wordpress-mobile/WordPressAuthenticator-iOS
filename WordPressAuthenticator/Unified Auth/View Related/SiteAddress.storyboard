@@ -11,7 +11,7 @@
         <!--Site Address View Controller-->
         <scene sceneID="7Rf-Qz-qsw">
             <objects>
-                <viewController storyboardIdentifier="SiteAddressViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aQT-Gx-U3x" customClass="SiteAddressViewController" customModule="WordPressAuthenticator" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SiteAddressViewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aQT-Gx-U3x" customClass="SiteAddressViewController" customModule="WordPressAuthenticator" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ljV-kF-TaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,7 +19,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFS-Ic-byk" userLabel="Containing View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KLl-Uz-wEP">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KLl-Uz-wEP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="591"/>
                                         <sections/>
                                         <connections>
@@ -68,8 +68,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="dFS-Ic-byk" firstAttribute="top" secondItem="ljV-kF-TaY" secondAttribute="top" id="CM2-8b-yMQ"/>
                             <constraint firstItem="ihD-pY-rg9" firstAttribute="bottom" secondItem="dFS-Ic-byk" secondAttribute="bottom" id="Dva-c1-u2U"/>
-                            <constraint firstItem="dFS-Ic-byk" firstAttribute="top" secondItem="ihD-pY-rg9" secondAttribute="top" id="YEy-EW-XmD"/>
+                            <constraint firstItem="dFS-Ic-byk" firstAttribute="top" secondItem="ljV-kF-TaY" secondAttribute="top" id="YEy-EW-XmD"/>
                             <constraint firstItem="dFS-Ic-byk" firstAttribute="leading" secondItem="ljV-kF-TaY" secondAttribute="leading" id="msS-7X-Za9"/>
                             <constraint firstItem="dFS-Ic-byk" firstAttribute="trailing" secondItem="ljV-kF-TaY" secondAttribute="trailing" id="zY1-Yz-kTf"/>
                         </constraints>
