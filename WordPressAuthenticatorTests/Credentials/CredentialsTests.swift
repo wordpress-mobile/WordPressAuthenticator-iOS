@@ -62,14 +62,14 @@ class CredentialsTests: XCTestCase {
     }
     
     func testWordpressOrgCredentialsInit() {
-        let credentials = WordPressOrgCredentials(username: username,
+        let wporgcredentials = WordPressOrgCredentials(username: username,
                                                   password: password,
                                                   xmlrpc: xmlrpc,
                                                   options: [:])
         
-        XCTAssertEqual(credentials.username, username)
-        XCTAssertEqual(credentials.password, password)
-        XCTAssertEqual(credentials.xmlrpc, xmlrpc)
+        XCTAssertEqual(wporgcredentials.username, username)
+        XCTAssertEqual(wporgcredentials.password, password)
+        XCTAssertEqual(wporgcredentials.xmlrpc, xmlrpc)
     }
     
     func testWordPressOrgCredentialsEquatable() {
@@ -99,4 +99,27 @@ class CredentialsTests: XCTestCase {
         
         XCTAssertFalse(lhs == rhs)
     }
+    
+    func testAuthenticatorCredentialsInit() {
+        let wporgCredentials = WordPressOrgCredentials(username: username,
+                                                       password: password,
+                                                       xmlrpc: xmlrpc,
+                                                       options: [:])
+        let wpcomCredentials = WordPressComCredentials(authToken: token,
+                                                       isJetpackLogin: false,
+                                                       multifactor: false,
+                                                       siteURL: siteURL)
+        let authenticatorCredentials = AuthenticatorCredentials(wpcom: wpcomCredentials,
+                                                                wporg: wporgCredentials)
+        
+        
+        XCTAssertEqual(authenticatorCredentials.wpcom!.authToken, token)
+        XCTAssertEqual(authenticatorCredentials.wpcom!.isJetpackLogin, false)
+        XCTAssertEqual(authenticatorCredentials.wpcom!.multifactor, false)
+        XCTAssertEqual(authenticatorCredentials.wpcom!.siteURL, siteURL)
+        XCTAssertEqual(authenticatorCredentials.wporg!.username, username)
+        XCTAssertEqual(authenticatorCredentials.wporg!.password, password)
+        XCTAssertEqual(authenticatorCredentials.wporg!.xmlrpc, xmlrpc)
+    }
 }
+    
