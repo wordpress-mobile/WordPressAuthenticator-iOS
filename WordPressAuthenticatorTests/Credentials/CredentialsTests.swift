@@ -5,6 +5,10 @@ class CredentialsTests: XCTestCase {
     
     let token = "arstdhneio123456789qwfpgjluy"
     let siteURL = "https://example.com"
+    let username = "user123"
+    let password = "arstdhneio"
+    let xmlrpc = "https://example.com/xmlrpc.php"
+    
     
     func testWordpressComCredentialsInit() {
         let wpcomCredentials = WordPressComCredentials(authToken: token,
@@ -29,7 +33,7 @@ class CredentialsTests: XCTestCase {
         XCTAssertEqual(wpcomCredentials.siteURL, expected)
     }
     
-    func testWordPressCredentialsEquatable() {
+    func testWordPressComCredentialsEquatable() {
         let lhs = WordPressComCredentials(authToken: token,
                                           isJetpackLogin: false,
                                           multifactor: false,
@@ -43,7 +47,7 @@ class CredentialsTests: XCTestCase {
         XCTAssertTrue(lhs == rhs)
     }
     
-    func testWordPressCredentialsNotEquatable() {
+    func testWordPressComCredentialsNotEquatable() {
         let lhs = WordPressComCredentials(authToken: token,
                                           isJetpackLogin: false,
                                           multifactor: false,
@@ -53,6 +57,45 @@ class CredentialsTests: XCTestCase {
                                           isJetpackLogin: false,
                                           multifactor: false,
                                           siteURL: "")
+        
+        XCTAssertFalse(lhs == rhs)
+    }
+    
+    func testWordpressOrgCredentialsInit() {
+        let credentials = WordPressOrgCredentials(username: username,
+                                                  password: password,
+                                                  xmlrpc: xmlrpc,
+                                                  options: [:])
+        
+        XCTAssertEqual(credentials.username, username)
+        XCTAssertEqual(credentials.password, password)
+        XCTAssertEqual(credentials.xmlrpc, xmlrpc)
+    }
+    
+    func testWordPressOrgCredentialsEquatable() {
+        let lhs = WordPressOrgCredentials(username: username,
+                                          password: password,
+                                          xmlrpc: xmlrpc,
+                                          options: [:])
+        
+        let rhs = WordPressOrgCredentials(username: username,
+                                          password: password,
+                                          xmlrpc: xmlrpc,
+                                          options: [:])
+        
+        XCTAssertTrue(lhs == rhs)
+    }
+    
+    func testWordPressOrgCredentialsNotEquatable() {
+        let lhs = WordPressOrgCredentials(username: username,
+                                          password: password,
+                                          xmlrpc: xmlrpc,
+                                          options: [:])
+        
+        let rhs = WordPressOrgCredentials(username: "username5678",
+                                          password: password,
+                                          xmlrpc: xmlrpc,
+                                          options: [:])
         
         XCTAssertFalse(lhs == rhs)
     }
