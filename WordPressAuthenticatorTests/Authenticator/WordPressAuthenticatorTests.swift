@@ -55,4 +55,56 @@ class WordPressAuthenticatorTests: XCTestCase {
 
         XCTAssert(email != retrievedEmail, "Saved loginFields should be deleted after calling deleteLoginInfoForTokenAuth.")
     }
+    
+    func testAuthenticatorInitHasCorrectProperties() {
+        WordPressAuthenticator.initialize(
+            configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(),
+            style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(),
+            unifiedStyle: nil)
+        
+        let authenticator = WordPressAuthenticator.shared
+        
+        XCTAssertEqual(authenticator.configuration.wpcomClientId, "23456")
+        XCTAssertEqual(authenticator.style.primaryNormalBackgroundColor, UIColor.black)
+    }
+}
+
+struct MockWordpressAuthenticatorProvider {
+    static func wordPressAuthenticatorConfiguration() -> WordPressAuthenticatorConfiguration {
+        return WordPressAuthenticatorConfiguration(wpcomClientId: "23456",
+                                                   wpcomSecret: "arfv35dj57l3g2323",
+                                                   wpcomScheme: "https://",
+                                                   wpcomTermsOfServiceURL: "https://wordpress.com/tos/",
+                                                   googleLoginClientId: "",
+                                                   googleLoginServerClientId: "",
+                                                   googleLoginScheme: "",
+                                                   userAgent: "")
+    }
+    
+    static func wordPressAuthenticatorStyle() -> WordPressAuthenticatorStyle {
+        return WordPressAuthenticatorStyle(primaryNormalBackgroundColor: UIColor.black,
+                                           primaryNormalBorderColor: UIColor.black,
+                                           primaryHighlightBackgroundColor: UIColor.black,
+                                           primaryHighlightBorderColor: UIColor.black,
+                                           secondaryNormalBackgroundColor: UIColor.black,
+                                           secondaryNormalBorderColor: UIColor.black,
+                                           secondaryHighlightBackgroundColor: UIColor.black,
+                                           secondaryHighlightBorderColor: UIColor.black,
+                                           disabledBackgroundColor: UIColor.black,
+                                           disabledBorderColor: UIColor.black,
+                                           primaryTitleColor: UIColor.black,
+                                           secondaryTitleColor: UIColor.black,
+                                           disabledTitleColor: UIColor.black,
+                                           textButtonColor: UIColor.black,
+                                           textButtonHighlightColor: UIColor.black,
+                                           instructionColor: UIColor.black,
+                                           subheadlineColor: UIColor.black,
+                                           placeholderColor: UIColor.black,
+                                           viewControllerBackgroundColor: UIColor.black,
+                                           textFieldBackgroundColor: UIColor.black,
+                                           navBarImage: UIImage(color: UIColor.black),
+                                           navBarBadgeColor: UIColor.black,
+                                           navBarBackgroundColor: UIColor.black
+        )
+    }
 }
