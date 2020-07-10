@@ -6,10 +6,10 @@ class WordPressAuthenticatorTests: XCTestCase {
     
     let timeInterval = TimeInterval(3)
     
-    override func setUp() {
+    override class func setUp() {
         super.setUp()
         
-        //        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(), unifiedStyle: nil)
+        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: nil)
         
     }
     
@@ -64,7 +64,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testAuthenticatorInitHasCorrectProperties() {
-        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(), unifiedStyle: nil)
+//        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(), unifiedStyle: nil)
         let authenticator = WordPressAuthenticator.shared
         
         XCTAssertEqual(authenticator.configuration.wpcomClientId, "23456")
@@ -86,6 +86,14 @@ class WordPressAuthenticatorTests: XCTestCase {
         WordPressAuthenticator.shared.supportPushNotificationCleared()
         
         waitForExpectations(timeout: timeInterval, handler: nil)
+    }
+    
+    func testWordpressAuthIsAuthenticationViewController() {
+        let loginViewcontroller = LoginViewController()
+        let nuxViewController = NUXViewController()
+        
+        XCTAssertTrue(WordPressAuthenticator.isAuthenticationViewController(loginViewcontroller))
+        XCTAssertTrue(WordPressAuthenticator.isAuthenticationViewController(nuxViewController))
     }
 }
 
