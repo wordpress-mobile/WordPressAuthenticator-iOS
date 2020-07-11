@@ -64,11 +64,10 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testAuthenticatorInitHasCorrectProperties() {
-//        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(), unifiedStyle: nil)
+        //COME BACK TO THIS
         let authenticator = WordPressAuthenticator.shared
         
         XCTAssertEqual(authenticator.configuration.wpcomClientId, "23456")
-        XCTAssertEqual(authenticator.style.primaryNormalBackgroundColor, UIColor.black)
     }
     
     func testPushNotificationReceived() {
@@ -94,6 +93,34 @@ class WordPressAuthenticatorTests: XCTestCase {
         
         XCTAssertTrue(WordPressAuthenticator.isAuthenticationViewController(loginViewcontroller))
         XCTAssertTrue(WordPressAuthenticator.isAuthenticationViewController(nuxViewController))
+    }
+    
+    func testSignInForWPOrgReturnsVC() {
+        let vc = WordPressAuthenticator.signinForWPOrg()
+        
+        XCTAssertTrue((vc as Any) is LoginSiteAddressViewController)
+    }
+    
+    func testSignInForWPComReturnsVC() {
+        let vc = WordPressAuthenticator.signinForWPCom()
+        
+        XCTAssertTrue((vc as Any) is LoginEmailViewController)
+    }
+    
+    func testSignInForWPComWithLoginFieldsReturnsVC() {
+        let navController = WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: "example@email.com", dotcomUsername: "username") as! UINavigationController
+        let vc = navController.topViewController
+        
+        XCTAssertTrue((navController as Any) is UIViewController)
+        XCTAssertTrue((vc as Any) is LoginWPComViewController)
+    }
+    
+    func testSignInForWPComSetsEmptyLoginFields() {
+        let navController = WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: nil, dotcomUsername: nil) as! UINavigationController
+        let vc = navController.topViewController as! LoginWPComViewController
+        
+        XCTAssertEqual(vc.loginFields.emailAddress, String())
+        XCTAssertEqual(vc.loginFields.username, String())
     }
 }
 
