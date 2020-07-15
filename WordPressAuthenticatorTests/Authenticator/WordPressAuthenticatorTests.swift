@@ -95,6 +95,24 @@ class WordPressAuthenticatorTests: XCTestCase {
         XCTAssertTrue(WordPressAuthenticator.isAuthenticationViewController(nuxViewController))
     }
     
+    func testIsGoogleAuthURL() {
+        let url = URL(string: "https://google.com")!
+        
+        XCTAssertTrue(WordPressAuthenticator.shared.isGoogleAuthUrl(url))
+    }
+    
+    func testIsWordPressAuthURL() {
+        let url = URL(string: "https://magic-login")!
+
+        XCTAssertTrue(WordPressAuthenticator.shared.isWordPressAuthUrl(url))
+    }
+    
+    func testHandleWordPressAuthURLReturnsTrueOnSucceed() {
+        let url = URL(string: "https://wordpress.com/wp-login.php?token=1234567890%26action&magic-login&sr=1&signature=1234567890oienhdtsra")
+        
+        XCTAssertTrue(WordPressAuthenticator.shared.handleWordPressAuthUrl(url!, allowWordPressComAuth: true, rootViewController: UIViewController()))
+    }
+    
     func testSignInForWPOrgReturnsVC() {
         let vc = WordPressAuthenticator.signinForWPOrg()
         
