@@ -309,18 +309,9 @@ class WordPressAuthenticatorTests: XCTestCase {
             return
         }
         
+
         XCTAssertTrue(result)
         XCTAssertEqual(trackedEvent, WPAnalyticsStat.loginMagicLinkOpened)
     }
-    
-}
 
-//func presentWithConfigs(from vc: ModalViewControllerPresenting) {
-//    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//        let toPresent = TVC(nibName: nil, bundle: nil)
-//        toPresent.view.backgroundColor = .blue
-//        vc.present(toPresent, animated: true, completion: .none)
-//    }
-//}
-//
-//class TVC: UIViewController {}
+}
