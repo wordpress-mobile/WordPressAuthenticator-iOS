@@ -12,7 +12,7 @@ class WordPressAuthenticatorTests: XCTestCase {
         WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: nil)
         
     }
-    
+
     func testBaseSiteURL() {
         var baseURL = "testsite.wordpress.com"
         var url = WordPressAuthenticator.baseSiteURL(string: "http://\(baseURL)")
@@ -136,17 +136,80 @@ class WordPressAuthenticatorTests: XCTestCase {
         
         XCTAssertEqual(trackedEvent, WPAnalyticsStat.openedLogin)
     }
+    
+    func testOpenAuthenticationFailsWithoutQuery() {
+        let url = URL(string: "https://WordPress.com/")
+        
+        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: false, fromRootViewController: UIViewController())
+        
+        XCTAssertFalse(result)
+    }
+    
+    func testOpenAuthenticationFailsWithoutWpcomAuth() {
+        let url = URL(string: "https://WordPress.com/?token=arstdhneio0987654321")
+        let loginFields = LoginFields()
+        loginFields.username = "user123"
+        loginFields.password = "knockknock"
+        
+        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: false, fromRootViewController: UIViewController())
+        
+        XCTAssertFalse(result)
+    }
+    
+    func testOpenAuthenticationTracksSignupMagicLink() {
+        let url = URL(string: "https://WordPress.com/?token=arstdhneio0987654321")
+        let loginFields = LoginFields()
+        loginFields.username = "user123"
+        loginFields.password = "knockknock"
+        loginFields.meta.jetpackBlogXMLRPC = "https://example.com/xmlrpc.php"
+        loginFields.meta.jetpackBlogUsername = "jetpack-user"
+        loginFields.meta.emailMagicLinkSource = .signup
+        WordPressAuthenticator.storeLoginInfoForTokenAuth(loginFields)
+        let delegate = WordPressAuthenticatorDelegateSpy()
+        WordPressAuthenticator.shared.delegate = delegate
+        
+        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: true, fromRootViewController: UIViewController())
+        guard let trackedEvent = delegate.trackedElement else {
+            XCTFail("Event not Tracked")
+            return
+        }
+        
+        XCTAssertTrue(result)
+        XCTAssertEqual(trackedEvent, WPAnalyticsStat.signupMagicLinkOpened)
+    }
+    
+    func testOpenAuthenticationTracksLoginMagicLinkOpened() {
+        let url = URL(string: "https://WordPress.com/?token=arstdhneio0987654321")
+        let loginFields = LoginFields()
+        loginFields.username = "user123"
+        loginFields.password = "knockknock"
+        loginFields.meta.jetpackBlogXMLRPC = "https://example.com/xmlrpc.php"
+        loginFields.meta.jetpackBlogUsername = "jetpack-user"
+        loginFields.meta.emailMagicLinkSource = .login
+        WordPressAuthenticator.storeLoginInfoForTokenAuth(loginFields)
+        let delegate = WordPressAuthenticatorDelegateSpy()
+        WordPressAuthenticator.shared.delegate = delegate
+        
+        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: true, fromRootViewController: UIViewController())
+        guard let trackedEvent = delegate.trackedElement else {
+            XCTFail("Event not Tracked")
+            return
+        }
+        
+        XCTAssertTrue(result)
+        XCTAssertEqual(trackedEvent, WPAnalyticsStat.loginMagicLinkOpened)
+    }
 }
 
 struct MockWordpressAuthenticatorProvider {
     static func wordPressAuthenticatorConfiguration() -> WordPressAuthenticatorConfiguration {
         return WordPressAuthenticatorConfiguration(wpcomClientId: "23456",
                                                    wpcomSecret: "arfv35dj57l3g2323",
-                                                   wpcomScheme: "https://",
+                                                   wpcomScheme: "https",
                                                    wpcomTermsOfServiceURL: "https://wordpress.com/tos/",
                                                    googleLoginClientId: "",
                                                    googleLoginServerClientId: "",
-                                                   googleLoginScheme: "",
+                                                   googleLoginScheme: "https",
                                                    userAgent: "")
     }
     
