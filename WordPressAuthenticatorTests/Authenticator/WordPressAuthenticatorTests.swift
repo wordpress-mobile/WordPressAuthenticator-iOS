@@ -12,7 +12,7 @@ class WordPressAuthenticatorTests: XCTestCase {
         WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: nil)
         
     }
-
+    
     func testBaseSiteURL() {
         var baseURL = "testsite.wordpress.com"
         var url = WordPressAuthenticator.baseSiteURL(string: "http://\(baseURL)")
@@ -103,7 +103,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     
     func testIsWordPressAuthURL() {
         let url = URL(string: "https://magic-login")!
-
+        
         XCTAssertTrue(WordPressAuthenticator.shared.isWordPressAuthUrl(url))
     }
     
@@ -117,6 +117,101 @@ class WordPressAuthenticatorTests: XCTestCase {
         let vc = WordPressAuthenticator.signinForWPOrg()
         
         XCTAssertTrue((vc as Any) is LoginSiteAddressViewController)
+    }
+    
+    func testShowLoginFromPresenterReturnsLoginInitialVC() {
+        let presenterSpy = ModalViewControllerPresentingSpy()
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
+            return presenterSpy.presentedVC != nil
+        }), object: .none)
+        
+        WordPressAuthenticator.showLoginFromPresenter(presenterSpy, animated: true)
+        wait(for: [expectation], timeout: 3)
+        
+        XCTAssertTrue(presenterSpy.presentedVC is LoginNavigationController)
+    }
+    
+    func testShowLoginForJustWPComPresentsCorrectVC() {
+        let presenterSpy = ModalViewControllerPresentingSpy()
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
+            return presenterSpy.presentedVC != nil
+        }), object: .none)
+        
+        WordPressAuthenticator.showLoginForJustWPCom(from: presenterSpy)
+        wait(for: [expectation], timeout: 3)
+        
+        XCTAssertTrue(presenterSpy.presentedVC is LoginNavigationController)
+    }
+    
+    func testShowLoginForJustWPComTracksOpenedLogin() {
+        let presenterSpy = ModalViewControllerPresentingSpy()
+        let delegateSpy = WordPressAuthenticatorDelegateSpy()
+        WordPressAuthenticator.shared.delegate = delegateSpy
+        
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
+            return presenterSpy.presentedVC != nil
+        }), object: .none)
+        
+        WordPressAuthenticator.showLoginForJustWPCom(from: presenterSpy)
+        wait(for: [expectation], timeout: 3)
+        
+        let trackedEvent = delegateSpy.trackedElement
+        
+        XCTAssertEqual(trackedEvent, WPAnalyticsStat.openedLogin)
+    }
+    
+    func testShowLoginForJustWPComSetsMetaProperties() {
+        let presenterSpy = ModalViewControllerPresentingSpy()
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
+            return presenterSpy.presentedVC != nil
+        }), object: .none)
+        
+        WordPressAuthenticator.showLoginForJustWPCom(from: presenterSpy,
+                                                     xmlrpc: "https://example.com/xmlrpc.php",
+                                                     username: "username",
+                                                     connectedEmail: "email-address@example.com")
+        
+        guard let navController = presenterSpy.presentedVC as? LoginNavigationController, let controller = navController.viewControllers.first as? LoginEmailViewController else {
+            XCTFail("Could not fetch correct ViewController")
+            return
+        }
+        
+        wait(for: [expectation], timeout: 3)
+        
+        XCTAssertEqual(controller.loginFields.restrictToWPCom, true)
+        XCTAssertEqual(controller.loginFields.meta.jetpackBlogXMLRPC, "https://example.com/xmlrpc.php")
+        XCTAssertEqual(controller.loginFields.meta.jetpackBlogUsername, "username")
+        XCTAssertEqual(controller.loginFields.username, "email-address@example.com")
+    }
+    
+    func testShowLoginForSelfHostedSitePresentsCorrectVC() {
+        let presenterSpy = ModalViewControllerPresentingSpy()
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
+            return presenterSpy.presentedVC != nil
+        }), object: .none)
+        
+        WordPressAuthenticator.showLoginForSelfHostedSite(presenterSpy)
+        wait(for: [expectation], timeout: 3)
+        
+        XCTAssertTrue(presenterSpy.presentedVC is LoginNavigationController)
+    }
+    
+    func testShowLoginForSelfHostedSiteTracksOpenLogin() {
+        let presenterSpy = ModalViewControllerPresentingSpy()
+        let delegateSpy = WordPressAuthenticatorDelegateSpy()
+        
+        WordPressAuthenticator.shared.delegate = delegateSpy
+        
+        let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
+            return presenterSpy.presentedVC != nil
+        }), object: .none)
+        
+        WordPressAuthenticator.showLoginForSelfHostedSite(presenterSpy)
+        wait(for: [expectation], timeout: 3)
+        
+        let trackedEvent = delegateSpy.trackedElement
+        
+        XCTAssertEqual(trackedEvent, WPAnalyticsStat.openedLogin)
     }
     
     func testSignInForWPComReturnsVC() {
@@ -237,52 +332,52 @@ struct MockWordpressAuthenticatorProvider {
         switch style {
         case .random:
             wpAuthStyle = WordPressAuthenticatorStyle(primaryNormalBackgroundColor: UIColor.random(),
-                                                  primaryNormalBorderColor: UIColor.random(),
-                                                  primaryHighlightBackgroundColor: UIColor.random(),
-                                                  primaryHighlightBorderColor: UIColor.random(),
-                                                  secondaryNormalBackgroundColor: UIColor.random(),
-                                                  secondaryNormalBorderColor: UIColor.random(),
-                                                  secondaryHighlightBackgroundColor: UIColor.random(),
-                                                  secondaryHighlightBorderColor: UIColor.random(),
-                                                  disabledBackgroundColor: UIColor.random(),
-                                                  disabledBorderColor: UIColor.random(),
-                                                  primaryTitleColor: UIColor.random(),
-                                                  secondaryTitleColor: UIColor.random(),
-                                                  disabledTitleColor: UIColor.random(),
-                                                  textButtonColor: UIColor.random(),
-                                                  textButtonHighlightColor: UIColor.random(),
-                                                  instructionColor: UIColor.random(),
-                                                  subheadlineColor: UIColor.random(),
-                                                  placeholderColor: UIColor.random(),
-                                                  viewControllerBackgroundColor: UIColor.random(),
-                                                  textFieldBackgroundColor: UIColor.random(),
-                                                  navBarImage: UIImage(color: UIColor.random()),
-                                                  navBarBadgeColor: UIColor.random(),
-                                                  navBarBackgroundColor: UIColor.random())
+                                                      primaryNormalBorderColor: UIColor.random(),
+                                                      primaryHighlightBackgroundColor: UIColor.random(),
+                                                      primaryHighlightBorderColor: UIColor.random(),
+                                                      secondaryNormalBackgroundColor: UIColor.random(),
+                                                      secondaryNormalBorderColor: UIColor.random(),
+                                                      secondaryHighlightBackgroundColor: UIColor.random(),
+                                                      secondaryHighlightBorderColor: UIColor.random(),
+                                                      disabledBackgroundColor: UIColor.random(),
+                                                      disabledBorderColor: UIColor.random(),
+                                                      primaryTitleColor: UIColor.random(),
+                                                      secondaryTitleColor: UIColor.random(),
+                                                      disabledTitleColor: UIColor.random(),
+                                                      textButtonColor: UIColor.random(),
+                                                      textButtonHighlightColor: UIColor.random(),
+                                                      instructionColor: UIColor.random(),
+                                                      subheadlineColor: UIColor.random(),
+                                                      placeholderColor: UIColor.random(),
+                                                      viewControllerBackgroundColor: UIColor.random(),
+                                                      textFieldBackgroundColor: UIColor.random(),
+                                                      navBarImage: UIImage(color: UIColor.random()),
+                                                      navBarBadgeColor: UIColor.random(),
+                                                      navBarBackgroundColor: UIColor.random())
         case .wordpressStandard:
             wpAuthStyle = WordPressAuthenticatorStyle(primaryNormalBackgroundColor: UIColor.black,
-                                                  primaryNormalBorderColor: UIColor.black,
-                                                  primaryHighlightBackgroundColor: UIColor.black,
-                                                  primaryHighlightBorderColor: UIColor.black,
-                                                  secondaryNormalBackgroundColor: UIColor.black,
-                                                  secondaryNormalBorderColor: UIColor.black,
-                                                  secondaryHighlightBackgroundColor: UIColor.black,
-                                                  secondaryHighlightBorderColor: UIColor.black,
-                                                  disabledBackgroundColor: UIColor.black,
-                                                  disabledBorderColor: UIColor.black,
-                                                  primaryTitleColor: UIColor.black,
-                                                  secondaryTitleColor: UIColor.black,
-                                                  disabledTitleColor: UIColor.black,
-                                                  textButtonColor: UIColor.black,
-                                                  textButtonHighlightColor: UIColor.black,
-                                                  instructionColor: UIColor.black,
-                                                  subheadlineColor: UIColor.black,
-                                                  placeholderColor: UIColor.black,
-                                                  viewControllerBackgroundColor: UIColor.black,
-                                                  textFieldBackgroundColor: UIColor.black,
-                                                  navBarImage: UIImage(color: UIColor.black),
-                                                  navBarBadgeColor: UIColor.black,
-                                                  navBarBackgroundColor: UIColor.black)
+                                                      primaryNormalBorderColor: UIColor.black,
+                                                      primaryHighlightBackgroundColor: UIColor.black,
+                                                      primaryHighlightBorderColor: UIColor.black,
+                                                      secondaryNormalBackgroundColor: UIColor.black,
+                                                      secondaryNormalBorderColor: UIColor.black,
+                                                      secondaryHighlightBackgroundColor: UIColor.black,
+                                                      secondaryHighlightBorderColor: UIColor.black,
+                                                      disabledBackgroundColor: UIColor.black,
+                                                      disabledBorderColor: UIColor.black,
+                                                      primaryTitleColor: UIColor.black,
+                                                      secondaryTitleColor: UIColor.black,
+                                                      disabledTitleColor: UIColor.black,
+                                                      textButtonColor: UIColor.black,
+                                                      textButtonHighlightColor: UIColor.black,
+                                                      instructionColor: UIColor.black,
+                                                      subheadlineColor: UIColor.black,
+                                                      placeholderColor: UIColor.black,
+                                                      viewControllerBackgroundColor: UIColor.black,
+                                                      textFieldBackgroundColor: UIColor.black,
+                                                      navBarImage: UIImage(color: UIColor.black),
+                                                      navBarBadgeColor: UIColor.black,
+                                                      navBarBackgroundColor: UIColor.black)
         }
         return wpAuthStyle
     }
@@ -303,10 +398,10 @@ extension CGFloat {
 extension UIColor {
     static func random() -> UIColor {
         return UIColor(
-           red:   .random(),
-           green: .random(),
-           blue:  .random(),
-           alpha: 1.0
+            red:   .random(),
+            green: .random(),
+            blue:  .random(),
+            alpha: 1.0
         )
     }
 }
@@ -389,3 +484,26 @@ class WordPressAuthenticatorDelegateSpy: WordPressAuthenticatorDelegate {
     
     
 }
+
+protocol ModalViewControllerPresenting {
+    func present(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?)
+}
+
+extension UIViewController: ModalViewControllerPresenting {}
+
+class ModalViewControllerPresentingSpy: UIViewController {
+    internal var presentedVC: UIViewController? = .none
+    override func present(_ viewControllerToPresent: UIViewController, animated: Bool, completion: (() -> Void)?) {
+        presentedVC = viewControllerToPresent
+    }
+}
+
+//func presentWithConfigs(from vc: ModalViewControllerPresenting) {
+//    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//        let toPresent = TVC(nibName: nil, bundle: nil)
+//        toPresent.view.backgroundColor = .blue
+//        vc.present(toPresent, animated: true, completion: .none)
+//    }
+//}
+//
+//class TVC: UIViewController {}
