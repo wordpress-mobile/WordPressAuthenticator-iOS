@@ -17,33 +17,55 @@ struct MockWordpressAuthenticatorProvider {
         
         switch style {
         case .random:
-            wpAuthStyle = WordPressAuthenticatorStyle(primaryNormalBackgroundColor: UIColor.random(),
-                                                      primaryNormalBorderColor: UIColor.random(),
-                                                      primaryHighlightBackgroundColor: UIColor.random(),
-                                                      primaryHighlightBorderColor: UIColor.random(),
-                                                      secondaryNormalBackgroundColor: UIColor.random(),
-                                                      secondaryNormalBorderColor: UIColor.random(),
-                                                      secondaryHighlightBackgroundColor: UIColor.random(),
-                                                      secondaryHighlightBorderColor: UIColor.random(),
-                                                      disabledBackgroundColor: UIColor.random(),
-                                                      disabledBorderColor: UIColor.random(),
-                                                      primaryTitleColor: UIColor.random(),
-                                                      secondaryTitleColor: UIColor.random(),
-                                                      disabledTitleColor: UIColor.random(),
-                                                      textButtonColor: UIColor.random(),
-                                                      textButtonHighlightColor: UIColor.random(),
-                                                      instructionColor: UIColor.random(),
-                                                      subheadlineColor: UIColor.random(),
-                                                      placeholderColor: UIColor.random(),
-                                                      viewControllerBackgroundColor: UIColor.random(),
-                                                      textFieldBackgroundColor: UIColor.random(),
-                                                      navBarImage: UIImage(color: UIColor.random()),
-                                                      navBarBadgeColor: UIColor.random(),
-                                                      navBarBackgroundColor: UIColor.random())
+            wpAuthStyle = WordPressAuthenticatorStyle (
+                primaryNormalBackgroundColor: UIColor.random(),
+                primaryNormalBorderColor: UIColor.random(),
+                primaryHighlightBackgroundColor: UIColor.random(),
+                primaryHighlightBorderColor: UIColor.random(),
+                secondaryNormalBackgroundColor: UIColor.random(),
+                secondaryNormalBorderColor: UIColor.random(),
+                secondaryHighlightBackgroundColor: UIColor.random(),
+                secondaryHighlightBorderColor: UIColor.random(),
+                disabledBackgroundColor: UIColor.random(),
+                disabledBorderColor: UIColor.random(),
+                primaryTitleColor: UIColor.random(),
+                secondaryTitleColor: UIColor.random(),
+                disabledTitleColor: UIColor.random(),
+                textButtonColor: UIColor.random(),
+                textButtonHighlightColor: UIColor.random(),
+                instructionColor: UIColor.random(),
+                subheadlineColor: UIColor.random(),
+                placeholderColor: UIColor.random(),
+                viewControllerBackgroundColor: UIColor.random(),
+                textFieldBackgroundColor: UIColor.random(),
+                navBarImage: UIImage(color: UIColor.random()),
+                navBarBadgeColor: UIColor.random(),
+                navBarBackgroundColor: UIColor.random()
+            )
             return wpAuthStyle
         }
     }
+    
+    static func wordPressAuthenticatorUnifiedStyle(_ style: AuthenticatorStyeType) -> WordPressAuthenticatorUnifiedStyle {
+        var wpUnifiedAuthStyle: WordPressAuthenticatorUnifiedStyle!
+        
+        switch style {
+        case .random:
+            wpUnifiedAuthStyle = WordPressAuthenticatorUnifiedStyle(
+                borderColor: UIColor.random(),
+                textColor: UIColor.random(),
+                textButtonColor: UIColor.random(),
+                textButtonHighlightColor: UIColor.random(),
+                viewControllerBackgroundColor: UIColor.random(),
+                navBarBackgroundColor: UIColor.random(),
+                navButtonTextColor: UIColor.random(),
+                largeTitleTextColor: UIColor.random()
+            )
+            return wpUnifiedAuthStyle
+        }
+    }
 }
+
 
 enum AuthenticatorStyeType {
     case random
