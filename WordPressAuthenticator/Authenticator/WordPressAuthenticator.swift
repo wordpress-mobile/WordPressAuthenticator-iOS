@@ -430,10 +430,10 @@ import AuthenticationServices
     ///
     /// - Parameter loginFields: A LoginFields instance.
     ///
-    class func openForgotPasswordURL(_ loginFields: LoginFields) {
+    class func openForgotPasswordURL(_ loginFields: LoginFields, urlHandler: URLHandler = UIApplication.shared) {
         let baseURL = loginFields.meta.userIsDotCom ? "https://wordpress.com" : WordPressAuthenticator.baseSiteURL(string: loginFields.siteAddress)
         let forgotPasswordURL = URL(string: baseURL + "/wp-login.php?action=lostpassword&redirect_to=wordpress%3A%2F%2F")!
-        UIApplication.shared.open(forgotPasswordURL)
+        urlHandler.open(forgotPasswordURL, options: [:], completionHandler: nil)
     }
 
     /// Returns the WordPressAuthenticator Bundle
@@ -503,5 +503,4 @@ public extension WordPressAuthenticator {
         }
         appleIDCredentialObserver = nil
     }
-
 }

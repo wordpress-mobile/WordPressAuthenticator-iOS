@@ -7,24 +7,6 @@ struct URLMocks {
     static let mockAppList = ["gmail": "googlemail://", "airmail": "airmail://"]
 }
 
-class MockUrlHandler: URLHandler {
-
-    var shouldOpenUrls = true
-
-    var canOpenUrlExpectation: XCTestExpectation?
-    var openUrlExpectation: XCTestExpectation?
-
-    func canOpenURL(_ url: URL) -> Bool {
-        canOpenUrlExpectation?.fulfill()
-        canOpenUrlExpectation = nil
-        return shouldOpenUrls
-    }
-
-    func open(_ url: URL, options: [UIApplication.OpenExternalURLOptionsKey : Any], completionHandler completion: ((Bool) -> Void)?) {
-        openUrlExpectation?.fulfill()
-    }
-}
-
 class AppSelectorTests: XCTestCase {
 
     func testSelectorInitializationSuccess() {
