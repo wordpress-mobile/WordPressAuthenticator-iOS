@@ -9,7 +9,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     override class func setUp() {
         super.setUp()
         
-        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: nil)
+        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: MockWordpressAuthenticatorProvider.wordPressAuthenticatorUnifiedStyle(.random))
         
     }
     
@@ -312,6 +312,86 @@ class WordPressAuthenticatorTests: XCTestCase {
 
         XCTAssertTrue(result)
         XCTAssertEqual(trackedEvent, WPAnalyticsStat.loginMagicLinkOpened)
+    }
+    
+    func testOpenForgotPasswordSuccessWithDotComAddress() {
+        let urlHandler = MockUrlHandler()
+        urlHandler.openUrlExpectation = expectation(description: "canOpenUrl called")
+        let loginFields = LoginFields()
+        loginFields.meta.userIsDotCom = true
+        
+        WordPressAuthenticator.openForgotPasswordURL(loginFields, urlHandler: urlHandler)
+        
+        let expectedURL = URL(string: "https://wordpress.com/wp-login.php?action=lostpassword&redirect_to=wordpress%3A%2F%2F")
+        XCTAssertEqual(urlHandler.lastUrl, expectedURL)
+        waitForExpectations(timeout: 4) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testOpenForgotPasswordSuccessWithDotOrgAddress() {
+        let urlHandler = MockUrlHandler()
+        urlHandler.openUrlExpectation = expectation(description: "canOpenUrl called")
+        let loginFields = LoginFields()
+        loginFields.meta.userIsDotCom = false
+        loginFields.siteAddress = "https://example.com"
+        
+        WordPressAuthenticator.openForgotPasswordURL(loginFields, urlHandler: urlHandler)
+        
+        let expectedURL = URL(string: "https://example.com/wp-login.php?action=lostpassword&redirect_to=wordpress%3A%2F%2F")
+        XCTAssertEqual(urlHandler.lastUrl, expectedURL)
+        waitForExpectations(timeout: 4) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+    }
+    
+    func testFetchOnePasswordCredentialsSucceeds() {
+        let onePasswordFetcher = MockOnePasswordFacade(username: "username", password: "knockknock", otp: nil)
+        let loginFields = LoginFields()
+        loginFields.meta.userIsDotCom = true
+        
+        let expect = expectation(description: "Could fetch OnePassword credentials")
+        
+        WordPressAuthenticator.fetchOnePasswordCredentials(UIViewController(), sourceView: UIView(), loginFields: loginFields, onePasswordFetcher: onePasswordFetcher) { (credentials) in
+            
+            XCTAssertEqual(credentials.username, "username")
+            XCTAssertEqual(credentials.password, "knockknock")
+            XCTAssertEqual(credentials.multifactorCode, String())
+            expect.fulfill()
+        }
+
+        waitForExpectations(timeout: timeInterval, handler: nil)
+        
+    }
+    
+    func testFetchOnePasswordCredentialsFails() {
+        let onePasswordFetcher = MockOnePasswordFacade(error: .unknown)
+        let loginFields = LoginFields()
+        loginFields.meta.userIsDotCom = true
+        let delegate = WordPressAuthenticatorDelegateSpy()
+        WordPressAuthenticator.shared.delegate = delegate
+        
+        WordPressAuthenticator.fetchOnePasswordCredentials(UIViewController(), sourceView: UIView(), loginFields: loginFields, onePasswordFetcher: onePasswordFetcher) { (_) in
+        }
+        
+        XCTAssertEqual(delegate.trackedElement, WPAnalyticsStat.onePasswordFailed)
+    }
+    
+    func testFetchOnePasswordCredentialsCanceledByUserDoesNotTrack() {
+        let onePasswordFetcher = MockOnePasswordFacade(error: .cancelledByUser)
+        let loginFields = LoginFields()
+        loginFields.meta.userIsDotCom = true
+        let delegate = WordPressAuthenticatorDelegateSpy()
+        WordPressAuthenticator.shared.delegate = delegate
+        
+        WordPressAuthenticator.fetchOnePasswordCredentials(UIViewController(), sourceView: UIView(), loginFields: loginFields, onePasswordFetcher: onePasswordFetcher) { (_) in
+        }
+        
+        XCTAssertNil(delegate.trackedElement)
     }
 
 }
