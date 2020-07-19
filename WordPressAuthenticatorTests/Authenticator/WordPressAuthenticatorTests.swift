@@ -70,16 +70,15 @@ class WordPressAuthenticatorTests: XCTestCase {
         XCTAssertEqual(authenticator.configuration.wpcomClientId, "23456")
     }
     
-    func testPushNotificationReceived() {
+    func testSupportPushNotificationReceived() {
         let _ = expectation(forNotification: .wordpressSupportNotificationReceived, object: nil, handler: nil)
         
         WordPressAuthenticator.shared.supportPushNotificationReceived()
         
         waitForExpectations(timeout: timeInterval, handler: nil)
-        
     }
     
-    func testPushNotificationCleared() {
+    func testSupportPushNotificationCleared() {
         let _ = expectation(forNotification: .wordpressSupportNotificationCleared, object: nil, handler: nil)
         
         WordPressAuthenticator.shared.supportPushNotificationCleared()
