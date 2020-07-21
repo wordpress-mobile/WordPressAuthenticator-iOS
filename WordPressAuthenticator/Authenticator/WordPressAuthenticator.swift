@@ -244,7 +244,7 @@ import AuthenticationServices
     }
 
 
-    internal class func trackOpenedLogin() {
+    class func trackOpenedLogin() {
         WordPressAuthenticator.track(.openedLogin)
     }
 
