@@ -9,7 +9,11 @@ class WordPressAuthenticatorTests: XCTestCase {
     override class func setUp() {
         super.setUp()
         
-        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: MockWordpressAuthenticatorProvider.wordPressAuthenticatorUnifiedStyle(.random))
+        WordPressAuthenticator.initialize(
+          configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(),
+          style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), 
+          unifiedStyle: MockWordpressAuthenticatorProvider.wordPressAuthenticatorUnifiedStyle(.random)
+        )
         
     }
     
