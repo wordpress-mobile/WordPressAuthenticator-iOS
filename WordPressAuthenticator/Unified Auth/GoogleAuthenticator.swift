@@ -153,12 +153,7 @@ private extension GoogleAuthenticator {
     ///                     Required by Google SDK.
     func requestAuthorization(from viewController: UIViewController) {
 
-        switch authType {
-        case .login:
-            track(.loginSocialButtonClick)
-        case .signup:
-            track(.createAccountInitiated)
-        }
+        trackFlowStart()
 
         guard let googleInstance = GIDSignIn.sharedInstance() else {
             DDLogError("GoogleAuthenticator: Failed to get `GIDSignIn.sharedInstance()`.")
@@ -176,12 +171,6 @@ private extension GoogleAuthenticator {
 
         // Start the Google auth process. This presents the Google account selection view.
         googleInstance.signIn()
-    }
-
-    func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {
-        var trackProperties = properties
-        trackProperties["source"] = "google"
-        WordPressAuthenticator.track(event, properties: trackProperties)
     }
     
     enum LocalizedText {
@@ -384,4 +373,46 @@ private extension GoogleAuthenticator {
         delegate?.googleSignupFailed(error: error, loginFields: loginFields)
     }
 
+}
+
+// MARK: - Analytic Events
+
+extension AnalyticsEvent {
+    enum LoginStep: String {
+        case start
+        case success
+    }
+    
+    static func login(step: LoginStep) -> AnalyticsEvent {
+        let properties = [
+            "step": step.rawValue
+        ]
+        
+        return AnalyticsEvent(name: "login", properties: properties)
+    }
+}
+
+// MARK: - Tracking
+
+private extension GoogleAuthenticator {
+    func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {
+        var trackProperties = properties
+        trackProperties["source"] = "google"
+        WordPressAuthenticator.track(event, properties: trackProperties)
+    }
+    
+    func trackFlowStart() {
+        guard authConfig.enableUnifiedGoogle else {
+            switch authType {
+            case .login:
+                track(.loginSocialButtonClick)
+            case .signup:
+                track(.createAccountInitiated)
+            }
+            
+            return
+        }
+        
+        WPAnalytics.track(.login(step: .start))
+    }
 }
