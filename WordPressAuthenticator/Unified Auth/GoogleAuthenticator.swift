@@ -385,7 +385,9 @@ extension AnalyticsEvent {
     
     static func login(step: LoginStep) -> AnalyticsEvent {
         let properties = [
-            "step": step.rawValue
+            "source": "default",
+            "flow": "google_login",
+            "step": step.rawValue,
         ]
         
         return AnalyticsEvent(name: "login", properties: properties)
