@@ -123,7 +123,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     func testSignInForWPOrgReturnsVC() {
         let vc = WordPressAuthenticator.signinForWPOrg()
         
-        XCTAssertTrue((vc as Any) is LoginSiteAddressViewController)
+        XCTAssertTrue(vc is LoginSiteAddressViewController)
     }
     
     func testShowLoginFromPresenterReturnsLoginInitialVC() {
@@ -229,8 +229,8 @@ class WordPressAuthenticatorTests: XCTestCase {
         let navController = try XCTUnwrap(WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: "example@email.com", dotcomUsername: "username") as? UINavigationController)
         let vc = navController.topViewController
         
-        XCTAssertTrue((navController as Any) is UIViewController)
-        XCTAssertTrue((vc as Any) is LoginWPComViewController)
+        XCTAssertTrue(navController is NUXNavigationController)
+        XCTAssertTrue(vc is LoginWPComViewController)
     }
     
     func testSignInForWPComSetsEmptyLoginFields() {
