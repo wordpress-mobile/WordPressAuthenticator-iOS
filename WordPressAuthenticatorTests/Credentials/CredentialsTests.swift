@@ -121,5 +121,7 @@ class CredentialsTests: XCTestCase {
         XCTAssertEqual(authenticatorCredentials.wporg!.password, password)
         XCTAssertEqual(authenticatorCredentials.wporg!.xmlrpc, xmlrpc)
     }
+
+    
 }
     
