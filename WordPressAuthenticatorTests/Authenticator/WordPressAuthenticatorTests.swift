@@ -63,13 +63,6 @@ class WordPressAuthenticatorTests: XCTestCase {
         XCTAssert(email != retrievedEmail, "Saved loginFields should be deleted after calling deleteLoginInfoForTokenAuth.")
     }
     
-    func testAuthenticatorInitHasCorrectProperties() {
-        //COME BACK TO THIS
-        let authenticator = WordPressAuthenticator.shared
-        
-        XCTAssertEqual(authenticator.configuration.wpcomClientId, "23456")
-    }
-    
     func testSupportPushNotificationReceived() {
         let _ = expectation(forNotification: .wordpressSupportNotificationReceived, object: nil, handler: nil)
         
