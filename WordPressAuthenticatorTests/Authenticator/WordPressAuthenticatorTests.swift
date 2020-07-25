@@ -64,17 +64,19 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testSupportPushNotificationReceived() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let _ = expectation(forNotification: .wordpressSupportNotificationReceived, object: nil, handler: nil)
         
-        WordPressAuthenticator.shared.supportPushNotificationReceived()
+        authenticator.supportPushNotificationReceived()
         
         waitForExpectations(timeout: timeInterval, handler: nil)
     }
     
     func testSupportPushNotificationCleared() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let _ = expectation(forNotification: .wordpressSupportNotificationCleared, object: nil, handler: nil)
         
-        WordPressAuthenticator.shared.supportPushNotificationCleared()
+        authenticator.supportPushNotificationCleared()
         
         waitForExpectations(timeout: timeInterval, handler: nil)
     }
@@ -88,29 +90,32 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testIsGoogleAuthURL() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let googleURL = URL(string: "com.googleuserconsent.apps/82ekn2932nub23h23hn3")!
         let magicLinkURL = URL(string: "https://magic-login")!
         let wordpressComURL = URL(string: "https://WordPress.com")!
         
-        XCTAssertTrue(WordPressAuthenticator.shared.isGoogleAuthUrl(googleURL))
-        XCTAssertFalse(WordPressAuthenticator.shared.isGoogleAuthUrl(magicLinkURL))
-        XCTAssertFalse(WordPressAuthenticator.shared.isGoogleAuthUrl(wordpressComURL))
+        XCTAssertTrue(authenticator.isGoogleAuthUrl(googleURL))
+        XCTAssertFalse(authenticator.isGoogleAuthUrl(magicLinkURL))
+        XCTAssertFalse(authenticator.isGoogleAuthUrl(wordpressComURL))
     }
     
     func testIsWordPressAuthURL() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let magicLinkURL = URL(string: "https://magic-login")!
         let googleURL = URL(string: "https://google.com")!
         let wordpressComURL = URL(string: "https://WordPress.com")!
 
-        XCTAssertTrue(WordPressAuthenticator.shared.isWordPressAuthUrl(magicLinkURL))
-        XCTAssertFalse(WordPressAuthenticator.shared.isWordPressAuthUrl(googleURL))
-        XCTAssertFalse(WordPressAuthenticator.shared.isWordPressAuthUrl(wordpressComURL))
+        XCTAssertTrue(authenticator.isWordPressAuthUrl(magicLinkURL))
+        XCTAssertFalse(authenticator.isWordPressAuthUrl(googleURL))
+        XCTAssertFalse(authenticator.isWordPressAuthUrl(wordpressComURL))
     }
     
     func testHandleWordPressAuthURLReturnsTrueOnSucceed() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let url = URL(string: "https://wordpress.com/wp-login.php?token=1234567890%26action&magic-login&sr=1&signature=1234567890oienhdtsra")
         
-        XCTAssertTrue(WordPressAuthenticator.shared.handleWordPressAuthUrl(url!, allowWordPressComAuth: true, rootViewController: UIViewController()))
+        XCTAssertTrue(authenticator.handleWordPressAuthUrl(url!, allowWordPressComAuth: true, rootViewController: UIViewController()))
     }
     
     func testSignInForWPOrgReturnsVC() {
@@ -144,15 +149,16 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testShowLoginForJustWPComTracksOpenedLogin() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let presenterSpy = ModalViewControllerPresentingSpy()
         let delegateSpy = WordPressAuthenticatorDelegateSpy()
-        WordPressAuthenticator.shared.delegate = delegateSpy
+        authenticator.delegate = delegateSpy
         
         let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
             return presenterSpy.presentedVC != nil
         }), object: .none)
         
-        WordPressAuthenticator.showLoginForJustWPCom(from: presenterSpy)
+        WordPressAuthenticator.showLoginForJustWPCom(from: presenterSpy, authenticator: authenticator)
         wait(for: [expectation], timeout: 3)
         
         let trackedEvent = delegateSpy.trackedElement
@@ -195,16 +201,17 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testShowLoginForSelfHostedSiteTracksOpenLogin() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let presenterSpy = ModalViewControllerPresentingSpy()
         let delegateSpy = WordPressAuthenticatorDelegateSpy()
         
-        WordPressAuthenticator.shared.delegate = delegateSpy
+        authenticator.delegate = delegateSpy
         
         let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
             return presenterSpy.presentedVC != nil
         }), object: .none)
         
-        WordPressAuthenticator.showLoginForSelfHostedSite(presenterSpy)
+        WordPressAuthenticator.showLoginForSelfHostedSite(presenterSpy, authenticator: authenticator)
         wait(for: [expectation], timeout: 3)
         
         let trackedEvent = delegateSpy.trackedElement
@@ -234,10 +241,11 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testTrackOpenedLoginSendsCorrectTrackValue() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let delegate = WordPressAuthenticatorDelegateSpy()
-        WordPressAuthenticator.shared.delegate = delegate
+        authenticator.delegate = delegate
         
-        WordPressAuthenticator.trackOpenedLogin()
+        WordPressAuthenticator.trackOpenedLogin(authenticator: authenticator)
 
         XCTAssertEqual(delegate.trackedElement, WPAnalyticsStat.openedLogin)
     }
@@ -262,6 +270,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testOpenAuthenticationTracksSignupMagicLink() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let url = URL(string: "https://WordPress.com/?token=arstdhneio0987654321")
         let loginFields = LoginFields()
         loginFields.username = "user123"
@@ -271,9 +280,9 @@ class WordPressAuthenticatorTests: XCTestCase {
         loginFields.meta.emailMagicLinkSource = .signup
         WordPressAuthenticator.storeLoginInfoForTokenAuth(loginFields)
         let delegate = WordPressAuthenticatorDelegateSpy()
-        WordPressAuthenticator.shared.delegate = delegate
+        authenticator.delegate = delegate
         
-        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: true, fromRootViewController: UIViewController())
+        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: true, fromRootViewController: UIViewController(), authenticator: authenticator)
         guard let trackedEvent = delegate.trackedElement else {
             XCTFail("Event not Tracked")
             return
@@ -284,6 +293,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testOpenAuthenticationTracksLoginMagicLinkOpened() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let url = URL(string: "https://WordPress.com/?token=arstdhneio0987654321")
         let loginFields = LoginFields()
         loginFields.username = "user123"
@@ -293,14 +303,14 @@ class WordPressAuthenticatorTests: XCTestCase {
         loginFields.meta.emailMagicLinkSource = .login
         WordPressAuthenticator.storeLoginInfoForTokenAuth(loginFields)
         let delegate = WordPressAuthenticatorDelegateSpy()
-        WordPressAuthenticator.shared.delegate = delegate
+        authenticator.delegate = delegate
         
-        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: true, fromRootViewController: UIViewController())
+        let result = WordPressAuthenticator.openAuthenticationURL(url!, allowWordPressComAuth: true, fromRootViewController: UIViewController(), authenticator: authenticator)
         guard let trackedEvent = delegate.trackedElement else {
             XCTFail("Event not Tracked")
             return
         }
-        
+
 
         XCTAssertTrue(result)
         XCTAssertEqual(trackedEvent, WPAnalyticsStat.loginMagicLinkOpened)
@@ -361,29 +371,30 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testFetchOnePasswordCredentialsFails() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let onePasswordFetcher = MockOnePasswordFacade(error: .unknown)
         let loginFields = LoginFields()
         loginFields.meta.userIsDotCom = true
         let delegate = WordPressAuthenticatorDelegateSpy()
-        WordPressAuthenticator.shared.delegate = delegate
+        authenticator.delegate = delegate
         
-        WordPressAuthenticator.fetchOnePasswordCredentials(UIViewController(), sourceView: UIView(), loginFields: loginFields, onePasswordFetcher: onePasswordFetcher) { (_) in
+        WordPressAuthenticator.fetchOnePasswordCredentials(UIViewController(), sourceView: UIView(), loginFields: loginFields, onePasswordFetcher: onePasswordFetcher, authenticator: authenticator) { (_) in
         }
         
         XCTAssertEqual(delegate.trackedElement, WPAnalyticsStat.onePasswordFailed)
     }
     
     func testFetchOnePasswordCredentialsCanceledByUserDoesNotTrack() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let onePasswordFetcher = MockOnePasswordFacade(error: .cancelledByUser)
         let loginFields = LoginFields()
         loginFields.meta.userIsDotCom = true
         let delegate = WordPressAuthenticatorDelegateSpy()
-        WordPressAuthenticator.shared.delegate = delegate
+        authenticator.delegate = delegate
         
         WordPressAuthenticator.fetchOnePasswordCredentials(UIViewController(), sourceView: UIView(), loginFields: loginFields, onePasswordFetcher: onePasswordFetcher) { (_) in
         }
         
         XCTAssertNil(delegate.trackedElement)
     }
-
 }

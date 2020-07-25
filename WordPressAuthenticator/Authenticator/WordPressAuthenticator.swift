@@ -71,7 +71,8 @@ import AuthenticationServices
 
     /// Designated Initializer
     ///
-    private init(configuration: WordPressAuthenticatorConfiguration,
+    /// Note: Marking as internal for testing purposes, but class should not be intialized outside of Singleton
+    internal init(configuration: WordPressAuthenticatorConfiguration,
                  style: WordPressAuthenticatorStyle,
                  unifiedStyle: WordPressAuthenticatorUnifiedStyle?,
                  displayImages: WordPressAuthenticatorDisplayImages,
@@ -167,9 +168,9 @@ import AuthenticationServices
     }
 
     /// Used to present the new wpcom-only login flow from the app delegate
-    @objc public class func showLoginForJustWPCom(from presenter: UIViewController, xmlrpc: String? = nil, username: String? = nil, connectedEmail: String? = nil) {
+    @objc public class func showLoginForJustWPCom(from presenter: UIViewController, xmlrpc: String? = nil, username: String? = nil, connectedEmail: String? = nil, authenticator: WordPressAuthenticator = WordPressAuthenticator.shared) {
         defer {
-            trackOpenedLogin()
+            trackOpenedLogin(authenticator: authenticator)
         }
 
         guard let controller = LoginEmailViewController.instantiate(from: .login) else {
@@ -192,9 +193,9 @@ import AuthenticationServices
     }
 
     /// Used to present the new self-hosted login flow from BlogListViewController
-    @objc public class func showLoginForSelfHostedSite(_ presenter: UIViewController) {
+    @objc public class func showLoginForSelfHostedSite(_ presenter: UIViewController, authenticator: WordPressAuthenticator = WordPressAuthenticator.shared) {
         defer {
-            trackOpenedLogin()
+            trackOpenedLogin(authenticator: authenticator)
         }
 
         let controller = signinForWPOrg()
@@ -244,8 +245,8 @@ import AuthenticationServices
     }
 
 
-    class func trackOpenedLogin() {
-        WordPressAuthenticator.track(.openedLogin)
+    class func trackOpenedLogin(authenticator: WordPressAuthenticator = WordPressAuthenticator.shared) {
+        WordPressAuthenticator.track(.openedLogin, authenticator: authenticator)
     }
 
 
@@ -260,7 +261,7 @@ import AuthenticationServices
     ///     - rootViewController: The view controller to act as the presenter for the signin view controller.
     ///                           By convention this is the app's root vc.
     ///
-    @objc public class func openAuthenticationURL(_ url: URL, allowWordPressComAuth: Bool, fromRootViewController rootViewController: UIViewController) -> Bool {
+    @objc public class func openAuthenticationURL(_ url: URL, allowWordPressComAuth: Bool, fromRootViewController rootViewController: UIViewController, authenticator: WordPressAuthenticator = WordPressAuthenticator.shared) -> Bool {
         guard let token = url.query?.dictionaryFromQueryString().string(forKey: "token") else {
             DDLogError("Signin Error: The authentication URL did not have the expected path.")
             return false
@@ -287,9 +288,9 @@ import AuthenticationServices
         if let linkSource = loginFields.meta.emailMagicLinkSource {
             switch linkSource {
             case .signup:
-                WordPressAuthenticator.track(.signupMagicLinkOpened)
+                WordPressAuthenticator.track(.signupMagicLinkOpened, authenticator: authenticator)
             case .login:
-                WordPressAuthenticator.track(.loginMagicLinkOpened)
+                WordPressAuthenticator.track(.loginMagicLinkOpened, authenticator: authenticator)
             }
         }
 
@@ -458,7 +459,7 @@ import AuthenticationServices
     ///
     /// - Parameter sender: A UIView. Typically the button the user tapped on.
     ///
-    class func fetchOnePasswordCredentials(_ controller: UIViewController, sourceView: UIView, loginFields: LoginFields, onePasswordFetcher: OnePasswordResultsFetcher = OnePasswordFacade(), success: @escaping ((_ loginFields: LoginFields) -> Void)) {
+    class func fetchOnePasswordCredentials(_ controller: UIViewController, sourceView: UIView, loginFields: LoginFields, onePasswordFetcher: OnePasswordResultsFetcher = OnePasswordFacade(), authenticator: WordPressAuthenticator = WordPressAuthenticator.shared, success: @escaping ((_ loginFields: LoginFields) -> Void)) {
 
         let loginURL = loginFields.meta.userIsDotCom ? OnePasswordDefaults.dotcomURL : loginFields.siteAddress
 
@@ -467,7 +468,7 @@ import AuthenticationServices
             loginFields.password = password
             loginFields.multifactorCode = otp ?? String()
 
-            WordPressAuthenticator.track(.onePasswordLogin)
+            WordPressAuthenticator.track(.onePasswordLogin, authenticator: authenticator)
             success(loginFields)
 
         }, failure: { error in
@@ -476,7 +477,7 @@ import AuthenticationServices
             }
 
             DDLogError("OnePassword Error: \(error.localizedDescription)")
-            WordPressAuthenticator.track(.onePasswordFailed)
+            WordPressAuthenticator.track(.onePasswordFailed, authenticator: authenticator)
         })
     }
 }

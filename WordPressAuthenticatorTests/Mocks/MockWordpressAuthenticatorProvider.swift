@@ -64,6 +64,15 @@ struct MockWordpressAuthenticatorProvider {
             return wpUnifiedAuthStyle
         }
     }
+
+    static func getWordpressAuthenticator() -> WordPressAuthenticator {
+        return WordPressAuthenticator(
+            configuration:wordPressAuthenticatorConfiguration(),
+            style: wordPressAuthenticatorStyle(.random),
+            unifiedStyle: wordPressAuthenticatorUnifiedStyle(.random),
+            displayImages: WordPressAuthenticatorDisplayImages.defaultImages,
+            displayStrings: WordPressAuthenticatorDisplayStrings.defaultStrings)
+    }
 }
 
 
