@@ -229,7 +229,6 @@ class WordPressAuthenticatorTests: XCTestCase {
         let navController = try XCTUnwrap(WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: "example@email.com", dotcomUsername: "username") as? UINavigationController)
         let vc = navController.topViewController
         
-        XCTAssertTrue(navController is NUXNavigationController)
         XCTAssertTrue(vc is LoginWPComViewController)
     }
     
