@@ -228,7 +228,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     func testSignInForWPComWithLoginFieldsReturnsVC() throws {
         let navController = try XCTUnwrap(WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: "example@email.com", dotcomUsername: "username") as? UINavigationController)
         let vc = navController.topViewController
-        
+
         XCTAssertTrue(vc is LoginWPComViewController)
     }
     
@@ -236,8 +236,8 @@ class WordPressAuthenticatorTests: XCTestCase {
         let navController = WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: nil, dotcomUsername: nil) as! UINavigationController
         let vc = navController.topViewController as! LoginWPComViewController
         
-        XCTAssertEqual(vc.loginFields.emailAddress, String())
-        XCTAssertEqual(vc.loginFields.username, String())
+        XCTAssertEqual(vc.loginFields.emailAddress, "")
+        XCTAssertEqual(vc.loginFields.username, "")
     }
     
     func testTrackOpenedLoginSendsCorrectTrackValue() {
@@ -245,13 +245,8 @@ class WordPressAuthenticatorTests: XCTestCase {
         WordPressAuthenticator.shared.delegate = delegate
         
         WordPressAuthenticator.trackOpenedLogin()
-        
-        guard let trackedEvent = delegate.trackedElement else {
-            XCTFail("Event not Tracked")
-            return
-        }
-        
-        XCTAssertEqual(trackedEvent, WPAnalyticsStat.openedLogin)
+
+        XCTAssertEqual(delegate.trackedElement, WPAnalyticsStat.openedLogin)
     }
     
     func testOpenAuthenticationFailsWithoutQuery() {
