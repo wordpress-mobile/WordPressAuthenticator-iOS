@@ -167,7 +167,7 @@ class WordPressAuthenticatorTests: XCTestCase {
         XCTAssertEqual(trackedEvent, WPAnalyticsStat.openedLogin)
     }
     
-    func testShowLoginForJustWPComSetsMetaProperties() {
+    func testShowLoginForJustWPComSetsMetaProperties() throws {
         let presenterSpy = ModalViewControllerPresentingSpy()
         let expectation = XCTNSPredicateExpectation(predicate: NSPredicate(block: { (_, _) -> Bool in
             return presenterSpy.presentedVC != nil
@@ -177,11 +177,9 @@ class WordPressAuthenticatorTests: XCTestCase {
                                                      xmlrpc: "https://example.com/xmlrpc.php",
                                                      username: "username",
                                                      connectedEmail: "email-address@example.com")
-        
-        guard let navController = presenterSpy.presentedVC as? LoginNavigationController, let controller = navController.viewControllers.first as? LoginEmailViewController else {
-            XCTFail("Could not fetch correct ViewController")
-            return
-        }
+
+        let navController = try XCTUnwrap(presenterSpy.presentedVC as? LoginNavigationController)
+        let controller = try XCTUnwrap(navController.viewControllers.first as? LoginEmailViewController)
         
         wait(for: [expectation], timeout: 3)
         
@@ -227,8 +225,8 @@ class WordPressAuthenticatorTests: XCTestCase {
         XCTAssertTrue((vc as Any) is LoginEmailViewController)
     }
     
-    func testSignInForWPComWithLoginFieldsReturnsVC() {
-        let navController = WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: "example@email.com", dotcomUsername: "username") as! UINavigationController
+    func testSignInForWPComWithLoginFieldsReturnsVC() throws {
+        let navController = try XCTUnwrap(WordPressAuthenticator.signinForWPCom(dotcomEmailAddress: "example@email.com", dotcomUsername: "username") as? UINavigationController)
         let vc = navController.topViewController
         
         XCTAssertTrue((navController as Any) is UIViewController)
