@@ -8,8 +8,12 @@ class WordPressAuthenticatorTests: XCTestCase {
     
     override class func setUp() {
         super.setUp()
-
-        WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: MockWordpressAuthenticatorProvider.wordPressAuthenticatorUnifiedStyle(.random))
+        
+        WordPressAuthenticator.initialize(
+          configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(),
+          style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), 
+          unifiedStyle: MockWordpressAuthenticatorProvider.wordPressAuthenticatorUnifiedStyle(.random)
+        )
         
     }
     
@@ -63,8 +67,14 @@ class WordPressAuthenticatorTests: XCTestCase {
         XCTAssert(email != retrievedEmail, "Saved loginFields should be deleted after calling deleteLoginInfoForTokenAuth.")
     }
     
-    func testSupportPushNotificationReceived() {
-        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
+    func testAuthenticatorInitHasCorrectProperties() {
+        //COME BACK TO THIS
+        let authenticator = WordPressAuthenticator.shared
+        
+        XCTAssertEqual(authenticator.configuration.wpcomClientId, "23456")
+    }
+    
+    func testDispatchesSupportPushNotificationReceived() {
         let _ = expectation(forNotification: .wordpressSupportNotificationReceived, object: nil, handler: nil)
         
         authenticator.supportPushNotificationReceived()
