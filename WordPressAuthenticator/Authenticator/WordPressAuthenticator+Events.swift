@@ -8,15 +8,15 @@ extension WordPressAuthenticator {
     /// Tracks the specified event.
     ///
     @objc
-    public static func track(_ event: WPAnalyticsStat) {
-        WordPressAuthenticator.shared.delegate?.track(event: event)
+    public static func track(_ event: WPAnalyticsStat, authenticator: WordPressAuthenticator = WordPressAuthenticator.shared) {
+        authenticator.delegate?.track(event: event)
     }
 
     /// Tracks the specified event, with the specified properties.
     ///
     @objc
-    public static func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any]) {
-        WordPressAuthenticator.shared.delegate?.track(event: event, properties: properties)
+    public static func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any], authenticator: WordPressAuthenticator = WordPressAuthenticator.shared) {
+        authenticator.delegate?.track(event: event, properties: properties)
     }
 
     /// Tracks the specified event, with the associated Error.
@@ -24,6 +24,21 @@ extension WordPressAuthenticator {
     /// Note: Ideally speaking... `Error` is not optional. *However* this method is to be used in the ObjC realm, where not everything
     /// has it's nullability specifier set. We're just covering unexpected scenarios.
     ///
+    @objc
+    public static func track(_ event: WPAnalyticsStat, error: Error?, authenticator: WordPressAuthenticator = WordPressAuthenticator.shared) {
+        guard let error = error else {
+            track(event)
+            return
+        }
+
+        authenticator.delegate?.track(event: event, error: error)
+    }
+
+    @objc
+    public static func track(_ event: WPAnalyticsStat) {
+        WordPressAuthenticator.shared.delegate?.track(event: event)
+    }
+
     @objc
     public static func track(_ event: WPAnalyticsStat, error: Error?) {
         guard let error = error else {

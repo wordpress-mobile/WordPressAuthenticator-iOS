@@ -75,6 +75,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testDispatchesSupportPushNotificationReceived() {
+        let authenticator = MockWordpressAuthenticatorProvider.getWordpressAuthenticator()
         let _ = expectation(forNotification: .wordpressSupportNotificationReceived, object: nil, handler: nil)
         
         authenticator.supportPushNotificationReceived()
