@@ -8,7 +8,7 @@ struct MockWordpressAuthenticatorProvider {
                                                    wpcomTermsOfServiceURL: "https://wordpress.com/tos/",
                                                    googleLoginClientId: "",
                                                    googleLoginServerClientId: "",
-                                                   googleLoginScheme: "https",
+                                                   googleLoginScheme: "com.googleuserconsent.apps",
                                                    userAgent: "")
     }
     

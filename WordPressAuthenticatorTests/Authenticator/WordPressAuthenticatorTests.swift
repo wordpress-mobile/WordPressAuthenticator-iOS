@@ -8,7 +8,7 @@ class WordPressAuthenticatorTests: XCTestCase {
     
     override class func setUp() {
         super.setUp()
-        
+
         WordPressAuthenticator.initialize(configuration: MockWordpressAuthenticatorProvider.wordPressAuthenticatorConfiguration(), style: MockWordpressAuthenticatorProvider.wordPressAuthenticatorStyle(.random), unifiedStyle: MockWordpressAuthenticatorProvider.wordPressAuthenticatorUnifiedStyle(.random))
         
     }
@@ -95,15 +95,23 @@ class WordPressAuthenticatorTests: XCTestCase {
     }
     
     func testIsGoogleAuthURL() {
-        let url = URL(string: "https://google.com")!
+        let googleURL = URL(string: "com.googleuserconsent.apps/82ekn2932nub23h23hn3")!
+        let magicLinkURL = URL(string: "https://magic-login")!
+        let wordpressComURL = URL(string: "https://WordPress.com")!
         
-        XCTAssertTrue(WordPressAuthenticator.shared.isGoogleAuthUrl(url))
+        XCTAssertTrue(WordPressAuthenticator.shared.isGoogleAuthUrl(googleURL))
+        XCTAssertFalse(WordPressAuthenticator.shared.isGoogleAuthUrl(magicLinkURL))
+        XCTAssertFalse(WordPressAuthenticator.shared.isGoogleAuthUrl(wordpressComURL))
     }
     
     func testIsWordPressAuthURL() {
-        let url = URL(string: "https://magic-login")!
-        
-        XCTAssertTrue(WordPressAuthenticator.shared.isWordPressAuthUrl(url))
+        let magicLinkURL = URL(string: "https://magic-login")!
+        let googleURL = URL(string: "https://google.com")!
+        let wordpressComURL = URL(string: "https://WordPress.com")!
+
+        XCTAssertTrue(WordPressAuthenticator.shared.isWordPressAuthUrl(magicLinkURL))
+        XCTAssertFalse(WordPressAuthenticator.shared.isWordPressAuthUrl(googleURL))
+        XCTAssertFalse(WordPressAuthenticator.shared.isWordPressAuthUrl(wordpressComURL))
     }
     
     func testHandleWordPressAuthURLReturnsTrueOnSucceed() {
