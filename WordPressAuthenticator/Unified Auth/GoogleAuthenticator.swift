@@ -193,15 +193,7 @@ extension GoogleAuthenticator: GIDSignInDelegate {
             let token = user.authentication.idToken,
             let email = user.profile.email else {
                 
-                // The Google SignIn may have been cancelled.
-                let properties = ["error": error?.localizedDescription ?? ""]
-
-                switch authType {
-                case .login:
-                    track(.loginSocialButtonFailure, properties: properties)
-                case .signup:
-                    track(.signupSocialButtonFailure, properties: properties)
-                }
+                trackSigninFailure(authType: authType, error: error)
 
                 // Notify the delegates so the Google Auth view can be dismissed.
                 signupDelegate?.googleSignupCancelled()
@@ -358,9 +350,7 @@ private extension GoogleAuthenticator {
     }
     
     func logInInstead(credentials: AuthenticatorCredentials) {
-        track(.signedIn)
-        track(.signupSocialToLogin)
-        track(.loginSocialSuccess)
+        trackLoginInstead()
 
         signupDelegate?.googleLoggedInInstead(credentials: credentials, loginFields: loginFields)
         delegate?.googleLoggedInInstead(credentials: credentials, loginFields: loginFields)
@@ -390,7 +380,18 @@ extension AnalyticsEvent {
             "step": step.rawValue,
         ]
         
-        return AnalyticsEvent(name: "login", properties: properties)
+        return AnalyticsEvent(name: "unified_login_step", properties: properties)
+    }
+    
+    static func failure(step: LoginStep, message: String) -> AnalyticsEvent {
+        let properties = [
+            "source": "default",
+            "flow": "google_login",
+            "step": step.rawValue,
+            "failure": message,
+        ]
+        
+        return AnalyticsEvent(name: "unified_login_failure", properties: properties)
     }
 }
 
@@ -401,6 +402,10 @@ private extension GoogleAuthenticator {
         var trackProperties = properties
         trackProperties["source"] = "google"
         WordPressAuthenticator.track(event, properties: trackProperties)
+    }
+    
+    func track(_ event: AnalyticsEvent) {
+        WPAnalytics.track(.login(step: .start))
     }
     
     func trackFlowStart() {
@@ -415,6 +420,42 @@ private extension GoogleAuthenticator {
             return
         }
         
-        WPAnalytics.track(.login(step: .start))
+        switch authType {
+        case .login:
+            track(.login(step: .start))
+        case .signup:
+            track(.login(step: .start))
+        }
+    }
+    
+    func trackLoginInstead() {
+        guard authConfig.enableUnifiedGoogle else {
+            track(.signedIn)
+            track(.signupSocialToLogin)
+            track(.loginSocialSuccess)
+            return
+        }
+        
+        track(.login(step: .start))
+    }
+    
+    func trackSigninFailure(authType: GoogleAuthType, error: Error?) {
+        let errorMessage = error?.localizedDescription ?? "Unknown error"
+        
+        guard authConfig.enableUnifiedGoogle else {
+            // The Google SignIn may have been cancelled.
+            let properties = ["error": errorMessage]
+
+            switch authType {
+            case .login:
+                track(.loginSocialButtonFailure, properties: properties)
+            case .signup:
+                track(.signupSocialButtonFailure, properties: properties)
+            }
+            
+            return
+        }
+        
+        track(.failure(step: .start, message: errorMessage))
     }
 }

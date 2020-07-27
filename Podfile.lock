@@ -47,15 +47,15 @@ PODS:
     - OHHTTPStubs/Default
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
-  - UIDeviceIdentifier (1.4.0)
-  - WordPressKit (4.11.0-beta.1):
+  - UIDeviceIdentifier (1.5.0)
+  - WordPressKit (4.13.0-beta.5):
     - Alamofire (~> 4.8.0)
     - CocoaLumberjack (~> 3.4)
     - NSObject-SafeExpectations (= 0.0.4)
     - UIDeviceIdentifier (~> 1)
-    - WordPressShared (~> 1.9.0-beta.1)
+    - WordPressShared (~> 1.10-beta)
     - wpxmlrpc (= 0.8.5)
-  - WordPressShared (1.9.2-beta.1):
+  - WordPressShared (1.10.0-beta.1):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
   - WordPressUI (1.7.0)
@@ -75,8 +75,8 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.0-beta.0)
-  - WordPressShared (from `https://github.com/wordpress-mobile/WordPress-iOS-Shared.git`, commit `424bfa2e2e74ed66b855dcca5747820cb3730d2e`)
+  - WordPressKit (from `../WordPressKit-iOS`)
+  - WordPressShared (~> 1.10-beta)
   - WordPressUI (~> 1.7.0)
 
 SPEC REPOS:
@@ -99,19 +99,13 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
-    - WordPressKit
+    - WordPressShared
     - WordPressUI
     - wpxmlrpc
 
 EXTERNAL SOURCES:
-  WordPressShared:
-    :commit: 424bfa2e2e74ed66b855dcca5747820cb3730d2e
-    :git: https://github.com/wordpress-mobile/WordPress-iOS-Shared.git
-
-CHECKOUT OPTIONS:
-  WordPressShared:
-    :commit: 424bfa2e2e74ed66b855dcca5747820cb3730d2e
-    :git: https://github.com/wordpress-mobile/WordPress-iOS-Shared.git
+  WordPressKit:
+    :path: "../WordPressKit-iOS"
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -131,12 +125,12 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  UIDeviceIdentifier: 44f805037d21b94394821828f4fcaba34b38c2d0
-  WordPressKit: cf04f034a376fe54a44edff62c3bd0ece5ef13a6
-  WordPressShared: 2d1975a170a01f7dae5dac226fbf9b33b925c2c2
+  UIDeviceIdentifier: a79ccdfc940373835a7d8e9fc7541e6bf61b6319
+  WordPressKit: 9e07dda0044983e64314d9f8a446097a7062b238
+  WordPressShared: b77083325416b075c99155ab2770f0dff8ba04eb
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: 6a9bdd6ab9d1b159b384b0df0f3f39de9af4fecf
 
-PODFILE CHECKSUM: dc69729bac7fe2f26523065a88152854ff2b3a8d
+PODFILE CHECKSUM: 3ba9e63fd92c2b0f80ac84552526d96046c88cf2
 
 COCOAPODS: 1.8.4
