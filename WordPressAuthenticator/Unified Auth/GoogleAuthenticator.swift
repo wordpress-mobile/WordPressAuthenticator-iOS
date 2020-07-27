@@ -153,7 +153,7 @@ private extension GoogleAuthenticator {
     ///                     Required by Google SDK.
     func requestAuthorization(from viewController: UIViewController) {
 
-        trackFlowStart()
+        trackSignInStart()
 
         guard let googleInstance = GIDSignIn.sharedInstance() else {
             DDLogError("GoogleAuthenticator: Failed to get `GIDSignIn.sharedInstance()`.")
@@ -193,7 +193,7 @@ extension GoogleAuthenticator: GIDSignInDelegate {
             let token = user.authentication.idToken,
             let email = user.profile.email else {
                 
-                trackSigninFailure(authType: authType, error: error)
+                trackSignInFailure(error: error)
 
                 // Notify the delegates so the Google Auth view can be dismissed.
                 signupDelegate?.googleSignupCancelled()
@@ -236,9 +236,8 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
     func finishedLogin(withGoogleIDToken googleIDToken: String, authToken: String) {
         SVProgressHUD.dismiss()
         GIDSignIn.sharedInstance().disconnect()
-
-        track(.signedIn)
-        track(.loginSocialSuccess)
+        
+        trackSignInSuccess()
         
         let wpcom = WordPressComCredentials(authToken: authToken,
                                             isJetpackLogin: loginFields.meta.jetpackLogin,
@@ -258,7 +257,8 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
         loginFields.nonceInfo = nonceInfo
         loginFields.nonceUserID = userID
 
-        track(.loginSocial2faNeeded)
+        trackTwoFactorAuhenticationRequested()
+        
         loginDelegate?.googleNeedsMultifactorCode(loginFields: loginFields)
         delegate?.googleNeedsMultifactorCode(loginFields: loginFields)
     }
@@ -272,6 +272,7 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
         loginFields.emailAddress = email
         
         track(.loginSocialAccountsNeedConnecting)
+        
         loginDelegate?.googleExistingUserNeedsConnection(loginFields: loginFields)
         delegate?.googleExistingUserNeedsConnection(loginFields: loginFields)
     }
@@ -365,39 +366,12 @@ private extension GoogleAuthenticator {
 
 }
 
-// MARK: - Analytic Events
-
-extension AnalyticsEvent {
-    enum LoginStep: String {
-        case start
-        case success
-    }
-    
-    static func login(step: LoginStep) -> AnalyticsEvent {
-        let properties = [
-            "source": "default",
-            "flow": "google_login",
-            "step": step.rawValue,
-        ]
-        
-        return AnalyticsEvent(name: "unified_login_step", properties: properties)
-    }
-    
-    static func failure(step: LoginStep, message: String) -> AnalyticsEvent {
-        let properties = [
-            "source": "default",
-            "flow": "google_login",
-            "step": step.rawValue,
-            "failure": message,
-        ]
-        
-        return AnalyticsEvent(name: "unified_login_failure", properties: properties)
-    }
-}
-
 // MARK: - Tracking
 
 private extension GoogleAuthenticator {
+    
+    // MARK: -  Tracking: support
+    
     func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {
         var trackProperties = properties
         trackProperties["source"] = "google"
@@ -405,10 +379,14 @@ private extension GoogleAuthenticator {
     }
     
     func track(_ event: AnalyticsEvent) {
-        WPAnalytics.track(.login(step: .start))
+        WPAnalytics.track(GoogleAuthenticator.login(step: .start))
     }
     
-    func trackFlowStart() {
+    // MARK: - Tracking: Specific Events
+    
+    /// Tracks the start of the sign-in flow.
+    ///
+    func trackSignInStart() {
         guard authConfig.enableUnifiedGoogle else {
             switch authType {
             case .login:
@@ -422,12 +400,14 @@ private extension GoogleAuthenticator {
         
         switch authType {
         case .login:
-            track(.login(step: .start))
+            track(GoogleAuthenticator.login(step: .start))
         case .signup:
-            track(.login(step: .start))
+            track(GoogleAuthenticator.signUp(step: .start))
         }
     }
     
+    /// Tracks a change of flow from signup to login.
+    ///
     func trackLoginInstead() {
         guard authConfig.enableUnifiedGoogle else {
             track(.signedIn)
@@ -436,10 +416,40 @@ private extension GoogleAuthenticator {
             return
         }
         
-        track(.login(step: .start))
+        track(GoogleAuthenticator.login(step: .start))
     }
     
-    func trackSigninFailure(authType: GoogleAuthType, error: Error?) {
+    /// Tracks the request of a 2FA code to the user.
+    ///
+    func trackTwoFactorAuhenticationRequested() {
+        guard authConfig.enableUnifiedGoogle else {
+            track(.loginSocial2faNeeded)
+            return
+        }
+        
+        track(GoogleAuthenticator.login(step: .twoFactorAuthentication))
+    }
+    
+    /// Tracks a successful signin.
+    ///
+    func trackSignInSuccess() {
+        guard authConfig.enableUnifiedGoogle else {
+            track(.signedIn)
+            track(.loginSocialSuccess)
+            return
+        }
+        
+        switch authType {
+        case .login:
+            track(GoogleAuthenticator.login(step: .success))
+        case .signup:
+            track(GoogleAuthenticator.signUp(step: .success))
+        }
+    }
+
+    /// Tracks a failure in any step of the signin process.
+    ///
+    func trackSignInFailure(error: Error?) {
         let errorMessage = error?.localizedDescription ?? "Unknown error"
         
         guard authConfig.enableUnifiedGoogle else {
@@ -456,6 +466,11 @@ private extension GoogleAuthenticator {
             return
         }
         
-        track(.failure(step: .start, message: errorMessage))
+        switch authType {
+        case .login:
+            track(GoogleAuthenticator.loginFailure(step: .start, message: errorMessage))
+        case .signup:
+            track(GoogleAuthenticator.signUpFailure(step: .start, message: errorMessage))
+        }
     }
 }
