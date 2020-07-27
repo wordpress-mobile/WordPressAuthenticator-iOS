@@ -93,6 +93,8 @@ class GoogleAuthenticator: NSObject {
     private let authConfig = WordPressAuthenticator.shared.configuration
     private var authType: GoogleAuthType = .login
     
+    private let tracker = GoogleAuthenticatorTracker(authConfig: WordPressAuthenticator.shared.configuration)
+    
     private lazy var loginFacade: LoginFacade = {
         let facade = LoginFacade(dotcomClientID: authConfig.wpcomClientId,
                                  dotcomSecret: authConfig.wpcomSecret,
@@ -153,7 +155,7 @@ private extension GoogleAuthenticator {
     ///                     Required by Google SDK.
     func requestAuthorization(from viewController: UIViewController) {
 
-        trackSignInStart()
+        tracker.trackSignInStart(authType: authType)
 
         guard let googleInstance = GIDSignIn.sharedInstance() else {
             DDLogError("GoogleAuthenticator: Failed to get `GIDSignIn.sharedInstance()`.")
@@ -189,11 +191,12 @@ extension GoogleAuthenticator: GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn?, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
 
         // Get account information
+        
         guard let user = user,
             let token = user.authentication.idToken,
             let email = user.profile.email else {
                 
-                trackSignInFailure(error: error)
+                tracker.trackSignInFailure(authType: authType, error: error)
 
                 // Notify the delegates so the Google Auth view can be dismissed.
                 signupDelegate?.googleSignupCancelled()
@@ -237,7 +240,7 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
         SVProgressHUD.dismiss()
         GIDSignIn.sharedInstance().disconnect()
         
-        trackSignInSuccess()
+        tracker.trackSignInSuccess(authType: authType)
         
         let wpcom = WordPressComCredentials(authToken: authToken,
                                             isJetpackLogin: loginFields.meta.jetpackLogin,
@@ -257,7 +260,7 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
         loginFields.nonceInfo = nonceInfo
         loginFields.nonceUserID = userID
 
-        trackTwoFactorAuhenticationRequested()
+        tracker.trackTwoFactorAuhenticationRequested(authType: authType)
         
         loginDelegate?.googleNeedsMultifactorCode(loginFields: loginFields)
         delegate?.googleNeedsMultifactorCode(loginFields: loginFields)
@@ -271,7 +274,7 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
         loginFields.username = email
         loginFields.emailAddress = email
         
-        track(.loginSocialAccountsNeedConnecting)
+        tracker.track(.loginSocialAccountsNeedConnecting)
         
         loginDelegate?.googleExistingUserNeedsConnection(loginFields: loginFields)
         delegate?.googleExistingUserNeedsConnection(loginFields: loginFields)
@@ -289,7 +292,7 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
         if unknownUser {
             errorTitle = LocalizedText.googleConnected
             errorDescription = String(format: LocalizedText.googleConnectedError, loginFields.username)
-            track(.loginSocialErrorUnknownUser)
+            tracker.track(.loginSocialErrorUnknownUser)
         }
 
         loginDelegate?.googleLoginFailed(errorTitle: errorTitle, errorDescription: errorDescription, loginFields: loginFields)
@@ -342,135 +345,26 @@ private extension GoogleAuthenticator {
     func accountCreated(credentials: AuthenticatorCredentials) {
         // This stat is part of a funnel that provides critical information.  Before
         // making ANY modification to this stat please refer to: p4qSXL-35X-p2
-        track(.createdAccount)
-        track(.signedIn)
-        track(.signupSocialSuccess)
+        tracker.track(.createdAccount)
+        tracker.track(.signedIn)
+        tracker.track(.signupSocialSuccess)
 
         signupDelegate?.googleFinishedSignup(credentials: credentials, loginFields: loginFields)
         delegate?.googleFinishedSignup(credentials: credentials, loginFields: loginFields)
     }
     
     func logInInstead(credentials: AuthenticatorCredentials) {
-        trackLoginInstead()
+        tracker.trackLoginInstead()
 
         signupDelegate?.googleLoggedInInstead(credentials: credentials, loginFields: loginFields)
         delegate?.googleLoggedInInstead(credentials: credentials, loginFields: loginFields)
     }
     
     func signupFailed(error: Error) {
-        track(.signupSocialFailure, properties: ["error": error.localizedDescription])
+        tracker.trackSignUpFailure(error: error)
 
         signupDelegate?.googleSignupFailed(error: error, loginFields: loginFields)
         delegate?.googleSignupFailed(error: error, loginFields: loginFields)
     }
 
-}
-
-// MARK: - Tracking
-
-private extension GoogleAuthenticator {
-    
-    // MARK: -  Tracking: support
-    
-    func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {
-        var trackProperties = properties
-        trackProperties["source"] = "google"
-        WordPressAuthenticator.track(event, properties: trackProperties)
-    }
-    
-    func track(_ event: AnalyticsEvent) {
-        WPAnalytics.track(GoogleAuthenticator.login(step: .start))
-    }
-    
-    // MARK: - Tracking: Specific Events
-    
-    /// Tracks the start of the sign-in flow.
-    ///
-    func trackSignInStart() {
-        guard authConfig.enableUnifiedGoogle else {
-            switch authType {
-            case .login:
-                track(.loginSocialButtonClick)
-            case .signup:
-                track(.createAccountInitiated)
-            }
-            
-            return
-        }
-        
-        switch authType {
-        case .login:
-            track(GoogleAuthenticator.login(step: .start))
-        case .signup:
-            track(GoogleAuthenticator.signUp(step: .start))
-        }
-    }
-    
-    /// Tracks a change of flow from signup to login.
-    ///
-    func trackLoginInstead() {
-        guard authConfig.enableUnifiedGoogle else {
-            track(.signedIn)
-            track(.signupSocialToLogin)
-            track(.loginSocialSuccess)
-            return
-        }
-        
-        track(GoogleAuthenticator.login(step: .start))
-    }
-    
-    /// Tracks the request of a 2FA code to the user.
-    ///
-    func trackTwoFactorAuhenticationRequested() {
-        guard authConfig.enableUnifiedGoogle else {
-            track(.loginSocial2faNeeded)
-            return
-        }
-        
-        track(GoogleAuthenticator.login(step: .twoFactorAuthentication))
-    }
-    
-    /// Tracks a successful signin.
-    ///
-    func trackSignInSuccess() {
-        guard authConfig.enableUnifiedGoogle else {
-            track(.signedIn)
-            track(.loginSocialSuccess)
-            return
-        }
-        
-        switch authType {
-        case .login:
-            track(GoogleAuthenticator.login(step: .success))
-        case .signup:
-            track(GoogleAuthenticator.signUp(step: .success))
-        }
-    }
-
-    /// Tracks a failure in any step of the signin process.
-    ///
-    func trackSignInFailure(error: Error?) {
-        let errorMessage = error?.localizedDescription ?? "Unknown error"
-        
-        guard authConfig.enableUnifiedGoogle else {
-            // The Google SignIn may have been cancelled.
-            let properties = ["error": errorMessage]
-
-            switch authType {
-            case .login:
-                track(.loginSocialButtonFailure, properties: properties)
-            case .signup:
-                track(.signupSocialButtonFailure, properties: properties)
-            }
-            
-            return
-        }
-        
-        switch authType {
-        case .login:
-            track(GoogleAuthenticator.loginFailure(step: .start, message: errorMessage))
-        case .signup:
-            track(GoogleAuthenticator.signUpFailure(step: .start, message: errorMessage))
-        }
-    }
 }

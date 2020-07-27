@@ -1,6 +1,6 @@
 // MARK: - Analytic Events
 
-extension GoogleAuthenticator {
+extension GoogleAuthenticatorTracker {
     enum GoogleLoginStep: String {
         case start
         case twoFactorAuthentication
