@@ -48,15 +48,16 @@ class GoogleAuthenticatorTracker {
     
     /// Tracks a change of flow from signup to login.
     ///
-    func trackLoginInstead() {
+    func trackLogInInstead() {
         guard authConfig.enableUnifiedGoogle else {
-            track(.signedIn)
             track(.signupSocialToLogin)
+            track(.signedIn)
             track(.loginSocialSuccess)
             return
         }
         
         track(GoogleAuthenticatorTracker.login(step: .start))
+        track(GoogleAuthenticatorTracker.login(step: .success))
     }
     
     /// Tracks the request of a 2FA code to the user.
