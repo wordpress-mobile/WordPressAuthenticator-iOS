@@ -5,10 +5,12 @@ import Foundation
 enum Storyboard: String {
     case login = "Login"
     case signup = "Signup"
+    case unifiedSignUp = "UnifiedSignUp"
     case emailMagicLink = "EmailMagicLink"
     case siteAddress = "SiteAddress"
     case googleAuth = "GoogleAuth"
     case googleSignupConfirmation = "GoogleSignupConfirmation"
+    case twoFA = "TwoFA"
 
     var instance: UIStoryboard {
         return UIStoryboard(name: self.rawValue, bundle: WordPressAuthenticator.bundle)
