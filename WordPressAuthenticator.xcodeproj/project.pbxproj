@@ -141,7 +141,6 @@
 		F1BD62BA24D45DDD00533518 /* WordPressAuthenticatorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD62B924D45DDD00533518 /* WordPressAuthenticatorTracker.swift */; };
 		F1BD62BC24D4686F00533518 /* UnifiedSignInTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD62BB24D4686F00533518 /* UnifiedSignInTracker.swift */; };
 		F1BD62BE24D4C06100533518 /* TrackerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1BD62BD24D4C06100533518 /* TrackerState.swift */; };
-		F1DF753724CF55C5007D552D /* GoogleAuthenticatorTracker+AnalyticEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF753624CF55C5007D552D /* GoogleAuthenticatorTracker+AnalyticEvents.swift */; };
 		F1DF753924CF6D45007D552D /* GoogleAuthenticatorTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DF753824CF6D45007D552D /* GoogleAuthenticatorTracker.swift */; };
 		FF629D9622393500004C4106 /* WordPressAuthenticator.podspec in Resources */ = {isa = PBXBuildFile; fileRef = FF629D9522393500004C4106 /* WordPressAuthenticator.podspec */; };
 /* End PBXBuildFile section */
@@ -321,7 +320,6 @@
 		F1BD62B924D45DDD00533518 /* WordPressAuthenticatorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPressAuthenticatorTracker.swift; sourceTree = "<group>"; };
 		F1BD62BB24D4686F00533518 /* UnifiedSignInTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnifiedSignInTracker.swift; sourceTree = "<group>"; };
 		F1BD62BD24D4C06100533518 /* TrackerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerState.swift; sourceTree = "<group>"; };
-		F1DF753624CF55C5007D552D /* GoogleAuthenticatorTracker+AnalyticEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GoogleAuthenticatorTracker+AnalyticEvents.swift"; sourceTree = "<group>"; };
 		F1DF753824CF6D45007D552D /* GoogleAuthenticatorTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAuthenticatorTracker.swift; sourceTree = "<group>"; };
 		FF475C5056EB60A277696BA9 /* Pods-WordPressAuthenticatorTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressAuthenticatorTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordPressAuthenticatorTests/Pods-WordPressAuthenticatorTests.release.xcconfig"; sourceTree = "<group>"; };
 		FF629D9522393500004C4106 /* WordPressAuthenticator.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = WordPressAuthenticator.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
@@ -764,7 +762,6 @@
 				F1BD62BD24D4C06100533518 /* TrackerState.swift */,
 				F1BD62B924D45DDD00533518 /* WordPressAuthenticatorTracker.swift */,
 				F1DF753824CF6D45007D552D /* GoogleAuthenticatorTracker.swift */,
-				F1DF753624CF55C5007D552D /* GoogleAuthenticatorTracker+AnalyticEvents.swift */,
 			);
 			path = Analytics;
 			sourceTree = "<group>";
@@ -1128,7 +1125,6 @@
 				CE30A2A92257C60500DF3CDA /* WordPressOrgCredentials.swift in Sources */,
 				B56090CB208A4F5400399AE4 /* NUXNavigationController.swift in Sources */,
 				B560911F208A555E00399AE4 /* SignupGoogleViewController.swift in Sources */,
-				F1DF753724CF55C5007D552D /* GoogleAuthenticatorTracker+AnalyticEvents.swift in Sources */,
 				B5609142208A563800399AE4 /* LoginNavigationController.swift in Sources */,
 				B56090E4208A4F9D00399AE4 /* WPNUXMainButton.m in Sources */,
 				3FFF2FC323D7F53200D38C77 /* AppSelector.swift in Sources */,
