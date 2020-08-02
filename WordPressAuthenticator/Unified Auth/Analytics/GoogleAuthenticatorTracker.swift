@@ -4,18 +4,18 @@ import Foundation
 ///
 class GoogleAuthenticatorTracker {
     
-    private let authConfig: WordPressAuthenticatorConfiguration
+    private let unifiedEnabled: Bool
     let tracker: SignInTracker
     
-    init(authConfig: WordPressAuthenticatorConfiguration, context: SignInTracker.Context) {
-        self.authConfig = authConfig
+    init(unifiedEnabled: Bool, context: SignInTracker.Context) {
+        self.unifiedEnabled = unifiedEnabled
         self.tracker = SignInTracker(context: context)
     }
     
     // MARK: -  Tracking: support
     
     func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {
-        guard authConfig.enableUnifiedGoogle else {
+        guard unifiedEnabled else {
             var trackProperties = properties
             trackProperties["source"] = "google"
             WordPressAuthenticator.track(event, properties: trackProperties)
@@ -34,7 +34,7 @@ class GoogleAuthenticatorTracker {
     /// Tracks the start of the sign-in flow.
     ///
     func trackSignInStart(authType: GoogleAuthType) {
-        guard authConfig.enableUnifiedGoogle else {
+        guard unifiedEnabled else {
             switch authType {
             case .login:
                 track(.loginSocialButtonClick)
@@ -56,7 +56,7 @@ class GoogleAuthenticatorTracker {
     /// Tracks a change of flow from signup to login.
     ///
     func trackLoginInstead() {
-        guard authConfig.enableUnifiedGoogle else {
+        guard unifiedEnabled else {
             track(.signupSocialToLogin)
             track(.signedIn)
             track(.loginSocialSuccess)
@@ -70,7 +70,7 @@ class GoogleAuthenticatorTracker {
     /// Tracks the request of a 2FA code to the user.
     ///
     func trackTwoFactorAuhenticationRequested(authType: GoogleAuthType) {
-        guard authConfig.enableUnifiedGoogle else {
+        guard unifiedEnabled else {
             track(.loginSocial2faNeeded)
             return
         }
@@ -81,7 +81,7 @@ class GoogleAuthenticatorTracker {
     /// Tracks a successful signin.
     ///
     func trackSignInSuccess(authType: GoogleAuthType) {
-        guard authConfig.enableUnifiedGoogle else {
+        guard unifiedEnabled else {
             track(.signedIn)
             track(.loginSocialSuccess)
             return
@@ -100,7 +100,7 @@ class GoogleAuthenticatorTracker {
     func trackSignInFailure(authType: GoogleAuthType, error: Error?) {
         let errorMessage = error?.localizedDescription ?? "Unknown error"
         
-        guard authConfig.enableUnifiedGoogle else {
+        guard unifiedEnabled else {
             // The Google SignIn may have been cancelled.
             let properties = ["error": errorMessage]
 
@@ -126,7 +126,7 @@ class GoogleAuthenticatorTracker {
     func trackSignUpFailure(error: Error) {
         let errorMessage = error.localizedDescription
         
-        guard authConfig.enableUnifiedGoogle else {
+        guard unifiedEnabled else {
             track(.signupSocialFailure, properties: ["error": errorMessage])
             return
         }
