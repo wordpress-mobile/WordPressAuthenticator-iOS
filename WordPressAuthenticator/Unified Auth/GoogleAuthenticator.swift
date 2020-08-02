@@ -93,7 +93,9 @@ class GoogleAuthenticator: NSObject {
     private let authConfig = WordPressAuthenticator.shared.configuration
     private var authType: GoogleAuthType = .login
     
-    private let tracker = GoogleAuthenticatorTracker(authConfig: WordPressAuthenticator.shared.configuration)
+    private let tracker = GoogleAuthenticatorTracker(
+        authConfig: WordPressAuthenticator.shared.configuration,
+        context: WordPressAuthenticator.shared.tracker.context)
     
     private lazy var loginFacade: LoginFacade = {
         let facade = LoginFacade(dotcomClientID: authConfig.wpcomClientId,

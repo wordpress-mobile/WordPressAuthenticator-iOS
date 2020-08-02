@@ -83,7 +83,9 @@ import AuthenticationServices
         self.unifiedStyle = unifiedStyle
         self.displayImages = displayImages
         self.displayStrings = displayStrings
-        self.tracker =  WordPressAuthenticatorTracker(authConfig: configuration)
+        self.tracker = WordPressAuthenticatorTracker(
+            authConfig: configuration,
+            context: SignInTracker.Context())
     }
 
     /// Initializes the WordPressAuthenticator with the specified Configuration.

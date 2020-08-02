@@ -5,10 +5,11 @@ import Foundation
 class GoogleAuthenticatorTracker {
     
     private let authConfig: WordPressAuthenticatorConfiguration
-    let tracker = UnifiedSignInTracker(context: UnifiedSignInTracker.Context())
+    let tracker: SignInTracker
     
-    init(authConfig: WordPressAuthenticatorConfiguration) {
+    init(authConfig: WordPressAuthenticatorConfiguration, context: SignInTracker.Context) {
         self.authConfig = authConfig
+        self.tracker = SignInTracker(context: context)
     }
     
     // MARK: -  Tracking: support
@@ -138,11 +139,11 @@ class GoogleAuthenticatorTracker {
 
 extension GoogleAuthenticatorTracker {
     
-    func trackLogin(step: UnifiedSignInTracker.Step) {
+    func trackLogin(step: SignInTracker.Step) {
         tracker.track(step: step, flow: .googleLogin)
     }
     
-    func trackSignup(step: UnifiedSignInTracker.Step) {
+    func trackSignup(step: SignInTracker.Step) {
         tracker.track(step: step, flow: .googleSignup)
     }
     

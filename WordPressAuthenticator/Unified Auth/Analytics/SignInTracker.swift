@@ -1,6 +1,6 @@
 import Foundation
 
-class UnifiedSignInTracker {
+public class SignInTracker {
     enum EventType: String {
         case step = "unified_login_step"
         case interaction = "unified_login_interaction"
@@ -190,7 +190,7 @@ class UnifiedSignInTracker {
         case createAccount = "create_account"
     }
     
-    class Context {
+    public class Context {
         var lastFlow: Flow
         var lastSource: Source
         var lastStep: Step
