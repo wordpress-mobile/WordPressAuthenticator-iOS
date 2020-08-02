@@ -354,7 +354,7 @@ private extension GoogleAuthenticator {
     }
     
     func logInInstead(credentials: AuthenticatorCredentials) {
-        tracker.trackLogInInstead()
+        tracker.trackLoginInstead()
 
         signupDelegate?.googleLoggedInInstead(credentials: credentials, loginFields: loginFields)
         delegate?.googleLoggedInInstead(credentials: credentials, loginFields: loginFields)

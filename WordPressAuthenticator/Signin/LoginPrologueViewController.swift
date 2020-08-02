@@ -8,6 +8,14 @@ class LoginPrologueViewController: LoginViewController {
 
     private var buttonViewController: NUXButtonViewController?
     var showCancel = false
+    
+    private var authenticator: WordPressAuthenticator {
+        return WordPressAuthenticator.shared
+    }
+    
+    private var tracker: WordPressAuthenticatorTracker {
+        return authenticator.tracker
+    }
 
     // MARK: - Lifecycle Methods
 
@@ -19,7 +27,7 @@ class LoginPrologueViewController: LoginViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        WordPressAuthenticator.track(.loginPrologueViewed)
+        tracker.trackPrologueViewed()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -114,9 +122,7 @@ class LoginPrologueViewController: LoginViewController {
     }
 
     private func signupTapped() {
-        // This stat is part of a funnel that provides critical information.
-        // Before making ANY modification to this stat please refer to: p4qSXL-35X-p2
-        WordPressAuthenticator.track(.signupButtonTapped)
+        tracker.trackSignUpButtonTapped()
 
         guard let vc = LoginPrologueSignupMethodViewController.instantiate(from: .login) else {
             DDLogError("Failed to navigate to LoginPrologueSignupMethodViewController")

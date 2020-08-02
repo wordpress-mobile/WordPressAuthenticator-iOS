@@ -56,6 +56,8 @@ import AuthenticationServices
     ///
     @objc public static let WPSigninDidFinishNotification = "WPSigninDidFinishNotification"
 
+    public let tracker: WordPressAuthenticatorTracker
+    
     /// Internal Constants.
     ///
     private enum Constants {
@@ -81,6 +83,7 @@ import AuthenticationServices
         self.unifiedStyle = unifiedStyle
         self.displayImages = displayImages
         self.displayStrings = displayStrings
+        self.tracker =  WordPressAuthenticatorTracker(authConfig: configuration)
     }
 
     /// Initializes the WordPressAuthenticator with the specified Configuration.

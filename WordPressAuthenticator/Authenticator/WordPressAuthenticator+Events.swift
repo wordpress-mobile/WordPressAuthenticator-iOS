@@ -4,7 +4,7 @@ import WordPressShared
 // MARK: - Authentication Flow Event. Useful to relay internal Auth events over to activity trackers.
 //
 extension WordPressAuthenticator {
-
+    
     /// Tracks the specified event.
     ///
     @objc

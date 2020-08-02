@@ -5,6 +5,7 @@ import Foundation
 class GoogleAuthenticatorTracker {
     
     private let authConfig: WordPressAuthenticatorConfiguration
+    let tracker = UnifiedSignInTracker(context: UnifiedSignInTracker.Context())
     
     init(authConfig: WordPressAuthenticatorConfiguration) {
         self.authConfig = authConfig
@@ -13,16 +14,21 @@ class GoogleAuthenticatorTracker {
     // MARK: -  Tracking: support
     
     func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {
-        var trackProperties = properties
-        trackProperties["source"] = "google"
-        WordPressAuthenticator.track(event, properties: trackProperties)
-    }
-    
-    func track(_ event: AnalyticsEvent) {
-        WPAnalytics.track(GoogleAuthenticatorTracker.login(step: .start))
+        guard authConfig.enableUnifiedGoogle else {
+            var trackProperties = properties
+            trackProperties["source"] = "google"
+            WordPressAuthenticator.track(event, properties: trackProperties)
+            return
+        }
+        
+        WordPressAuthenticator.track(event, properties: properties)
     }
     
     // MARK: - Tracking: Specific Events
+    
+    func track(_ event: AnalyticsEvent) {
+        WPAnalytics.track(event)
+    }
     
     /// Tracks the start of the sign-in flow.
     ///
@@ -40,15 +46,15 @@ class GoogleAuthenticatorTracker {
         
         switch authType {
         case .login:
-            track(GoogleAuthenticatorTracker.login(step: .start))
+            trackLogin(step: .start)
         case .signup:
-            track(GoogleAuthenticatorTracker.signUp(step: .start))
+            trackSignup(step: .start)
         }
     }
     
     /// Tracks a change of flow from signup to login.
     ///
-    func trackLogInInstead() {
+    func trackLoginInstead() {
         guard authConfig.enableUnifiedGoogle else {
             track(.signupSocialToLogin)
             track(.signedIn)
@@ -56,8 +62,8 @@ class GoogleAuthenticatorTracker {
             return
         }
         
-        track(GoogleAuthenticatorTracker.login(step: .start))
-        track(GoogleAuthenticatorTracker.login(step: .success))
+        trackLogin(step: .start)
+        trackLogin(step: .success)
     }
     
     /// Tracks the request of a 2FA code to the user.
@@ -68,7 +74,7 @@ class GoogleAuthenticatorTracker {
             return
         }
         
-        track(GoogleAuthenticatorTracker.login(step: .twoFactorAuthentication))
+        trackLogin(step: .twoFactorAuthentication)
     }
     
     /// Tracks a successful signin.
@@ -82,9 +88,9 @@ class GoogleAuthenticatorTracker {
         
         switch authType {
         case .login:
-            track(GoogleAuthenticatorTracker.login(step: .success))
+            trackLogin(step: .success)
         case .signup:
-            track(GoogleAuthenticatorTracker.signUp(step: .success))
+            trackSignup(step: .success)
         }
     }
 
@@ -113,12 +119,7 @@ class GoogleAuthenticatorTracker {
         //
         // My take is that these are login errors
         
-        switch authType {
-        case .login:
-            track(GoogleAuthenticatorTracker.loginFailure(step: .start, message: errorMessage))
-        case .signup:
-            track(GoogleAuthenticatorTracker.signUpFailure(step: .start, message: errorMessage))
-        }
+        trackFailure(failure: errorMessage)
     }
     
     func trackSignUpFailure(error: Error) {
@@ -129,6 +130,23 @@ class GoogleAuthenticatorTracker {
             return
         }
         
-        track(GoogleAuthenticatorTracker.signUpFailure(step: .start, message: errorMessage))
+        trackFailure(failure: errorMessage)
+    }
+}
+
+// MARK: - Tracking Convenience Methods
+
+extension GoogleAuthenticatorTracker {
+    
+    func trackLogin(step: UnifiedSignInTracker.Step) {
+        tracker.track(step: step, flow: .googleLogin)
+    }
+    
+    func trackSignup(step: UnifiedSignInTracker.Step) {
+        tracker.track(step: step, flow: .googleSignup)
+    }
+    
+    func trackFailure(failure: String) {
+        tracker.track(failure: failure)
     }
 }
