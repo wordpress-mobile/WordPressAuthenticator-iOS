@@ -3,15 +3,15 @@ import Foundation
 public class WordPressAuthenticatorTracker {
     
     private let authConfig: WordPressAuthenticatorConfiguration
-    private let signInTracker: SignInTracker
+    private let analyticsTracker: AnalyticsTracker
     
-    var context: SignInTracker.Context {
-        return signInTracker.context
+    var context: AnalyticsTracker.Context {
+        return analyticsTracker.context
     }
     
-    public init(authConfig: WordPressAuthenticatorConfiguration, context: SignInTracker.Context) {
+    public init(authConfig: WordPressAuthenticatorConfiguration, context: AnalyticsTracker.Context) {
         self.authConfig = authConfig
-        self.signInTracker = SignInTracker(context: context)
+        self.analyticsTracker = AnalyticsTracker(context: context)
     }
     
     // MARK: -  Tracking: support
@@ -27,8 +27,8 @@ public class WordPressAuthenticatorTracker {
         track(.loginPrologueViewed)
         
         // Unified tracking
-        signInTracker.set(source: .default)
-        signInTracker.track(step: .prologue, flow: .wpCom)
+        analyticsTracker.set(source: .default)
+        analyticsTracker.track(step: .prologue, flow: .wpCom)
     }
     
     public func trackSignUpButtonTapped() {

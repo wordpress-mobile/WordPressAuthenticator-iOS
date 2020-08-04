@@ -85,7 +85,7 @@ import AuthenticationServices
         self.displayStrings = displayStrings
         self.tracker = WordPressAuthenticatorTracker(
             authConfig: configuration,
-            context: SignInTracker.Context())
+            context: AnalyticsTracker.Context())
     }
 
     /// Initializes the WordPressAuthenticator with the specified Configuration.

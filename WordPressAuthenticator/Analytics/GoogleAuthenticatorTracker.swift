@@ -5,11 +5,11 @@ import Foundation
 class GoogleAuthenticatorTracker {
     
     private let unifiedEnabled: Bool
-    let tracker: SignInTracker
+    let tracker: AnalyticsTracker
     
-    init(unifiedEnabled: Bool, context: SignInTracker.Context) {
+    init(unifiedEnabled: Bool, context: AnalyticsTracker.Context) {
         self.unifiedEnabled = unifiedEnabled
-        self.tracker = SignInTracker(context: context)
+        self.tracker = AnalyticsTracker(context: context)
     }
     
     // MARK: -  Tracking: support
@@ -139,11 +139,11 @@ class GoogleAuthenticatorTracker {
 
 extension GoogleAuthenticatorTracker {
     
-    func trackLogin(step: SignInTracker.Step) {
+    func trackLogin(step: AnalyticsTracker.Step) {
         tracker.track(step: step, flow: .googleLogin)
     }
     
-    func trackSignup(step: SignInTracker.Step) {
+    func trackSignup(step: AnalyticsTracker.Step) {
         tracker.track(step: step, flow: .googleSignup)
     }
     

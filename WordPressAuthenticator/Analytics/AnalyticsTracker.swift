@@ -1,10 +1,25 @@
 import Foundation
 
-public class SignInTracker {
+/// Implements the analytics tracking logic for our sign in flow.
+///
+public class AnalyticsTracker {
+    
+    /// The method used for analytics tracking.  Useful for overriding in automated tests.
+    ///
+    typealias TrackerMethod = (_ event: AnalyticsEvent) -> ()
+
     enum EventType: String {
         case step = "unified_login_step"
         case interaction = "unified_login_interaction"
         case failure = "unified_login_failure"
+    }
+    
+    enum Property: String {
+        case failure
+        case flow
+        case click
+        case source
+        case step
     }
     
     enum Source: String {
@@ -12,7 +27,7 @@ public class SignInTracker {
         case jetpack
         case share
         case deeplink
-        case reauthetication
+        case reauthentication
         
         /// Starts when the used adds a site from the site picker
         ///
@@ -23,19 +38,25 @@ public class SignInTracker {
         /// The initial flow before we decide whether the user is logging in or signing up
         case wpCom = "wordpress_com"
         
-        /// The flow that starts when the user starts the Google login
+        /// Flow for Google login
         ///
         case googleLogin = "google_login"
         
+        /// Flow for Google  signup
+        ///
         case googleSignup = "google_signup"
         
-        /// Flow for Sign in with Apple
+        /// Flow for Apple login
         ///
-        case apple = "siwa_login"
+        case appleLogin = "siwa_login"
         
-        /// Sign in with the icloud keychain
+        /// Flow for Apple signup
         ///
-        case keychain = "icloud_keychain_login"
+        case appleSignup = "siwa_signup"
+        
+        /// Flow for iCloud Keychain login
+        ///
+        case iCloudKeychainLogin = "icloud_keychain_login"
         
         /// The flow that starts when we offer the user the magic link login
         ///
@@ -86,7 +107,7 @@ public class SignInTracker {
         case twoFactorAuthentication = "2fa"
     }
     
-    enum Interaction: String {
+    enum ClickTarget: String {
         /// Tracked when submitting the email form, the email & password form, site address form,
         /// username & password form and signup email form
         ///
@@ -124,6 +145,10 @@ public class SignInTracker {
         /// When the user tries to sign up with email from the confirmation screen
         ///
         case signUpWithEmail = "signup_with_email"
+        
+        /// When the user tries to sign up with Apple from the confirmation screen
+        ///
+        case signUpWithApple = "signup_with_apple"
         
         /// When the user tries to sign up with Google from the confirmation screen
         ///
@@ -190,6 +215,8 @@ public class SignInTracker {
         case createAccount = "create_account"
     }
     
+    /// Provides the sign-in tracking state machine that can be shared across different trackers if needed.
+    ///
     public class Context {
         var lastFlow: Flow
         var lastSource: Source
@@ -204,28 +231,47 @@ public class SignInTracker {
     
     let context: Context
     
+    /// The backing analytics tracking method.  Can be overridden for testing purposes.
+    ///
+    let track: TrackerMethod
+    
     // MARK: - Initializers
     
-    init(context: Context) {
+    init(context: Context, track: @escaping TrackerMethod = WPAnalytics.track) {
         self.context = context
+        self.track = track
     }
     
     // MARK: - Tracking
     
-    func track(_ event: AnalyticsEvent) {
-        WPAnalytics.track(event)
-    }
-    
+    /// Track a step within a flow.
+    ///
     func track(step: Step, flow: Flow) {
         track(event(step: step, flow: flow))
     }
     
+    /// Track a click interaction.
+    ///
+    func track(click: ClickTarget) {
+        track(event(click: click))
+    }
+    
+    /// Track a failure.
+    ///
     func track(failure: String) {
         track(event(failure: failure))
     }
     
     // MARK: - Event Construction & Context Updating
     
+    /// Creates an event for a step.  Updates the state machine.
+    ///
+    /// - Parameters:
+    ///     - step: the step we're tracking.
+    ///     - flow: the flow that the step belongs to.
+    ///
+    /// - Returns: an analytics event representing the step.
+    ///
     private func event(step: Step, flow: Flow) -> AnalyticsEvent {
         let event = AnalyticsEvent(
             name: EventType.step.rawValue,
@@ -236,19 +282,39 @@ public class SignInTracker {
         return event
     }
 
+    /// Creates an event for a failure.  Loads the properties from the state machine.
+    ///
+    /// - Parameters:
+    ///     - failure: the error message we want to track.
+    ///
+    /// - Returns: an analytics event representing the failure.
+    ///
     private func event(failure: String) -> AnalyticsEvent {
+        var properties = lastProperties()
+        properties[Property.failure.rawValue] = failure
+        
         return AnalyticsEvent(
             name: EventType.failure.rawValue,
-            properties: lastProperties())
+            properties: properties)
     }
     
-    private func event(interaction: Interaction) -> AnalyticsEvent {
+    /// Creates an event for a click interaction.  Loads the properties from the state machine.
+    ///
+    /// - Parameters:
+    ///     - click: the target of the click interaction.
+    ///
+    /// - Returns: an analytics event representing the click interaction.
+    ///
+    private func event(click: ClickTarget) -> AnalyticsEvent {
+        var properties = lastProperties()
+        properties[Property.click.rawValue] = click.rawValue
+
         return AnalyticsEvent(
             name: EventType.interaction.rawValue,
-            properties: lastProperties())
+            properties: properties)
     }
     
-    // MARK: - Source Interactions
+    // MARK: - Source
     
     func set(source: Source) {
         context.lastSource = source
@@ -262,18 +328,22 @@ public class SignInTracker {
     
     private func properties(step: Step, flow: Flow, source: Source) -> [String: String] {
         return [
-            "flow": flow.rawValue,
-            "source": source.rawValue,
-            "step": step.rawValue,
+            Property.flow.rawValue: flow.rawValue,
+            Property.source.rawValue: source.rawValue,
+            Property.step.rawValue: step.rawValue,
         ]
     }
     
     // MARK: - Properties: state machine
     
+    /// Retrieve the last step, flow and source stored in the state machine.
+    ///
     private func lastProperties() -> [String: String] {
         return properties(step: context.lastStep, flow: context.lastFlow, source: context.lastSource)
     }
     
+    /// Save the step and flow in the state machine.  The source can only be changed directly using `set(source:)`.
+    ///
     private func saveLastProperties(step: Step, flow: Flow) {
         context.lastFlow = flow
         context.lastStep = step
