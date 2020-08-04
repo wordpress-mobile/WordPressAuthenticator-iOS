@@ -675,8 +675,9 @@
 		B5ED7901207E976500A8FD8C /* WordPressAuthenticatorTests */ = {
 			isa = PBXGroup;
 			children = (
-				3F550D5423DA5094007E5897 /* Email Client Picker */,
 				B501C03D208FC52500D1E58F /* Authenticator */,
+				BA60FAB824CC41420088FC8B /* Credentials */,
+				3F550D5423DA5094007E5897 /* Email Client Picker */,
 				B501C03B208FC52400D1E58F /* Model */,
 				B501C03F208FC52500D1E58F /* Services */,
 				3F550D4C23DA4191007E5897 /* UI */,
@@ -707,6 +708,14 @@
 				B55272C120B2FE4100E18BC5 /* WPAuthenticatorLoggingPrivate.m */,
 			);
 			path = Logging;
+			sourceTree = "<group>";
+		};
+		BA60FAB824CC41420088FC8B /* Credentials */ = {
+			isa = PBXGroup;
+			children = (
+				BA60FAB924CC41710088FC8B /* CredentialsTests.swift */,
+			);
+			path = Credentials;
 			sourceTree = "<group>";
 		};
 		CE1B18CA20EEC31000BECC3F /* Credentials */ = {
@@ -1148,6 +1157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B501C045208FC68700D1E58F /* LoginFieldsValidationTests.swift in Sources */,
+				BA60FABA24CC41710088FC8B /* CredentialsTests.swift in Sources */,
 				3F550D4E23DA429B007E5897 /* AppSelectorTests.swift in Sources */,
 				CE16177821B70C1A00B82A47 /* WordPressAuthenticatorDisplayTextTests.swift in Sources */,
 				B501C048208FC79C00D1E58F /* LoginFacadeTests.m in Sources */,
