@@ -43,6 +43,6 @@ Pod::Spec.new do |s|
 
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.
-  s.dependency 'WordPressKit', '~> 4.0-beta.0' # Don't change this until we hit 5.0 in WPKit
-  s.dependency 'WordPressShared', '~> 1.9-beta' # Don't change this until we hit 2.0 in WPShared
+  s.dependency 'WordPressKit', '~> 4.14-beta' # Don't change this until we hit 5.0 in WPKit
+  s.dependency 'WordPressShared', '~> 1.10-beta' # Don't change this until we hit 2.0 in WPShared
 end
