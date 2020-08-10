@@ -6,6 +6,306 @@ import WordPressShared
 import WordPressUI
 import AuthenticationServices
 
+
+import WordPressKit
+final class SignInMethodsCoordinator: NSObject {
+    private var loginFields = LoginFields()
+    private var error: Error?
+
+    private lazy var loginFacade: LoginFacade = {
+        let configuration = WordPressAuthenticator.shared.configuration
+        let facade = LoginFacade(dotcomClientID: configuration.wpcomClientId,
+                                 dotcomSecret: configuration.wpcomSecret,
+                                 userAgent: configuration.userAgent)
+        facade.delegate = self
+        return facade
+    }()
+
+    private let presenter: UIViewController
+    private var authenticationDelegate: WordPressAuthenticatorDelegate {
+        guard let delegate = WordPressAuthenticator.shared.delegate else {
+            fatalError()
+        }
+
+        return delegate
+    }
+
+    private var isSignUp: Bool {
+        loginFields.meta.emailMagicLinkSource == .signup
+    }
+
+    private var isJetpackLogin: Bool {
+        return loginFields.meta.jetpackLogin
+    }
+
+    private let onDismiss: ((_ cancelled: Bool) -> Void)?
+
+    init(presenter: UIViewController, onDismiss: ((_ cancelled: Bool) -> Void)?) {
+        self.presenter = presenter
+        self.onDismiss = onDismiss
+    }
+}
+
+extension SignInMethodsCoordinator: LoginFacadeDelegate {
+
+}
+
+extension SignInMethodsCoordinator: AppleAuthenticatorDelegate {
+    func showWPComLogin(loginFields: LoginFields) {
+        self.loginFields = loginFields
+
+        guard let vc = LoginWPComViewController.instantiate(from: .login) else {
+            DDLogError("Failed to navigate from LoginEmailViewController to LoginWPComViewController")
+            return
+        }
+
+        vc.loginFields = self.loginFields
+        vc.dismissBlock = onDismiss
+        vc.errorToPresent = error
+
+        presenter.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func showApple2FA(loginFields: LoginFields) {
+        self.loginFields = loginFields
+        signInAppleAccount()
+    }
+
+    func authFailedWithError(message: String) {
+        displayErrorAlert(message, sourceTag: .loginApple)
+    }
+}
+
+private extension SignInMethodsCoordinator {
+    func signInAppleAccount() {
+        guard let token = loginFields.meta.socialServiceIDToken else {
+            WordPressAuthenticator.track(.loginSocialButtonFailure, properties: ["source": SocialServiceName.apple.rawValue])
+            configureViewLoading(false)
+            return
+        }
+
+        loginFacade.loginToWordPressDotCom(withSocialIDToken: token, service: SocialServiceName.apple.rawValue)
+    }
+
+    /// Sets the view's state to loading or not loading.
+    ///
+    /// - Parameter loading: True if the form should be configured to a "loading" state.
+    ///
+    func configureViewLoading(_ loading: Bool) {
+//        emailTextField.isEnabled = !loading
+//        googleLoginButton?.isEnabled = !loading
+//
+//        submitButton?.isEnabled = !loading
+//        submitButton?.showActivityIndicator(loading)
+    }
+
+    /// Displays a login error message in an attractive dialog
+    ///
+    func displayErrorAlert(_ message: String, sourceTag: WordPressSupportSourceTag) {
+        let presentingController = presenter.navigationController ?? presenter
+        let controller = FancyAlertViewController.alertForGenericErrorMessageWithHelpButton(message, loginFields: loginFields, sourceTag: sourceTag)
+        controller.modalPresentationStyle = .custom
+//        controller.transitioningDelegate = self
+        presentingController.present(controller, animated: true, completion: nil)
+    }
+}
+
+// MARK: - GoogleAuthenticatorLoginDelegate
+
+extension SignInMethodsCoordinator: GoogleAuthenticatorLoginDelegate {
+
+    func googleFinishedLogin(credentials: AuthenticatorCredentials, loginFields: LoginFields) {
+        self.loginFields = loginFields
+        syncWPComAndPresentEpilogue(credentials: credentials)
+    }
+
+    func googleNeedsMultifactorCode(loginFields: LoginFields) {
+        self.loginFields = loginFields
+        configureViewLoading(false)
+
+        guard let vc = Login2FAViewController.instantiate(from: .login) else {
+            DDLogError("Failed to navigate from LoginViewController to Login2FAViewController")
+            return
+        }
+
+        vc.loginFields = loginFields
+        vc.dismissBlock = onDismiss
+        vc.errorToPresent = error
+
+        presenter.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func googleExistingUserNeedsConnection(loginFields: LoginFields) {
+        self.loginFields = loginFields
+        configureViewLoading(false)
+
+        guard let vc = LoginWPComViewController.instantiate(from: .login) else {
+            DDLogError("Failed to navigate from Google Login to LoginWPComViewController (password VC)")
+            return
+        }
+
+        vc.loginFields = loginFields
+        vc.dismissBlock = onDismiss
+        vc.errorToPresent = error
+
+        presenter.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func googleLoginFailed(errorTitle: String, errorDescription: String, loginFields: LoginFields) {
+        self.loginFields = loginFields
+        configureViewLoading(false)
+
+        let socialErrorVC = LoginSocialErrorViewController(title: errorTitle, description: errorDescription)
+        let socialErrorNav = LoginNavigationController(rootViewController: socialErrorVC)
+        socialErrorVC.delegate = self
+        socialErrorVC.loginFields = loginFields
+        socialErrorVC.modalPresentationStyle = .fullScreen
+        presenter.present(socialErrorNav, animated: true)
+    }
+
+    /// Signals the Main App to synchronize the specified WordPress.com account. On completion, the epilogue will be pushed (if needed).
+    ///
+    private func syncWPComAndPresentEpilogue(credentials: AuthenticatorCredentials) {
+        syncWPCom(credentials: credentials) { [weak self] in
+            guard let self = self else {
+                return
+            }
+
+            if self.mustShowSignupEpilogue() {
+                self.showSignupEpilogue(for: credentials)
+            } else if self.mustShowLoginEpilogue() {
+                self.showLoginEpilogue(for: credentials)
+            } else {
+                self.dismiss()
+            }
+        }
+    }
+
+    private func mustShowLoginEpilogue() -> Bool {
+        return isSignUp == false && authenticationDelegate.shouldPresentLoginEpilogue(isJetpackLogin: isJetpackLogin)
+    }
+
+    private func mustShowSignupEpilogue() -> Bool {
+        return isSignUp && authenticationDelegate.shouldPresentSignupEpilogue()
+    }
+
+
+    // MARK: - Epilogue
+
+    func showSignupEpilogue(for credentials: AuthenticatorCredentials) {
+        guard let navigationController = presenter.navigationController else {
+            fatalError()
+        }
+
+        let service = loginFields.meta.googleUser.flatMap {
+            return SocialService.google(user: $0)
+        }
+
+        authenticationDelegate.presentSignupEpilogue(in: navigationController, for: credentials, service: service)
+    }
+
+    func showLoginEpilogue(for credentials: AuthenticatorCredentials) {
+        guard let navigationController = presenter.navigationController else {
+            fatalError()
+        }
+
+        authenticationDelegate.presentLoginEpilogue(in: navigationController, for: credentials) { [weak self] in
+            self?.onDismiss?(false)
+        }
+    }
+
+    /// It is assumed that NUX view controllers are always presented modally.
+    ///
+    private func dismiss() {
+        dismiss(cancelled: false)
+    }
+
+    /// It is assumed that NUX view controllers are always presented modally.
+    /// This method dismisses the view controller
+    ///
+    /// - Parameters:
+    ///     - cancelled: Should be passed true only when dismissed by a tap on the cancel button.
+    ///
+    private func dismiss(cancelled: Bool) {
+        onDismiss?(cancelled)
+        presenter.dismiss(animated: true, completion: nil)
+    }
+
+    /// TODO: @jlp Mar.19.2018. Officially support wporg, and rename to `sync(site)` + Update LoginSelfHostedViewController
+    ///
+    /// Signals the Main App to synchronize the specified WordPress.com account.
+    ///
+    private func syncWPCom(credentials: AuthenticatorCredentials, completion: (() -> ())? = nil) {
+        SafariCredentialsService.updateSafariCredentialsIfNeeded(with: loginFields)
+
+//        configureStatusLabel(LocalizedText.gettingAccountInfo)
+
+        authenticationDelegate.sync(credentials: credentials) { [weak self] in
+
+//            self?.configureStatusLabel("")
+            self?.configureViewLoading(false)
+            self?.trackSignIn(credentials: credentials)
+
+            completion?()
+        }
+    }
+
+    /// Tracks the SignIn Event
+    ///
+    private func trackSignIn(credentials: AuthenticatorCredentials) {
+        var properties = [String: String]()
+
+        if let wpcom = credentials.wpcom {
+            properties = [
+                "multifactor": wpcom.multifactor.description,
+                "dotcom_user": true.description
+            ]
+        }
+
+        WordPressAuthenticator.track(.signedIn, properties: properties)
+    }
+}
+
+// MARK: - LoginSocialError delegate methods
+extension SignInMethodsCoordinator: LoginSocialErrorViewControllerDelegate {
+    private func cleanupAfterSocialErrors() {
+        presenter.dismiss(animated: true)
+    }
+
+    /// Displays the self-hosted login form.
+    ///
+    private func loginToSelfHostedSite() {
+        guard let vc = WordPressAuthenticator.signinForWPOrg() as? LoginSiteAddressViewController else {
+            return
+        }
+
+        vc.loginFields = loginFields
+        vc.dismissBlock = onDismiss
+        vc.errorToPresent = error
+
+        presenter.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    func retryWithEmail() {
+        loginFields.username = ""
+        cleanupAfterSocialErrors()
+    }
+
+    func retryWithAddress() {
+        cleanupAfterSocialErrors()
+        loginToSelfHostedSite()
+    }
+
+    func retryAsSignup() {
+        cleanupAfterSocialErrors()
+
+        if let controller = SignupEmailViewController.instantiate(from: .signup) {
+            controller.loginFields = loginFields
+            presenter.navigationController?.pushViewController(controller, animated: true)
+        }
+    }
+}
+
 // MARK: - WordPressAuthenticator: Public API to deal with WordPress.com and WordPress.org authentication.
 //
 @objc public class WordPressAuthenticator: NSObject {
@@ -243,6 +543,86 @@ import AuthenticationServices
         return controller
     }
 
+    /// Returns an instance of `LoginPrologueLoginMethodViewController`.
+    /// This allows the host app to show a screen with available sign in methods.
+    ///
+    public class func signinMethods(from presenter: UIViewController, onDismiss: ((_ cancelled: Bool) -> Void)?) -> UIViewController {
+        guard let vc = LoginPrologueLoginMethodViewController.instantiate(from: .login) else {
+            fatalError("Unable to instantiate login methods view controller")
+        }
+
+        let coordinator = SignInMethodsCoordinator(presenter: presenter, onDismiss: onDismiss)
+
+//        vc.transitioningDelegate = self
+
+        // Continue with WordPress.com button action
+        vc.emailTapped = { [weak presenter] in
+            let toVC = signinForWPCom()
+            presenter?.navigationController?.pushViewController(toVC, animated: true)
+        }
+
+        // Continue with Google button action
+        vc.googleTapped = { [weak presenter] in
+            guard let presenter = presenter else {
+                return
+            }
+            if WordPressAuthenticator.shared.configuration.enableUnifiedGoogle {
+                presenter.navigationController?.pushViewController(unifiedGoogleView(), animated: true)
+            } else {
+                GoogleAuthenticator.sharedInstance.loginDelegate = coordinator
+                GoogleAuthenticator.sharedInstance.showFrom(viewController: presenter, loginFields: vc.loginFields, for: .login)
+            }
+        }
+
+        // Site address text link button action
+        vc.selfHostedTapped = { [weak presenter] in
+            let toVC: UIViewController
+            if WordPressAuthenticator.shared.configuration.enableUnifiedSiteAddress {
+                toVC = unifiedSiteAddressView()
+            } else {
+                toVC = signinForWPOrg()
+            }
+            presenter?.navigationController?.pushViewController(toVC, animated: true)
+        }
+
+        // Sign In With Apple (SIWA) button action
+        vc.appleTapped = { [weak vc] in
+            guard let vc = vc else {
+                return
+            }
+
+            AppleAuthenticator.sharedInstance.delegate = coordinator
+            AppleAuthenticator.sharedInstance.showFrom(viewController: presenter)
+        }
+
+        vc.modalPresentationStyle = .custom
+        return vc
+    }
+
+    // Shows the VC that handles both Google login & signup.
+    private class func googleView() -> GoogleAuthViewController {
+        guard let vc = GoogleAuthViewController.instantiate(from: .googleAuth) else {
+            fatalError("Failed to navigate to GoogleAuthViewController from LoginPrologueVC")
+        }
+        return vc
+    }
+
+    // Shows the VC that handles both Google login & signup.
+    private class func unifiedGoogleView() -> GoogleAuthViewController {
+        guard let vc = GoogleAuthViewController.instantiate(from: .googleAuth) else {
+            fatalError("Failed to navigate to GoogleAuthViewController from LoginPrologueVC")
+        }
+        return vc
+    }
+
+    /// Navigates to the unified site address login flow.
+    ///
+    private class func unifiedSiteAddressView() -> SiteAddressViewController {
+        guard let vc = SiteAddressViewController.instantiate(from: .siteAddress) else {
+            fatalError("Failed to navigate from LoginPrologueViewController to SiteAddressViewController")
+        }
+        return vc
+    }
 
     private class func trackOpenedLogin() {
         WordPressAuthenticator.track(.openedLogin)
