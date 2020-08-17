@@ -225,6 +225,7 @@ public class AuthenticatorAnalyticsTracker {
         let configuration = AuthenticatorAnalyticsTracker.Configuration(
             appleEnabled: WordPressAuthenticator.shared.configuration.enableUnifiedApple,
             googleEnabled: WordPressAuthenticator.shared.configuration.enableUnifiedGoogle,
+            signupEnabled: WordPressAuthenticator.shared.configuration.enableUnifiedSignup,
             siteAuthenticationEnabled: WordPressAuthenticator.shared.configuration.enableUnifiedSiteAddress)
         
         return AuthenticatorAnalyticsTracker(configuration: configuration)
@@ -233,6 +234,7 @@ public class AuthenticatorAnalyticsTracker {
     struct Configuration {
         let appleEnabled: Bool
         let googleEnabled: Bool
+        let signupEnabled: Bool
         let siteAuthenticationEnabled: Bool
     }
     
@@ -278,7 +280,8 @@ public class AuthenticatorAnalyticsTracker {
     /// - Returns: `true` if the
     ///
     public func canTrackInCurrentFlow() -> Bool {
-        return isInSiteAuthenticationFlowAndCanTrack()
+        return isInSignupFlowAndCanTrack()
+            || isInSiteAuthenticationFlowAndCanTrack()
             || isInAppleFlowAndCanTrack()
             || isInGoogleFlowAndCanTrack()
     }
@@ -294,6 +297,10 @@ public class AuthenticatorAnalyticsTracker {
 
     // MARK: - Legacy vs Unified tracking: Support Methods
     
+    private func isInSignupFlowAndCanTrack() -> Bool {
+        return configuration.siteAuthenticationEnabled && state.lastFlow == .signup
+    }
+
     private func isInSiteAuthenticationFlowAndCanTrack() -> Bool {
         return configuration.siteAuthenticationEnabled && state.lastFlow == .loginWithSiteAddress
     }
