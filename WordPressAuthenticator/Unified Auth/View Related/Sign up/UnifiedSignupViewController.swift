@@ -221,7 +221,7 @@ extension UnifiedSignupViewController {
 
             }, failure: { [weak self] (error: Error) in
                 DDLogError("Request for signup link email failed.")
-                // TODO: add new Tracks event. Old: .signupMagicLinkFailed
+                self?.tracker.track(failure: error.localizedDescription)
                 self?.displayError(message: ErrorMessage.magicLinkRequestFail.description())
                 self?.configureSubmitButton(animating: false)
         })
