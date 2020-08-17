@@ -228,7 +228,7 @@ extension UnifiedSignupViewController {
     }
 
     func didRequestSignupLink() {
-        // TODO: add new Tracks event. Old: .signupMagicLinkRequested
+        self.tracker.track(click: .requestMagicLink)
         WordPressAuthenticator.storeLoginInfoForTokenAuth(loginFields)
 
         guard let vc = SignupMagicLinkViewController.instantiate(from: .unifiedSignUp) else {
