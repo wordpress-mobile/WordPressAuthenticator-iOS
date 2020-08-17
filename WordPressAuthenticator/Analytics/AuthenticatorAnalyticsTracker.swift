@@ -298,7 +298,7 @@ public class AuthenticatorAnalyticsTracker {
     // MARK: - Legacy vs Unified tracking: Support Methods
     
     private func isInSignupFlowAndCanTrack() -> Bool {
-        return configuration.siteAuthenticationEnabled && state.lastFlow == .signup
+        return configuration.signupEnabled && state.lastFlow == .signup
     }
 
     private func isInSiteAuthenticationFlowAndCanTrack() -> Bool {
