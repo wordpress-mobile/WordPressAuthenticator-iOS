@@ -75,7 +75,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `fix/passwordless_parsing`)
+  - WordPressKit (~> 4.16.beta)
   - WordPressShared (~> 1.9-beta)
   - WordPressUI (~> 1.7.0)
 
@@ -99,19 +99,10 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
+    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
-
-EXTERNAL SOURCES:
-  WordPressKit:
-    :branch: fix/passwordless_parsing
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
-
-CHECKOUT OPTIONS:
-  WordPressKit:
-    :commit: 1a18e96baeebbdd6cb1df83fd6aab44bc6012d1a
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -137,6 +128,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: 6a9bdd6ab9d1b159b384b0df0f3f39de9af4fecf
 
-PODFILE CHECKSUM: 0ff21c9087ad3196024f278cf1526fb270f2bc50
+PODFILE CHECKSUM: 227d3f7f8499c650f92b4171c4b7a5cde085cb65
 
 COCOAPODS: 1.8.4
