@@ -298,7 +298,6 @@ private extension PasswordViewController {
             WordPressAuthenticator.fetchOnePasswordCredentials(self, sourceView: sourceView, loginFields: self.loginFields, allowUsernameChange: allowUsernameChange) { [weak self] (loginFields) in
                 cell.updateEmailAddress(loginFields.username)
                 self?.passwordField?.text = loginFields.password
-                self?.tracker.set(flow: .loginWithPasswordManager)
                 self?.validateForm()
             }
         }
