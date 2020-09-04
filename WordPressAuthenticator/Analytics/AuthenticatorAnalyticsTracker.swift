@@ -61,6 +61,10 @@ public class AuthenticatorAnalyticsTracker {
         /// Flow for iCloud Keychain login
         ///
         case loginWithiCloudKeychain = "icloud_keychain_login"
+
+        /// Flow for third-party password managers. E.g. 1Password or LastPass
+        ///
+        case loginWithOnePassword = "one_password_login"
         
         /// The flow that starts when we offer the user the magic link login
         ///
