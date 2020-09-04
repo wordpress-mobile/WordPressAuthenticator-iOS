@@ -481,7 +481,14 @@ import AuthenticationServices
             loginFields.password = password
             loginFields.multifactorCode = otp ?? String()
 
-            WordPressAuthenticator.track(.onePasswordLogin)
+            if WordPressAuthenticator.shared.configuration.enableUnifiedAuth {
+                AuthenticatorAnalyticsTracker.shared.set(flow: .loginWithPasswordManager)
+                AuthenticatorAnalyticsTracker.shared.set(step: .start)
+                AuthenticatorAnalyticsTracker.shared.track(step: .start)
+            } else {
+                WordPressAuthenticator.track(.onePasswordLogin)
+            }
+
             success(loginFields)
 
         }, failure: { error in
@@ -490,7 +497,12 @@ import AuthenticationServices
             }
 
             DDLogError("OnePassword Error: \(error.localizedDescription)")
-            WordPressAuthenticator.track(.onePasswordFailed)
+
+            if WordPressAuthenticator.shared.configuration.enableUnifiedAuth {
+                AuthenticatorAnalyticsTracker.shared.track(failure: error.localizedDescription)
+            } else {
+                WordPressAuthenticator.track(.onePasswordFailed)
+            }
         })
     }
 }
