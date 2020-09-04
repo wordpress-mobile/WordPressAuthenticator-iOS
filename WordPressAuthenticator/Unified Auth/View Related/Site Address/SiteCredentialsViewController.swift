@@ -309,6 +309,7 @@ private extension SiteCredentialsViewController {
             WordPressAuthenticator.fetchOnePasswordCredentials(self, sourceView: sourceView, loginFields: self.loginFields) { [unowned self] loginFields in
                 self.usernameField?.text = loginFields.username
                 self.passwordField?.text = loginFields.password
+                self.tracker.set(flow: .loginWithPasswordManager)
                 self.validateForm()
             }
         }
