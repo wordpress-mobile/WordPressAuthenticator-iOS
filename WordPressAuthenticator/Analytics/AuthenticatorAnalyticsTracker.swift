@@ -64,7 +64,7 @@ public class AuthenticatorAnalyticsTracker {
 
         /// Flow for third-party password managers. E.g. 1Password or LastPass
         ///
-        case loginWithOnePassword = "one_password_login"
+        case loginWithPasswordManager = "3pd_password_manager_login"
         
         /// The flow that starts when we offer the user the magic link login
         ///
