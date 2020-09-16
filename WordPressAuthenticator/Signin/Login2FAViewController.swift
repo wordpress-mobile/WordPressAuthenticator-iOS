@@ -266,16 +266,36 @@ class Login2FAViewController: LoginViewController, NUXKeyboardResponder, UITextF
         self.tracker.track(click: .sendCodeWithText)
         
         let message = NSLocalizedString("SMS Sent", comment: "One Time Code has been sent via SMS")
-        SVProgressHUD.showSuccess(withStatus: message)
-        SVProgressHUD.dismiss(withDelay: Constants.headsUpDismissDelay)
+        SVProgressHUD.show()
+        SVProgressHUD.dismiss(withDelay: 1)
 
         if let _ = loginFields.nonceInfo {
             // social login
-            loginFacade.requestSocial2FACode(with: loginFields)
+            loginFacade.requestSocial2FACode(with: loginFields) { [weak self] (error, success) in
+                    if success {
+                        SVProgressHUD.show(withStatus: message)
+                        SVProgressHUD.dismiss(withDelay: 1)
+                        return
+                    }
+
+                    if let error = error {
+                        self?.displayRemoteError(error)
+                    }
+                }
         } else {
-            loginFacade.requestOneTimeCode(with: loginFields)
+            loginFacade.requestOneTimeCode(with: loginFields) { [weak self] (error, success) in
+            if success {
+                SVProgressHUD.show(withStatus: message)
+                SVProgressHUD.dismiss(withDelay: 1)
+                return
+            }
+
+            if let error = error {
+                self?.displayRemoteError(error)
+            }
         }
     }
+}
 
 
 
