@@ -5,7 +5,7 @@ extension LoginFacade {
         AuthenticatorAnalyticsTracker.shared
     }
     
-    func requestOneTimeCode(with loginFields: LoginFields) {
+    func requestOneTimeCode(with loginFields: LoginFields, completion: @escaping (_ error: Error?, _ success: Bool) -> Void) {
         wordpressComOAuthClientFacade.requestOneTimeCode(
             withUsername: loginFields.username, 
             password: loginFields.password,
@@ -17,12 +17,15 @@ extension LoginFacade {
                 if self.tracker.shouldUseLegacyTracker() {
                     WordPressAuthenticator.track(.twoFactorSentSMS)
                 }
-        }) { _ in
+
+                completion(nil, true)
+        }) { error in
             DDLogError("Failed to request one time code")
+            completion(error, false)
         }
     }
 
-    func requestSocial2FACode(with loginFields: LoginFields) {
+    func requestSocial2FACode(with loginFields: LoginFields, completion: @escaping (_ error: Error?, _ success: Bool) -> Void) {
         guard let nonce = loginFields.nonceInfo?.nonceSMS else {
             return
         }
@@ -42,11 +45,15 @@ extension LoginFacade {
                 if self.tracker.shouldUseLegacyTracker() {
                     WordPressAuthenticator.track(.twoFactorSentSMS)
                 }
+
+                completion(nil, true)
         }) { (error, newNonce) in
             if let newNonce = newNonce {
                 loginFields.nonceInfo?.nonceSMS = newNonce
             }
+
             DDLogError("Failed to request one time code");
+            completion(error, false)
         }
     }
     
