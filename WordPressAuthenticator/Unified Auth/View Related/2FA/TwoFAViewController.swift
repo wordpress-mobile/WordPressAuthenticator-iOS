@@ -158,14 +158,34 @@ private extension TwoFAViewController {
     }
 
     func requestCode() {
-        SVProgressHUD.showSuccess(withStatus: LocalizedText.smsSent)
-        SVProgressHUD.dismiss(withDelay: TimeInterval(1))
+        SVProgressHUD.show()
+        SVProgressHUD.dismiss(withDelay: 1)
 
         if loginFields.nonceInfo != nil {
             // social login
-            loginFacade.requestSocial2FACode(with: loginFields)
+            loginFacade.requestSocial2FACode(with: loginFields) { [weak self] (error, success) in
+                if success {
+                    SVProgressHUD.show(withStatus: LocalizedText.smsSent)
+                    SVProgressHUD.dismiss(withDelay: 1)
+                    return
+                }
+
+                if let error = error {
+                    self?.displayRemoteError(error)
+                }
+            }
         } else {
-            loginFacade.requestOneTimeCode(with: loginFields)
+            loginFacade.requestOneTimeCode(with: loginFields) { [weak self] (error, success) in
+                if success {
+                    SVProgressHUD.show(withStatus: LocalizedText.smsSent)
+                    SVProgressHUD.dismiss(withDelay: 1)
+                    return
+                }
+
+                if let error = error {
+                    self?.displayRemoteError(error)
+                }
+            }
         }
     }
     
