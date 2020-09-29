@@ -48,12 +48,14 @@ extension LoginFacade {
 
                 completion(nil, true)
         }) { (error, newNonce) in
-            if let newNonce = newNonce {
-                loginFields.nonceInfo?.nonceSMS = newNonce
+            guard let newNonce = newNonce else {
+                DDLogError("Failed to request one time code");
+                completion(error, false)
+                return
             }
 
-            DDLogError("Failed to request one time code");
-            completion(error, false)
+            loginFields.nonceInfo?.nonceSMS = newNonce
+            completion(nil, true)
         }
     }
     
