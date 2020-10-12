@@ -7,6 +7,7 @@ import WordPressKit
 class LoginPrologueViewController: LoginViewController {
 
     @IBOutlet private weak var topContainerView: UIView!
+    @IBOutlet private weak var buttonContainerView: UIView!
     @IBOutlet private weak var buttonBlurEffectView: UIVisualEffectView!
     private var buttonViewController: NUXButtonViewController?
     var showCancel = false
@@ -26,6 +27,10 @@ class LoginPrologueViewController: LoginViewController {
     @IBOutlet private weak var buttonViewLeadingConstraint: NSLayoutConstraint!
     @IBOutlet private weak var buttonViewTrailingConstraint: NSLayoutConstraint!
     private var defaultButtonViewMargin: CGFloat = 0
+
+    /// Constraint on the top view container.
+    /// Used to adjust the top view for unified prologue carousel
+    @IBOutlet private weak var topContainerBottomConstraint: NSLayoutConstraint!
 
     // Called when login button is tapped
     var onLoginButtonTapped: (() -> Void)?
@@ -49,6 +54,13 @@ class LoginPrologueViewController: LoginViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        if WordPressAuthenticator.shared.configuration.enableUnifiedCarousel {
+            // extend the top container behind the button container
+            topContainerBottomConstraint.constant = 0
+        } else {
+            topContainerBottomConstraint.constant = -buttonContainerView.frame.height
+        }
 
         if let topContainerChildViewController = style.prologueTopContainerChildViewController() {
             topContainerView.subviews.forEach { $0.removeFromSuperview() }

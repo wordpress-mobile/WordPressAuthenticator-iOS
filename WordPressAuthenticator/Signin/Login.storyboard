@@ -78,7 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cw-FO-hjb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="501"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="tlO-rf-p4Q"/>
                                 </constraints>
@@ -107,10 +107,10 @@
                         <constraints>
                             <constraint firstItem="6cw-FO-hjb" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leading" id="7Z8-mD-FWN"/>
                             <constraint firstAttribute="trailing" secondItem="G3G-Ap-6ix" secondAttribute="trailing" id="96a-eB-JlD"/>
-                            <constraint firstAttribute="bottom" secondItem="6cw-FO-hjb" secondAttribute="bottom" id="Cuw-sd-C5k"/>
                             <constraint firstAttribute="trailing" secondItem="6cw-FO-hjb" secondAttribute="trailing" id="Hgo-qC-AqF"/>
                             <constraint firstItem="s7U-M4-ZVd" firstAttribute="top" secondItem="G3G-Ap-6ix" secondAttribute="top" id="ISb-cY-EO1"/>
                             <constraint firstAttribute="trailing" secondItem="s7U-M4-ZVd" secondAttribute="trailing" id="L02-E4-5Ik"/>
+                            <constraint firstItem="6cw-FO-hjb" firstAttribute="bottom" secondItem="G3G-Ap-6ix" secondAttribute="bottom" constant="-166" id="Mzk-lK-kDL"/>
                             <constraint firstItem="6cw-FO-hjb" firstAttribute="top" secondItem="EnO-7f-1yO" secondAttribute="top" id="dXg-NZ-hRY"/>
                             <constraint firstItem="s7U-M4-ZVd" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leading" id="fqH-CW-3Ry"/>
                             <constraint firstAttribute="bottom" secondItem="G3G-Ap-6ix" secondAttribute="bottom" id="lOP-Up-00c"/>
@@ -121,8 +121,10 @@
                     <navigationItem key="navigationItem" id="42E-2e-kOq"/>
                     <connections>
                         <outlet property="buttonBlurEffectView" destination="s7U-M4-ZVd" id="Td4-9h-aeb"/>
+                        <outlet property="buttonContainerView" destination="G3G-Ap-6ix" id="hkU-d2-OCm"/>
                         <outlet property="buttonViewLeadingConstraint" destination="uzT-mw-eJq" id="ASz-qQ-ii9"/>
                         <outlet property="buttonViewTrailingConstraint" destination="96a-eB-JlD" id="qI1-75-31G"/>
+                        <outlet property="topContainerBottomConstraint" destination="Mzk-lK-kDL" id="O8D-dk-Bfy"/>
                         <outlet property="topContainerView" destination="6cw-FO-hjb" id="rCh-90-6d1"/>
                     </connections>
                 </viewController>
