@@ -78,10 +78,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6cw-FO-hjb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="501"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="tlO-rf-p4Q"/>
-                                </constraints>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <connections>
                                     <segue destination="TP5-re-Ncg" kind="embed" id="mLC-uB-YYS"/>
                                 </connections>
@@ -97,7 +94,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3G-Ap-6ix">
                                 <rect key="frame" x="0.0" y="501" width="375" height="166"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="166" placeholder="YES" id="Cxl-Vh-qEI"/>
+                                    <constraint firstAttribute="height" constant="166" id="Cxl-Vh-qEI"/>
                                 </constraints>
                                 <connections>
                                     <segue destination="A3H-HK-nmU" kind="embed" id="swV-lc-6gI"/>
@@ -107,15 +104,15 @@
                         <constraints>
                             <constraint firstItem="6cw-FO-hjb" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leading" id="7Z8-mD-FWN"/>
                             <constraint firstAttribute="trailing" secondItem="G3G-Ap-6ix" secondAttribute="trailing" id="96a-eB-JlD"/>
-                            <constraint firstItem="G3G-Ap-6ix" firstAttribute="top" secondItem="6cw-FO-hjb" secondAttribute="bottom" id="Cuw-sd-C5k"/>
+                            <constraint firstAttribute="bottom" secondItem="s7U-M4-ZVd" secondAttribute="bottom" id="FDX-0B-GRu"/>
                             <constraint firstAttribute="trailing" secondItem="6cw-FO-hjb" secondAttribute="trailing" id="Hgo-qC-AqF"/>
-                            <constraint firstItem="s7U-M4-ZVd" firstAttribute="top" secondItem="G3G-Ap-6ix" secondAttribute="top" id="ISb-cY-EO1"/>
                             <constraint firstAttribute="trailing" secondItem="s7U-M4-ZVd" secondAttribute="trailing" id="L02-E4-5Ik"/>
+                            <constraint firstItem="G3G-Ap-6ix" firstAttribute="top" secondItem="s7U-M4-ZVd" secondAttribute="top" id="aCC-H1-FES"/>
                             <constraint firstItem="6cw-FO-hjb" firstAttribute="top" secondItem="EnO-7f-1yO" secondAttribute="top" id="dXg-NZ-hRY"/>
                             <constraint firstItem="s7U-M4-ZVd" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leading" id="fqH-CW-3Ry"/>
                             <constraint firstAttribute="bottom" secondItem="G3G-Ap-6ix" secondAttribute="bottom" id="lOP-Up-00c"/>
-                            <constraint firstItem="s7U-M4-ZVd" firstAttribute="bottom" secondItem="G3G-Ap-6ix" secondAttribute="bottom" id="qfx-iK-Dth"/>
                             <constraint firstItem="G3G-Ap-6ix" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leading" id="uzT-mw-eJq"/>
+                            <constraint firstAttribute="bottom" secondItem="6cw-FO-hjb" secondAttribute="bottom" id="vmP-xG-cTW"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="42E-2e-kOq"/>
