@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.28.0"
+  s.version       = "1.29.0-beta.1"
   s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
 
   s.description   = <<-DESC
