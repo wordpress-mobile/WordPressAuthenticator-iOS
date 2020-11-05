@@ -20,7 +20,6 @@ def wordpress_authenticator_pods
   ## =====================
   ##
   pod '1PasswordExtension', '1.8.6'
-  pod 'Alamofire', '5.4'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '5.0.2'
   pod 'lottie-ios', '3.1.6'

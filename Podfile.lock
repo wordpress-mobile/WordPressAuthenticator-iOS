@@ -63,7 +63,6 @@ PODS:
 
 DEPENDENCIES:
   - 1PasswordExtension (= 1.8.6)
-  - Alamofire (= 5.4)
   - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
   - GoogleSignIn (= 5.0.2)
@@ -137,6 +136,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
 
-PODFILE CHECKSUM: 72b5b30ee253f9c306e93b76e44f790de5f2329f
+PODFILE CHECKSUM: 9997624b1285be0677945aaa15ab36a9a6de5b81
 
 COCOAPODS: 1.8.4
