@@ -11,7 +11,8 @@ def wordpress_authenticator_pods
   ##
   pod 'Gridicons', '~> 1.0'
   pod 'WordPressUI', '~> 1.7.0'
-  pod 'WordPressKit', '~> 4.18-beta' # Don't change this until we hit 5.0 in WPKit
+  # pod 'WordPressKit', '~> 4.18-beta' # Don't change this until we hit 5.0 in WPKit
+  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :branch => 'upgrade/Alamofire-5-3-0'
   pod 'WordPressShared', '~> 1.12-beta' # Don't change this until we hit 2.0 in WPShared
 
 
@@ -19,7 +20,7 @@ def wordpress_authenticator_pods
   ## =====================
   ##
   pod '1PasswordExtension', '1.8.6'
-  pod 'Alamofire', '4.8'
+  pod 'Alamofire', '5.4'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '5.0.2'
   pod 'lottie-ios', '3.1.6'
