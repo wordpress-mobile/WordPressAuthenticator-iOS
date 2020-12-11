@@ -45,4 +45,8 @@ Pod::Spec.new do |s|
   # If you want to update which of these is used, specify it in the host app.
   s.dependency 'WordPressKit', '~> 4.18-beta' # Don't change this until we hit 5.0 in WPKit
   s.dependency 'WordPressShared', '~> 1.12-beta' # Don't change this until we hit 2.0 in WPShared
+
+  # Fixing arm64 issue with Xcode 12: https://github.com/CocoaPods/CocoaPods/issues/10104
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 end
