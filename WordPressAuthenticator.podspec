@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.30.0"
+  s.version       = "1.31.0-beta.5"
   s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
 
   s.description   = <<-DESC
@@ -30,19 +30,24 @@ Pod::Spec.new do |s|
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir    = 'WordPressAuthenticator'
 
-  s.dependency '1PasswordExtension', '1.8.6'
-  s.dependency 'Alamofire', '4.8'
+  s.dependency '1PasswordExtension', '~> 1.8.6'
+  s.dependency 'Alamofire', '~> 4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
-  s.dependency 'lottie-ios', '3.1.6'
+  s.dependency 'lottie-ios', '~> 3.1.6'
   s.dependency 'NSURL+IDN', '0.4'
-  s.dependency 'SVProgressHUD', '2.2.5'
+  s.dependency 'SVProgressHUD', '~> 2.2.5'
 
   s.dependency 'Gridicons', '~> 1.0'
   s.dependency 'GoogleSignIn', '~> 5.0.2'
-  s.dependency 'WordPressUI', '~> 1.7.0'
+  s.dependency 'WordPressUI', '~> 1.7-beta'
 
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.
   s.dependency 'WordPressKit', '~> 4.18-beta' # Don't change this until we hit 5.0 in WPKit
   s.dependency 'WordPressShared', '~> 1.12-beta' # Don't change this until we hit 2.0 in WPShared
+
+  # Fixing arm64 issue with Xcode 12: https://github.com/CocoaPods/CocoaPods/issues/10104
+  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+
 end

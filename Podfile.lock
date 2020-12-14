@@ -67,7 +67,7 @@ DEPENDENCIES:
   - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
   - GoogleSignIn (= 5.0.2)
-  - Gridicons (~> 1.0)
+  - Gridicons (~> 1.0-beta)
   - lottie-ios (= 3.1.6)
   - "NSURL+IDN (= 0.4)"
   - OCMock (~> 3.4)
@@ -77,7 +77,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - WordPressKit (~> 4.18-beta)
   - WordPressShared (~> 1.12-beta)
-  - WordPressUI (~> 1.7.0)
+  - WordPressUI (~> 1.7-beta)
 
 SPEC REPOS:
   trunk:
@@ -128,6 +128,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
 
-PODFILE CHECKSUM: dcfabc4bf0a259cb16d29a95a5acdfe5327cb221
+PODFILE CHECKSUM: 02377777b693c2e84274e2a24ccfe6c9d5064b3c
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.10.0
