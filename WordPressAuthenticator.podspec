@@ -30,12 +30,12 @@ Pod::Spec.new do |s|
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir    = 'WordPressAuthenticator'
 
-  s.dependency '1PasswordExtension', '1.8.6'
-  s.dependency 'Alamofire', '4.8'
+  s.dependency '1PasswordExtension', '~> 1.8.6'
+  s.dependency 'Alamofire', '~> 4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
-  s.dependency 'lottie-ios', '3.1.6'
+  s.dependency 'lottie-ios', '~> 3.1.6'
   s.dependency 'NSURL+IDN', '0.4'
-  s.dependency 'SVProgressHUD', '2.2.5'
+  s.dependency 'SVProgressHUD', '~> 2.2.5'
 
   s.dependency 'Gridicons', '~> 1.0'
   s.dependency 'GoogleSignIn', '~> 5.0.2'
