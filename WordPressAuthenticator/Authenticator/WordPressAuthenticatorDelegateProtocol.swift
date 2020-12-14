@@ -78,7 +78,7 @@ public protocol WordPressAuthenticatorDelegate: class {
 
     /// Signals the Host app that there is an error that needs to be handled.
     ///
-    func handleError(_ error: Error, onCompletion: @escaping (UIViewController) -> Void)
+    func handleError(_ error: Error, from sourceVIewController: UIViewController, onCompletion: @escaping (UIViewController) -> Void)
 
     /// Indicates if the Signup Epilogue should be displayed.
     ///

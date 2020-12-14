@@ -413,7 +413,7 @@ private extension GetStartedViewController {
         }
 
         /// Hand over control to the host app.
-        authenticationDelegate.handleError(error) { customUI in
+        authenticationDelegate.handleError(error, from: self) { customUI in
             // Setting the rightBarButtonItems of the custom UI before pushing the view controller
             // and resetting the navigationController's navigationItem after the push seems to be the
             // only combination that gets the Help button to show up.

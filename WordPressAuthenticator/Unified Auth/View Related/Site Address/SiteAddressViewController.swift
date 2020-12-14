@@ -146,7 +146,7 @@ final class SiteAddressViewController: LoginViewController {
             return
         }
 
-        authenticationDelegate.handleError(error) { customUI in
+        authenticationDelegate.handleError(error, from: self) { customUI in
             self.navigationController?.pushViewController(customUI, animated: true)
         }
     }
@@ -446,7 +446,7 @@ private extension SiteAddressViewController {
                 /// Check if the host app wants to provide custom UI to handle the error.
                 /// If it does, insert the custom UI provided by the host app and exit early
                 if self.authenticationDelegate.shouldHandleError(err) {
-                    self.authenticationDelegate.handleError(err) { customUI in
+                    self.authenticationDelegate.handleError(err, from: self) { customUI in
                         self.pushCustomUI(customUI)
                     }
 
