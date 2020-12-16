@@ -39,10 +39,10 @@ Pod::Spec.new do |s|
 
   s.dependency 'Gridicons', '~> 1.0'
   s.dependency 'GoogleSignIn', '~> 5.0.2'
-  s.dependency 'WordPressUI', '~> 1.7-beta'
 
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.
+  s.dependency 'WordPressUI', '~> 1.7-beta'
   s.dependency 'WordPressKit', '~> 4.18-beta' # Don't change this until we hit 5.0 in WPKit
   s.dependency 'WordPressShared', '~> 1.12-beta' # Don't change this until we hit 2.0 in WPShared
 
