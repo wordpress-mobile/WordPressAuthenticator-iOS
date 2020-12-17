@@ -47,14 +47,14 @@ PODS:
     - OHHTTPStubs/Default
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
-  - UIDeviceIdentifier (1.5.0)
-  - WordPressKit (4.18.0):
+  - UIDeviceIdentifier (1.6.0)
+  - WordPressKit (4.24.0-beta.2):
     - Alamofire (~> 4.8.0)
     - CocoaLumberjack (~> 3.4)
     - NSObject-SafeExpectations (= 0.0.4)
-    - UIDeviceIdentifier (~> 1)
+    - UIDeviceIdentifier (~> 1.4)
     - WordPressShared (~> 1.12)
-    - wpxmlrpc (~> 0.9.0)
+    - wpxmlrpc (~> 0.9)
   - WordPressShared (1.12.0):
     - CocoaLumberjack (~> 3.4)
     - FormatterKit/TimeIntervalFormatter (= 1.8.2)
@@ -75,7 +75,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.18-beta)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, commit `e1a9734e86bc0eba95dfb9656221ded2401ace58`)
   - WordPressShared (~> 1.12-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -99,10 +99,19 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
-    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
+
+EXTERNAL SOURCES:
+  WordPressKit:
+    :commit: e1a9734e86bc0eba95dfb9656221ded2401ace58
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
+
+CHECKOUT OPTIONS:
+  WordPressKit:
+    :commit: e1a9734e86bc0eba95dfb9656221ded2401ace58
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -122,12 +131,12 @@ SPEC CHECKSUMS:
   OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  UIDeviceIdentifier: a79ccdfc940373835a7d8e9fc7541e6bf61b6319
-  WordPressKit: 1d10fa14ea185600472d31cf25e677c7d938b17d
+  UIDeviceIdentifier: f4bf3b343581a1beacdbf5fb1a8825bd5f05a4a4
+  WordPressKit: 453787f5a6deeb5bb6fad4ea39801fda5698877b
   WordPressShared: 38cb62e9cb998d4dc3c1611f17934c6875a6b3e8
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
 
-PODFILE CHECKSUM: 02377777b693c2e84274e2a24ccfe6c9d5064b3c
+PODFILE CHECKSUM: 0c8776d786aac49c67a884be75e795731aed4459
 
 COCOAPODS: 1.10.0
