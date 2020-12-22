@@ -92,6 +92,14 @@ public protocol WordPressAuthenticatorDelegate: class {
     ///
     func sync(credentials: AuthenticatorCredentials, onCompletion: @escaping () -> Void)
 
+    /// Indicates the Host app wants to issue a navigation command for the specified credentials.
+    ///
+    func shouldNavigate(credentials: AuthenticatorCredentials) -> Bool
+
+    /// Signals the Host app that there are AuthenticationCedentials available that might require a navigation command.
+    ///
+    func navigate(credentials: AuthenticatorCredentials) -> NavigationCommand?
+
     /// Signals the Host App that a given Analytics Event has occurred.
     ///
     func track(event: WPAnalyticsStat)
