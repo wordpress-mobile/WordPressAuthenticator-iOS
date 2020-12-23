@@ -75,7 +75,7 @@ DEPENDENCIES:
   - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - WordPressKit (~> 4.18-beta)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, commit `971a1fcd93a9df7ec15ecb6747d50302abb96522`)
   - WordPressShared (~> 1.12-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -99,10 +99,19 @@ SPEC REPOS:
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
-    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
+
+EXTERNAL SOURCES:
+  WordPressKit:
+    :commit: 971a1fcd93a9df7ec15ecb6747d50302abb96522
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
+
+CHECKOUT OPTIONS:
+  WordPressKit:
+    :commit: 971a1fcd93a9df7ec15ecb6747d50302abb96522
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
@@ -128,6 +137,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
 
-PODFILE CHECKSUM: 02377777b693c2e84274e2a24ccfe6c9d5064b3c
+PODFILE CHECKSUM: 632788fcb9cc1f76a8181f8b858ae0a29e9becec
 
 COCOAPODS: 1.10.0
