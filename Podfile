@@ -15,7 +15,7 @@ def wordpress_authenticator_pods
   pod 'Gridicons', '~> 1.0-beta' # Don't change this until we hit 2.0 in Gridicons
   pod 'WordPressUI', '~> 1.7-beta' # Don't change this until we hit 2.0 in WordPressUI
   #pod 'WordPressKit', '~> 4.18-beta' # Don't change this until we hit 5.0 in WPKit
-  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => '971a1fcd93a9df7ec15ecb6747d50302abb96522'
+  pod 'WordPressKit', :git => 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', :commit => '3a7f7c4c970032931f9a9b68250304ecc5a0ce51'
   pod 'WordPressShared', '~> 1.12-beta' # Don't change this until we hit 2.0 in WPShared
 
 
