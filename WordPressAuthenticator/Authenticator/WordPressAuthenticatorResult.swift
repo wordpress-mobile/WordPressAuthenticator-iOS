@@ -25,6 +25,4 @@ public enum WordPressAuthenticatorResult {
     /// A view controller to be inserted into the navigation stack
     ///
     case injectViewController(value: UIViewController)
-
-    case syncSuccess
 }

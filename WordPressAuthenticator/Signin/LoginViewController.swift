@@ -273,17 +273,10 @@ extension LoginViewController {
     func syncWPCom(credentials: AuthenticatorCredentials, completion: (() -> ())? = nil) {
         authenticationDelegate.sync(credentials: credentials) { [weak self] result in
             switch result {
-            case .error(_):
-                break
-            case .presentPasswordController(_):
-                break
-            case .presentEmailController:
-                // This case is only used for UL&S
-                break
             case let .injectViewController(customUI):
                 self?.pushCustomUI(customUI)
                 break
-            case .syncSuccess:
+            case .success:
                 completion?()
                 break
             }

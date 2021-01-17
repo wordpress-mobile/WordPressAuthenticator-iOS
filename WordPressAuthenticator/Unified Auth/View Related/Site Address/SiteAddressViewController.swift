@@ -517,8 +517,6 @@ private extension SiteAddressViewController {
                 self.showGetStarted()
             case let .injectViewController(customUI):
                 self.pushCustomUI(customUI)
-            case .syncSuccess:
-                break
             }
         })
     }

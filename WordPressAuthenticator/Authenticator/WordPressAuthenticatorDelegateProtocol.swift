@@ -90,7 +90,7 @@ public protocol WordPressAuthenticatorDelegate: class {
     ///     - credentials: WordPress Site Credentials.
     ///     - onCompletion: Closure to be executed on completion.
     ///
-    func sync(credentials: AuthenticatorCredentials, onCompletion: @escaping (WordPressAuthenticatorResult) -> Void)
+    func sync(credentials: AuthenticatorCredentials, onCompletion: @escaping (WordPressAuthenticatorSyncAccountResult) -> Void)
 
     /// Signals the Host App that a given Analytics Event has occurred.
     ///

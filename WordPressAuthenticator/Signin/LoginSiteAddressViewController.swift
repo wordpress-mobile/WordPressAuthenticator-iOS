@@ -242,9 +242,6 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
             case .injectViewController(_):
                 // This case is only used for UL&S
                 break
-            case .syncSuccess:
-                // This case is only used for UL&S
-                break
             }
         })
     }
