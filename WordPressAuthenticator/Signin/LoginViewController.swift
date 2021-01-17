@@ -271,8 +271,22 @@ extension LoginViewController {
     /// Signals the Main App to synchronize the specified WordPress.com account.
     ///
     func syncWPCom(credentials: AuthenticatorCredentials, completion: (() -> ())? = nil) {
-        authenticationDelegate.sync(credentials: credentials) {
-            completion?()
+        authenticationDelegate.sync(credentials: credentials) { [weak self] result in
+            switch result {
+            case .error(_):
+                break
+            case .presentPasswordController(_):
+                break
+            case .presentEmailController:
+                // This case is only used for UL&S
+                break
+            case let .injectViewController(customUI):
+                self?.pushCustomUI(customUI)
+                break
+            case .syncSuccess:
+                completion?()
+                break
+            }
         }
     }
 
@@ -552,4 +566,19 @@ extension LoginViewController: LoginSocialErrorViewControllerDelegate {
         navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+private extension LoginViewController {
+    /// Push a custom view controller, provided by a host app, to the navigation stack
+    func pushCustomUI(_ customUI: UIViewController) {
+        /// Assign the help button of the newly injected UI to the same help button we are currently displaying
+        /// We are making a somewhat big assumption here: the chrome of the new UI we insert would look like the UI
+        /// WPAuthenticator is already displaying. Which is risky, but also kind of makes sense, considering
+        /// we are also pushing that injected UI to the current navigation controller.
+        if WordPressAuthenticator.shared.delegate?.supportActionEnabled == true {
+            customUI.navigationItem.rightBarButtonItems = self.navigationItem.rightBarButtonItems
+        }
+
+        self.navigationController?.pushViewController(customUI, animated: true)
+    }
 }

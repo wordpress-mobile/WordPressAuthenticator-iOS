@@ -369,7 +369,7 @@ private extension GoogleAuthenticator {
 
             // Existing Account
             // Sync host app
-            self?.authenticationDelegate.sync(credentials: credentials) {
+            self?.authenticationDelegate.sync(credentials: credentials) { _ in
                 SVProgressHUD.dismiss()
                 // Notify delegate
                 self?.logInInstead(credentials: credentials)

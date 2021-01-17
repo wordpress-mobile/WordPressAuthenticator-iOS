@@ -125,7 +125,7 @@ private extension AppleAuthenticator {
                                                 self?.authenticationDelegate.createdWordPressComAccount(username: wpcomUsername, authToken: wpcomToken)
                                                 self?.signupSuccessful(with: credentials)
                                             } else {
-                                                self?.authenticationDelegate.sync(credentials: credentials) {
+                                                self?.authenticationDelegate.sync(credentials: credentials) { _ in
                                                     self?.loginSuccessful(with: credentials)
                                                 }
                                             }

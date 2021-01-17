@@ -165,7 +165,7 @@ extension StoredCredentialsAuthenticator: LoginFacadeDelegate {
             siteURL: "")
         let credentials = AuthenticatorCredentials(wpcom: wpcom)
         
-        authenticationDelegate.sync(credentials: credentials) { [weak self] in
+        authenticationDelegate.sync(credentials: credentials) { [weak self] _ in
             SVProgressHUD.dismiss()
             self?.presentLoginEpilogue(credentials: credentials)
         }

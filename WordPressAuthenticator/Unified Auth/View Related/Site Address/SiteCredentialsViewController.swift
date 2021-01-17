@@ -435,7 +435,7 @@ extension SiteCredentialsViewController {
 
         let wporg = WordPressOrgCredentials(username: username, password: password, xmlrpc: xmlrpc, options: options)
         let credentials = AuthenticatorCredentials(wporg: wporg)
-        delegate.sync(credentials: credentials) { [weak self] in
+        delegate.sync(credentials: credentials) { [weak self] _ in
             NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: WordPressAuthenticator.WPSigninDidFinishNotification), object: nil)
             self?.showLoginEpilogue(for: credentials)
         }
