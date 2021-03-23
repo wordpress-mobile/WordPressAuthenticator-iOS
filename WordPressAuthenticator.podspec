@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
                     Plus: WordPress.com *signup* is supported.
                     DESC
 
-  s.homepage      = "http://apps.wordpress.com"
+  s.homepage      = "https://apps.wordpress.com"
   s.license       = { :type => "GPLv2", :file => "LICENSE" }
   s.author        = { "Automattic" => "mobile@automattic.com" }
   s.social_media_url = "https://twitter.com/automattic"
