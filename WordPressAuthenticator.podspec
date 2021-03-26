@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
 
   s.homepage      = "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS"
   s.license       = { :type => "GPLv2", :file => "LICENSE" }
-  s.author        = { "The WordPress Mobile Team" => "mobile@automattic.com" }
+  s.author        = { "The WordPress Mobile Team" => "mobile@wordpress.org" }
 
   s.platform      = :ios, "11.0"
   s.swift_version = '4.2'
