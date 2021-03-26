@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
                     and perform authentication against WordPress.com and WordPress.org sites.
 
                     Plus: WordPress.com *signup* is supported.
-                    DESC
+                  DESC
 
   s.homepage      = "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS"
   s.license       = { :type => "GPLv2", :file => "LICENSE" }
