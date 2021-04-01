@@ -1,6 +1,5 @@
 import WordPressShared
 import WordPressKit
-import GoogleSignIn
 
 /// View Controller for login-specific screens
 open class LoginViewController: NUXViewController, LoginFacadeDelegate {
@@ -422,12 +421,12 @@ extension LoginViewController {
 
     /// Updates the LoginFields structure, with the specified Google User + Token + Email.
     ///
-    func updateLoginFields(googleUser: GIDGoogleUser, googleToken: String, googleEmail: String) {
-        loginFields.emailAddress = googleEmail
-        loginFields.username = googleEmail
-        loginFields.meta.socialServiceIDToken = googleToken
-        loginFields.meta.googleUser = googleUser
-    }
+//    func updateLoginFields(googleUser: GIDGoogleUser, googleToken: String, googleEmail: String) {
+//        loginFields.emailAddress = googleEmail
+//        loginFields.username = googleEmail
+//        loginFields.meta.socialServiceIDToken = googleToken
+//        loginFields.meta.googleUser = googleUser
+//    }
 
     // Used by SIWA when logging with with a passwordless, 2FA account.
     //

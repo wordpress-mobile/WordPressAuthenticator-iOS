@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.license       = { :type => "GPLv2", :file => "LICENSE" }
   s.author        = { "The WordPress Mobile Team" => "mobile@wordpress.org" }
 
-  s.platform      = :ios, "11.0"
+  s.platform      = :ios, "13.0"
   s.swift_version = '4.2'
 
   s.source        = { :git => "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git", :tag => s.version.to_s }
@@ -42,7 +42,6 @@ Pod::Spec.new do |s|
   s.dependency 'NSURL+IDN', '0.4'
   s.dependency 'SVProgressHUD', '~> 2.2.5'
   s.dependency 'Gridicons', '~> 1.0'
-  s.dependency 'GoogleSignIn', '~> 5.0.2'
 
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.

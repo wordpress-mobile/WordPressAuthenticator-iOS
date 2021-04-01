@@ -1,5 +1,4 @@
 import Foundation
-import GoogleSignIn
 import WordPressKit
 
 /// LoginFields is a state container for user textfield input on the login screens
@@ -113,7 +112,7 @@ public class LoginFieldsMeta: NSObject {
 
     @objc public var socialServiceIDToken: String?
 
-    var googleUser: GIDGoogleUser?
+    var googleUser: GoogleUser?
 
     var appleUser: AppleUser?
 }

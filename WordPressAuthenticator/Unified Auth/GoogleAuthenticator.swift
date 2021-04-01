@@ -1,7 +1,7 @@
 import Foundation
-import GoogleSignIn
 import WordPressKit
 import SVProgressHUD
+import AuthenticationServices
 
 /// Contains delegate methods for Google authentication unified auth flow.
 /// Both Login and Signup are handled via this delegate.
@@ -146,6 +146,12 @@ class GoogleAuthenticator: NSObject {
 
 }
 
+extension GoogleAuthenticator: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        ASPresentationAnchor() // Let the framework figure out what to use as the presentation anchor
+    }
+}
+
 // MARK: - Private Extension
 
 private extension GoogleAuthenticator {
@@ -164,22 +170,6 @@ private extension GoogleAuthenticator {
             track(.createAccountInitiated)
         }
 
-        guard let googleInstance = GIDSignIn.sharedInstance() else {
-            DDLogError("GoogleAuthenticator: Failed to get `GIDSignIn.sharedInstance()`.")
-            return
-        }
-
-        googleInstance.disconnect()
-
-        // This has no effect since we don't use Google UI, but presentingViewController is required, so here we are.
-        googleInstance.presentingViewController = viewController
-
-        googleInstance.delegate = self
-        googleInstance.clientID = authConfig.googleLoginClientId
-        googleInstance.serverClientID = authConfig.googleLoginServerClientId
-
-        // Start the Google auth process. This presents the Google account selection view.
-        googleInstance.signIn()
     }
 
     func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {
@@ -198,59 +188,59 @@ private extension GoogleAuthenticator {
 
 // MARK: - GIDSignInDelegate
 
-extension GoogleAuthenticator: GIDSignInDelegate {
+extension GoogleAuthenticator {
 
-    func sign(_ signIn: GIDSignIn?, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
-
-        // Get account information
-        guard let user = user,
-            let token = user.authentication.idToken,
-            let email = user.profile.email else {
-
-                // The Google SignIn may have been cancelled.
-                let failure = error?.localizedDescription ?? "Unknown error"
-
-                tracker.track(failure: failure, ifTrackingNotEnabled: {
-                    let properties = ["error": failure]
-
-                    switch authType {
-                    case .login:
-                        track(.loginSocialButtonFailure, properties: properties)
-                    case .signup:
-                        track(.signupSocialButtonFailure, properties: properties)
-                    }
-                })
-
-                // Notify the delegates so the Google Auth view can be dismissed.
-                signupDelegate?.googleSignupCancelled()
-                delegate?.googleAuthCancelled()
-
-                return
-        }
-
-        // Save account information to pass back to delegate later.
-        loginFields.emailAddress = email
-        loginFields.username = email
-        loginFields.meta.socialServiceIDToken = token
-        loginFields.meta.googleUser = user
-
-        guard authConfig.enableUnifiedAuth else {
-            // Initiate separate WP login / signup paths.
-            switch authType {
-            case .login:
-                SVProgressHUD.show()
-                loginFacade.loginToWordPressDotCom(withSocialIDToken: token, service: SocialServiceName.google.rawValue)
-            case .signup:
-                createWordPressComUser(user: user, token: token, email: email)
-            }
-
-            return
-        }
-
-        // Initiate unified path by attempting to login first.
-        SVProgressHUD.show()
-        loginFacade.loginToWordPressDotCom(withSocialIDToken: token, service: SocialServiceName.google.rawValue)
-    }
+//    func sign(_ signIn: GIDSignIn?, didSignInFor user: GIDGoogleUser?, withError error: Error?) {
+//
+//        // Get account information
+//        guard let user = user,
+//            let token = user.authentication.idToken,
+//            let email = user.profile.email else {
+//
+//                // The Google SignIn may have been cancelled.
+//                let failure = error?.localizedDescription ?? "Unknown error"
+//
+//                tracker.track(failure: failure, ifTrackingNotEnabled: {
+//                    let properties = ["error": failure]
+//
+//                    switch authType {
+//                    case .login:
+//                        track(.loginSocialButtonFailure, properties: properties)
+//                    case .signup:
+//                        track(.signupSocialButtonFailure, properties: properties)
+//                    }
+//                })
+//
+//                // Notify the delegates so the Google Auth view can be dismissed.
+//                signupDelegate?.googleSignupCancelled()
+//                delegate?.googleAuthCancelled()
+//
+//                return
+//        }
+//
+//        // Save account information to pass back to delegate later.
+//        loginFields.emailAddress = email
+//        loginFields.username = email
+//        loginFields.meta.socialServiceIDToken = token
+//        loginFields.meta.googleUser = user
+//
+//        guard authConfig.enableUnifiedAuth else {
+//            // Initiate separate WP login / signup paths.
+//            switch authType {
+//            case .login:
+//                SVProgressHUD.show()
+//                loginFacade.loginToWordPressDotCom(withSocialIDToken: token, service: SocialServiceName.google.rawValue)
+//            case .signup:
+//                createWordPressComUser(user: user, token: token, email: email)
+//            }
+//
+//            return
+//        }
+//
+//        // Initiate unified path by attempting to login first.
+//        SVProgressHUD.show()
+//        loginFacade.loginToWordPressDotCom(withSocialIDToken: token, service: SocialServiceName.google.rawValue)
+//    }
 
 }
 
@@ -261,7 +251,7 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
     // Google account login was successful.
     func finishedLogin(withGoogleIDToken googleIDToken: String, authToken: String) {
         SVProgressHUD.dismiss()
-        GIDSignIn.sharedInstance().disconnect()
+//        GIDSignIn.sharedInstance().disconnect()
 
         // This stat is part of a funnel that provides critical information.  Please
         // consult with your lead before removing this event.
@@ -284,7 +274,6 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
     // Google account login was successful, but a WP 2FA code is required.
     func needsMultifactorCode(forUserID userID: Int, andNonceInfo nonceInfo: SocialLogin2FANonceInfo) {
         SVProgressHUD.dismiss()
-        GIDSignIn.sharedInstance().disconnect()
 
         loginFields.nonceInfo = nonceInfo
         loginFields.nonceUserID = userID
@@ -300,7 +289,6 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
     // Google account login was successful, but a WP password is required.
     func existingUserNeedsConnection(_ email: String) {
         SVProgressHUD.dismiss()
-        GIDSignIn.sharedInstance().disconnect()
 
         loginFields.username = email
         loginFields.emailAddress = email
@@ -316,7 +304,6 @@ extension GoogleAuthenticator: LoginFacadeDelegate {
     // Google account login failed.
     func displayRemoteError(_ error: Error) {
         SVProgressHUD.dismiss()
-        GIDSignIn.sharedInstance().disconnect()
 
         var errorTitle = LocalizedText.googleUnableToConnect
         var errorDescription = error.localizedDescription
@@ -346,7 +333,7 @@ private extension GoogleAuthenticator {
 
     /// Creates a WordPress.com account with the associated Google User + Google Token + Google Email.
     ///
-    func createWordPressComUser(user: GIDGoogleUser, token: String, email: String) {
+    func createWordPressComUser(user: GoogleUser, token: String, email: String) {
         SVProgressHUD.show()
         let service = SignupService()
 
