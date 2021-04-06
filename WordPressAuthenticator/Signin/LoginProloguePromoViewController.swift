@@ -2,7 +2,6 @@ import UIKit
 import Lottie
 import WordPressShared
 
-
 class LoginProloguePromoViewController: UIViewController {
     fileprivate let type: PromoType
     fileprivate let stackView: UIStackView
@@ -58,7 +57,7 @@ class LoginProloguePromoViewController: UIViewController {
             case .analytics:
                 return NSLocalizedString("Watch your audience grow with in-depth analytics.", comment: "Shown in the prologue carousel (promotional screens) during first launch.")
             case .discover:
-                return NSLocalizedString("Follow your favorite sites and discover new reads.", comment: "Shown in the prologue carousel (promotional screens) during first launch.")
+                return NSLocalizedString("Follow your favorite sites and discover new blogs.", comment: "Shown in the prologue carousel (promotional screens) during first launch.")
             }
         }
 
@@ -134,7 +133,6 @@ class LoginProloguePromoViewController: UIViewController {
             headingLabel.sizeToFit()
         }
     }
-
 
     // MARK: layout
 

@@ -59,7 +59,7 @@ class LoginPrologueViewController: LoginViewController {
             topContainerChildViewController.view.translatesAutoresizingMaskIntoConstraints = false
             topContainerView.pinSubviewToAllEdges(topContainerChildViewController.view)
         }
-        
+
         defaultButtonViewMargin = buttonViewLeadingConstraint?.constant ?? 0
     }
 
@@ -68,20 +68,20 @@ class LoginPrologueViewController: LoginViewController {
             super.styleBackground()
             return
         }
-        
+
         view.backgroundColor = unifiedBackgroundColor
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         configureButtonVC()
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         // We've found some instances where the iCloud Keychain login flow was being started
         // when the device was idle and the app was logged out and in the background.  I couldn't
         // find precise reproduction steps for this issue but my guess is that some background
@@ -93,17 +93,18 @@ class LoginPrologueViewController: LoginViewController {
         guard UIApplication.shared.applicationState != .background else {
             return
         }
-        
+
         WordPressAuthenticator.track(.loginPrologueViewed)
 
         tracker.set(flow: .prologue)
-        
-        if isBeingPresentedInAnyWay {
+
+        if !prologueFlowTracked {
             tracker.track(step: .prologue)
+            prologueFlowTracked = true
         } else {
             tracker.set(step: .prologue)
         }
-        
+
         showiCloudKeychainLoginFlow()
     }
 
@@ -116,19 +117,19 @@ class LoginPrologueViewController: LoginViewController {
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return UIDevice.isPad() ? .all : .portrait
     }
-    
+
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         setButtonViewMargins(forWidth: view.frame.width)
     }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         setButtonViewMargins(forWidth: size.width)
     }
-    
+
     // MARK: - iCloud Keychain Login
-    
+
     /// Starts the iCloud Keychain login flow if the conditions are given.
     ///
     private func showiCloudKeychainLoginFlow() {
@@ -162,6 +163,8 @@ class LoginPrologueViewController: LoginViewController {
         }
 
         buildUnifiedPrologueButtons(buttonViewController)
+
+        buttonViewController.shadowLayoutGuide = view.safeAreaLayoutGuide
     }
 
     /// Displays the old UI prologue buttons.
@@ -198,15 +201,15 @@ class LoginPrologueViewController: LoginViewController {
         let displayStrings = WordPressAuthenticator.shared.displayStrings
         let loginTitle = displayStrings.continueWithWPButtonTitle
         let siteAddressTitle = displayStrings.enterYourSiteAddressButtonTitle
-        
+
         if configuration.continueWithSiteAddressFirst {
             buildUnifiedPrologueButtonsWithSiteAddressFirst(buttonViewController, loginTitle: loginTitle, siteAddressTitle: siteAddressTitle)
             return
         }
-        
+
         buildDefaultUnifiedPrologueButtons(buttonViewController, loginTitle: loginTitle, siteAddressTitle: siteAddressTitle)
     }
-    
+
     private func buildDefaultUnifiedPrologueButtons(_ buttonViewController: NUXButtonViewController, loginTitle: String, siteAddressTitle: String) {
 
         setButtonViewMargins(forWidth: view.frame.width)
@@ -221,23 +224,23 @@ class LoginPrologueViewController: LoginViewController {
 
         setButtonViewControllerBackground(buttonViewController)
     }
-    
+
     private func buildUnifiedPrologueButtonsWithSiteAddressFirst(_ buttonViewController: NUXButtonViewController, loginTitle: String, siteAddressTitle: String) {
         guard configuration.enableUnifiedAuth == true else {
             return
         }
-        
+
         setButtonViewMargins(forWidth: view.frame.width)
 
         buttonViewController.setupTopButton(title: siteAddressTitle, isPrimary: true, accessibilityIdentifier: "Prologue Self Hosted Button", onTap: siteAddressTapCallback())
-        
-        buttonViewController.setupBottomButton(title: loginTitle, isPrimary: false, accessibilityIdentifier: "Prologue Continue Button", onTap:loginTapCallback())
-        
+
+        buttonViewController.setupBottomButton(title: loginTitle, isPrimary: false, accessibilityIdentifier: "Prologue Continue Button", onTap: loginTapCallback())
+
         showCancelIfNeccessary(buttonViewController)
 
         setButtonViewControllerBackground(buttonViewController)
     }
-    
+
     private func siteAddressTapCallback() -> NUXButtonViewController.CallBackType {
         return { [weak self] in
             self?.siteAddressTapped()
@@ -249,12 +252,12 @@ class LoginPrologueViewController: LoginViewController {
             guard let self = self else {
                 return
             }
-            
+
             self.tracker.track(click: .continueWithWordPressCom)
             self.continueWithDotCom()
         }
     }
-    
+
     private func showCancelIfNeccessary(_ buttonViewController: NUXButtonViewController) {
         if showCancel {
             let cancelTitle = NSLocalizedString("Cancel", comment: "Button title. Tapping it cancels the login flow.")
@@ -263,7 +266,7 @@ class LoginPrologueViewController: LoginViewController {
             }
         }
     }
-    
+
     private func setButtonViewControllerBackground(_ buttonViewController: NUXButtonViewController) {
         // Fallback to setting the button background color to clear so the blur effect blurs the Prologue background color.
         let buttonsBackgroundColor = WordPressAuthenticator.shared.unifiedStyle?.prologueButtonsBackgroundColor ?? .clear
@@ -274,7 +277,7 @@ class LoginPrologueViewController: LoginViewController {
         /// 2. Set the background color of the view controller to prologueViewBackgroundColor
         let prologueViewBackgroundColor = WordPressAuthenticator.shared.unifiedStyle?.prologueViewBackgroundColor ?? .clear
 
-        guard prologueViewBackgroundColor == buttonsBackgroundColor else {
+        guard prologueViewBackgroundColor.cgColor == buttonsBackgroundColor.cgColor else {
             buttonBlurEffectView.effect = UIBlurEffect(style: blurEffect)
             return
         }
@@ -329,7 +332,7 @@ class LoginPrologueViewController: LoginViewController {
     ///
     private func signupTapped() {
         tracker.set(source: .default)
-        
+
         // This stat is part of a funnel that provides critical information.
         // Before making ANY modification to this stat please refer to: p4qSXL-35X-p2
         WordPressAuthenticator.track(.signupButtonTapped)
@@ -361,7 +364,7 @@ class LoginPrologueViewController: LoginViewController {
             guard let self = self else {
                 return
             }
-            
+
             guard self.configuration.enableUnifiedAuth else {
                 self.presentGoogleSignupView()
                 return
@@ -388,7 +391,7 @@ class LoginPrologueViewController: LoginViewController {
             GoogleAuthenticator.sharedInstance.showFrom(viewController: self, loginFields: loginFields, for: .login)
             return
         }
-        
+
         presentUnifiedGoogleView()
     }
 
@@ -453,7 +456,7 @@ class LoginPrologueViewController: LoginViewController {
             DDLogError("Failed to navigate to GoogleAuthViewController from LoginPrologueVC")
             return
         }
-        
+
         navigationController?.pushViewController(toVC, animated: true)
     }
 
@@ -472,20 +475,20 @@ class LoginPrologueViewController: LoginViewController {
             DDLogError("Failed to navigate from LoginPrologueViewController to LoginWPComViewController")
             return
         }
-        
+
         vc.loginFields = self.loginFields
         vc.dismissBlock = dismissBlock
         vc.errorToPresent = errorToPresent
-        
+
         navigationController?.pushViewController(vc, animated: true)
     }
-    
+
     private func presentUnifiedPassword() {
         guard let vc = PasswordViewController.instantiate(from: .password) else {
             DDLogError("Failed to navigate from LoginPrologueViewController to PasswordViewController")
             return
         }
-        
+
         vc.loginFields = loginFields
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -524,7 +527,7 @@ extension LoginPrologueViewController: AppleAuthenticatorDelegate {
         self.loginFields = loginFields
         signInAppleAccount()
     }
-    
+
     func authFailedWithError(message: String) {
         displayErrorAlert(message, sourceTag: .loginApple)
     }
@@ -591,28 +594,28 @@ private extension LoginPrologueViewController {
     /// Used only in unified views.
     ///
     func setButtonViewMargins(forWidth viewWidth: CGFloat) {
-        
+
         guard configuration.enableUnifiedAuth else {
             return
         }
-        
+
         guard traitCollection.horizontalSizeClass == .regular &&
             traitCollection.verticalSizeClass == .regular else {
                 buttonViewLeadingConstraint?.constant = defaultButtonViewMargin
                 buttonViewTrailingConstraint?.constant = defaultButtonViewMargin
                 return
         }
-        
+
         let marginMultiplier = UIDevice.current.orientation.isLandscape ?
             ButtonViewMarginMultipliers.ipadLandscape :
             ButtonViewMarginMultipliers.ipadPortrait
-        
+
         let margin = viewWidth * marginMultiplier
-        
+
         buttonViewLeadingConstraint?.constant = margin
         buttonViewTrailingConstraint?.constant = margin
     }
-    
+
     private enum ButtonViewMarginMultipliers {
         static let ipadPortrait: CGFloat = 0.1667
         static let ipadLandscape: CGFloat = 0.25

@@ -34,14 +34,24 @@ open class NUXButtonViewController: UIViewController {
 
     // MARK: - Properties
 
-    @IBOutlet private var shadowView: UIImageView?
     @IBOutlet var stackView: UIStackView?
     @IBOutlet var bottomButton: NUXButton?
     @IBOutlet var topButton: NUXButton?
     @IBOutlet var tertiaryButton: NUXButton?
     @IBOutlet var buttonHolder: UIView?
 
-    open var delegate: NUXButtonViewControllerDelegate?
+    @IBOutlet private var shadowView: UIImageView?
+    @IBOutlet private var shadowViewEdgeConstraints: [NSLayoutConstraint]!
+
+    /// Used to constrain the shadow view outside of the
+    /// bounds of this view controller.
+    weak var shadowLayoutGuide: UILayoutGuide? {
+        didSet {
+            updateShadowViewEdgeConstraints()
+        }
+    }
+
+    open weak var delegate: NUXButtonViewControllerDelegate?
     open var backgroundColor: UIColor?
 
     private var topButtonConfig: NUXButtonConfig?
@@ -65,13 +75,13 @@ open class NUXButtonViewController: UIViewController {
         configure(button: bottomButton, withConfig: bottomButtonConfig)
         configure(button: topButton, withConfig: topButtonConfig)
         configure(button: tertiaryButton, withConfig: tertiaryButtonConfig)
-        
+
         buttonHolder?.backgroundColor = backgroundColor
     }
 
     private func configure(button: NUXButton?, withConfig buttonConfig: NUXButtonConfig?) {
         if let buttonConfig = buttonConfig, let button = button {
-            
+
             if let attributedTitle = buttonConfig.attributedTitle {
                 button.setAttributedTitle(attributedTitle, for: .normal)
                 button.socialService = buttonConfig.socialService
@@ -89,6 +99,23 @@ open class NUXButtonViewController: UIViewController {
         } else {
             button?.isHidden = true
         }
+    }
+
+    private func updateShadowViewEdgeConstraints() {
+        guard let layoutGuide = shadowLayoutGuide,
+              let shadowView = shadowView else {
+            return
+        }
+
+        NSLayoutConstraint.deactivate(shadowViewEdgeConstraints)
+        shadowView.translatesAutoresizingMaskIntoConstraints = false
+
+        shadowViewEdgeConstraints = [
+            layoutGuide.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor),
+            layoutGuide.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor),
+        ]
+
+        NSLayoutConstraint.activate(shadowViewEdgeConstraints)
     }
 
     // MARK: public API
@@ -120,7 +147,7 @@ open class NUXButtonViewController: UIViewController {
     func setupTopButtonFor(socialService: SocialServiceName, onTap callback: @escaping CallBackType) {
         topButtonConfig = buttonConfigFor(socialService: socialService, onTap: callback)
     }
-    
+
     func setupBottomButton(title: String, isPrimary: Bool = false, configureBodyFontForTitle: Bool = false, accessibilityIdentifier: String? = nil, onTap callback: @escaping CallBackType) {
         bottomButtonConfig = NUXButtonConfig(title: title, isPrimary: isPrimary, configureBodyFontForTitle: configureBodyFontForTitle, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
     }
