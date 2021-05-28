@@ -1,4 +1,5 @@
 import UIKit
+import WordPressKit
 
 /// Part two of the self-hosted sign in flow: username + password. Used by WPiOS and NiOS.
 /// A valid site address should be acquired before presenting this view controller.
@@ -436,7 +437,8 @@ extension SiteCredentialsViewController {
     override func displayRemoteError(_ error: Error) {
         configureViewLoading(false)
         let err = error as NSError
-        if err.code == 403 {
+        let statusCode = err.userInfo[WordPressOrgXMLRPCApi.WordPressOrgXMLRPCApiErrorKeyStatusCode as String] as? Int
+        if err.code == 403 || statusCode == 403 {
             let message = NSLocalizedString("It looks like this username/password isn't associated with this site.",
                                             comment: "An error message shown during log in when the username or password is incorrect.")
             displayError(message: message, moveVoiceOverFocus: true)
