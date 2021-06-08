@@ -7,6 +7,7 @@ import WordPressKit
     @objc optional func tertiaryButtonPressed()
 }
 
+
 private struct NUXButtonConfig {
     typealias CallBackType = () -> Void
 
@@ -34,12 +35,22 @@ open class NUXButtonViewController: UIViewController {
 
     // MARK: - Properties
 
-    @IBOutlet private var shadowView: UIImageView?
     @IBOutlet var stackView: UIStackView?
     @IBOutlet var bottomButton: NUXButton?
     @IBOutlet var topButton: NUXButton?
     @IBOutlet var tertiaryButton: NUXButton?
     @IBOutlet var buttonHolder: UIView?
+
+    @IBOutlet private var shadowView: UIImageView?
+    @IBOutlet private var shadowViewEdgeConstraints: [NSLayoutConstraint]!
+
+    /// Used to constrain the shadow view outside of the
+    /// bounds of this view controller.
+    weak var shadowLayoutGuide: UILayoutGuide? {
+        didSet {
+            updateShadowViewEdgeConstraints()
+        }
+    }
 
     open weak var delegate: NUXButtonViewControllerDelegate?
     open var backgroundColor: UIColor?
@@ -47,6 +58,10 @@ open class NUXButtonViewController: UIViewController {
     private var topButtonConfig: NUXButtonConfig?
     private var bottomButtonConfig: NUXButtonConfig?
     private var tertiaryButtonConfig: NUXButtonConfig?
+
+    public var topButtonStyle: NUXButtonStyle?
+    public var bottomButtonStyle: NUXButtonStyle?
+    public var tertiaryButtonStyle: NUXButtonStyle?
 
     private let style = WordPressAuthenticator.shared.style
 
@@ -62,14 +77,14 @@ open class NUXButtonViewController: UIViewController {
     override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        configure(button: bottomButton, withConfig: bottomButtonConfig)
-        configure(button: topButton, withConfig: topButtonConfig)
-        configure(button: tertiaryButton, withConfig: tertiaryButtonConfig)
+        configure(button: bottomButton, withConfig: bottomButtonConfig, and: bottomButtonStyle)
+        configure(button: topButton, withConfig: topButtonConfig, and: topButtonStyle)
+        configure(button: tertiaryButton, withConfig: tertiaryButtonConfig, and: tertiaryButtonStyle)
 
         buttonHolder?.backgroundColor = backgroundColor
     }
 
-    private func configure(button: NUXButton?, withConfig buttonConfig: NUXButtonConfig?) {
+    private func configure(button: NUXButton?, withConfig buttonConfig: NUXButtonConfig?, and style: NUXButtonStyle?) {
         if let buttonConfig = buttonConfig, let button = button {
 
             if let attributedTitle = buttonConfig.attributedTitle {
@@ -81,14 +96,34 @@ open class NUXButtonViewController: UIViewController {
 
             button.accessibilityIdentifier = buttonConfig.accessibilityIdentifier ?? accessibilityIdentifier(for: buttonConfig.title)
             button.isPrimary = buttonConfig.isPrimary
+
             if buttonConfig.configureBodyFontForTitle == true {
                 button.customizeFont(WPStyleGuide.mediumWeightFont(forStyle: .body))
             }
+
+            button.buttonStyle = style
 
             button.isHidden = false
         } else {
             button?.isHidden = true
         }
+    }
+
+    private func updateShadowViewEdgeConstraints() {
+        guard let layoutGuide = shadowLayoutGuide,
+              let shadowView = shadowView else {
+            return
+        }
+
+        NSLayoutConstraint.deactivate(shadowViewEdgeConstraints)
+        shadowView.translatesAutoresizingMaskIntoConstraints = false
+
+        shadowViewEdgeConstraints = [
+            layoutGuide.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor),
+            layoutGuide.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor),
+        ]
+
+        NSLayoutConstraint.activate(shadowViewEdgeConstraints)
     }
 
     // MARK: public API
@@ -198,9 +233,9 @@ open class NUXButtonViewController: UIViewController {
     // MARK: - Dynamic type
 
     func didChangePreferredContentSize() {
-        configure(button: bottomButton, withConfig: bottomButtonConfig)
-        configure(button: topButton, withConfig: topButtonConfig)
-        configure(button: tertiaryButton, withConfig: tertiaryButtonConfig)
+        configure(button: bottomButton, withConfig: bottomButtonConfig, and: bottomButtonStyle)
+        configure(button: topButton, withConfig: topButtonConfig, and: topButtonStyle)
+        configure(button: tertiaryButton, withConfig: tertiaryButtonConfig, and: tertiaryButtonStyle)
     }
 }
 
