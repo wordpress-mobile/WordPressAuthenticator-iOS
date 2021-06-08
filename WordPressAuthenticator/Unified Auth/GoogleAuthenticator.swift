@@ -170,7 +170,9 @@ private extension GoogleAuthenticator {
             track(.createAccountInitiated)
         }
 
-        let credentials = GoogleAuthenticationCredentials(clientID: authConfig.googleLoginClientId, redirectURI: authConfig.googleLoginScheme)
+        let credentials = GoogleAuthenticationCredentials(clientID: authConfig.googleLoginClientId,
+                                                          clientSecret: authConfig.googleLoginServerClientId,
+                                                          redirectURI: authConfig.googleLoginScheme)
 
         GoogleAuthenticationFlow(credentials: credentials).signIn()
     }
