@@ -81,8 +81,14 @@ final class GoogleAuthenticationFlow {
             print("=== code ", code)
             let url = self.googleTokenUrl(withClientID: self.credentials.clientID, clientSecret: self.credentials.clientSecret, redirectURI: self.credentials.redirectURI , code: code!)
             print("==== url ", url)
-            let request = try! URLRequest(url: url, method: .post)
+            var request = try! URLRequest(url: url, method: .post)
+            request.setValue("Bearer " + code!, forHTTPHeaderField: "Authorization")
+            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            //request.setValue(UserAgent.defaultUserAgent, forHTTPHeaderField: "User-Agent")
             self.cancellableToken = URLSession.shared.dataTaskPublisher(for: request).tryMap { element -> Data in
+                print("===== response")
+                print(element.response)
+                print("///// response")
                 guard let httpResponse = element.response as? HTTPURLResponse,
                             httpResponse.statusCode == 200 else {
                                 throw URLError(.badServerResponse)
@@ -124,9 +130,9 @@ extension GoogleAuthenticationFlow {
         var components = URLComponents(string: "https://accounts.google.com/token")!
         components.queryItems = [
             URLQueryItem(name: "client_id", value: clientID),
-            URLQueryItem(name: "client_secret", value: clientSecret),
+            //URLQueryItem(name: "client_secret", value: clientSecret),
             URLQueryItem(name: "grant_type", value: "authorization_code"),
-            URLQueryItem(name: "code", value: code),
+            //URLQueryItem(name: "code", value: code),
             URLQueryItem(name: "code_verifier", value: codeChallenge),
             URLQueryItem(name: "redirect_uri", value: redirectURI)
         ]
