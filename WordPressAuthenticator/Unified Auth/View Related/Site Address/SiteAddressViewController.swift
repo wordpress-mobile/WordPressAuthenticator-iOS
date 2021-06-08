@@ -45,6 +45,9 @@ final class SiteAddressViewController: LoginViewController {
 
         siteURLField?.text = loginFields.siteAddress
         configureSubmitButton(animating: false)
+
+        // Nav bar could be hidden from the host app, so reshow it.
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -232,9 +235,6 @@ private extension SiteAddressViewController {
     func configureNavBar() {
         navigationItem.title = WordPressAuthenticator.shared.displayStrings.logInTitle
         styleNavigationBar(forUnified: true)
-
-        // Nav bar could be hidden from the host app, so reshow it.
-        navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
     func setupTable() {
