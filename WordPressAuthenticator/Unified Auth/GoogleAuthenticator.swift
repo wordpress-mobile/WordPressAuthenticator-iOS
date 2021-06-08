@@ -170,6 +170,9 @@ private extension GoogleAuthenticator {
             track(.createAccountInitiated)
         }
 
+        let credentials = GoogleAuthenticationCredentials(clientID: authConfig.googleLoginClientId, redirectURI: authConfig.googleLoginScheme)
+
+        GoogleAuthenticationFlow(credentials: credentials).signIn()
     }
 
     func track(_ event: WPAnalyticsStat, properties: [AnyHashable: Any] = [:]) {

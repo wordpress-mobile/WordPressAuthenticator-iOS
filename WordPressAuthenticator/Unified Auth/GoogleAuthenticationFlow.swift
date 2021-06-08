@@ -23,8 +23,10 @@ struct GoogleAuthenticationFlow {
     }
 
     func signIn() {
-        fetchAuthorizationCode().map {
+        fetchAuthorizationCode().map { url in
             // TODO: Go grab the token pair
+            print("==== TODO starts")
+            print("==== url ", url)
         }
     }
 
