@@ -99,43 +99,53 @@ final class GoogleAuthenticationFlow {
                 URLQueryItem(name: "grant_type", value: "authorization_code"),
                 URLQueryItem(name: "client_id", value: self.credentials.clientID),
                 URLQueryItem(name: "client_secret", value: self.credentials.clientSecret),
-                URLQueryItem(name: "code", value: code!),
-                //URLQueryItem(name: "code_verifier", value: self.codeChallenge),
+                //URLQueryItem(name: "code", value: code!),
+                URLQueryItem(name: "code_verifier", value: self.codeChallenge),
                 URLQueryItem(name: "redirect_uri", value: self.credentials.redirectURI)
             ]
 
-            let authKey = "Bearer \(code!)"
+            let authKey = "Bearer \(code!)".data(using: .utf8)!.base64EncodedString()
 
             print("==== body ")
             print(requestBodyComponents.query)
             print("//// body ")
             let url = URL(string: "https://oauth2.googleapis.com/token")!
             var request = try! URLRequest(url: url, method: .post)
+
+            let requestHeaders = [
+                "Authorization": authKey,
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Accept": "application/json"
+            ]
+            request.allHTTPHeaderFields = requestHeaders
             request.httpBody = requestBodyComponents.query!.data(using: .utf8)!
-            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
-            request.setValue(code!, forHTTPHeaderField: "Authorization: Bearer")
+//            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+//            request.setValue(code!, forHTTPHeaderField: "Authorization: Bearer")
+//            request.setValue("application/json", forHTTPHeaderField: "Accept")
 
             //request.setValue(UserAgent.defaultUserAgent, forHTTPHeaderField: "User-Agent")
-            print("==== request to send ")
-            print(request)
-            print("//// request to send ")
-            self.cancellableToken = URLSession.shared.dataTaskPublisher(for: request).tryMap { element -> Data in
+            URLSession.shared.dataTask(with: request) { (data,response, error) in
                 print("===== response")
-                print(element.response)
+                print(response)
                 print("///// response")
-                guard let httpResponse = element.response as? HTTPURLResponse,
-                            httpResponse.statusCode == 200 else {
-                                throw URLError(.badServerResponse)
-                            }
-                return element.data
-            }.decode(type: GoogleToken.self, decoder: JSONDecoder())
-            .eraseToAnyPublisher()
-            .sink(receiveCompletion: {
-                    print ("Received completion: \($0).")
-
-            },
-                      receiveValue: { token in
-                        print ("Received user: \(token).")})
+            }.resume()
+//            self.cancellableToken = URLSession.shared.dataTaskPublisher(for: request).tryMap { element -> Data in
+//                print("===== response")
+//                print(element.response)
+//                print("///// response")
+//                guard let httpResponse = element.response as? HTTPURLResponse,
+//                            httpResponse.statusCode == 200 else {
+//                                throw URLError(.badServerResponse)
+//                            }
+//                return element.data
+//            }.decode(type: GoogleToken.self, decoder: JSONDecoder())
+//            .eraseToAnyPublisher()
+//            .sink(receiveCompletion: {
+//                    print ("Received completion: \($0).")
+//
+//            },
+//                      receiveValue: { token in
+//                        print ("Received user: \(token).")})
         }
     }
 }
