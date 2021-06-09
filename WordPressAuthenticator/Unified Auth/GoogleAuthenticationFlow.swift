@@ -78,13 +78,47 @@ final class GoogleAuthenticationFlow {
                 return
             }
             let code = url["code"]
-            print("=== code ", code)
-            let url = self.googleTokenUrl(withClientID: self.credentials.clientID, clientSecret: self.credentials.clientSecret, redirectURI: self.credentials.redirectURI , code: code!)
-            print("==== url ", url)
+            //print("=== code ", code)
+            //let url = self.googleTokenUrl(withClientID: self.credentials.clientID, clientSecret: self.credentials.clientSecret, redirectURI: self.credentials.redirectURI , code: code!)
+            //print("==== url ", url)
+//            let body: [String: String] = [
+//                   "grant_type": "authorization_code",
+//                   "client_id": self.credentials.clientID,
+//                "client_secret": self.credentials.clientSecret,
+//                "code": code!,
+//                //    "code_verifier": self.codeChallenge,
+//                   "redirect_uri": self.credentials.redirectURI,
+//               ]
+
+//            let body = "grant_type=authorization_code&client_id=\(self.credentials.clientID)&client_secret=\(self.credentials.clientSecret)&code_verifier=\(self.codeChallenge)&redirect_uri=\(self.credentials.redirectURI)&code=\(code!)"
+
+            //let body = "grant_type=authorization_code&client_id=\(self.credentials.clientID)&client_secret=\(self.credentials.clientSecret)&redirect_uri=\(self.credentials.redirectURI)&code=\(code!)"
+
+            var requestBodyComponents = URLComponents()
+            requestBodyComponents.queryItems = [
+                URLQueryItem(name: "grant_type", value: "authorization_code"),
+                URLQueryItem(name: "client_id", value: self.credentials.clientID),
+                URLQueryItem(name: "client_secret", value: self.credentials.clientSecret),
+                URLQueryItem(name: "code", value: code!),
+                //URLQueryItem(name: "code_verifier", value: self.codeChallenge),
+                URLQueryItem(name: "redirect_uri", value: self.credentials.redirectURI)
+            ]
+
+            let authKey = "Bearer \(code!)"
+
+            print("==== body ")
+            print(requestBodyComponents.query)
+            print("//// body ")
+            let url = URL(string: "https://oauth2.googleapis.com/token")!
             var request = try! URLRequest(url: url, method: .post)
-            request.setValue("Bearer " + code!, forHTTPHeaderField: "Authorization")
-            request.setValue("application/json", forHTTPHeaderField: "Accept")
+            request.httpBody = requestBodyComponents.query!.data(using: .utf8)!
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.setValue(code!, forHTTPHeaderField: "Authorization: Bearer")
+
             //request.setValue(UserAgent.defaultUserAgent, forHTTPHeaderField: "User-Agent")
+            print("==== request to send ")
+            print(request)
+            print("//// request to send ")
             self.cancellableToken = URLSession.shared.dataTaskPublisher(for: request).tryMap { element -> Data in
                 print("===== response")
                 print(element.response)
@@ -127,13 +161,13 @@ extension GoogleAuthenticationFlow {
 
     func googleTokenUrl(withClientID clientID: String, clientSecret: String, redirectURI: String, code: String) -> URL {
         print("===== client secret ", clientSecret)
-        var components = URLComponents(string: "https://accounts.google.com/token")!
+        var components = URLComponents(string: "https://oauth2.googleapis.com/token")!
         components.queryItems = [
             URLQueryItem(name: "client_id", value: clientID),
-            //URLQueryItem(name: "client_secret", value: clientSecret),
+            URLQueryItem(name: "client_secret", value: clientSecret),
             URLQueryItem(name: "grant_type", value: "authorization_code"),
-            //URLQueryItem(name: "code", value: code),
-            URLQueryItem(name: "code_verifier", value: codeChallenge),
+            URLQueryItem(name: "code", value: code),
+            //URLQueryItem(name: "code_verifier", value: codeChallenge),
             URLQueryItem(name: "redirect_uri", value: redirectURI)
         ]
 
