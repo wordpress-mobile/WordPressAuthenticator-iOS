@@ -31,10 +31,6 @@ Pod::Spec.new do |s|
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir    = 'WordPressAuthenticator'
 
-  # Fixing arm64 issue with Xcode 12: https://github.com/CocoaPods/CocoaPods/issues/10104
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-
   s.dependency '1PasswordExtension', '~> 1.8.6'
   s.dependency 'Alamofire', '~> 4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
