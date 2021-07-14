@@ -13,7 +13,7 @@ Plus: WordPress.com *signup*  is supported.
 rbenv install 2.6.5
 
 # Install bundler and Gemfile dependencies
-gem install bundle
+gem install bundler
 bundle install
 
 # Install CocoaPods dependencies
