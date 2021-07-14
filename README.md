@@ -9,8 +9,8 @@ Plus: WordPress.com *signup*  is supported.
 ## Setup
 
 ```sh
-# Install required ruby 2.6.5 
-rbenv install 2.6.5
+# Install required ruby version
+rbenv install -s
 
 # Install bundler and Gemfile dependencies
 gem install bundler
