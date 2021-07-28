@@ -1,25 +1,27 @@
 Pod::Spec.new do |s|
-  s.name          = "WordPressAuthenticator"
-  s.version       = "1.40.0-beta.1"
 
-  s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
+  s.name          = "WordPressAuthenticator"
+  s.version       = "1.41.0-beta.1"
+  
+  s.summary       = 'WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps.'
   s.description   = <<-DESC
                     This framework encapsulates everything required to display the Authentication UI
                     and perform authentication against WordPress.com and WordPress.org sites.
 
                     Plus: WordPress.com *signup* is supported.
-                  DESC
+  DESC
 
-  s.homepage      = "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS"
-  s.license       = { :type => "GPLv2", :file => "LICENSE" }
-  s.author        = { "The WordPress Mobile Team" => "mobile@wordpress.org" }
+  s.homepage      = 'https://github.com/wordpress-mobile/WordPressAuthenticator-iOS'
+  s.license       = { type: 'GPLv2', file: 'LICENSE' }
+  s.author        = { 'The WordPress Mobile Team' => 'mobile@wordpress.org' }
 
-  s.platform      = :ios, "11.0"
+  s.platform      = :ios, '11.0'
   s.swift_version = '4.2'
 
-  s.source        = { :git => "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git", :tag => s.version.to_s }
+  s.source        = { git: 'https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git',
+                      tag: s.version.to_s }
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
-  s.private_header_files = "WordPressAuthenticator/Private/*.h"
+  s.private_header_files = 'WordPressAuthenticator/Private/*.h'
   s.resource_bundles = {
     'WordPressAuthenticatorResources': [
       'WordPressAuthenticator/Resources/Assets.xcassets',
@@ -29,7 +31,7 @@ Pod::Spec.new do |s|
     ]
   }
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
-  s.header_dir    = 'WordPressAuthenticator'
+  s.header_dir = 'WordPressAuthenticator'
 
   # Fixing arm64 issue with Xcode 12: https://github.com/CocoaPods/CocoaPods/issues/10104
   s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
