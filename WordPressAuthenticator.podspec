@@ -1,5 +1,4 @@
 Pod::Spec.new do |s|
-
   s.name          = "WordPressAuthenticator"
   s.version       = "1.41.0-beta.1"
   
