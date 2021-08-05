@@ -1,25 +1,26 @@
 Pod::Spec.new do |s|
-  s.name          = "WordPressAuthenticator"
-  s.version       = "1.38.0"
-
-  s.summary       = "WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps."
+  s.name          = 'WordPressAuthenticator'
+  s.version       = '1.41.0-beta.3'
+  
+  s.summary       = 'WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps.'
   s.description   = <<-DESC
                     This framework encapsulates everything required to display the Authentication UI
                     and perform authentication against WordPress.com and WordPress.org sites.
 
                     Plus: WordPress.com *signup* is supported.
-                  DESC
+  DESC
 
-  s.homepage      = "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS"
-  s.license       = { :type => "GPLv2", :file => "LICENSE" }
-  s.author        = { "The WordPress Mobile Team" => "mobile@wordpress.org" }
+  s.homepage      = 'https://github.com/wordpress-mobile/WordPressAuthenticator-iOS'
+  s.license       = { type: 'GPLv2', file: 'LICENSE' }
+  s.author        = { 'The WordPress Mobile Team' => 'mobile@wordpress.org' }
 
-  s.platform      = :ios, "11.0"
+  s.platform      = :ios, '11.0'
   s.swift_version = '4.2'
 
-  s.source        = { :git => "https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git", :tag => s.version.to_s }
+  s.source        = { git: 'https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git',
+                      tag: s.version.to_s }
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
-  s.private_header_files = "WordPressAuthenticator/Private/*.h"
+  s.private_header_files = 'WordPressAuthenticator/Private/*.h'
   s.resource_bundles = {
     'WordPressAuthenticatorResources': [
       'WordPressAuthenticator/Resources/Assets.xcassets',
@@ -29,7 +30,7 @@ Pod::Spec.new do |s|
     ]
   }
   s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
-  s.header_dir    = 'WordPressAuthenticator'
+  s.header_dir = 'WordPressAuthenticator'
 
   s.dependency '1PasswordExtension', '~> 1.8.6'
   s.dependency 'Alamofire', '~> 4.8'
@@ -38,7 +39,7 @@ Pod::Spec.new do |s|
   s.dependency 'NSURL+IDN', '0.4'
   s.dependency 'SVProgressHUD', '~> 2.2.5'
   s.dependency 'Gridicons', '~> 1.0'
-  s.dependency 'GoogleSignIn', '~> 5.0.2'
+  s.dependency 'GoogleSignIn', '~> 6.0.1'
 
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.
