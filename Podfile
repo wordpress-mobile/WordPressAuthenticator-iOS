@@ -56,7 +56,6 @@ target 'WordPressAuthenticatorTests' do
     #
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |configuration|
-        configuration.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
         pod_ios_deployment_target = Gem::Version.new(configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'])
         if pod_ios_deployment_target <= ios_deployment_target
           configuration.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
