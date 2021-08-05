@@ -29,7 +29,6 @@ Pod::Spec.new do |s|
       'WordPressAuthenticator/**/*.{storyboard,xib}'
     ]
   }
-  s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir = 'WordPressAuthenticator'
 
   s.dependency '1PasswordExtension', '~> 1.8.6'
