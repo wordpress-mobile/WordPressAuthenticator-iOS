@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "WordPressAuthenticator"
-  s.version       = "1.41.0-beta.1"
+  s.version       = "1.41.0-beta.2"
   
   s.summary       = 'WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps.'
   s.description   = <<-DESC
@@ -43,7 +43,7 @@ Pod::Spec.new do |s|
   s.dependency 'NSURL+IDN', '0.4'
   s.dependency 'SVProgressHUD', '~> 2.2.5'
   s.dependency 'Gridicons', '~> 1.0'
-  s.dependency 'GoogleSignIn', '~> 5.0.2'
+  s.dependency 'GoogleSignIn', '~> 6.0.1'
 
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.
