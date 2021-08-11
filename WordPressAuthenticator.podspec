@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = 'WordPressAuthenticator'
-  s.version       = '1.41.0'
+  s.version       = '1.42.0-beta.1'
 
   s.summary       = 'WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps.'
   s.description   = <<-DESC
@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
   s.license       = { type: 'GPLv2', file: 'LICENSE' }
   s.author        = { 'The WordPress Mobile Team' => 'mobile@wordpress.org' }
 
-  s.platform      = :ios, '11.0'
-  s.swift_version = '4.2'
+  s.platform      = :ios, '13.0'
+  s.swift_version = '5.0'
 
   s.source        = { git: 'https://github.com/wordpress-mobile/WordPressAuthenticator-iOS.git',
                       tag: s.version.to_s }
@@ -29,12 +29,7 @@ Pod::Spec.new do |s|
       'WordPressAuthenticator/**/*.{storyboard,xib}'
     ]
   }
-  s.static_framework = true # This is needed because GoogleSignIn vendors a static framework
   s.header_dir = 'WordPressAuthenticator'
-
-  # Fixing arm64 issue with Xcode 12: https://github.com/CocoaPods/CocoaPods/issues/10104
-  s.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
 
   s.dependency '1PasswordExtension', '~> 1.8.6'
   s.dependency 'Alamofire', '~> 4.8'

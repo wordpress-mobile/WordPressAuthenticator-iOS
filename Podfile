@@ -3,7 +3,7 @@ source 'https://cdn.cocoapods.org/'
 inhibit_all_warnings!
 use_frameworks!
 
-ios_deployment_target = Gem::Version.new('11.0')
+ios_deployment_target = Gem::Version.new('13.0')
 
 platform :ios, ios_deployment_target
 
@@ -43,8 +43,6 @@ target 'WordPressAuthenticatorTests' do
   project 'WordPressAuthenticator.xcodeproj'
   wordpress_authenticator_pods
 
-  pod 'OHHTTPStubs', '8.0.0'
-  pod 'OHHTTPStubs/Swift', '8.0.0'
   pod 'OCMock', '~> 3.4'
   pod 'Expecta', '1.0.6'
   pod 'Specta', '1.0.7'
@@ -56,7 +54,6 @@ target 'WordPressAuthenticatorTests' do
     #
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |configuration|
-        configuration.build_settings['EXCLUDED_ARCHS[sdk=iphonesimulator*]'] = 'arm64'
         pod_ios_deployment_target = Gem::Version.new(configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'])
         if pod_ios_deployment_target <= ios_deployment_target
           configuration.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'

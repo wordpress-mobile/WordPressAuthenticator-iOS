@@ -25,22 +25,7 @@ PODS:
   - lottie-ios (3.1.6)
   - NSObject-SafeExpectations (0.0.4)
   - "NSURL+IDN (0.4)"
-  - OCMock (3.6)
-  - OHHTTPStubs (8.0.0):
-    - OHHTTPStubs/Default (= 8.0.0)
-  - OHHTTPStubs/Core (8.0.0)
-  - OHHTTPStubs/Default (8.0.0):
-    - OHHTTPStubs/Core
-    - OHHTTPStubs/JSON
-    - OHHTTPStubs/NSURLSession
-    - OHHTTPStubs/OHPathHelpers
-  - OHHTTPStubs/JSON (8.0.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/NSURLSession (8.0.0):
-    - OHHTTPStubs/Core
-  - OHHTTPStubs/OHPathHelpers (8.0.0)
-  - OHHTTPStubs/Swift (8.0.0):
-    - OHHTTPStubs/Default
+  - OCMock (3.8.1)
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
   - UIDeviceIdentifier (1.6.0)
@@ -67,8 +52,6 @@ DEPENDENCIES:
   - lottie-ios (= 3.1.6)
   - "NSURL+IDN (= 0.4)"
   - OCMock (~> 3.4)
-  - OHHTTPStubs (= 8.0.0)
-  - OHHTTPStubs/Swift (= 8.0.0)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
   - WordPressKit (~> 4.18-beta)
@@ -91,7 +74,6 @@ SPEC REPOS:
     - NSObject-SafeExpectations
     - "NSURL+IDN"
     - OCMock
-    - OHHTTPStubs
     - Specta
     - SVProgressHUD
     - UIDeviceIdentifier
@@ -114,8 +96,7 @@ SPEC CHECKSUMS:
   lottie-ios: 85ce835dd8c53e02509f20729fc7d6a4e6645a0a
   NSObject-SafeExpectations: ab8fe623d36b25aa1f150affa324e40a2f3c0374
   "NSURL+IDN": afc873e639c18138a1589697c3add197fe8679ca
-  OCMock: 5ea90566be239f179ba766fd9fbae5885040b992
-  OHHTTPStubs: 9cbce6364bec557cc3439aa6bb7514670d780881
+  OCMock: 29f6e52085b4e7d9b075cbf03ed7c3112f82f934
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   UIDeviceIdentifier: f4bf3b343581a1beacdbf5fb1a8825bd5f05a4a4
@@ -124,6 +105,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
 
-PODFILE CHECKSUM: 8cba285326010a5f8e3da755a3a83ec7643e858c
+PODFILE CHECKSUM: 4daa851e68189bb99fb960a86c2ce1ae4de9cdef
 
 COCOAPODS: 1.10.0
