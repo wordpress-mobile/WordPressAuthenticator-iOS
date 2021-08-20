@@ -7,6 +7,10 @@ Naming/FileName:
   Exclude:
     - 'WordPressAuthenticator.podspec'
 
+Metrics/BlockLength:
+  Exclude:
+    - 'WordPressAuthenticator.podspec'
+
 # Override the maximum line length
 Layout/LineLength:
   Max: 160
