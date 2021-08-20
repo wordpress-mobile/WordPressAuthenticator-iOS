@@ -23,7 +23,7 @@ workflows:
           workspace: WordPressAuthenticator.xcworkspace
           scheme: WordPressAuthenticator
           device: iPhone 11
-          ios-version: "14.2"
+          ios-version: "14.5"
           bundle-install: true
           pod-install: true
       - ios/validate-podspec:
