@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Pod::Spec.new do |s|
   s.name          = 'WordPressAuthenticator'
   s.version       = '1.42.0'
@@ -22,7 +24,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'WordPressAuthenticator/**/*.{h,m,swift}'
   s.private_header_files = 'WordPressAuthenticator/Private/*.h'
   s.resource_bundles = {
-    'WordPressAuthenticatorResources': [
+    WordPressAuthenticatorResources: [
       'WordPressAuthenticator/Resources/Assets.xcassets',
       'WordPressAuthenticator/Resources/SupportedEmailClients/*.plist',
       'WordPressAuthenticator/Resources/Animations/*.json',
