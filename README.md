@@ -1,7 +1,5 @@
 # WordPressAuthenticator-iOS
 
-[![Build status](https://badge.buildkite.com/d3eb293c557df35e56fb2ad405b2af79445d7839fe2a03c382.svg)](https://buildkite.com/wordpress-mobile/wordpress-authenticator-ios)
-
 WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps. 
 
 This framework encapsulates everything required to display the Authentication UI and perform authentication against WordPress.com and WordPress.org sites.
