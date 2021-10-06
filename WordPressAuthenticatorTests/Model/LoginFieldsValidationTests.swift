@@ -41,5 +41,9 @@ class LoginFieldsValidationTests: XCTestCase {
 
         loginFields.siteAddress = "host name.com"
         XCTAssertFalse(loginFields.validateSiteForSignin(), "Hostname with spaces should not validate.")
+
+        loginFields.siteAddress = "host%name"
+        XCTAssertFalse(loginFields.validateSiteForSignin(), "Hostname with % should not validate.")
+    }
     }
 }
