@@ -45,5 +45,23 @@ class LoginFieldsValidationTests: XCTestCase {
         loginFields.siteAddress = "host%name"
         XCTAssertFalse(loginFields.validateSiteForSignin(), "Hostname with % should not validate.")
     }
+
+    func testValidateEmailForSignin() {
+        let loginFields = LoginFields()
+
+        loginFields.emailAddress = ""
+        XCTAssertFalse(loginFields.[some function], "Empty email should not validate.")
+
+        loginFields.emailAddress = "address@domain.com"
+        XCTAssertTrue(loginFields.validate) // [some function - testValidateFieldsPopulatedForCreateAccount()? ) "Emails should validate"
+
+        loginFields.emailAddress = "address@domaincom"
+        XCTAssertFalse(loginFields.) // again, we need a function here. "Email with no . should fail to validate."
+
+        loginFields.emailAddress = "addressdomain.com"
+        XCTAssertFalse(loginFields.) // need a function. "Email with no @ should fail to validate."
+
+        loginFields.emailAddress = "address@ domain.com"
+        XCTAssertFalse(loginFields.validateFieldsForSigninContainNoSpaces(), "Emails with spaces should fail to validate")
     }
 }

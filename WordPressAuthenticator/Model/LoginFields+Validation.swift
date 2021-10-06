@@ -4,6 +4,7 @@ extension LoginFields {
 
     /// Returns *true* if the fields required for SignIn have been populated.
     /// Note: that loginFields.emailAddress is not checked. Use loginFields.username instead.
+    /// Why? This seems out of date, given Unified Login *only* allows email address signin.
     ///
     func validateFieldsPopulatedForSignin() -> Bool {
         return !username.isEmpty &&
