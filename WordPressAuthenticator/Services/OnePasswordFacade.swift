@@ -2,10 +2,24 @@ import Foundation
 import UIKit
 import OnePasswordExtension
 
-// MARK: - This protocol is a Facade that hides some of the implementation details for interacting with 1Password.
-//
-class OnePasswordFacade {
+extension OnePasswordExtension: OnePasswordService {}
 
+/// A facade that hides some of the implementation details for interacting with 1Password.
+///
+class OnePasswordFacade {
+    
+    // MARK: - Private Properties
+    //
+    private let onePasswordService: OnePasswordService
+    
+    // MARK: - Initializer
+    //
+    init(onePasswordService: OnePasswordService = OnePasswordExtension.shared()) {
+        self.onePasswordService = onePasswordService
+    }
+    
+    // MARK: - Public Functions
+    
     /// This method will pull up the 1Password extension and display any logins for the passed in `loginUrl`.
     ///
     /// - Parameters:
@@ -20,7 +34,7 @@ class OnePasswordFacade {
                    sender: Any,
                    success: @escaping (_ username: String, _ password: String, _ otp: String?) -> Void,
                    failure: @escaping (OnePasswordError) -> Void) {
-        OnePasswordExtension.shared().findLogin(forURLString: url, for: viewController, sender: sender) { (dictionary, error) in
+        onePasswordService.findLogin(forURLString: url, for: viewController, sender: sender) { (dictionary, error) in
             if let error = error as NSError? {
                 failure(OnePasswordError(error: error))
                 return
@@ -76,7 +90,7 @@ class OnePasswordFacade {
             AppExtensionGeneratedPasswordMaxLengthKey: maximumLength
         ]
 
-        OnePasswordExtension.shared().storeLogin(forURLString: url, loginDetails: loginDetails, passwordGenerationOptions: options, for: viewController, sender: sender) { (loginDict, error) in
+        onePasswordService.storeLogin(forURLString: url, loginDetails: loginDetails, passwordGenerationOptions: options, for: viewController, sender: sender) { (loginDict, error) in
             if let error = error as NSError? {
                 failure(OnePasswordError(error: error))
                 return
@@ -95,8 +109,9 @@ class OnePasswordFacade {
 
     /// Indicates if the 1P Extension is enabled, or not.
     ///
-    static var isOnePasswordEnabled: Bool {
-        return OnePasswordExtension.shared().isAppExtensionAvailable()
+    var isOnePasswordEnabled: Bool {
+        return WordPressAuthenticator.shared.configuration.enableOnePassword &&
+        onePasswordService.isAppExtensionAvailable()
     }
 }
 

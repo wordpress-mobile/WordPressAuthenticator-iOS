@@ -2,7 +2,7 @@
 
 @objc
 public class WordpressAuthenticatorProvider: NSObject {
-    static func wordPressAuthenticatorConfiguration() -> WordPressAuthenticatorConfiguration {
+    static func wordPressAuthenticatorConfiguration(enableOnePassword: Bool = true) -> WordPressAuthenticatorConfiguration {
         return WordPressAuthenticatorConfiguration(wpcomClientId: "23456",
                                                    wpcomSecret: "arfv35dj57l3g2323",
                                                    wpcomScheme: "https",
@@ -10,7 +10,8 @@ public class WordpressAuthenticatorProvider: NSObject {
                                                    googleLoginClientId: "",
                                                    googleLoginServerClientId: "",
                                                    googleLoginScheme: "com.googleuserconsent.apps",
-                                                   userAgent: "")
+                                                   userAgent: "",
+                                                   enableOnePassword: enableOnePassword)
     }
 
     static func wordPressAuthenticatorStyle(_ style: AuthenticatorStyleType) -> WordPressAuthenticatorStyle {

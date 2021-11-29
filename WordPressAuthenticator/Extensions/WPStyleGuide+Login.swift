@@ -44,7 +44,7 @@ extension WPStyleGuide {
     /// - Note: this is for the old UI.
 	///
     class func configureOnePasswordButtonForTextfield(_ textField: WPWalkthroughTextField, target: NSObject, selector: Selector) {
-        guard OnePasswordFacade.isOnePasswordEnabled else {
+        guard OnePasswordFacade().isOnePasswordEnabled else {
             return
         }
 
@@ -66,7 +66,7 @@ extension WPStyleGuide {
     /// - Note: this is for the old UI.
 	///
     class func configureOnePasswordButtonForStackView(_ stack: UIStackView, target: NSObject, selector: Selector) {
-        guard OnePasswordFacade.isOnePasswordEnabled else {
+        guard OnePasswordFacade().isOnePasswordEnabled else {
             return
         }
 

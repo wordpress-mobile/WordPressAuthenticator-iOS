@@ -89,14 +89,13 @@ public struct WordPressAuthenticatorConfiguration {
     /// Default value is disabled
     let continueWithSiteAddressFirst: Bool
     
-    
     /// Flag for 1Password extension integration.
     /// If disabled, 1Password buttons are not added to email and username textfields,
     /// instead we depend on the key icon in the keyboard to initiate a password manager.
     /// If enabled, we add 1Password buttons normally.
     /// Default value is enabled
     /// Before disabling the flag, make sure to setup the app's associated domains according to this:
-    /// https://href.li/?https://developer.apple.com/documentation/xcode/supporting-associated-domains
+    /// https://developer.apple.com/documentation/xcode/supporting-associated-domains
     ///
     let enableOnePassword: Bool
 
