@@ -88,6 +88,17 @@ public struct WordPressAuthenticatorConfiguration {
     /// If enabled, the "Enter your existing site address" button in the login prologue is shown first.
     /// Default value is disabled
     let continueWithSiteAddressFirst: Bool
+    
+    
+    /// Flag for 1Password extension integration.
+    /// If disabled, 1Password buttons are not added to email and username textfields,
+    /// instead we depend on the key icon in the keyboard to initiate a password manager.
+    /// If enabled, we add 1Password buttons normally.
+    /// Default value is enabled
+    /// Before disabling the flag, make sure to setup the app's associated domains according to this:
+    /// https://href.li/?https://developer.apple.com/documentation/xcode/supporting-associated-domains
+    ///
+    let enableOnePassword: Bool
 
     /// Designated Initializer
     ///
@@ -108,7 +119,8 @@ public struct WordPressAuthenticatorConfiguration {
                  enableUnifiedAuth: Bool = false,
                  enableUnifiedCarousel: Bool = false,
                  displayHintButtons: Bool = true,
-                 continueWithSiteAddressFirst: Bool = false) {
+                 continueWithSiteAddressFirst: Bool = false,
+                 enableOnePassword: Bool = true) {
 
         self.wpcomClientId = wpcomClientId
         self.wpcomSecret = wpcomSecret
@@ -128,5 +140,6 @@ public struct WordPressAuthenticatorConfiguration {
         self.displayHintButtons = displayHintButtons
         self.enableSignupWithGoogle = enableSignupWithGoogle
         self.continueWithSiteAddressFirst = continueWithSiteAddressFirst
+        self.enableOnePassword = enableOnePassword
     }
 }
