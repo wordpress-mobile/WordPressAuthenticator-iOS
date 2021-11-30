@@ -88,7 +88,7 @@ public struct WordPressAuthenticatorConfiguration {
     /// If enabled, the "Enter your existing site address" button in the login prologue is shown first.
     /// Default value is disabled
     let continueWithSiteAddressFirst: Bool
-    
+
     /// Flag for 1Password extension integration.
     /// If disabled, 1Password buttons are not added to email and username textfields,
     /// instead we depend on the key icon in the keyboard to initiate a password manager.

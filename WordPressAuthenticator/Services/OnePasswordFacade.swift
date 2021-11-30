@@ -7,19 +7,19 @@ extension OnePasswordExtension: OnePasswordService {}
 /// A facade that hides some of the implementation details for interacting with 1Password.
 ///
 class OnePasswordFacade {
-    
+
     // MARK: - Private Properties
     //
     private let onePasswordService: OnePasswordService
-    
+
     // MARK: - Initializer
     //
     init(onePasswordService: OnePasswordService = OnePasswordExtension.shared()) {
         self.onePasswordService = onePasswordService
     }
-    
+
     // MARK: - Public Functions
-    
+
     /// This method will pull up the 1Password extension and display any logins for the passed in `loginUrl`.
     ///
     /// - Parameters:

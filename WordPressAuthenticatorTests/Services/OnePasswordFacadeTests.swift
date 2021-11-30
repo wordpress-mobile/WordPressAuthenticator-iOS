@@ -10,7 +10,7 @@ import XCTest
 @testable import WordPressAuthenticator
 
 class OnePasswordFacadeTests: XCTestCase {
-    
+
     func testOnePasswordEnabled() {
         // Given
         WordPressAuthenticator.initialize(
@@ -20,11 +20,11 @@ class OnePasswordFacadeTests: XCTestCase {
         )
         let mockOnePasswordService = MockOnePasswordService(onePasswordAvailable: true)
         let onePasswordFacade = OnePasswordFacade(onePasswordService: mockOnePasswordService)
-        
+
         // When & Then
         XCTAssertTrue(onePasswordFacade.isOnePasswordEnabled)
     }
-    
+
     func testOnePasswordDisabledIfUnAvailable() {
         // Given
         WordPressAuthenticator.initialize(
@@ -34,11 +34,11 @@ class OnePasswordFacadeTests: XCTestCase {
         )
         let mockOnePasswordService = MockOnePasswordService(onePasswordAvailable: false)
         let onePasswordFacade = OnePasswordFacade(onePasswordService: mockOnePasswordService)
-        
+
         // When & Then
         XCTAssertFalse(onePasswordFacade.isOnePasswordEnabled)
     }
-    
+
     func testOnePasswordDisabledFromConfiguration() {
         // Given
         WordPressAuthenticator.initialize(
@@ -48,7 +48,7 @@ class OnePasswordFacadeTests: XCTestCase {
         )
         let mockOnePasswordService = MockOnePasswordService(onePasswordAvailable: true)
         let onePasswordFacade = OnePasswordFacade(onePasswordService: mockOnePasswordService)
-        
+
         // When & Then
         XCTAssertFalse(onePasswordFacade.isOnePasswordEnabled)
     }
