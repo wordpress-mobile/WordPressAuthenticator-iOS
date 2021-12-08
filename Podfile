@@ -13,7 +13,6 @@ platform :ios, ios_deployment_target
 ## =====================
 ##
 def third_party_pods
-  pod '1PasswordExtension', '1.8.6'
   pod 'Alamofire', '4.8'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '6.0.1'
