@@ -1,5 +1,4 @@
 PODS:
-  - 1PasswordExtension (1.8.6)
   - Alamofire (4.8.0)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
@@ -43,7 +42,6 @@ PODS:
   - wpxmlrpc (0.9.0)
 
 DEPENDENCIES:
-  - 1PasswordExtension (= 1.8.6)
   - Alamofire (= 4.8)
   - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
@@ -60,7 +58,6 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
-    - 1PasswordExtension
     - Alamofire
     - AppAuth
     - CocoaLumberjack
@@ -83,7 +80,6 @@ SPEC REPOS:
     - wpxmlrpc
 
 SPEC CHECKSUMS:
-  1PasswordExtension: f97cc80ae58053c331b2b6dc8843ba7103b33794
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
@@ -105,6 +101,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
 
-PODFILE CHECKSUM: 7cf50800dab5ef3d524c968936a1fc8242ea023c
+PODFILE CHECKSUM: d9073c8eaf970df5ce640ddb8620640ada3e775e
 
 COCOAPODS: 1.10.2
