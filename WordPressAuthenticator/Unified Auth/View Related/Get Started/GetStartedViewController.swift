@@ -50,7 +50,6 @@ class GetStartedViewController: LoginViewController {
         super.viewDidLoad()
 
         configureNavBar()
-        setupTable()
         registerTableViewCells()
         loadRows()
         setupContinueButton()
@@ -153,11 +152,6 @@ private extension GetStartedViewController {
     func configureNavBar() {
         navigationItem.title = WordPressAuthenticator.shared.displayStrings.getStartedTitle
         styleNavigationBar(forUnified: true)
-    }
-
-    func setupTable() {
-        defaultTableViewMargin = tableViewLeadingConstraint?.constant ?? 0
-        setTableViewMargins(forWidth: view.frame.width)
     }
 
     func setupContinueButton() {

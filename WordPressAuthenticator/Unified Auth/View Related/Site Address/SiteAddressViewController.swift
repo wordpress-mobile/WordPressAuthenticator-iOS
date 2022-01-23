@@ -41,7 +41,6 @@ final class SiteAddressViewController: LoginViewController {
 
         removeGoogleWaitingView()
         configureNavBar()
-        setupTable()
         localizePrimaryButton()
         registerTableViewCells()
         loadRows()
@@ -239,11 +238,6 @@ private extension SiteAddressViewController {
 
         // Nav bar could be hidden from the host app, so reshow it.
         navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-
-    func setupTable() {
-        defaultTableViewMargin = tableViewLeadingConstraint?.constant ?? 0
-        setTableViewMargins(forWidth: view.frame.width)
     }
 
     // MARK: - Table Management

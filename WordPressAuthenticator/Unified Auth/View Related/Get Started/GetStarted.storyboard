@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aQT-Gx-U3x">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aQT-Gx-U3x">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Get Started View Controller-->
         <scene sceneID="7Rf-Qz-qsw">
             <objects>
-                <viewController storyboardIdentifier="GetStartedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aQT-Gx-U3x" customClass="GetStartedViewController" customModule="WordPressAuthenticator" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ljV-kF-TaY">
+                <viewController storyboardIdentifier="GetStartedViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aQT-Gx-U3x" customClass="GetStartedViewController" customModule="WordPressAuthenticatorResources" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" id="ljV-kF-TaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dFS-Ic-byk" userLabel="Containing View">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="16" y="0.0" width="343" height="667"/>
                                 <subviews>
                                     <textField opaque="NO" alpha="0.10000000149011612" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cym-N3-RXL" userLabel="Hidden Password Field">
-                                        <rect key="frame" x="187" y="333" width="1" height="1"/>
+                                        <rect key="frame" x="171" y="333" width="1" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="Lbt-lI-oSV"/>
                                             <constraint firstAttribute="height" constant="1" id="h4g-fQ-WSb"/>
@@ -32,7 +33,7 @@
                                         </connections>
                                     </textField>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" bounces="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KLl-Uz-wEP">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="451"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="451"/>
                                         <sections/>
                                         <connections>
                                             <outlet property="dataSource" destination="aQT-Gx-U3x" id="Sct-0G-HTk"/>
@@ -40,23 +41,23 @@
                                         </connections>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="f1j-fj-w73" userLabel="Divider Stack View">
-                                        <rect key="frame" x="0.0" y="451" width="375" height="16"/>
+                                        <rect key="frame" x="-16" y="451" width="375" height="16"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Lc-Sw-Jlx" userLabel="Leading LIne">
-                                                <rect key="frame" x="0.0" y="7.5" width="173.5" height="1"/>
+                                                <rect key="frame" x="0.0" y="7.5" width="174" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="Z6B-bC-BjQ"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QDu-95-gF8" userLabel="Divider Label">
-                                                <rect key="frame" x="178.5" y="0.0" width="18.5" height="16"/>
+                                                <rect key="frame" x="179" y="1" width="17.5" height="14.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHG-oC-OAf" userLabel="Trailing LIne">
-                                                <rect key="frame" x="202" y="7.5" width="173" height="1"/>
+                                                <rect key="frame" x="201.5" y="7.5" width="173.5" height="1"/>
                                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="1" id="2ZE-YT-ZFH"/>
@@ -68,7 +69,7 @@
                                         </constraints>
                                     </stackView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cn0-53-fHS">
-                                        <rect key="frame" x="0.0" y="467" width="375" height="200"/>
+                                        <rect key="frame" x="-16" y="467" width="375" height="200"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c0A-wK-EYS" userLabel="Button Container View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
@@ -79,7 +80,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="c0A-wK-EYS" firstAttribute="top" secondItem="Cn0-53-fHS" secondAttribute="top" id="KGY-Ol-Fv0"/>
-                                            <constraint firstAttribute="trailing" secondItem="c0A-wK-EYS" secondAttribute="trailing" id="Mih-IE-tDp"/>
+                                            <constraint firstItem="c0A-wK-EYS" firstAttribute="trailing" secondItem="Cn0-53-fHS" secondAttribute="trailing" id="Mih-IE-tDp"/>
                                             <constraint firstAttribute="bottom" secondItem="c0A-wK-EYS" secondAttribute="bottom" id="fBY-mz-gIs"/>
                                             <constraint firstItem="c0A-wK-EYS" firstAttribute="width" secondItem="Cn0-53-fHS" secondAttribute="width" id="fzv-K8-wr1"/>
                                             <constraint firstItem="c0A-wK-EYS" firstAttribute="height" secondItem="Cn0-53-fHS" secondAttribute="height" priority="250" id="juC-C0-Nkd"/>
@@ -87,7 +88,7 @@
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Cn0-53-fHS" firstAttribute="top" secondItem="f1j-fj-w73" secondAttribute="bottom" id="840-2J-2hS"/>
                                     <constraint firstItem="Cn0-53-fHS" firstAttribute="height" secondItem="dFS-Ic-byk" secondAttribute="height" multiplier="0.29985" id="Ffj-Ox-t77"/>
@@ -96,24 +97,24 @@
                                     <constraint firstItem="KLl-Uz-wEP" firstAttribute="height" relation="lessThanOrEqual" secondItem="dFS-Ic-byk" secondAttribute="height" multiplier="0.676162" id="UHX-ff-unr"/>
                                     <constraint firstItem="cym-N3-RXL" firstAttribute="centerY" secondItem="dFS-Ic-byk" secondAttribute="centerY" id="VNM-Yh-kiW"/>
                                     <constraint firstAttribute="bottom" secondItem="Cn0-53-fHS" secondAttribute="bottom" id="aYz-Gd-qyC"/>
-                                    <constraint firstItem="Cn0-53-fHS" firstAttribute="leading" secondItem="dFS-Ic-byk" secondAttribute="leading" id="lg0-jE-8Iw"/>
-                                    <constraint firstAttribute="trailing" secondItem="Cn0-53-fHS" secondAttribute="trailing" id="pgS-wZ-oFg"/>
+                                    <constraint firstItem="Cn0-53-fHS" firstAttribute="leading" secondItem="dFS-Ic-byk" secondAttribute="leading" constant="-16" id="lg0-jE-8Iw"/>
+                                    <constraint firstItem="Cn0-53-fHS" firstAttribute="trailing" secondItem="dFS-Ic-byk" secondAttribute="trailing" constant="16" id="pgS-wZ-oFg"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ihD-pY-rg9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="KLl-Uz-wEP" firstAttribute="leading" secondItem="ihD-pY-rg9" secondAttribute="leading" id="7Fn-Eh-Xx9"/>
-                            <constraint firstItem="ihD-pY-rg9" firstAttribute="trailing" secondItem="KLl-Uz-wEP" secondAttribute="trailing" id="7MD-ux-8i0"/>
+                            <constraint firstItem="KLl-Uz-wEP" firstAttribute="leading" secondItem="dFS-Ic-byk" secondAttribute="leading" id="7Fn-Eh-Xx9"/>
+                            <constraint firstItem="KLl-Uz-wEP" firstAttribute="trailing" secondItem="dFS-Ic-byk" secondAttribute="trailing" id="7MD-ux-8i0"/>
                             <constraint firstItem="f1j-fj-w73" firstAttribute="leading" secondItem="ihD-pY-rg9" secondAttribute="leading" id="DU0-wo-2QI"/>
                             <constraint firstItem="ihD-pY-rg9" firstAttribute="bottom" secondItem="dFS-Ic-byk" secondAttribute="bottom" id="Dva-c1-u2U"/>
                             <constraint firstItem="KLl-Uz-wEP" firstAttribute="top" secondItem="ihD-pY-rg9" secondAttribute="top" id="R3r-wt-ya5"/>
                             <constraint firstItem="dFS-Ic-byk" firstAttribute="top" secondItem="ihD-pY-rg9" secondAttribute="top" id="YEy-EW-XmD"/>
                             <constraint firstItem="ihD-pY-rg9" firstAttribute="trailing" secondItem="f1j-fj-w73" secondAttribute="trailing" id="ir4-hA-zeL"/>
-                            <constraint firstItem="dFS-Ic-byk" firstAttribute="leading" secondItem="ljV-kF-TaY" secondAttribute="leading" id="msS-7X-Za9"/>
-                            <constraint firstItem="dFS-Ic-byk" firstAttribute="trailing" secondItem="ljV-kF-TaY" secondAttribute="trailing" id="zY1-Yz-kTf"/>
+                            <constraint firstItem="dFS-Ic-byk" firstAttribute="leading" secondItem="ljV-kF-TaY" secondAttribute="leadingMargin" id="msS-7X-Za9"/>
+                            <constraint firstItem="dFS-Ic-byk" firstAttribute="trailing" secondItem="ljV-kF-TaY" secondAttribute="trailingMargin" id="zY1-Yz-kTf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="ihD-pY-rg9"/>
                     </view>
                     <connections>
                         <outlet property="dividerLabel" destination="QDu-95-gF8" id="Mjt-XK-h7a"/>
@@ -121,8 +122,6 @@
                         <outlet property="leadingDividerLine" destination="8Lc-Sw-Jlx" id="EVQ-Jg-oKZ"/>
                         <outlet property="leadingDividerLineWidth" destination="Z6B-bC-BjQ" id="Tor-0G-bt8"/>
                         <outlet property="tableView" destination="KLl-Uz-wEP" id="MGk-sG-xGv"/>
-                        <outlet property="tableViewLeadingConstraint" destination="7Fn-Eh-Xx9" id="yKO-sE-7mh"/>
-                        <outlet property="tableViewTrailingConstraint" destination="7MD-ux-8i0" id="jbD-Z7-rAn"/>
                         <outlet property="trailingDividerLine" destination="GHG-oC-OAf" id="ObM-ec-SqR"/>
                         <outlet property="trailingDividerLineWidth" destination="2ZE-YT-ZFH" id="Dul-FQ-qlg"/>
                     </connections>
@@ -142,4 +141,9 @@
             <point key="canvasLocation" x="-163" y="518"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

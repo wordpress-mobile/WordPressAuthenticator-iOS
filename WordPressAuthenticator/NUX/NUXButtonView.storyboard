@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,13 +22,14 @@
                                     <constraint firstAttribute="height" constant="10" id="cjP-3n-4DS"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xzf-f5-7zQ" userLabel="Button Stack View">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xzf-f5-7zQ" userLabel="Button Stack View">
                                 <rect key="frame" x="16" y="16" width="343" height="104"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="knN-O6-M86" customClass="NUXButton" customModule="WordPressAuthenticator">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="44"/>
                                         <accessibility key="accessibilityConfiguration" identifier="connectSite"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="44" id="F0e-cq-D6K"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="YB6-LI-NGI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -44,6 +45,7 @@
                                         <accessibility key="accessibilityConfiguration" identifier="continueToSites"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="SiB-Xy-stR"/>
+                                            <constraint firstAttribute="height" priority="750" constant="44" id="e6s-PZ-lUj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                         <state key="normal" title="Primary Button">
@@ -82,8 +84,9 @@
                             <constraint firstItem="RrB-Aa-ADd" firstAttribute="leading" secondItem="vC0-ge-46d" secondAttribute="leading" id="29Q-jd-hiu"/>
                             <constraint firstItem="xzf-f5-7zQ" firstAttribute="top" secondItem="RrB-Aa-ADd" secondAttribute="bottom" constant="16" id="86p-bn-8hO"/>
                             <constraint firstItem="RrB-Aa-ADd" firstAttribute="trailing" secondItem="vC0-ge-46d" secondAttribute="trailing" id="APL-hI-Fg5"/>
-                            <constraint firstItem="vC0-ge-46d" firstAttribute="bottom" secondItem="xzf-f5-7zQ" secondAttribute="bottom" constant="16" id="Pdr-ac-zdu"/>
+                            <constraint firstItem="vC0-ge-46d" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xzf-f5-7zQ" secondAttribute="bottom" constant="16" id="Pdr-ac-zdu"/>
                             <constraint firstItem="xzf-f5-7zQ" firstAttribute="leading" secondItem="vC0-ge-46d" secondAttribute="leading" constant="16" id="VYB-ut-UCK"/>
+                            <constraint firstItem="vC0-ge-46d" firstAttribute="bottom" secondItem="xzf-f5-7zQ" secondAttribute="bottom" priority="250" constant="16" id="hIf-qK-jj7"/>
                             <constraint firstItem="vC0-ge-46d" firstAttribute="trailing" secondItem="xzf-f5-7zQ" secondAttribute="trailing" constant="16" id="pdk-yI-G0O"/>
                             <constraint firstItem="RrB-Aa-ADd" firstAttribute="top" secondItem="vC0-ge-46d" secondAttribute="top" constant="-10" id="qZc-jk-YRs"/>
                         </constraints>

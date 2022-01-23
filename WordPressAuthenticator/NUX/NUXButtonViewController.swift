@@ -7,7 +7,6 @@ import WordPressKit
     @objc optional func tertiaryButtonPressed()
 }
 
-
 private struct NUXButtonConfig {
     typealias CallBackType = () -> Void
 
@@ -120,7 +119,7 @@ open class NUXButtonViewController: UIViewController {
 
         shadowViewEdgeConstraints = [
             layoutGuide.leadingAnchor.constraint(equalTo: shadowView.leadingAnchor),
-            layoutGuide.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor),
+            layoutGuide.trailingAnchor.constraint(equalTo: shadowView.trailingAnchor)
         ]
 
         NSLayoutConstraint.activate(shadowViewEdgeConstraints)

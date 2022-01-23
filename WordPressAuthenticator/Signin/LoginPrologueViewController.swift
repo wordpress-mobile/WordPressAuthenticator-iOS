@@ -113,16 +113,6 @@ class LoginPrologueViewController: LoginViewController {
         return UIDevice.isPad() ? .all : .portrait
     }
 
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-        setButtonViewMargins(forWidth: view.frame.width)
-    }
-
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        setButtonViewMargins(forWidth: size.width)
-    }
-
     // MARK: - iCloud Keychain Login
 
     /// Starts the iCloud Keychain login flow if the conditions are given.
@@ -207,9 +197,6 @@ class LoginPrologueViewController: LoginViewController {
     }
 
     private func buildDefaultUnifiedPrologueButtons(_ buttonViewController: NUXButtonViewController, loginTitle: String, siteAddressTitle: String) {
-
-        setButtonViewMargins(forWidth: view.frame.width)
-
         buttonViewController.setupTopButton(title: loginTitle, isPrimary: true, configureBodyFontForTitle: true, accessibilityIdentifier: "Prologue Continue Button", onTap: loginTapCallback())
 
         if configuration.enableUnifiedAuth {
@@ -225,8 +212,6 @@ class LoginPrologueViewController: LoginViewController {
         guard configuration.enableUnifiedAuth == true else {
             return
         }
-
-        setButtonViewMargins(forWidth: view.frame.width)
 
         buttonViewController.setupTopButton(title: siteAddressTitle, isPrimary: true, accessibilityIdentifier: "Prologue Self Hosted Button", onTap: siteAddressTapCallback())
 
@@ -578,43 +563,6 @@ extension LoginPrologueViewController: GoogleAuthenticatorLoginDelegate {
         socialErrorVC.loginFields = loginFields
         socialErrorVC.modalPresentationStyle = .fullScreen
         present(socialErrorNav, animated: true)
-    }
-
-}
-
-// MARK: - Button View Sizing
-
-private extension LoginPrologueViewController {
-
-    /// Resize the button view based on trait collection.
-    /// Used only in unified views.
-    ///
-    func setButtonViewMargins(forWidth viewWidth: CGFloat) {
-
-        guard configuration.enableUnifiedAuth else {
-            return
-        }
-
-        guard traitCollection.horizontalSizeClass == .regular &&
-            traitCollection.verticalSizeClass == .regular else {
-                buttonViewLeadingConstraint?.constant = defaultButtonViewMargin
-                buttonViewTrailingConstraint?.constant = defaultButtonViewMargin
-                return
-        }
-
-        let marginMultiplier = UIDevice.current.orientation.isLandscape ?
-            ButtonViewMarginMultipliers.ipadLandscape :
-            ButtonViewMarginMultipliers.ipadPortrait
-
-        let margin = viewWidth * marginMultiplier
-
-        buttonViewLeadingConstraint?.constant = margin
-        buttonViewTrailingConstraint?.constant = margin
-    }
-
-    private enum ButtonViewMarginMultipliers {
-        static let ipadPortrait: CGFloat = 0.1667
-        static let ipadLandscape: CGFloat = 0.25
     }
 
 }
