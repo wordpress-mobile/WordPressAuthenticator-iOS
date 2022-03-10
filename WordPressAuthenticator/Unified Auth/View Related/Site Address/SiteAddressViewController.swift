@@ -514,6 +514,10 @@ private extension SiteAddressViewController {
         if let verifiedSiteAddress = siteInfo?.url {
             loginFields.siteAddress = verifiedSiteAddress
         }
+        
+        if (authenticationDelegate.shouldStoreLoginSiteAddress()) {
+            authenticationDelegate.storeLoginSiteAddress(loginFields.siteAddress)
+        }
 
         guard siteInfo?.isWPCom == false else {
             showGetStarted()
