@@ -69,6 +69,14 @@ public protocol WordPressAuthenticatorDelegate: AnyObject {
     /// - Parameter isJetpackLogin: Indicates if we've just logged into a WordPress.com account for Jetpack purposes!.
     ///
     func shouldPresentLoginEpilogue(isJetpackLogin: Bool) -> Bool
+    
+    /// Indicates the Host app wants to cache the site address entered during login.
+    ///
+    func shouldStoreLoginSiteAddress() -> Bool
+
+    /// Stores the site address from login to be used by the Host app.
+    ///
+    func storeLoginSiteAddress(_ siteAddress: String)
 
     /// Indicates the Host app wants to handle and display a given error.
     ///
