@@ -16,7 +16,6 @@ def third_party_pods
   pod 'Alamofire', '4.8'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '6.0.1'
-  pod 'lottie-ios', '3.1.6'
   pod 'NSURL+IDN', '0.4'
   pod 'SVProgressHUD', '2.2.5'
 end
