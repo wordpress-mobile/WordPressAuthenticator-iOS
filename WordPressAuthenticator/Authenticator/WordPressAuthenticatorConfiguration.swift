@@ -4,6 +4,25 @@ import WordPressKit
 // MARK: - WordPressAuthenticator Configuration
 //
 public struct WordPressAuthenticatorConfiguration {
+    public enum AltSignInOption {
+        case google
+        case apple
+        case other(config: ButtonConfig)
+    }
+
+    public struct ButtonConfig {
+        let title: String
+        let isPrimary: Bool
+        let accessibilityIdentifier: String?
+        let callback: (UIViewController) -> Void
+
+        public init(title: String, isPrimary: Bool, accessibilityIdentifier: String? = nil, callback: @escaping (UIViewController) -> Void) {
+            self.title = title
+            self.isPrimary = isPrimary
+            self.accessibilityIdentifier = accessibilityIdentifier
+            self.callback = callback
+        }
+    }
 
     /// WordPress.com Client ID
     ///
@@ -66,6 +85,8 @@ public struct WordPressAuthenticatorConfiguration {
     /// If disabled, none of the hint buttons will appear on the unified auth flows.
     let displayHintButtons: Bool
 
+    let alternativeSignInOptions: [AltSignInOption]?
+
     /// Flag indicating if the Sign In With Apple option should be displayed.
     ///
     let enableSignInWithApple: Bool
@@ -110,8 +131,9 @@ public struct WordPressAuthenticatorConfiguration {
                  userAgent: String,
                  showLoginOptions: Bool = false,
                  enableSignUp: Bool = true,
-                 enableSignInWithApple: Bool = false,
-                 enableSignupWithGoogle: Bool = false,
+                 alternativeSignInOptions: [AltSignInOption]? = nil,
+                 enableSignInWithApple: Bool = false, // deprecated
+                 enableSignupWithGoogle: Bool = false, // deprecated
                  enableUnifiedAuth: Bool = false,
                  enableUnifiedCarousel: Bool = false,
                  displayHintButtons: Bool = true,
@@ -130,6 +152,7 @@ public struct WordPressAuthenticatorConfiguration {
         self.userAgent = userAgent
         self.showLoginOptions = showLoginOptions
         self.enableSignUp = enableSignUp
+        self.alternativeSignInOptions = alternativeSignInOptions
         self.enableSignInWithApple = enableSignInWithApple
         self.enableUnifiedAuth = enableUnifiedAuth
         self.enableUnifiedCarousel = enableUnifiedCarousel

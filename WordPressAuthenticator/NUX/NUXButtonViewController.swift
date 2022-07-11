@@ -8,7 +8,7 @@ import WordPressKit
 }
 
 
-private struct NUXButtonConfig {
+struct NUXButtonConfig {
     typealias CallBackType = () -> Void
 
     let title: String?
@@ -31,6 +31,13 @@ private struct NUXButtonConfig {
 }
 
 open class NUXButtonViewController: UIViewController {
+    /// The position of the button. Currently, up to 3 buttons can be displayed.
+    enum ButtonPosition {
+        case top
+        case bottom
+        case tertiary // Placed below the bottom button.
+    }
+
     typealias CallBackType = () -> Void
 
     // MARK: - Properties
@@ -145,6 +152,28 @@ open class NUXButtonViewController: UIViewController {
         }
         if let tertiaryTitle = tertiary {
             tertiaryButtonConfig = NUXButtonConfig(title: tertiaryTitle, isPrimary: false, accessibilityIdentifier: tertiaryAccessibilityId, callback: nil)
+        }
+    }
+
+    func setupButton(position: ButtonPosition, title: String, isPrimary: Bool = false, configureBodyFontForTitle: Bool = false, accessibilityIdentifier: String? = nil, onTap callback: @escaping CallBackType) {
+        switch position {
+        case .top:
+            topButtonConfig = NUXButtonConfig(title: title, isPrimary: isPrimary, configureBodyFontForTitle: configureBodyFontForTitle, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
+        case .bottom:
+            bottomButtonConfig = NUXButtonConfig(title: title, isPrimary: isPrimary, configureBodyFontForTitle: configureBodyFontForTitle, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
+        case .tertiary:
+            tertiaryButtonConfig = NUXButtonConfig(title: title, isPrimary: isPrimary, configureBodyFontForTitle: configureBodyFontForTitle, accessibilityIdentifier: accessibilityIdentifier, callback: callback)
+        }
+    }
+
+    func setupButton(position: ButtonPosition, socialService: SocialServiceName, onTap callback: @escaping CallBackType) {
+        switch position {
+        case .top:
+            setupTopButtonFor(socialService: socialService, onTap: callback)
+        case .bottom:
+            setupButtomButtonFor(socialService: socialService, onTap: callback)
+        case .tertiary:
+            setupTertiaryButtonFor(socialService: socialService, onTap: callback)
         }
     }
 

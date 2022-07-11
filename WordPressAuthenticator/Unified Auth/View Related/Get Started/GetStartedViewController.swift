@@ -631,15 +631,48 @@ private extension GetStartedViewController {
 
         buttonViewController.hideShadowView()
 
-        if WordPressAuthenticator.shared.configuration.enableSignInWithApple {
-            buttonViewController.setupTopButtonFor(socialService: .apple, onTap: appleTapped)
-        }
+        if let alternativeSignInOptions = WordPressAuthenticator.shared.configuration.alternativeSignInOptions {
+            switch alternativeSignInOptions.count {
+            case 1:
+                setupAltSignInButton(option: alternativeSignInOptions[0], position: .bottom)
+            case 2:
+                setupAltSignInButton(option: alternativeSignInOptions[0], position: .top)
+                setupAltSignInButton(option: alternativeSignInOptions[1], position: .bottom)
+            case 3:
+                setupAltSignInButton(option: alternativeSignInOptions[0], position: .top)
+                setupAltSignInButton(option: alternativeSignInOptions[1], position: .bottom)
+                setupAltSignInButton(option: alternativeSignInOptions[2], position: .tertiary)
+            case 4...Int.max:
+                DDLogError("There can only be up to 3 alternative sign in options")
+                break
+            default:
+                break
+            }
+        } else {
+            if WordPressAuthenticator.shared.configuration.enableSignInWithApple {
+                buttonViewController.setupTopButtonFor(socialService: .apple, onTap: appleTapped)
+            }
 
-        buttonViewController.setupButtomButtonFor(socialService: .google, onTap: googleTapped)
+            buttonViewController.setupButtomButtonFor(socialService: .google, onTap: googleTapped)
+        }
 
         let termsButton = WPStyleGuide.signupTermsButton()
         buttonViewController.stackView?.addArrangedSubview(termsButton)
         termsButton.addTarget(self, action: #selector(termsTapped), for: .touchUpInside)
+    }
+
+    private func setupAltSignInButton(option: WordPressAuthenticatorConfiguration.AltSignInOption, position: NUXButtonViewController.ButtonPosition) {
+        switch option {
+        case .apple:
+            buttonViewController?.setupButton(position: position, socialService: .apple, onTap: appleTapped)
+        case .google:
+            buttonViewController?.setupButton(position: position, socialService: .google, onTap: googleTapped)
+        case .other(let config):
+            buttonViewController?.setupButton(position: position, title: config.title, isPrimary: config.isPrimary, accessibilityIdentifier: config.accessibilityIdentifier, onTap: { [weak self] in
+                guard let self = self else { return }
+                config.callback(self)
+            })
+        }
     }
 
     @objc func appleTapped() {
