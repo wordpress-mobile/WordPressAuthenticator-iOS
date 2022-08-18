@@ -52,6 +52,18 @@ final class TextFieldTableViewCell: UITableViewCell {
         textField.placeholder = placeholder
         textField.text = text
     }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+
+        textField.keyboardType = .default
+        textField.returnKeyType = .default
+        setSecureTextEntry(false)
+        showSecureTextEntryToggle = false
+        textField.rightView = nil
+        textField.accessibilityLabel = nil
+        textField.accessibilityIdentifier = nil
+    }
 }
 
 // MARK: - Private methods

@@ -3,14 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		020BE74A23B0BD2E007FE54C /* WordPressAuthenticatorDisplayImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020BE74923B0BD2E007FE54C /* WordPressAuthenticatorDisplayImages.swift */; };
+		020DEF6428AA091100C85D51 /* MagicLinkRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020DEF6328AA091100C85D51 /* MagicLinkRequester.swift */; };
+		02A526CA28A3499C00FD1812 /* MagicLinkRequestedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A526C828A3499C00FD1812 /* MagicLinkRequestedViewController.swift */; };
+		02A526CB28A3499C00FD1812 /* MagicLinkRequestedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A526C928A3499C00FD1812 /* MagicLinkRequestedViewController.xib */; };
+		02A526CD28A3A23900FD1812 /* UIButton+Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A526CC28A3A23900FD1812 /* UIButton+Styles.swift */; };
+		02A526CF28A3A35D00FD1812 /* PasswordCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A526CE28A3A35D00FD1812 /* PasswordCoordinator.swift */; };
 		1A21EE9822832BC300C940C6 /* WordPressComOAuthClientFacade+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A21EE9722832BC200C940C6 /* WordPressComOAuthClientFacade+Swift.swift */; };
 		1A4095182271AEFC009AA86D /* WPAuthenticator-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A4095152271AEFC009AA86D /* WPAuthenticator-Swift.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		3108613125AFA4830022F75E /* PasteboardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3108613025AFA4830022F75E /* PasteboardTests.swift */; };
+		3F338B6A289B877F0014ADC5 /* BuildkiteTestCollector in Frameworks */ = {isa = PBXBuildFile; productRef = 3F338B69289B877F0014ADC5 /* BuildkiteTestCollector */; };
 		3F550D4E23DA429B007E5897 /* AppSelectorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F550D4D23DA429B007E5897 /* AppSelectorTests.swift */; };
 		3F550D5123DA4A9C007E5897 /* LinkMailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F550D5023DA4A9C007E5897 /* LinkMailPresenter.swift */; };
 		3F550D5323DA4AC6007E5897 /* URLHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F550D5223DA4AC6007E5897 /* URLHandler.swift */; };
@@ -160,13 +166,13 @@
 		D8610CEC2570A60C00A5DF27 /* NavigationToRootTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8610CEB2570A60C00A5DF27 /* NavigationToRootTests.swift */; };
 		D8611A63257622ED00A5DF27 /* NavigateBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8611A62257622ED00A5DF27 /* NavigateBack.swift */; };
 		D8611A672576236800A5DF27 /* NavigateBackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8611A662576236800A5DF27 /* NavigateBackTests.swift */; };
-		D87F120B2586DA26005675C5 /* SpacerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87F12092586DA26005675C5 /* SpacerTableViewCell.swift */; };
-		D87F120C2586DA26005675C5 /* SpacerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D87F120A2586DA26005675C5 /* SpacerTableViewCell.xib */; };
 		D881A30D256B5A7900FE5605 /* NavigationCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881A30C256B5A7900FE5605 /* NavigationCommand.swift */; };
 		D881A311256B5B4700FE5605 /* NavigateToEnterSite.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881A310256B5B4700FE5605 /* NavigateToEnterSite.swift */; };
 		D881A315256B5B5800FE5605 /* NavigateToEnterAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881A314256B5B5800FE5605 /* NavigateToEnterAccount.swift */; };
 		E8AF6B9EF50902F2117DFAF9 /* Pods_WordPressAuthenticatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A441EC80D2B8D2209C2E228 /* Pods_WordPressAuthenticatorTests.framework */; };
 		EE633D02287560E50002DE03 /* UITableView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE633D01287560E50002DE03 /* UITableView+Helpers.swift */; };
+		EEEAC912289272F20066D419 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAC911289272F20066D419 /* VerifyEmailViewController.swift */; };
+		EEEAC9142892731E0066D419 /* VerifyEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEAC9132892731E0066D419 /* VerifyEmail.storyboard */; };
 		F11448EC258B827B0048203D /* URL+JetpackConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11448EB258B827B0048203D /* URL+JetpackConnect.swift */; };
 		F12F9FB424D8A68E00771BCE /* AuthenticatorAnalyticsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F9FB324D8A68E00771BCE /* AuthenticatorAnalyticsTracker.swift */; };
 		F12F9FB824D8A7FC00771BCE /* AnalyticsTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12F9FB724D8A7FC00771BCE /* AnalyticsTrackerTests.swift */; };
@@ -208,12 +214,18 @@
 
 /* Begin PBXFileReference section */
 		020BE74923B0BD2E007FE54C /* WordPressAuthenticatorDisplayImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordPressAuthenticatorDisplayImages.swift; sourceTree = "<group>"; };
+		020DEF6328AA091100C85D51 /* MagicLinkRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicLinkRequester.swift; sourceTree = "<group>"; };
+		02A526C828A3499C00FD1812 /* MagicLinkRequestedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicLinkRequestedViewController.swift; sourceTree = "<group>"; };
+		02A526C928A3499C00FD1812 /* MagicLinkRequestedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MagicLinkRequestedViewController.xib; sourceTree = "<group>"; };
+		02A526CC28A3A23900FD1812 /* UIButton+Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Styles.swift"; sourceTree = "<group>"; };
+		02A526CE28A3A35D00FD1812 /* PasswordCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCoordinator.swift; sourceTree = "<group>"; };
 		1A21EE9722832BC200C940C6 /* WordPressComOAuthClientFacade+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WordPressComOAuthClientFacade+Swift.swift"; sourceTree = "<group>"; };
 		1A4095152271AEFC009AA86D /* WPAuthenticator-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WPAuthenticator-Swift.h"; sourceTree = "<group>"; };
 		276354F054C34AD36CA32AB6 /* Pods-WordPressAuthenticator.release-alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressAuthenticator.release-alpha.xcconfig"; path = "Pods/Target Support Files/Pods-WordPressAuthenticator/Pods-WordPressAuthenticator.release-alpha.xcconfig"; sourceTree = "<group>"; };
 		3108613025AFA4830022F75E /* PasteboardTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardTests.swift; sourceTree = "<group>"; };
 		33FEF45B466FF8EAAE5F3923 /* Pods-WordPressAuthenticator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressAuthenticator.release.xcconfig"; path = "Pods/Target Support Files/Pods-WordPressAuthenticator/Pods-WordPressAuthenticator.release.xcconfig"; sourceTree = "<group>"; };
 		37AFD4EF492B00CA7AEC11A3 /* Pods-WordPressAuthenticatorTests.release-alpha.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressAuthenticatorTests.release-alpha.xcconfig"; path = "Pods/Target Support Files/Pods-WordPressAuthenticatorTests/Pods-WordPressAuthenticatorTests.release-alpha.xcconfig"; sourceTree = "<group>"; };
+		3F338B6B289B87E60014ADC5 /* UnitTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UnitTests.xctestplan; sourceTree = "<group>"; };
 		3F550D4D23DA429B007E5897 /* AppSelectorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSelectorTests.swift; sourceTree = "<group>"; };
 		3F550D5023DA4A9C007E5897 /* LinkMailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkMailPresenter.swift; sourceTree = "<group>"; };
 		3F550D5223DA4AC6007E5897 /* URLHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHandler.swift; sourceTree = "<group>"; };
@@ -373,13 +385,13 @@
 		D8610CEB2570A60C00A5DF27 /* NavigationToRootTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationToRootTests.swift; sourceTree = "<group>"; };
 		D8611A62257622ED00A5DF27 /* NavigateBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateBack.swift; sourceTree = "<group>"; };
 		D8611A662576236800A5DF27 /* NavigateBackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateBackTests.swift; sourceTree = "<group>"; };
-		D87F12092586DA26005675C5 /* SpacerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpacerTableViewCell.swift; sourceTree = "<group>"; };
-		D87F120A2586DA26005675C5 /* SpacerTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SpacerTableViewCell.xib; sourceTree = "<group>"; };
 		D881A30C256B5A7900FE5605 /* NavigationCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCommand.swift; sourceTree = "<group>"; };
 		D881A310256B5B4700FE5605 /* NavigateToEnterSite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateToEnterSite.swift; sourceTree = "<group>"; };
 		D881A314256B5B5800FE5605 /* NavigateToEnterAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateToEnterAccount.swift; sourceTree = "<group>"; };
 		E9414A95E29F3297555AC92B /* Pods-WordPressAuthenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressAuthenticator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordPressAuthenticator/Pods-WordPressAuthenticator.debug.xcconfig"; sourceTree = "<group>"; };
 		EE633D01287560E50002DE03 /* UITableView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Helpers.swift"; sourceTree = "<group>"; };
+		EEEAC911289272F20066D419 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
+		EEEAC9132892731E0066D419 /* VerifyEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerifyEmail.storyboard; sourceTree = "<group>"; };
 		F11448EB258B827B0048203D /* URL+JetpackConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+JetpackConnect.swift"; sourceTree = "<group>"; };
 		F12F9FB324D8A68E00771BCE /* AuthenticatorAnalyticsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalyticsTracker.swift; sourceTree = "<group>"; };
 		F12F9FB724D8A7FC00771BCE /* AnalyticsTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsTrackerTests.swift; sourceTree = "<group>"; };
@@ -406,6 +418,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F338B6A289B877F0014ADC5 /* BuildkiteTestCollector in Frameworks */,
 				B5ED78FE207E976500A8FD8C /* WordPressAuthenticator.framework in Frameworks */,
 				E8AF6B9EF50902F2117DFAF9 /* Pods_WordPressAuthenticatorTests.framework in Frameworks */,
 			);
@@ -475,6 +488,7 @@
 			children = (
 				984D508124D4B21A00251A63 /* PasswordViewController.swift */,
 				984D508324D4B24500251A63 /* Password.storyboard */,
+				02A526CE28A3A35D00FD1812 /* PasswordCoordinator.swift */,
 			);
 			path = Password;
 			sourceTree = "<group>";
@@ -688,6 +702,7 @@
 				CE9091FD249A720E00AB50BD /* UIView+AuthHelpers.swift */,
 				F11448EB258B827B0048203D /* URL+JetpackConnect.swift */,
 				EE633D01287560E50002DE03 /* UITableView+Helpers.swift */,
+				02A526CC28A3A23900FD1812 /* UIButton+Styles.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -774,6 +789,7 @@
 				B501C03F208FC52500D1E58F /* Services */,
 				3F550D4C23DA4191007E5897 /* UI */,
 				B5ED7904207E976500A8FD8C /* Info.plist */,
+				3F338B6B289B87E60014ADC5 /* UnitTests.xctestplan */,
 			);
 			path = WordPressAuthenticatorTests;
 			sourceTree = "<group>";
@@ -845,6 +861,9 @@
 			children = (
 				CE811D6624EDC0FB00F4CCD6 /* LoginMagicLinkViewController.swift */,
 				CE811D6824EDC14A00F4CCD6 /* LoginMagicLink.storyboard */,
+				02A526C828A3499C00FD1812 /* MagicLinkRequestedViewController.swift */,
+				02A526C928A3499C00FD1812 /* MagicLinkRequestedViewController.xib */,
+				020DEF6328AA091100C85D51 /* MagicLinkRequester.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -852,6 +871,7 @@
 		CEC77C6424854EE400FB9050 /* View Related */ = {
 			isa = PBXGroup;
 			children = (
+				EEEAC91028926F7D0066D419 /* VerifyEmail */,
 				98BC47E124F5B959000275AD /* Get Started */,
 				984D508024D4B1FD00251A63 /* Password */,
 				988AD89F24CB820200BD045E /* 2FA */,
@@ -877,8 +897,6 @@
 				CE6BCD3724A3CB5E001BCDC5 /* TextLinkButtonTableViewCell.xib */,
 				98F40AEF24F5E13200A72911 /* TextWithLinkTableViewCell.swift */,
 				98F40AEE24F5E13200A72911 /* TextWithLinkTableViewCell.xib */,
-				D87F12092586DA26005675C5 /* SpacerTableViewCell.swift */,
-				D87F120A2586DA26005675C5 /* SpacerTableViewCell.xib */,
 			);
 			path = "Reusable Views";
 			sourceTree = "<group>";
@@ -914,6 +932,15 @@
 				D8611A62257622ED00A5DF27 /* NavigateBack.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		EEEAC91028926F7D0066D419 /* VerifyEmail */ = {
+			isa = PBXGroup;
+			children = (
+				EEEAC911289272F20066D419 /* VerifyEmailViewController.swift */,
+				EEEAC9132892731E0066D419 /* VerifyEmail.storyboard */,
+			);
+			path = VerifyEmail;
 			sourceTree = "<group>";
 		};
 		F12F9FB524D8A7DB00771BCE /* Analytics */ = {
@@ -970,9 +997,9 @@
 			buildConfigurationList = B5ED7908207E976500A8FD8C /* Build configuration list for PBXNativeTarget "WordPressAuthenticator" */;
 			buildPhases = (
 				6CD6648B820552D8638F8EDA /* [CP] Check Pods Manifest.lock */,
+				B5ED78F1207E976500A8FD8C /* Headers */,
 				B5ED78EF207E976500A8FD8C /* Sources */,
 				B5ED78F0207E976500A8FD8C /* Frameworks */,
-				B5ED78F1207E976500A8FD8C /* Headers */,
 				B5ED78F2207E976500A8FD8C /* Resources */,
 				B5A5274B20B479D30065BE81 /* CopyFiles */,
 			);
@@ -1001,6 +1028,9 @@
 				B5ED7900207E976500A8FD8C /* PBXTargetDependency */,
 			);
 			name = WordPressAuthenticatorTests;
+			packageProductDependencies = (
+				3F338B69289B877F0014ADC5 /* BuildkiteTestCollector */,
+			);
 			productName = WordPressAuthenticatorTests;
 			productReference = B5ED78FD207E976500A8FD8C /* WordPressAuthenticatorTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -1036,6 +1066,9 @@
 				Base,
 			);
 			mainGroup = B5ED78EA207E976500A8FD8C;
+			packageReferences = (
+				3F338B66289B87650014ADC5 /* XCRemoteSwiftPackageReference "test-collector-swift" */,
+			);
 			productRefGroup = B5ED78F5207E976500A8FD8C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1051,6 +1084,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02A526CB28A3499C00FD1812 /* MagicLinkRequestedViewController.xib in Resources */,
 				B5E07FF4208FD13800657A9A /* Assets.xcassets in Resources */,
 				98F40AF024F5E13200A72911 /* TextWithLinkTableViewCell.xib in Resources */,
 				B56090CA208A4F5400399AE4 /* NUXButtonView.storyboard in Resources */,
@@ -1063,10 +1097,10 @@
 				984D508424D4B24500251A63 /* Password.storyboard in Resources */,
 				CE811D6924EDC14A00F4CCD6 /* LoginMagicLink.storyboard in Resources */,
 				98ED48392480300500992B2D /* GoogleAuth.storyboard in Resources */,
+				EEEAC9142892731E0066D419 /* VerifyEmail.storyboard in Resources */,
 				CE1BBF8D24D48580001D2E3E /* GravatarEmailTableViewCell.xib in Resources */,
 				B560913F208A563800399AE4 /* Login.storyboard in Resources */,
 				CE6BCD3924A3CB5E001BCDC5 /* TextLinkButtonTableViewCell.xib in Resources */,
-				D87F120C2586DA26005675C5 /* SpacerTableViewCell.xib in Resources */,
 				CE6BCD2F24A3A235001BCDC5 /* TextLabelTableViewCell.xib in Resources */,
 				98CF18F9248725620047B66C /* GoogleSignupConfirmation.storyboard in Resources */,
 				B5609137208A563800399AE4 /* EmailMagicLink.storyboard in Resources */,
@@ -1200,6 +1234,7 @@
 				D8611A63257622ED00A5DF27 /* NavigateBack.swift in Sources */,
 				B5609143208A563800399AE4 /* LoginSocialErrorViewController.swift in Sources */,
 				B56090F8208A533200399AE4 /* WordPressAuthenticator+Notifications.swift in Sources */,
+				02A526CF28A3A35D00FD1812 /* PasswordCoordinator.swift in Sources */,
 				98ED483624802F8F00992B2D /* GoogleAuthViewController.swift in Sources */,
 				F5C817E72582B2F300BD5A3B /* UIPasteboard+Detect.swift in Sources */,
 				B56090EA208A51D000399AE4 /* LoginFields+Validation.swift in Sources */,
@@ -1224,12 +1259,13 @@
 				CE2D03E024E5DD4500D18942 /* UnifiedSignupViewController.swift in Sources */,
 				98CF18F7248725370047B66C /* GoogleSignupConfirmationViewController.swift in Sources */,
 				1A21EE9822832BC300C940C6 /* WordPressComOAuthClientFacade+Swift.swift in Sources */,
-				D87F120B2586DA26005675C5 /* SpacerTableViewCell.swift in Sources */,
+				02A526CD28A3A23900FD1812 /* UIButton+Styles.swift in Sources */,
 				CEC77C6624854F2E00FB9050 /* SiteAddressViewController.swift in Sources */,
 				CEDE0D952420121D00CB3345 /* UIStoryboard+Helpers.swift in Sources */,
 				B5ED7920207E993E00A8FD8C /* WPAuthenticatorLogging.m in Sources */,
 				B5609138208A563800399AE4 /* LoginSiteAddressViewController.swift in Sources */,
 				B560910B208A54F800399AE4 /* LoginFacade.m in Sources */,
+				EEEAC912289272F20066D419 /* VerifyEmailViewController.swift in Sources */,
 				CE30A2AD2257CECC00DF3CDA /* AuthenticatorCredentials.swift in Sources */,
 				B5609145208A563800399AE4 /* LoginViewController.swift in Sources */,
 				B5609139208A563800399AE4 /* LoginEmailViewController.swift in Sources */,
@@ -1239,6 +1275,7 @@
 				98C9195B2308E3DA00A90E12 /* AppleAuthenticator.swift in Sources */,
 				B56090F9208A533200399AE4 /* WordPressAuthenticator+Events.swift in Sources */,
 				CEDE0D93242011E000CB3345 /* NSObject+Helpers.swift in Sources */,
+				020DEF6428AA091100C85D51 /* MagicLinkRequester.swift in Sources */,
 				020BE74A23B0BD2E007FE54C /* WordPressAuthenticatorDisplayImages.swift in Sources */,
 				B560913A208A563800399AE4 /* LoginLinkRequestViewController.swift in Sources */,
 				B560910C208A54F800399AE4 /* WordPressComOAuthClientFacade.m in Sources */,
@@ -1289,6 +1326,7 @@
 				B56090D0208A4F5400399AE4 /* NUXViewControllerBase.swift in Sources */,
 				3F550D5123DA4A9C007E5897 /* LinkMailPresenter.swift in Sources */,
 				98D9A4B12474A526002E491C /* GoogleAuthenticator.swift in Sources */,
+				02A526CA28A3499C00FD1812 /* MagicLinkRequestedViewController.swift in Sources */,
 				CE1BBF8C24D48580001D2E3E /* GravatarEmailTableViewCell.swift in Sources */,
 				B56090DE208A4F9D00399AE4 /* WPWalkthroughOverlayView.m in Sources */,
 				B560910A208A54F800399AE4 /* WordPressComAccountService.swift in Sources */,
@@ -1446,7 +1484,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1467,7 +1506,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WordPressAuthenticator/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1491,7 +1534,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WordPressAuthenticator/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1509,7 +1556,11 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
 				INFOPLIST_FILE = WordPressAuthenticatorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WordPressAuthenticatorTests/SupportingFiles/WordPressAuthenticatorTests-Bridging-Header.h";
@@ -1527,7 +1578,11 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
 				INFOPLIST_FILE = WordPressAuthenticatorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WordPressAuthenticatorTests/SupportingFiles/WordPressAuthenticatorTests-Bridging-Header.h";
@@ -1587,7 +1642,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1608,7 +1664,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WordPressAuthenticator/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1626,7 +1686,11 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
 				INFOPLIST_FILE = WordPressAuthenticatorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WordPressAuthenticatorTests/SupportingFiles/WordPressAuthenticatorTests-Bridging-Header.h";
@@ -1686,7 +1750,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1707,7 +1772,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = WordPressAuthenticator/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				MARKETING_VERSION = 1.21.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticator;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -1725,7 +1794,11 @@
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
 				INFOPLIST_FILE = WordPressAuthenticatorTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.WordPressAuthenticatorTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "WordPressAuthenticatorTests/SupportingFiles/WordPressAuthenticatorTests-Bridging-Header.h";
@@ -1772,6 +1845,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3F338B66289B87650014ADC5 /* XCRemoteSwiftPackageReference "test-collector-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/buildkite/test-collector-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3F338B69289B877F0014ADC5 /* BuildkiteTestCollector */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F338B66289B87650014ADC5 /* XCRemoteSwiftPackageReference "test-collector-swift" */;
+			productName = BuildkiteTestCollector;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B5ED78EB207E976500A8FD8C /* Project object */;
 }

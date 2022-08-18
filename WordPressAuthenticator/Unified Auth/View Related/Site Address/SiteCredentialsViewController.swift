@@ -68,6 +68,7 @@ final class SiteCredentialsViewController: LoginViewController {
         }
 
         configureSubmitButton(animating: false)
+        configureViewLoading(false)
 
         registerForKeyboardEvents(keyboardWillShowAction: #selector(handleKeyboardWillShow(_:)),
                                   keyboardWillHideAction: #selector(handleKeyboardWillHide(_:)))
@@ -279,7 +280,8 @@ private extension SiteCredentialsViewController {
     ///
     func configureUsernameTextField(_ cell: TextFieldTableViewCell) {
         cell.configure(withStyle: .username,
-                       placeholder: WordPressAuthenticator.shared.displayStrings.usernamePlaceholder)
+                       placeholder: WordPressAuthenticator.shared.displayStrings.usernamePlaceholder,
+                       text: loginFields.username)
 
         // Save a reference to the textField so it can becomeFirstResponder.
         usernameField = cell.textField
@@ -301,7 +303,8 @@ private extension SiteCredentialsViewController {
     ///
     func configurePasswordTextField(_ cell: TextFieldTableViewCell) {
         cell.configure(withStyle: .password,
-                       placeholder: WordPressAuthenticator.shared.displayStrings.passwordPlaceholder)
+                       placeholder: WordPressAuthenticator.shared.displayStrings.passwordPlaceholder,
+                       text: loginFields.password)
         passwordField = cell.textField
         cell.textField.delegate = self
         cell.onChangeSelectionHandler = { [weak self] textfield in
@@ -352,6 +355,56 @@ private extension SiteCredentialsViewController {
         if SigninEditingState.signinEditingStateActive {
             usernameField?.becomeFirstResponder()
         }
+    }
+
+    /// Presents verify email instructions screen
+    ///
+    /// - Parameters:
+    ///   - loginFields: `LoginFields` instance created using `makeLoginFieldsUsing` helper method
+    ///
+    func presentVerifyEmail(loginFields: LoginFields) {
+        guard let vc = VerifyEmailViewController.instantiate(from: .verifyEmail) else {
+            DDLogError("Failed to navigate from SiteCredentialsViewController to VerifyEmailViewController")
+            return
+        }
+
+        vc.loginFields = loginFields
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+    /// Used for creating `LoginFields`
+    ///
+    /// - Parameters:
+    ///   - xmlrpc: XML-RPC URL as a String
+    ///   - options: Dictionary received from .org site credential authentication response. (Containing `jetpack_user_email` and `home_url` values)
+    ///
+    /// - Returns: A valid `LoginFields` instance or `nil`
+    ///
+    func makeLoginFieldsUsing(xmlrpc: String, options: [AnyHashable: Any]) -> LoginFields? {
+        guard let xmlrpcURL = URL(string: xmlrpc) else {
+            DDLogError("Failed to initiate XML-RPC URL from \(xmlrpc)")
+            return nil
+        }
+
+        // `jetpack_user_email` to be used for WPCOM login
+        guard let email = options["jetpack_user_email"] as? [String: Any],
+              let userName = email["value"] as? String else {
+            DDLogError("Failed to find jetpack_user_email value.")
+            return nil
+        }
+
+        // Site address
+        guard let home_url = options["home_url"] as? [String: Any],
+              let siteAddress = home_url["value"] as? String else {
+            DDLogError("Failed to find home_url value.")
+            return nil
+        }
+
+        let loginFields = LoginFields()
+        loginFields.meta.xmlrpcURL = xmlrpcURL as NSURL
+        loginFields.username = userName
+        loginFields.siteAddress = siteAddress
+        return loginFields
     }
 
     // MARK: - Private Constants
@@ -410,10 +463,29 @@ extension SiteCredentialsViewController {
 
         let wporg = WordPressOrgCredentials(username: username, password: password, xmlrpc: xmlrpc, options: options)
         let credentials = AuthenticatorCredentials(wporg: wporg)
-        delegate.sync(credentials: credentials) { [weak self] in
-            NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: WordPressAuthenticator.WPSigninDidFinishNotification), object: nil)
-            self?.showLoginEpilogue(for: credentials)
+
+        guard WordPressAuthenticator.shared.configuration.isWPComLoginRequiredForSiteCredentialsLogin else {
+            // Client didn't explicitly ask for WPCOM credentials. (`isWPComLoginRequiredForSiteCredentialsLogin` is false)
+            // So, sync the available credentials and finish sign in.
+            //
+            delegate.sync(credentials: credentials) { [weak self] in
+                NotificationCenter.default.post(name: Foundation.Notification.Name(rawValue: WordPressAuthenticator.WPSigninDidFinishNotification), object: nil)
+                self?.showLoginEpilogue(for: credentials)
+            }
+            return
         }
+
+        // Try to get the jetpack email from XML-RPC response dictionary.
+        //
+        guard let loginFields = makeLoginFieldsUsing(xmlrpc: xmlrpc, options: options) else {
+            DDLogError("Unexpected response from .org site credentials sign in using XMLRPC.")
+            showLoginEpilogue(for: credentials)
+            return
+        }
+
+        // Present verify email instructions screen. Passing loginFields will prefill the jetpack email in `VerifyEmailViewController`
+        //
+        presentVerifyEmail(loginFields: loginFields)
     }
 
     override func displayRemoteError(_ error: Error) {

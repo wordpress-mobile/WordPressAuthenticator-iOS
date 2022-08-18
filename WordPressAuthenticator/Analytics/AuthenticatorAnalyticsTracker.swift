@@ -74,6 +74,11 @@ public class AuthenticatorAnalyticsTracker {
         ///
         case loginWithPassword = "login_password"
 
+        /// This flow starts when the user decides to login with a password instead, with magic link logic emphasis
+        /// where the CTA is a secondary CTA instead of a table view row
+        ///
+        case loginWithPasswordWithMagicLinkEmphasis = "login_password_magic_link_emphasis"
+
         /// This flow starts when the user decides to log in with their site address
         ///
         case loginWithSiteAddress = "login_site_address"
@@ -121,6 +126,14 @@ public class AuthenticatorAnalyticsTracker {
 
         /// When we ask user to input the code from the 2 factor authentication
         case twoFactorAuthentication = "2fa"
+
+        /// Triggered when a user enters site credentials and sees the screen with instructions to verify email. (`VerifyEmailViewController`)
+        ///
+        case verifyEmailInstructions = "instructions_to_verify_email"
+
+        /// Triggered when a magic link is automatically requested after filling in email address and the requested screen is shown
+        ///
+        case magicLinkAutoRequested = "magic_link_auto_requested"
     }
 
     public enum ClickTarget: String {
@@ -233,6 +246,14 @@ public class AuthenticatorAnalyticsTracker {
         /// When the user clicks on “Create account” on the signup confirmation screen
         ///
         case createAccount = "create_account"
+
+        /// When the user taps of "Sign in with site credentials" button in `GetStartedViewController`
+        ///
+        case signInWithSiteCredentials = "sign_in_with_site_credentials"
+
+        /// When the user clicks on “Login with account password” on `VerifyEmailViewController`
+        ///
+        case loginWithAccountPassword = "login_with_password"
     }
 
     /// Shared Instance.
