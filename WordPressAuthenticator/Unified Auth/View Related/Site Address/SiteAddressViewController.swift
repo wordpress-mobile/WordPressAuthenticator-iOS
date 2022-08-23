@@ -11,6 +11,12 @@ final class SiteAddressViewController: LoginViewController {
     @IBOutlet private weak var tableView: UITableView!
     @IBOutlet var bottomContentConstraint: NSLayoutConstraint?
 
+    override var sourceTag: WordPressSupportSourceTag {
+        get {
+            .loginSiteAddress
+        }
+    }
+
     // Required for `NUXKeyboardResponder` but unused here.
     var verticalCenterConstraint: NSLayoutConstraint?
 
