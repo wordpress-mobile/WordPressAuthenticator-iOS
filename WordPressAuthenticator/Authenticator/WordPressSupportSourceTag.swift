@@ -12,8 +12,12 @@ public struct WordPressSupportSourceTag {
     }
 }
 
-func ==(lhs: WordPressSupportSourceTag, rhs: WordPressSupportSourceTag) -> Bool {
-    return lhs.name == rhs.name
+// MARK: - Equatable Conformance
+//
+extension WordPressSupportSourceTag: Equatable {
+    public static func == (lhs: WordPressSupportSourceTag, rhs: WordPressSupportSourceTag) -> Bool {
+        lhs.name == rhs.name
+    }
 }
 
 extension WordPressSupportSourceTag {
