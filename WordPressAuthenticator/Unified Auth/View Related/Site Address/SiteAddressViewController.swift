@@ -12,9 +12,7 @@ final class SiteAddressViewController: LoginViewController {
     @IBOutlet var bottomContentConstraint: NSLayoutConstraint?
 
     override var sourceTag: WordPressSupportSourceTag {
-        get {
-            .loginSiteAddress
-        }
+        .loginSiteAddress
     }
 
     // Required for `NUXKeyboardResponder` but unused here.
