@@ -4,7 +4,4 @@
 # the pipeline via the `command` node because our CI-VM setup doesn't forward
 # the environment in that mode.
 
-# See https://github.com/Automattic/bash-cache-buildkite-plugin/issues/16
-gem install bundler
-
 build_and_test_pod
