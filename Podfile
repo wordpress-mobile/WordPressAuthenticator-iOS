@@ -13,7 +13,6 @@ platform :ios, ios_deployment_target
 ## =====================
 ##
 def third_party_pods
-  pod 'Alamofire', '4.8'
   pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '6.0.1'
   pod 'NSURL+IDN', '0.4'

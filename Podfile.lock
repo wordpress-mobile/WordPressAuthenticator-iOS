@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.8.0)
+  - Alamofire (4.8.2)
   - AppAuth (1.4.0):
     - AppAuth/Core (= 1.4.0)
     - AppAuth/ExternalUserAgent (= 1.4.0)
@@ -41,7 +41,6 @@ PODS:
   - wpxmlrpc (0.9.0)
 
 DEPENDENCIES:
-  - Alamofire (= 4.8)
   - CocoaLumberjack (= 3.5.2)
   - Expecta (= 1.0.6)
   - GoogleSignIn (= 6.0.1)
@@ -77,7 +76,7 @@ SPEC REPOS:
     - wpxmlrpc
 
 SPEC CHECKSUMS:
-  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   CocoaLumberjack: 118bf4a820efc641f79fa487b75ed928dccfae23
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
@@ -97,6 +96,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
 
-PODFILE CHECKSUM: 3232fd3070663c657166d850256df74f1659b46f
+PODFILE CHECKSUM: a1020c109a62537b5751fddc9375bacd6c45db78
 
 COCOAPODS: 1.11.3
