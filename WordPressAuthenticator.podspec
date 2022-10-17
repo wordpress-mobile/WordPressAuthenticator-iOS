@@ -33,7 +33,6 @@ Pod::Spec.new do |s|
   }
   s.header_dir = 'WordPressAuthenticator'
 
-  s.dependency 'Alamofire', '~> 4.8'
   s.dependency 'CocoaLumberjack', '~> 3.5'
   s.dependency 'NSURL+IDN', '0.4'
   s.dependency 'SVProgressHUD', '~> 2.2.5'
