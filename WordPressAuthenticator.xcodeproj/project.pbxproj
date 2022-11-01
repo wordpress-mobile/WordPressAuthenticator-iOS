@@ -443,13 +443,6 @@
 			path = SupportedEmailClients;
 			sourceTree = "<group>";
 		};
-		3F550D4C23DA4191007E5897 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		3F550D4F23DA4A6B007E5897 /* Email Client Picker */ = {
 			isa = PBXGroup;
 			children = (
@@ -787,7 +780,6 @@
 				B501C03D208FC52500D1E58F /* Authenticator */,
 				B501C03B208FC52400D1E58F /* Model */,
 				B501C03F208FC52500D1E58F /* Services */,
-				3F550D4C23DA4191007E5897 /* UI */,
 				B5ED7904207E976500A8FD8C /* Info.plist */,
 				3F338B6B289B87E60014ADC5 /* UnitTests.xctestplan */,
 			);
