@@ -61,5 +61,19 @@ post_install do |installer|
       pod_ios_deployment_target = Gem::Version.new(configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'])
       configuration.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET' if pod_ios_deployment_target <= ios_deployment_target
     end
+
+    # This addresses Xcode 12, 13, and 14 showing an "Update to recommended
+    # settings" warning on the Pods project.
+    #
+    # See:
+    #
+    # - https://github.com/CocoaPods/CocoaPods/issues/10189
+    # - https://github.com/CocoaPods/CocoaPods/issues/11553
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings.delete 'ARCHS'
+        config.build_settings['DEAD_CODE_STRIPPING'] = 'YES'
+      end
+    end
   end
 end
