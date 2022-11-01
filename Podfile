@@ -51,6 +51,10 @@ target 'WordPressAuthenticatorTests' do
   pod 'Specta', '1.0.7'
 end
 
+abstract_target 'CI' do
+  pod 'SwiftLint', '~> 0.49'
+end
+
 post_install do |installer|
   # Let Pods targets inherit deployment target from the app
   # This solution is suggested here: https://github.com/CocoaPods/CocoaPods/issues/4859
