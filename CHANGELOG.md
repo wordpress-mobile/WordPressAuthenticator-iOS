@@ -46,4 +46,23 @@ _None._
 
 ### Internal Changes
 
+_None._
+
+## [4.0.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.0.0)
+
+### Breaking Changes
+
+- Allow the host app to pass a custom source identifier to the login flow. [#692]
+
+### New Features
+
+- New configuration options for the simplified login flow. [#691]
+
+### Bug Fixes
+
+_None._
+
+### Internal Changes
+
 - Add this changelog file. [#690]
+- Remove Alamofire as an explicit dependency. [#689]
