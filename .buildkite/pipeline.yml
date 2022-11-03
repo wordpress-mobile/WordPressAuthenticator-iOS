@@ -16,6 +16,12 @@ steps:
     env: *common_env
     plugins: *common_plugins
 
+  - label: ":calling: Build Demo App"
+    key: "build-demo-app"
+    command: .buildkite/build-demo-app.sh
+    env: *common_env
+    plugins: *common_plugins
+
   #################
   # Validate Podspec
   #################
@@ -48,6 +54,7 @@ steps:
       - "test"
       - "validate"
       - "lint"
+      - "build-demo-app"
     if: build.tag != null
     agents:
       queue: "mac"
