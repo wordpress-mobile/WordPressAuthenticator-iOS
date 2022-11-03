@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B9084355AE56CADE54CE018 /* Pods_AuthenticatorDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF02C0C8B7B005AAE3C08BD9 /* Pods_AuthenticatorDemo.framework */; };
 		3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6EE2912420E00F40408 /* AppDelegate.swift */; };
 		3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F02912420E00F40408 /* SceneDelegate.swift */; };
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
@@ -24,6 +25,9 @@
 		3FB5B6F72912420F00F40408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FB5B6FA2912420F00F40408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FB5B6FC2912420F00F40408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8EA9B92A13352F8E6893C418 /* Pods-AuthenticatorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticatorDemo.debug.xcconfig"; path = "Target Support Files/Pods-AuthenticatorDemo/Pods-AuthenticatorDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		AF02C0C8B7B005AAE3C08BD9 /* Pods_AuthenticatorDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthenticatorDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2CF1D70C197A00030221283 /* Pods-AuthenticatorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticatorDemo.release.xcconfig"; path = "Target Support Files/Pods-AuthenticatorDemo/Pods-AuthenticatorDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B9084355AE56CADE54CE018 /* Pods_AuthenticatorDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,8 @@
 			children = (
 				3FB5B6ED2912420E00F40408 /* AuthenticatorDemo */,
 				3FB5B6EC2912420E00F40408 /* Products */,
+				B3ACA7C5B5F26F3C9C315ED8 /* Pods */,
+				7845A9AC647B3C5B233BAAE6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +74,24 @@
 			path = AuthenticatorDemo;
 			sourceTree = "<group>";
 		};
+		7845A9AC647B3C5B233BAAE6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AF02C0C8B7B005AAE3C08BD9 /* Pods_AuthenticatorDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3ACA7C5B5F26F3C9C315ED8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8EA9B92A13352F8E6893C418 /* Pods-AuthenticatorDemo.debug.xcconfig */,
+				D2CF1D70C197A00030221283 /* Pods-AuthenticatorDemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +99,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FB5B6FF2912420F00F40408 /* Build configuration list for PBXNativeTarget "AuthenticatorDemo" */;
 			buildPhases = (
+				6BD1315017418D9BD8513AB2 /* [CP] Check Pods Manifest.lock */,
 				3FB5B6E72912420E00F40408 /* Sources */,
 				3FB5B6E82912420E00F40408 /* Frameworks */,
 				3FB5B6E92912420E00F40408 /* Resources */,
+				46F868D4B05D9FAC769EF4C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -132,6 +159,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46F868D4B05D9FAC769EF4C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AuthenticatorDemo/Pods-AuthenticatorDemo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AuthenticatorDemo/Pods-AuthenticatorDemo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AuthenticatorDemo/Pods-AuthenticatorDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6BD1315017418D9BD8513AB2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-AuthenticatorDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3FB5B6E72912420E00F40408 /* Sources */ = {
@@ -282,6 +351,7 @@
 		};
 		3FB5B7002912420F00F40408 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8EA9B92A13352F8E6893C418 /* Pods-AuthenticatorDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -309,6 +379,7 @@
 		};
 		3FB5B7012912420F00F40408 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2CF1D70C197A00030221283 /* Pods-AuthenticatorDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -9,6 +9,10 @@ ios_deployment_target = Gem::Version.new('13.0')
 
 platform :ios, ios_deployment_target
 
+# This Podfile defines dependencies across multiple `.xcodeproj` file, so we
+# need to explicitly define the workspace to use.
+workspace 'WordPressAuthenticator.xcworkspace'
+
 ## Third party libraries
 ## =====================
 ##
@@ -49,6 +53,12 @@ target 'WordPressAuthenticatorTests' do
   pod 'OCMock', '~> 3.4'
   pod 'Expecta', '1.0.6'
   pod 'Specta', '1.0.7'
+end
+
+target 'AuthenticatorDemo' do
+  project 'Demo/AuthenticatorDemo.xcodeproj'
+
+  pod 'WordPressAuthenticator', path: '.'
 end
 
 # Used to donwload CLI tools.
