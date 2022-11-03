@@ -16,4 +16,16 @@ platform :ios do
       derived_data_path: DERIVED_DATA_PATH
     )
   end
+
+  lane :build_demo_app do
+    build_app(
+      scheme: 'AuthenticatorDemo',
+      # Skip archiving and code signing, this is just a smoke test to make
+      # sure the integration between framework and demo app works
+      skip_archive: true,
+      skip_codesigning: true,
+      buildlog_path: BUILD_LOG_PATH,
+      derived_data_path: DERIVED_DATA_PATH
+    )
+  end
 end
