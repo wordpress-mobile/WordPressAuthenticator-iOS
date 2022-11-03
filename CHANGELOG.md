@@ -39,6 +39,7 @@ _None._
 ### New Features
 
 - New `NUXStackedButtonsViewController` with two stack views and a configurable OR divider. by @selanthiraiyan [#695]
+- Add OR divider colors to `WordPressAuthenticatorStyle` with default values. @selanthiraiyan [#695]
 
 ### Bug Fixes
 
@@ -46,7 +47,7 @@ _None._
 
 ### Internal Changes
 
-  - There have been [new changes to how `UIPasteboard` works](https://sarunw.com/posts/uipasteboard-privacy-change-ios16/) in iOS 16.0. This makes the unit tests from `PasteboardTests` fail. I have [skipped those tests for iOS 16.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/pull/695/files#diff-ba468f6db6f592cdacdb632f7783a721c5eb856e8ab66765e8e59aabc2c1a7b4R13-R16) and created a GH issue [here](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/issues/696) to keep track of this. by @selanthiraiyan [#695]
+- There have been [new changes to how `UIPasteboard` works](https://sarunw.com/posts/uipasteboard-privacy-change-ios16/) in iOS 16.0. This makes the unit tests from `PasteboardTests` fail. I have [skipped those tests for iOS 16.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/pull/695/files#diff-ba468f6db6f592cdacdb632f7783a721c5eb856e8ab66765e8e59aabc2c1a7b4R13-R16) and created a GH issue [here](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/issues/696) to keep track of this. by @selanthiraiyan [#695]
 
 ## [4.0.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.0.0)
 
