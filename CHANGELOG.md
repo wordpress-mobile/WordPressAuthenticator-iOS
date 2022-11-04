@@ -30,7 +30,7 @@ _None._
 
 -->
 
-## 4.1.0-beta.1 [Unreleased]
+## 4.2.0 [Unreleased]
 
 ### Breaking Changes
 
@@ -38,12 +38,22 @@ _None._
 
 ### New Features
 
-- New `NUXStackedButtonsViewController` with two stack views and a configurable OR divider. by @selanthiraiyan [#695]
-- Add OR divider colors to `WordPressAuthenticatorStyle` with default values. @selanthiraiyan [#695]
+_None._
 
 ### Bug Fixes
 
 _None._
+
+### Internal Changes
+
+_None._
+
+## [4.1.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.1.0)
+
+### New Features
+
+- New `NUXStackedButtonsViewController` with two stack views and a configurable OR divider. by @selanthiraiyan [#695]
+- Add OR divider colors to `WordPressAuthenticatorStyle` with default values. @selanthiraiyan [#695]
 
 ### Internal Changes
 
