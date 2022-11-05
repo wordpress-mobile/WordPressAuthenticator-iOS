@@ -48,7 +48,7 @@ _None._
 
 _None._
 
-## [4.1.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.1.0)
+## [4.1.1](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.1.1)
 
 ### New Features
 
