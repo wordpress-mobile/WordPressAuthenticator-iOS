@@ -132,6 +132,10 @@ public struct WordPressAuthenticatorConfiguration {
     ///
     let wpcomPasswordInstructions: String?
 
+    /// If enabled XMLRPC related checks will be performed only when the user opts to sign in using site credentials
+    ///
+    let checkXMLRPCOnlyIfSigningInUsingSiteCredentials: Bool
+
     /// Designated Initializer
     ///
     public init (wpcomClientId: String,
@@ -161,7 +165,8 @@ public struct WordPressAuthenticatorConfiguration {
                  enableSiteCreation: Bool = false,
                  enableSocialLogin: Bool = false,
                  emphasizeEmailForWPComPassword: Bool = false,
-                 wpcomPasswordInstructions: String? = nil) {
+                 wpcomPasswordInstructions: String? = nil,
+                 checkXMLRPCOnlyIfSigningInUsingSiteCredentials: Bool = false) {
 
         self.wpcomClientId = wpcomClientId
         self.wpcomSecret = wpcomSecret
@@ -191,5 +196,6 @@ public struct WordPressAuthenticatorConfiguration {
         self.enableSocialLogin = enableSocialLogin
         self.emphasizeEmailForWPComPassword = emphasizeEmailForWPComPassword
         self.wpcomPasswordInstructions = wpcomPasswordInstructions
+        self.checkXMLRPCOnlyIfSigningInUsingSiteCredentials = checkXMLRPCOnlyIfSigningInUsingSiteCredentials
     }
 }
