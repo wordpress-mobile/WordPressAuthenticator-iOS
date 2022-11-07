@@ -442,8 +442,13 @@ private extension SiteAddressViewController {
         // Checks that the site exists
         checkSiteExistence(url: url) { [weak self] in
             guard let self = self else { return }
-            // Proceeds to check for the site's WordPress
-            self.guessXMLRPCURL(for: self.loginFields.siteAddress)
+
+            guard WordPressAuthenticator.shared.configuration.checkXMLRPCOnlyIfSigningInUsingSiteCredentials else {
+                return self.guessXMLRPCURL(for: self.loginFields.siteAddress)
+            }
+
+            // Skip checking XMLRPC
+            self.fetchSiteInfo()
         }
     }
 
