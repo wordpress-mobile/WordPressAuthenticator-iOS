@@ -319,7 +319,13 @@ private extension GetStartedViewController {
     // MARK: - Sign in with site credentials Button Action
     @objc func handleSiteCredentialsButtonTapped() {
         tracker.track(click: .signInWithSiteCredentials)
-        goToSiteCredentialsScreen()
+        guard WordPressAuthenticator.shared.configuration.checkXMLRPCOnlyIfSigningInUsingSiteCredentials else {
+            // XMLRPC already checked in "Enter site address" screen.
+            return goToSiteCredentialsScreen()
+        }
+
+        // Check XMLRPC before asking for site credentials.
+        guessXMLRPCURL(for: loginFields.siteAddress)
     }
 
     // MARK: - What is WordPress.com Button Action
