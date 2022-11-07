@@ -51,7 +51,8 @@ target 'WordPressAuthenticatorTests' do
   pod 'Specta', '1.0.7'
 end
 
-abstract_target 'CI' do
+# Used to donwload CLI tools.
+abstract_target 'Tools' do
   pod 'SwiftLint', '~> 0.49'
 end
 
