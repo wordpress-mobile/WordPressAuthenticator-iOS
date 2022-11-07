@@ -49,17 +49,30 @@ target 'WordPressAuthenticatorTests' do
   pod 'OCMock', '~> 3.4'
   pod 'Expecta', '1.0.6'
   pod 'Specta', '1.0.7'
+end
 
-  post_install do |installer|
-    # Let Pods targets inherit deployment target from the app
-    # This solution is suggested here: https://github.com/CocoaPods/CocoaPods/issues/4859
-    # =====================================
-    #
-    installer.pods_project.targets.each do |target|
-      target.build_configurations.each do |configuration|
-        pod_ios_deployment_target = Gem::Version.new(configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'])
-        configuration.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET' if pod_ios_deployment_target <= ios_deployment_target
-      end
+# Used to donwload CLI tools.
+abstract_target 'Tools' do
+  pod 'SwiftLint', '~> 0.49'
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |configuration|
+      # Let Pods targets inherit deployment target from the app
+      # This solution is suggested here: https://github.com/CocoaPods/CocoaPods/issues/4859
+      pod_ios_deployment_target = Gem::Version.new(configuration.build_settings['IPHONEOS_DEPLOYMENT_TARGET'])
+      configuration.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET' if pod_ios_deployment_target <= ios_deployment_target
+
+      # This addresses Xcode 12, 13, and 14 showing an "Update to recommended
+      # settings" warning on the Pods project.
+      #
+      # See:
+      #
+      # - https://github.com/CocoaPods/CocoaPods/issues/10189
+      # - https://github.com/CocoaPods/CocoaPods/issues/11553
+      configuration.build_settings.delete 'ARCHS'
+      configuration.build_settings['DEAD_CODE_STRIPPING'] = 'YES'
     end
   end
 end
