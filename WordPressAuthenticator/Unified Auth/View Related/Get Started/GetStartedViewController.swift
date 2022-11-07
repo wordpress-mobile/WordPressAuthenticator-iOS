@@ -34,6 +34,12 @@ public enum SignInError: Error {
     }
 }
 
+/// Error due to site's `xmlrpc.php` file not being public
+///
+public enum XMLRPCError: Error {
+    case xmlrpcError(siteAddress: String)
+}
+
 class GetStartedViewController: LoginViewController, NUXKeyboardResponder {
 
     private enum ScreenMode {
