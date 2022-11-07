@@ -867,6 +867,91 @@ private extension GetStartedViewController {
     }
 }
 
+// MARK: - XMLRPC checks
+
+private extension GetStartedViewController {
+    func configureSiteCredsButton(loading: Bool) {
+        buttonViewController?.setTopButtonState(isLoading: false,
+                                                isEnabled: !loading)
+        buttonViewController?.setBottomButtonState(isLoading: loading,
+                                                   isEnabled: !loading)
+        navigationItem.hidesBackButton = loading
+    }
+
+    /// Navigates to site credentials screen where .org site credentials can be entered
+    ///
+    func guessXMLRPCURL(for siteAddress: String) {
+        configureSiteCredsButton(loading: true)
+
+        let facade = WordPressXMLRPCAPIFacade()
+        facade.guessXMLRPCURL(forSite: siteAddress, success: { [weak self] (url) in
+            self?.configureSiteCredsButton(loading: false)
+
+            if let url = url {
+                self?.loginFields.meta.xmlrpcURL = url as NSURL
+            }
+
+            self?.goToSiteCredentialsScreen()
+
+            }, failure: { [weak self] (error) in
+                guard let error = error, let self = self else {
+                    return
+                }
+
+                self.tracker.track(failure: error.localizedDescription)
+
+                self.configureSiteCredsButton(loading: false)
+
+                let xmlrpcError = XMLRPCError.xmlrpcError(siteAddress: siteAddress)
+                /// Check if the host app wants to provide custom UI to handle the error.
+                /// If it does, insert the custom UI provided by the host app and exit early
+                if self.authenticationDelegate.shouldHandleError(xmlrpcError) {
+                    self.authenticationDelegate.handleError(xmlrpcError) { customUI in
+                        self.pushCustomUI(customUI)
+                    }
+
+                    return
+                }
+
+                let err = self.originalErrorOrError(error: error as NSError)
+
+                if let xmlrpcValidatorError = err as? WordPressOrgXMLRPCValidatorError {
+                    self.displayErrorAlert(xmlrpcValidatorError.localizedDescription, sourceTag: self.sourceTag)
+                } else if (err.domain == NSURLErrorDomain && err.code == NSURLErrorCannotFindHost) ||
+                            (err.domain == NSURLErrorDomain && err.code == NSURLErrorNetworkConnectionLost) {
+                    // NSURLErrorNetworkConnectionLost can be returned when an invalid URL is entered.
+                    let msg = NSLocalizedString(
+                        "The site at this address is not a WordPress site. For us to connect to it, the site must use WordPress.",
+                        comment: "Error message shown a URL does not point to an existing site.")
+                    self.displayErrorAlert(msg, sourceTag: self.sourceTag)
+
+                } else {
+                    self.displayError(error as NSError, sourceTag: self.sourceTag)
+                }
+        })
+    }
+
+    func originalErrorOrError(error: NSError) -> NSError {
+        guard let err = error.userInfo[XMLRPCOriginalErrorKey] as? NSError else {
+            return error
+        }
+        return err
+    }
+
+    /// Push a custom view controller, provided by a host app, to the navigation stack
+    func pushCustomUI(_ customUI: UIViewController) {
+        /// Assign the help button of the newly injected UI to the same help button we are currently displaying
+        /// We are making a somewhat big assumption here: the chrome of the new UI we insert would look like the UI
+        /// WPAuthenticator is already displaying. Which is risky, but also kind of makes sense, considering
+        /// we are also pushing that injected UI to the current navigation controller.
+        if WordPressAuthenticator.shared.delegate?.supportActionEnabled == true {
+            customUI.navigationItem.rightBarButtonItems = self.navigationItem.rightBarButtonItems
+        }
+
+        self.navigationController?.pushViewController(customUI, animated: true)
+    }
+}
+
 // MARK: - SFSafariViewControllerDelegate
 
 extension GetStartedViewController: SFSafariViewControllerDelegate {
