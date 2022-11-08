@@ -9,7 +9,7 @@ ios_deployment_target = Gem::Version.new('13.0')
 
 platform :ios, ios_deployment_target
 
-# This Podfile defines dependencies across multiple `.xcodeproj` file, so we
+# This Podfile defines dependencies across multiple `.xcodeproj` files, so we
 # need to explicitly define the workspace to use.
 workspace 'WordPressAuthenticator.xcworkspace'
 
