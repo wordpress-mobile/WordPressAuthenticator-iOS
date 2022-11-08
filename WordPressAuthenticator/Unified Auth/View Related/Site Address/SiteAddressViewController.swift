@@ -508,7 +508,7 @@ private extension SiteAddressViewController {
                     return
                 }
 
-                let err = self.originalErrorOrError(error: error as NSError)
+                let err = (error as NSError).originalErrorOrError()
 
                 /// Check if the host app wants to provide custom UI to handle the error.
                 /// If it does, insert the custom UI provided by the host app and exit early
@@ -611,14 +611,6 @@ private extension SiteAddressViewController {
                 self.pushCustomUI(customUI)
             }
         })
-    }
-
-    func originalErrorOrError(error: NSError) -> NSError {
-        guard let err = error.userInfo[XMLRPCOriginalErrorKey] as? NSError else {
-            return error
-        }
-
-        return err
     }
 
     /// Here we will continue with the self-hosted flow.

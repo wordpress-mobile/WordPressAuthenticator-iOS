@@ -171,7 +171,7 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
             WordPressAuthenticator.track(.loginFailed, error: error)
             self.configureViewLoading(false)
 
-            let err = self.originalErrorOrError(error: error as NSError)
+            let err = (error as NSError).originalErrorOrError()
 
             if let xmlrpcValidatorError = err as? WordPressOrgXMLRPCValidatorError {
                 self.displayError(message: xmlrpcValidatorError.localizedDescription, moveVoiceOverFocus: true)
@@ -233,13 +233,6 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
                 break
             }
         })
-    }
-
-    @objc func originalErrorOrError(error: NSError) -> NSError {
-        guard let err = error.userInfo[XMLRPCOriginalErrorKey] as? NSError else {
-            return error
-        }
-        return err
     }
 
     /// Here we will continue with the self-hosted flow.

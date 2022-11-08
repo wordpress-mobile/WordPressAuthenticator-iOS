@@ -921,7 +921,7 @@ private extension GetStartedViewController {
                     return
                 }
 
-                let err = self.originalErrorOrError(error: error as NSError)
+                let err = (error as NSError).originalErrorOrError()
 
                 if let xmlrpcValidatorError = err as? WordPressOrgXMLRPCValidatorError {
                     self.displayErrorAlert(xmlrpcValidatorError.localizedDescription, sourceTag: self.sourceTag)
@@ -937,15 +937,6 @@ private extension GetStartedViewController {
                     self.displayError(error as NSError, sourceTag: self.sourceTag)
                 }
         })
-    }
-
-    /// Extracts XMLRPC error
-    ///
-    func originalErrorOrError(error: NSError) -> NSError {
-        guard let err = error.userInfo[XMLRPCOriginalErrorKey] as? NSError else {
-            return error
-        }
-        return err
     }
 
     /// Push a custom view controller, provided by a host app, to the navigation stack
