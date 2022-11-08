@@ -951,10 +951,10 @@ private extension GetStartedViewController {
         /// WPAuthenticator is already displaying. Which is risky, but also kind of makes sense, considering
         /// we are also pushing that injected UI to the current navigation controller.
         if WordPressAuthenticator.shared.delegate?.supportActionEnabled == true {
-            customUI.navigationItem.rightBarButtonItems = self.navigationItem.rightBarButtonItems
+            customUI.navigationItem.rightBarButtonItems = navigationItem.rightBarButtonItems
         }
 
-        self.navigationController?.pushViewController(customUI, animated: true)
+        navigationController?.pushViewController(customUI, animated: true)
     }
 }
 
