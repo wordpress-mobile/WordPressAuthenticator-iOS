@@ -171,6 +171,7 @@
 		D881A315256B5B5800FE5605 /* NavigateToEnterAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D881A314256B5B5800FE5605 /* NavigateToEnterAccount.swift */; };
 		E8AF6B9EF50902F2117DFAF9 /* Pods_WordPressAuthenticatorTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A441EC80D2B8D2209C2E228 /* Pods_WordPressAuthenticatorTests.framework */; };
 		EE633D02287560E50002DE03 /* UITableView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE633D01287560E50002DE03 /* UITableView+Helpers.swift */; };
+		EE9F665E291A65C4009A5B02 /* NSError+XMLRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9F665D291A65C4009A5B02 /* NSError+XMLRPC.swift */; };
 		EEC7A621290FAEE5007793EE /* NUXStackedButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7A61F290FAEE5007793EE /* NUXStackedButtonsViewController.swift */; };
 		EEEAC912289272F20066D419 /* VerifyEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEAC911289272F20066D419 /* VerifyEmailViewController.swift */; };
 		EEEAC9142892731E0066D419 /* VerifyEmail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEEAC9132892731E0066D419 /* VerifyEmail.storyboard */; };
@@ -391,6 +392,7 @@
 		D881A314256B5B5800FE5605 /* NavigateToEnterAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigateToEnterAccount.swift; sourceTree = "<group>"; };
 		E9414A95E29F3297555AC92B /* Pods-WordPressAuthenticator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WordPressAuthenticator.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WordPressAuthenticator/Pods-WordPressAuthenticator.debug.xcconfig"; sourceTree = "<group>"; };
 		EE633D01287560E50002DE03 /* UITableView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Helpers.swift"; sourceTree = "<group>"; };
+		EE9F665D291A65C4009A5B02 /* NSError+XMLRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSError+XMLRPC.swift"; sourceTree = "<group>"; };
 		EEC7A61F290FAEE5007793EE /* NUXStackedButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUXStackedButtonsViewController.swift; sourceTree = "<group>"; };
 		EEEAC911289272F20066D419 /* VerifyEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyEmailViewController.swift; sourceTree = "<group>"; };
 		EEEAC9132892731E0066D419 /* VerifyEmail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerifyEmail.storyboard; sourceTree = "<group>"; };
@@ -703,6 +705,7 @@
 				F11448EB258B827B0048203D /* URL+JetpackConnect.swift */,
 				EE633D01287560E50002DE03 /* UITableView+Helpers.swift */,
 				02A526CC28A3A23900FD1812 /* UIButton+Styles.swift */,
+				EE9F665D291A65C4009A5B02 /* NSError+XMLRPC.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1283,6 +1286,7 @@
 				B56090E6208A4F9D00399AE4 /* WPNUXPrimaryButton.m in Sources */,
 				CE9091F72499549500AB50BD /* TextFieldTableViewCell.swift in Sources */,
 				98BC47E324F5B9AF000275AD /* GetStartedViewController.swift in Sources */,
+				EE9F665E291A65C4009A5B02 /* NSError+XMLRPC.swift in Sources */,
 				B5609135208A563800399AE4 /* LoginWPComViewController.swift in Sources */,
 				CEDE0D972420126900CB3345 /* UIViewController+Helpers.swift in Sources */,
 				B5609119208A555600399AE4 /* SiteInfoHeaderView.swift in Sources */,
