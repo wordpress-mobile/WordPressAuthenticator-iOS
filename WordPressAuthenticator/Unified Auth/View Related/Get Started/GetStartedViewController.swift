@@ -939,6 +939,8 @@ private extension GetStartedViewController {
         })
     }
 
+    /// Extracts XMLRPC error
+    ///
     func originalErrorOrError(error: NSError) -> NSError {
         guard let err = error.userInfo[XMLRPCOriginalErrorKey] as? NSError else {
             return error
