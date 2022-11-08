@@ -42,3 +42,5 @@ fastlane/test_output
 # Everything without a .enc extension is ignored
 .configure-files/*
 !.configure-files/*.enc
+# If the user created a local secrets file, ignore it
+Demo/Secrets.swift
