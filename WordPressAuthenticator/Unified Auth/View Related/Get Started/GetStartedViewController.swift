@@ -876,7 +876,9 @@ private extension GetStartedViewController {
 // MARK: - XMLRPC checks
 
 private extension GetStartedViewController {
-    func configureSiteCredsButton(loading: Bool) {
+    /// Configures the buttons and navigation item
+    ///
+    func configureScreenForRunningXMLRPCChecks(loading: Bool) {
         buttonViewController?.setTopButtonState(isLoading: false,
                                                 isEnabled: !loading)
         buttonViewController?.setBottomButtonState(isLoading: loading,
@@ -887,11 +889,11 @@ private extension GetStartedViewController {
     /// Navigates to site credentials screen where .org site credentials can be entered
     ///
     func guessXMLRPCURL(for siteAddress: String) {
-        configureSiteCredsButton(loading: true)
+        configureScreenForRunningXMLRPCChecks(loading: true)
 
         let facade = WordPressXMLRPCAPIFacade()
         facade.guessXMLRPCURL(forSite: siteAddress, success: { [weak self] (url) in
-            self?.configureSiteCredsButton(loading: false)
+            self?.configureScreenForRunningXMLRPCChecks(loading: false)
 
             if let url = url {
                 self?.loginFields.meta.xmlrpcURL = url as NSURL
@@ -906,7 +908,7 @@ private extension GetStartedViewController {
 
                 self.tracker.track(failure: error.localizedDescription)
 
-                self.configureSiteCredsButton(loading: false)
+                self.configureScreenForRunningXMLRPCChecks(loading: false)
 
                 let xmlrpcError = XMLRPCError.xmlrpcError(siteAddress: siteAddress)
                 /// Check if the host app wants to provide custom UI to handle the error.
