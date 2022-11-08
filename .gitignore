@@ -37,3 +37,8 @@ fastlane/test_output
 
 # SwiftLint Remote Config Cache
 .swiftlint/RemoteConfigCache
+
+# All encrypted secrets should be stored under .configure-files
+# Everything without a .enc extension is ignored
+.configure-files/*
+!.configure-files/*.enc
