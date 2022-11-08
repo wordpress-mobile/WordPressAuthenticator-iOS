@@ -10,7 +10,14 @@ platform :ios do
   desc 'Builds the project and runs tests'
   lane :test do
     run_tests(
-      scheme: 'WordPressAuthenticator',
+      # Usually, a framework's scheme has the same name as the framework.
+      # However, the CocoaPods setup in this project results in two schemes
+      # named WordPressAuthenticator being created, one in the
+      # WordPressAuthenticator.xcodeproj and the other in Pods.xcodeproj. This
+      # can result in ambiguity when running the tests from Fastlane over which
+      # scheme to use. To avoid the issue, we renamed the desired scheme to
+      # "Framework".
+      scheme: 'Framework',
       prelaunch_simulator: true,
       buildlog_path: BUILD_LOG_PATH,
       derived_data_path: DERIVED_DATA_PATH
