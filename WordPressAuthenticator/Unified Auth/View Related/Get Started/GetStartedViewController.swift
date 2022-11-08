@@ -915,7 +915,7 @@ private extension GetStartedViewController {
                 /// If it does, insert the custom UI provided by the host app and exit early
                 if self.authenticationDelegate.shouldHandleError(xmlrpcError) {
                     self.authenticationDelegate.handleError(xmlrpcError) { customUI in
-                        self.pushCustomUI(customUI)
+                        self.pushCustomUIViewController(customUI)
                     }
 
                     return
@@ -928,19 +928,6 @@ private extension GetStartedViewController {
                     self.displayError(extractedXMLRPCError, sourceTag: self.sourceTag)
                 }
         })
-    }
-
-    /// Push a custom view controller, provided by a host app, to the navigation stack
-    func pushCustomUI(_ customUI: UIViewController) {
-        /// Assign the help button of the newly injected UI to the same help button we are currently displaying
-        /// We are making a somewhat big assumption here: the chrome of the new UI we insert would look like the UI
-        /// WPAuthenticator is already displaying. Which is risky, but also kind of makes sense, considering
-        /// we are also pushing that injected UI to the current navigation controller.
-        if WordPressAuthenticator.shared.delegate?.supportActionEnabled == true {
-            customUI.navigationItem.rightBarButtonItems = navigationItem.rightBarButtonItems
-        }
-
-        navigationController?.pushViewController(customUI, animated: true)
     }
 }
 
