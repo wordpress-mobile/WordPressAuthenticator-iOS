@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- New property in `WordPressAuthenticatorConfiguration` to check XMLRPC only when the user opts to sign in using .org site credentials. by @selanthiraiyan [#700]
 
 ### Bug Fixes
 
