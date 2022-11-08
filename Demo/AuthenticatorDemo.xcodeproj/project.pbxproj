@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0B9084355AE56CADE54CE018 /* Pods_AuthenticatorDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF02C0C8B7B005AAE3C08BD9 /* Pods_AuthenticatorDemo.framework */; };
+		3F27A54D291ADF490000996B /* WKWebView+UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A54C291ADF490000996B /* WKWebView+UserAgent.swift */; };
 		3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6EE2912420E00F40408 /* AppDelegate.swift */; };
 		3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F02912420E00F40408 /* SceneDelegate.swift */; };
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F27A54C291ADF490000996B /* WKWebView+UserAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+UserAgent.swift"; sourceTree = "<group>"; };
 		3FB5B6EB2912420E00F40408 /* AuthenticatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthenticatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB5B6EE2912420E00F40408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB5B6F02912420E00F40408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				3FB5B6EE2912420E00F40408 /* AppDelegate.swift */,
 				3FB5B6F02912420E00F40408 /* SceneDelegate.swift */,
 				3FB5B6F22912420E00F40408 /* ViewController.swift */,
+				3F27A54C291ADF490000996B /* WKWebView+UserAgent.swift */,
 				3FB5B6F42912420E00F40408 /* Main.storyboard */,
 				3FB5B6F72912420F00F40408 /* Assets.xcassets */,
 				3FB5B6F92912420F00F40408 /* LaunchScreen.storyboard */,
@@ -207,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F27A54D291ADF490000996B /* WKWebView+UserAgent.swift in Sources */,
 				3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */,
 				3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */,
 				3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */,
