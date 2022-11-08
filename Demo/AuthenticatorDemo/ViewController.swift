@@ -11,15 +11,15 @@ class ViewController: UIViewController {
         // useful to keep it all in one block to show how insanely long it is.
         WordPressAuthenticator.initialize(
             configuration: WordPressAuthenticatorConfiguration(
-                wpcomClientId: "",
-                wpcomSecret: "",
-                wpcomScheme: "",
+                wpcomClientId: ApiCredentials.client,
+                wpcomSecret: ApiCredentials.secret,
+                wpcomScheme: "wordpress-authenticator-ios-demo",
                 wpcomTermsOfServiceURL: "https://wordpress.com/tos/",
                 wpcomBaseURL: "https://wordpress.com",
                 wpcomAPIBaseURL: "https://public-api.wordpress.com/",
-                googleLoginClientId: "",
-                googleLoginServerClientId: "",
-                googleLoginScheme: "",
+                googleLoginClientId: ApiCredentials.googleLoginClientId,
+                googleLoginServerClientId: ApiCredentials.googleLoginServerClientId,
+                googleLoginScheme: ApiCredentials.googleLoginSchemeId,
                 userAgent: "\(WKWebView.userAgent)-wordpress-authenticator-demo-app",
                 showLoginOptions: true,
                 enableSignUp: true,
