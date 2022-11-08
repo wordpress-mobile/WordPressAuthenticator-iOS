@@ -319,7 +319,7 @@ private extension GetStartedViewController {
     // MARK: - Sign in with site credentials Button Action
     @objc func handleSiteCredentialsButtonTapped() {
         tracker.track(click: .signInWithSiteCredentials)
-        guard WordPressAuthenticator.shared.configuration.checkXMLRPCOnlyIfSigningInUsingSiteCredentials else {
+        guard configuration.checkXMLRPCOnlyIfSigningInUsingSiteCredentials else {
             // XMLRPC already checked in "Enter site address" screen.
             return goToSiteCredentialsScreen()
         }
