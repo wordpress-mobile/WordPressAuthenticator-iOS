@@ -921,20 +921,11 @@ private extension GetStartedViewController {
                     return
                 }
 
-                let err = (error as NSError).originalErrorOrError()
-
-                if let xmlrpcValidatorError = err as? WordPressOrgXMLRPCValidatorError {
-                    self.displayErrorAlert(xmlrpcValidatorError.localizedDescription, sourceTag: self.sourceTag)
-                } else if (err.domain == NSURLErrorDomain && err.code == NSURLErrorCannotFindHost) ||
-                            (err.domain == NSURLErrorDomain && err.code == NSURLErrorNetworkConnectionLost) {
-                    // NSURLErrorNetworkConnectionLost can be returned when an invalid URL is entered.
-                    let msg = NSLocalizedString(
-                        "The site at this address is not a WordPress site. For us to connect to it, the site must use WordPress.",
-                        comment: "Error message shown a URL does not point to an existing site.")
-                    self.displayErrorAlert(msg, sourceTag: self.sourceTag)
-
+                let extractedXMLRPCError = (error as NSError).extractXMLRPCError()
+                if let errorMessage = extractedXMLRPCError.errorMessage() {
+                    self.displayErrorAlert(errorMessage, sourceTag: self.sourceTag)
                 } else {
-                    self.displayError(error as NSError, sourceTag: self.sourceTag)
+                    self.displayError(extractedXMLRPCError, sourceTag: self.sourceTag)
                 }
         })
     }

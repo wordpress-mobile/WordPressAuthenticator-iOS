@@ -4,7 +4,7 @@ import WordPressKit
 /// Helper methods for XMLRPC validation related errors
 ///
 extension NSError {
-    func originalErrorOrError() -> NSError {
+    func extractXMLRPCError() -> NSError {
         guard let err = userInfo[XMLRPCOriginalErrorKey] as? NSError else {
             return self
         }
