@@ -86,6 +86,22 @@ extension NUXViewControllerBase where Self: UIViewController, Self: UIViewContro
         presentingController.present(controller, animated: true, completion: nil)
     }
 
+    /// Push a custom view controller, provided by a host app, to the navigation stack
+    ///
+    /// Takes care of adding support button if enabled.
+    ///
+    public func pushCustomUIViewController(_ customUI: UIViewController) {
+        /// Assign the help button of the newly injected UI to the same help button we are currently displaying
+        /// We are making a somewhat big assumption here: the chrome of the new UI we insert would look like the UI
+        /// WPAuthenticator is already displaying. Which is risky, but also kind of makes sense, considering
+        /// we are also pushing that injected UI to the current navigation controller.
+        if WordPressAuthenticator.shared.delegate?.supportActionEnabled == true {
+            customUI.navigationItem.rightBarButtonItems = navigationItem.rightBarButtonItems
+        }
+
+        navigationController?.pushViewController(customUI, animated: true)
+    }
+
     /// It is assumed that NUX view controllers are always presented modally.
     ///
     func dismiss() {
