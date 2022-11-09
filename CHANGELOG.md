@@ -36,7 +36,7 @@ _None._
 
 _None._
 
-### New Features
+- New tracking event for XMLRPC related failure. by @selanthiraiyan [#701]  
 
 _None._
 
