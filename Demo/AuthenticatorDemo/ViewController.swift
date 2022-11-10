@@ -50,19 +50,24 @@ class ViewController: UIViewController {
                 enableUnifiedCarousel: true
             ),
             style: WordPressAuthenticatorStyle(
-                primaryNormalBackgroundColor: .red,
+                // Primary (normal and highlight) is the color of buttons such as "Log in or signup
+                // with WordPress.com"
+                primaryNormalBackgroundColor: .orange,
                 primaryNormalBorderColor: .none,
-                primaryHighlightBackgroundColor: .red,
+                primaryHighlightBackgroundColor: .brown,
                 primaryHighlightBorderColor: .none,
-                secondaryNormalBackgroundColor: .red,
-                secondaryNormalBorderColor: .red,
-                secondaryHighlightBackgroundColor: .red,
-                secondaryHighlightBorderColor: .red,
-                disabledBackgroundColor: .red,
-                disabledBorderColor: .red,
+                // Secondary (normal and highlight) is the color of buttons such as "Enter your
+                // existing site address" (the one just below "Log in or signup...") or "Continue
+                // with Google".
+                secondaryNormalBackgroundColor: .blue,
+                secondaryNormalBorderColor: .black,
+                secondaryHighlightBackgroundColor: .purple,
+                secondaryHighlightBorderColor: .black,
+                disabledBackgroundColor: .systemGray,
+                disabledBorderColor: .systemGray,
                 primaryTitleColor: .white,
-                secondaryTitleColor: .label,
-                disabledTitleColor: .red,
+                secondaryTitleColor: .white,
+                disabledTitleColor: .white,
                 disabledButtonActivityIndicatorColor: .label,
                 textButtonColor: .red,
                 textButtonHighlightColor: .red,
@@ -71,21 +76,23 @@ class ViewController: UIViewController {
                 placeholderColor: .red,
                 viewControllerBackgroundColor: .red,
                 textFieldBackgroundColor: .red,
+                // The navBar settings here are ignored. Those in
+                // `WordPressAuthenticatorUnifiedStyle` take precedence.
                 navBarImage: UIImage(),
                 navBarBadgeColor: .red,
-                navBarBackgroundColor: .red
+                navBarBackgroundColor: .orange
             ),
             unifiedStyle: WordPressAuthenticatorUnifiedStyle(
                 borderColor: .separator,
                 errorColor: .red,
                 textColor: .label,
-                textSubtleColor: .red,
-                textButtonColor: .red,
-                textButtonHighlightColor: .red,
-                viewControllerBackgroundColor: .red,
-                navBarBackgroundColor: .red,
-                navButtonTextColor: .red,
-                navTitleTextColor: .red
+                textSubtleColor: .blue,
+                textButtonColor: .purple,
+                textButtonHighlightColor: .orange,
+                viewControllerBackgroundColor: .systemBackground,
+                navBarBackgroundColor: .blue,
+                navButtonTextColor: .white,
+                navTitleTextColor: .white
             )
         )
 
