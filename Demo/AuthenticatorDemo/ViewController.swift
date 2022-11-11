@@ -6,11 +6,6 @@ class ViewController: UIViewController {
     let tableView = UITableView(frame: .zero, style: .grouped)
     let reuseIdentifier = "cell"
 
-    struct CellConfiguration {
-        let text: String
-        let action: () -> Void
-    }
-
     lazy var configuration: [CellConfiguration] = [
         CellConfiguration(text: "Show Login") { [weak self] in
             guard let self else { fatalError() }
