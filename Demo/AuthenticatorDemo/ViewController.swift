@@ -1,5 +1,4 @@
 import UIKit
-import WebKit
 import WordPressAuthenticator
 
 class ViewController: UIViewController {
@@ -26,76 +25,7 @@ class ViewController: UIViewController {
 
         setUpTableView()
 
-        // In a proper app, we'd want to split this call to keep the code readable. Here, it's
-        // useful to keep it all in one block to show how insanely long it is.
-        WordPressAuthenticator.initialize(
-            configuration: WordPressAuthenticatorConfiguration(
-                wpcomClientId: ApiCredentials.client,
-                wpcomSecret: ApiCredentials.secret,
-                wpcomScheme: "wordpress-authenticator-ios-demo",
-                wpcomTermsOfServiceURL: "https://wordpress.com/tos/",
-                wpcomBaseURL: "https://wordpress.com",
-                wpcomAPIBaseURL: "https://public-api.wordpress.com/",
-                googleLoginClientId: ApiCredentials.googleLoginClientId,
-                googleLoginServerClientId: ApiCredentials.googleLoginServerClientId,
-                googleLoginScheme: ApiCredentials.googleLoginSchemeId,
-                userAgent: "\(WKWebView.userAgent)-wordpress-authenticator-demo-app",
-                showLoginOptions: true,
-                enableSignUp: true,
-                // SIWA might require additional settings in the Developer Portal... Keeping it off
-                // for the moment
-                enableSignInWithApple: false,
-                enableSignupWithGoogle: true,
-                enableUnifiedAuth: true,
-                enableUnifiedCarousel: true
-            ),
-            style: WordPressAuthenticatorStyle(
-                // Primary (normal and highlight) is the color of buttons such as "Log in or signup
-                // with WordPress.com"
-                primaryNormalBackgroundColor: .orange,
-                primaryNormalBorderColor: .none,
-                primaryHighlightBackgroundColor: .brown,
-                primaryHighlightBorderColor: .none,
-                // Secondary (normal and highlight) is the color of buttons such as "Enter your
-                // existing site address" (the one just below "Log in or signup...") or "Continue
-                // with Google".
-                secondaryNormalBackgroundColor: .blue,
-                secondaryNormalBorderColor: .black,
-                secondaryHighlightBackgroundColor: .purple,
-                secondaryHighlightBorderColor: .black,
-                disabledBackgroundColor: .systemGray,
-                disabledBorderColor: .systemGray,
-                primaryTitleColor: .white,
-                secondaryTitleColor: .white,
-                disabledTitleColor: .white,
-                disabledButtonActivityIndicatorColor: .label,
-                textButtonColor: .red,
-                textButtonHighlightColor: .red,
-                instructionColor: .label,
-                subheadlineColor: .secondaryLabel,
-                placeholderColor: .red,
-                viewControllerBackgroundColor: .red,
-                textFieldBackgroundColor: .red,
-                // The navBar settings here are ignored. Those in
-                // `WordPressAuthenticatorUnifiedStyle` take precedence.
-                navBarImage: UIImage(),
-                navBarBadgeColor: .red,
-                navBarBackgroundColor: .orange
-            ),
-            unifiedStyle: WordPressAuthenticatorUnifiedStyle(
-                borderColor: .separator,
-                errorColor: .red,
-                textColor: .label,
-                textSubtleColor: .blue,
-                textButtonColor: .purple,
-                textButtonHighlightColor: .orange,
-                viewControllerBackgroundColor: .systemBackground,
-                navBarBackgroundColor: .blue,
-                navButtonTextColor: .white,
-                navTitleTextColor: .white
-            )
-        )
-
+        initializeWordPressAuthenticator()
         WordPressAuthenticator.shared.delegate = self
     }
 
@@ -162,97 +92,5 @@ extension ViewController {
     func configuration(for indexPath: IndexPath) -> CellConfiguration? {
         guard configuration.count > indexPath.row else { return .none }
         return configuration[indexPath.row]
-    }
-}
-
-extension ViewController: WordPressAuthenticatorDelegate {
-
-    var dismissActionEnabled: Bool { true }
-
-    var supportActionEnabled: Bool { true }
-
-    var wpcomTermsOfServiceEnabled: Bool { true }
-
-    var showSupportNotificationIndicator: Bool { true }
-
-    var supportEnabled: Bool { true }
-
-    var allowWPComLogin: Bool { true }
-
-    func createdWordPressComAccount(username: String, authToken: String) {
-        print(username)
-        print(authToken)
-    }
-
-    func userAuthenticatedWithAppleUserID(_ appleUserID: String) {
-        print(appleUserID)
-    }
-
-    func presentSupportRequest(from sourceViewController: UIViewController, sourceTag: WordPressSupportSourceTag) {
-        fatalError("TODO")
-    }
-
-    func shouldPresentUsernamePasswordController(for siteInfo: WordPressComSiteInfo?, onCompletion: @escaping (WordPressAuthenticatorResult) -> Void) {
-        fatalError("TODO")
-    }
-
-    func presentLoginEpilogue(in navigationController: UINavigationController, for credentials: AuthenticatorCredentials, source: SignInSource?, onDismiss: @escaping () -> Void) {
-        fatalError("TODO")
-    }
-
-    func presentSignupEpilogue(in navigationController: UINavigationController, for credentials: AuthenticatorCredentials, service: SocialService?) {
-        fatalError("TODO")
-    }
-
-    func presentSupport(from sourceViewController: UIViewController, sourceTag: WordPressSupportSourceTag, lastStep: AuthenticatorAnalyticsTracker.Step, lastFlow: AuthenticatorAnalyticsTracker.Flow) {
-        fatalError("TODO")
-    }
-
-    func shouldPresentLoginEpilogue(isJetpackLogin: Bool) -> Bool {
-        true
-    }
-
-    func shouldHandleError(_ error: Error) -> Bool {
-        printFunctionName()
-        print(error)
-        return true
-    }
-
-    func handleError(_ error: Error, onCompletion: @escaping (UIViewController) -> Void) {
-        dismiss(animated: true) { [weak self] in
-            self?.presentAlert(
-                title: "Authentication Error",
-                message: "\(error.localizedDescription)",
-                onDismiss: {}
-            )
-        }
-    }
-
-    func shouldPresentSignupEpilogue() -> Bool {
-        true
-    }
-
-    func sync(credentials: AuthenticatorCredentials, onCompletion: @escaping () -> Void) {
-        dismiss(animated: true) { [weak self] in
-            self?.presentAlert(
-                title: "Authentication Successful",
-                message: "Next step will be syncing credentials",
-                onDismiss: {}
-            )
-        }
-    }
-
-    func track(event: WPAnalyticsStat) {
-        print(event)
-    }
-
-    func track(event: WPAnalyticsStat, properties: [AnyHashable: Any]) {
-        print(event)
-        print(properties)
-    }
-
-    func track(event: WPAnalyticsStat, error: Error) {
-        print(event)
-        print(error)
     }
 }
