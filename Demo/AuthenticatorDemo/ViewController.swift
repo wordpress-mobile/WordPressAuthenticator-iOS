@@ -1,17 +1,20 @@
 import UIKit
 import WordPressAuthenticator
 
+/// Starting point for the demo app. It shows a table view with actionable rows each loading a different authentication flow.
+/// (Currently, we only have one authentication flow).
 class ViewController: UIViewController {
 
-    let tableView = UITableView(frame: .zero, style: .grouped)
-    let reuseIdentifier = "cell"
-
+    /// Add `CellConfiguration` items to add new actionable rows to the table view in `ViewController`.
     lazy var configuration: [CellConfiguration] = [
         CellConfiguration(text: "Show Login") { [weak self] in
             guard let self else { fatalError() }
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
         }
     ]
+
+    let tableView = UITableView(frame: .zero, style: .grouped)
+    let reuseIdentifier = "cell"
 
     override func viewDidLoad() {
         super.viewDidLoad()
