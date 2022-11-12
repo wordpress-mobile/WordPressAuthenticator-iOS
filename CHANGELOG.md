@@ -30,13 +30,13 @@ _None._
 
 -->
 
-## 4.2.0 [Unreleased]
+## Unreleased
 
 ### Breaking Changes
 
 _None._
 
-- New tracking event for XMLRPC related failure. by @selanthiraiyan [#701]  
+### New Features
 
 _None._
 
@@ -47,6 +47,12 @@ _None._
 ### Internal Changes
 
 _None._
+
+## 4.2.0
+
+### New Features
+
+- New tracking event for XMLRPC related failure. by @selanthiraiyan [#701]  
 
 ## [4.1.1](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.1.1)
 
