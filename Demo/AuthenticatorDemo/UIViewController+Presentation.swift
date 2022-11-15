@@ -8,13 +8,15 @@ extension UIViewController {
         animated: Bool = true,
         onDismiss: @escaping () -> Void
     ) {
-        present(
-            UIAlertController.withSingleDismissButton(
-                title: title,
-                message: message,
-                onDismiss: onDismiss
-            ),
-            animated: animated
-        )
+        DispatchQueue.main.async { [weak self] in
+            self?.present(
+                UIAlertController.withSingleDismissButton(
+                    title: title,
+                    message: message,
+                    onDismiss: onDismiss
+                ),
+                animated: animated
+            )
+        }
     }
 }
