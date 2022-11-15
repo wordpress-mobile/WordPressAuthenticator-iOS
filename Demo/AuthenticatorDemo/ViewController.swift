@@ -10,6 +10,10 @@ class ViewController: UIViewController {
         CellConfiguration(text: "Show Login") { [weak self] in
             guard let self else { fatalError() }
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
+        },
+        CellConfiguration(text: "ASWebAuthenticationSession") { [weak self] in
+            guard let self else { fatalError() }
+            self.startGoogleOAuthFlow()
         }
     ]
 
