@@ -8,7 +8,8 @@ class ViewController: UIViewController {
     /// Add `CellConfiguration` items to add new actionable rows to the table view in `ViewController`.
     lazy var configuration: [CellConfiguration] = [
         CellConfiguration(text: "Show Login") { [weak self] in
-            self?.presentAlert(title: "Coming Soon", message: "...", onDismiss: {})
+            guard let self else { fatalError() }
+            WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
         }
     ]
 
@@ -21,6 +22,9 @@ class ViewController: UIViewController {
         title = "Authenticator Demo 🔐"
 
         setUpTableView()
+
+        initializeWordPressAuthenticator()
+        WordPressAuthenticator.shared.delegate = self
     }
 
     func setUpTableView() {

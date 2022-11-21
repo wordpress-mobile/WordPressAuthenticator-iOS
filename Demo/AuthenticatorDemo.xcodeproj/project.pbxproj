@@ -27,6 +27,8 @@
 		3F55C3AD292BAB23002923B1 /* UIViewController+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */; };
 		3F55C3AE292BAB23002923B1 /* UIAlertController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */; };
 		3F55C3B0292BAB54002923B1 /* WKWebView+UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AF292BAB54002923B1 /* WKWebView+UserAgent.swift */; };
+		3F55C3B9292BAD5E002923B1 /* ViewController+WordPressAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A55F291E421C0000996B /* ViewController+WordPressAuthenticator.swift */; };
+		3F55C3BA292BAD61002923B1 /* ViewController+WordPressAuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A55D291E41CC0000996B /* ViewController+WordPressAuthenticationDelegate.swift */; };
 		3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6EE2912420E00F40408 /* AppDelegate.swift */; };
 		3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F02912420E00F40408 /* SceneDelegate.swift */; };
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
@@ -46,6 +48,8 @@
 
 /* Begin PBXFileReference section */
 		3F27A555291AE5F00000996B /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = ../Secrets.swift; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F27A55D291E41CC0000996B /* ViewController+WordPressAuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+WordPressAuthenticationDelegate.swift"; sourceTree = "<group>"; };
+		3F27A55F291E421C0000996B /* ViewController+WordPressAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+WordPressAuthenticator.swift"; sourceTree = "<group>"; };
 		3F55C3A7292BAAE0002923B1 /* CellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguration.swift; sourceTree = "<group>"; };
 		3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentation.swift"; sourceTree = "<group>"; };
 		3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Utils.swift"; sourceTree = "<group>"; };
@@ -105,6 +109,8 @@
 				3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */,
 				3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */,
 				3FB5B6F22912420E00F40408 /* ViewController.swift */,
+				3F27A55D291E41CC0000996B /* ViewController+WordPressAuthenticationDelegate.swift */,
+				3F27A55F291E421C0000996B /* ViewController+WordPressAuthenticator.swift */,
 				3F55C3AF292BAB54002923B1 /* WKWebView+UserAgent.swift */,
 			);
 			path = AuthenticatorDemo;
@@ -268,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F55C3AD292BAB23002923B1 /* UIViewController+Presentation.swift in Sources */,
+				3F55C3BA292BAD61002923B1 /* ViewController+WordPressAuthenticationDelegate.swift in Sources */,
+				3F55C3B9292BAD5E002923B1 /* ViewController+WordPressAuthenticator.swift in Sources */,
 				3F27A556291AE5F00000996B /* Secrets.swift in Sources */,
 				3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */,
 				3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */,
