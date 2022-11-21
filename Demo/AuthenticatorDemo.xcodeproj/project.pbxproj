@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0B9084355AE56CADE54CE018 /* Pods_AuthenticatorDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF02C0C8B7B005AAE3C08BD9 /* Pods_AuthenticatorDemo.framework */; };
 		3F55C3A8292BAAE0002923B1 /* CellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3A7292BAAE0002923B1 /* CellConfiguration.swift */; };
+		3F55C3AD292BAB23002923B1 /* UIViewController+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */; };
+		3F55C3AE292BAB23002923B1 /* UIAlertController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */; };
 		3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6EE2912420E00F40408 /* AppDelegate.swift */; };
 		3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F02912420E00F40408 /* SceneDelegate.swift */; };
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
@@ -19,6 +21,8 @@
 
 /* Begin PBXFileReference section */
 		3F55C3A7292BAAE0002923B1 /* CellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguration.swift; sourceTree = "<group>"; };
+		3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentation.swift"; sourceTree = "<group>"; };
+		3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Utils.swift"; sourceTree = "<group>"; };
 		3FB5B6EB2912420E00F40408 /* AuthenticatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthenticatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB5B6EE2912420E00F40408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB5B6F02912420E00F40408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				3FB5B6F92912420F00F40408 /* LaunchScreen.storyboard */,
 				3FB5B6F42912420E00F40408 /* Main.storyboard */,
 				3FB5B6F02912420E00F40408 /* SceneDelegate.swift */,
+				3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */,
+				3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */,
 				3FB5B6F22912420E00F40408 /* ViewController.swift */,
 			);
 			path = AuthenticatorDemo;
@@ -210,9 +216,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F55C3AD292BAB23002923B1 /* UIViewController+Presentation.swift in Sources */,
 				3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */,
 				3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */,
 				3F55C3A8292BAAE0002923B1 /* CellConfiguration.swift in Sources */,
+				3F55C3AE292BAB23002923B1 /* UIAlertController+Utils.swift in Sources */,
 				3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
