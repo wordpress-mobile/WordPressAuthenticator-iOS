@@ -1,7 +1,7 @@
 {
   "project_name": "WordPressAuthenticator-iOS",
   "branch": "trunk",
-  "pinned_hash": "bec1a27fb1457e77fe36861d02c239590748a970",
+  "pinned_hash": "d71ccb4011793d363fbef513903867dfc672e09a",
   "files_to_copy": [
     {
       "file": "iOS/WordPressAuthenticator-Demo/Secrets.swift",

@@ -8,15 +8,15 @@ extension ViewController {
         // useful to keep it all in one block to show how insanely long it is.
         WordPressAuthenticator.initialize(
             configuration: WordPressAuthenticatorConfiguration(
-                wpcomClientId: ApiCredentials.client,
-                wpcomSecret: ApiCredentials.secret,
+                wpcomClientId: APICredentials.client,
+                wpcomSecret: APICredentials.secret,
                 wpcomScheme: "wordpress-authenticator-ios-demo",
                 wpcomTermsOfServiceURL: "https://wordpress.com/tos/",
                 wpcomBaseURL: "https://wordpress.com",
                 wpcomAPIBaseURL: "https://public-api.wordpress.com/",
-                googleLoginClientId: ApiCredentials.googleLoginClientId,
-                googleLoginServerClientId: ApiCredentials.googleLoginServerClientId,
-                googleLoginScheme: ApiCredentials.googleLoginSchemeId,
+                googleLoginClientId: APICredentials.googleLoginClientId,
+                googleLoginServerClientId: APICredentials.googleLoginServerClientId,
+                googleLoginScheme: APICredentials.googleLoginSchemeId,
                 userAgent: "\(WKWebView.userAgent)-wordpress-authenticator-demo-app",
                 showLoginOptions: true,
                 enableSignUp: true,

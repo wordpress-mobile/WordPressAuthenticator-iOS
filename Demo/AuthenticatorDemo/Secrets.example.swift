@@ -1,7 +1,4 @@
-import Foundation
-
-@objc
-class ApiCredentials: NSObject {
+enum APICredentials {
 
     // WordPress.com OAuth ClientID / Client Secret
     static let client = "0"
