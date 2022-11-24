@@ -6,12 +6,29 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		3F27A54E291AE3CF0000996B /* GenerateCredentials */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 3F27A54F291AE3CF0000996B /* Build configuration list for PBXAggregateTarget "GenerateCredentials" */;
+			buildPhases = (
+				3F27A552291AE3D60000996B /* Generate Credentials */,
+			);
+			dependencies = (
+			);
+			name = GenerateCredentials;
+			productName = GenerateCredentials;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0B9084355AE56CADE54CE018 /* Pods_AuthenticatorDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF02C0C8B7B005AAE3C08BD9 /* Pods_AuthenticatorDemo.framework */; };
+		3F27A556291AE5F00000996B /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A555291AE5F00000996B /* Secrets.swift */; };
 		3F55C3A8292BAAE0002923B1 /* CellConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3A7292BAAE0002923B1 /* CellConfiguration.swift */; };
 		3F55C3AD292BAB23002923B1 /* UIViewController+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */; };
 		3F55C3AE292BAB23002923B1 /* UIAlertController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */; };
 		3F55C3B0292BAB54002923B1 /* WKWebView+UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AF292BAB54002923B1 /* WKWebView+UserAgent.swift */; };
+		3F55C3B9292BAD5E002923B1 /* ViewController+WordPressAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A55F291E421C0000996B /* ViewController+WordPressAuthenticator.swift */; };
+		3F55C3BA292BAD61002923B1 /* ViewController+WordPressAuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A55D291E41CC0000996B /* ViewController+WordPressAuthenticationDelegate.swift */; };
 		3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6EE2912420E00F40408 /* AppDelegate.swift */; };
 		3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F02912420E00F40408 /* SceneDelegate.swift */; };
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
@@ -19,7 +36,20 @@
 		3FB5B6FB2912420F00F40408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F92912420F00F40408 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3F27A553291AE4030000996B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FB5B6E32912420E00F40408 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3F27A54E291AE3CF0000996B;
+			remoteInfo = GenerateCredentials;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		3F27A555291AE5F00000996B /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = ../Secrets.swift; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F27A55D291E41CC0000996B /* ViewController+WordPressAuthenticationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+WordPressAuthenticationDelegate.swift"; sourceTree = "<group>"; };
+		3F27A55F291E421C0000996B /* ViewController+WordPressAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+WordPressAuthenticator.swift"; sourceTree = "<group>"; };
 		3F55C3A7292BAAE0002923B1 /* CellConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellConfiguration.swift; sourceTree = "<group>"; };
 		3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentation.swift"; sourceTree = "<group>"; };
 		3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Utils.swift"; sourceTree = "<group>"; };
@@ -75,9 +105,12 @@
 				3FB5B6FC2912420F00F40408 /* Info.plist */,
 				3FB5B6F92912420F00F40408 /* LaunchScreen.storyboard */,
 				3FB5B6F02912420E00F40408 /* SceneDelegate.swift */,
+				3F27A555291AE5F00000996B /* Secrets.swift */,
 				3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */,
 				3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */,
 				3FB5B6F22912420E00F40408 /* ViewController.swift */,
+				3F27A55D291E41CC0000996B /* ViewController+WordPressAuthenticationDelegate.swift */,
+				3F27A55F291E421C0000996B /* ViewController+WordPressAuthenticator.swift */,
 				3F55C3AF292BAB54002923B1 /* WKWebView+UserAgent.swift */,
 			);
 			path = AuthenticatorDemo;
@@ -117,6 +150,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3F27A554291AE4030000996B /* PBXTargetDependency */,
 			);
 			name = AuthenticatorDemo;
 			productName = AuthenticatorDemo;
@@ -133,6 +167,9 @@
 				LastSwiftUpdateCheck = 1400;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
+					3F27A54E291AE3CF0000996B = {
+						CreatedOnToolsVersion = 14.1;
+					};
 					3FB5B6EA2912420E00F40408 = {
 						CreatedOnToolsVersion = 14.0.1;
 					};
@@ -152,6 +189,7 @@
 			projectRoot = "";
 			targets = (
 				3FB5B6EA2912420E00F40408 /* AuthenticatorDemo */,
+				3F27A54E291AE3CF0000996B /* GenerateCredentials */,
 			);
 		};
 /* End PBXProject section */
@@ -169,6 +207,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3F27A552291AE3D60000996B /* Generate Credentials */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/Build-Phases/GenerateCredentials.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Generate Credentials";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILD_DIR)/Secrets.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "$SRCROOT/Build-Phases/GenerateCredentials.sh\n";
+		};
 		46F868D4B05D9FAC769EF4C5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +274,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F55C3AD292BAB23002923B1 /* UIViewController+Presentation.swift in Sources */,
+				3F55C3BA292BAD61002923B1 /* ViewController+WordPressAuthenticationDelegate.swift in Sources */,
+				3F55C3B9292BAD5E002923B1 /* ViewController+WordPressAuthenticator.swift in Sources */,
+				3F27A556291AE5F00000996B /* Secrets.swift in Sources */,
 				3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */,
 				3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */,
 				3F55C3A8292BAAE0002923B1 /* CellConfiguration.swift in Sources */,
@@ -226,6 +287,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F27A554291AE4030000996B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3F27A54E291AE3CF0000996B /* GenerateCredentials */;
+			targetProxy = 3F27A553291AE4030000996B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		3FB5B6F92912420F00F40408 /* LaunchScreen.storyboard */ = {
@@ -239,6 +308,25 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3F55C3B3292BABF8002923B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = GenerateCredentials;
+			};
+			name = Debug;
+		};
+		3F55C3B4292BABF8002923B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				PRODUCT_NAME = GenerateCredentials;
+			};
+			name = Release;
+		};
 		3FB5B6FD2912420F00F40408 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -410,6 +498,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3F27A54F291AE3CF0000996B /* Build configuration list for PBXAggregateTarget "GenerateCredentials" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F55C3B3292BABF8002923B1 /* Debug */,
+				3F55C3B4292BABF8002923B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		3FB5B6E62912420E00F40408 /* Build configuration list for PBXProject "AuthenticatorDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
