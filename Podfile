@@ -17,7 +17,6 @@ workspace 'WordPressAuthenticator.xcworkspace'
 ## =====================
 ##
 def third_party_pods
-  pod 'CocoaLumberjack', '3.5.2'
   pod 'GoogleSignIn', '6.0.1'
   pod 'NSURL+IDN', '0.4'
   pod 'SVProgressHUD', '2.2.5'
