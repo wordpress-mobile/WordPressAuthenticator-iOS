@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-_None._
+- Remove CocoaLumberjack. Use `WPAuthenticatorSetLoggingDelegate` to assign a logger to this library. [#708]
 
 ### New Features
 
