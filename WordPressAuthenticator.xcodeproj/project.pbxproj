@@ -445,13 +445,6 @@
 			path = SupportedEmailClients;
 			sourceTree = "<group>";
 		};
-		3F550D4C23DA4191007E5897 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
 		3F550D4F23DA4A6B007E5897 /* Email Client Picker */ = {
 			isa = PBXGroup;
 			children = (
@@ -788,7 +781,6 @@
 				D85C36E4256E0DAF00D56E34 /* Navigation */,
 				B501C03F208FC52500D1E58F /* Services */,
 				F18DF0E32525009200D83AFE /* SupportingFiles */,
-				3F550D4C23DA4191007E5897 /* UI */,
 				3F338B6B289B87E60014ADC5 /* UnitTests.xctestplan */,
 			);
 			path = WordPressAuthenticatorTests;
