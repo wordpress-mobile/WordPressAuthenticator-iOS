@@ -25,7 +25,10 @@ extension ViewController {
                 enableSignInWithApple: false,
                 enableSignupWithGoogle: true,
                 enableUnifiedAuth: true,
-                enableUnifiedCarousel: true
+                enableUnifiedCarousel: true,
+                // Notice that this is required as well as `enableSignupWithGoogle` to show the
+                // option to login with Google.
+                enableSocialLogin: true
             ),
             style: WordPressAuthenticatorStyle(
                 // Primary (normal and highlight) is the color of buttons such as "Log in or signup

@@ -10,5 +10,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.rootViewController = UINavigationController(rootViewController: ViewController())
         window?.makeKeyAndVisible()
+
+        // We need to set this relationship to avoid a crash when using SVProgressHUD.
+        (UIApplication.shared.delegate as? AppDelegate)?.window = window
     }
 }
