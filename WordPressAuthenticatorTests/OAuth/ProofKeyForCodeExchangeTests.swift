@@ -19,6 +19,6 @@ class ProofKeyForCodeExchangeTests: XCTestCase {
     }
 
     func testModeS256Method() {
-        XCTAssertEqual(ProofKeyForCodeExchange.Mode.plain.method, "S256")
+        XCTAssertEqual(ProofKeyForCodeExchange.Mode.s256.method, "S256")
     }
 }
