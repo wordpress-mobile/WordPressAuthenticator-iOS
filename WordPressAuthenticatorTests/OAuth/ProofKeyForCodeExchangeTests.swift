@@ -13,4 +13,12 @@ class ProofKeyForCodeExchangeTests: XCTestCase {
     func testCodeChallengeInS256ModeIsEncodedAsPerSpec() {
         // TODO:
     }
+
+    func testModePlainMethod() {
+        XCTAssertEqual(ProofKeyForCodeExchange.Mode.plain.method, "plain")
+    }
+
+    func testModeS256Method() {
+        XCTAssertEqual(ProofKeyForCodeExchange.Mode.plain.method, "S256")
+    }
 }
