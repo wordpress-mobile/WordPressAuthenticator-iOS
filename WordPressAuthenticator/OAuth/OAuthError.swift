@@ -1,18 +1,24 @@
 enum OAuthError {
 
-    struct InconsistentASWebAuthenticationSessionCompletion: LocalizedError {
-        let errorDescription = "ASWebAuthenticationSession authentication finished with neither a callback URL nor error"
+    enum ASWebAuthenticationSession {
+
+        struct InconsistentSessionCompletion: LocalizedError {
+            let errorDescription = "ASWebAuthenticationSession authentication finished with neither a callback URL nor error"
+        }
     }
 
-    struct FailedToBuildURLQuery: LocalizedError {
-        let requestBody: OAuthTokenRequestBody
+    enum TokenRequestBody {
 
-        lazy var errorDescription = "Failed to build URL query string from \(requestBody)"
-    }
+        struct FailedToBuildURLQuery: LocalizedError {
+            let requestBody: OAuthTokenRequestBody
 
-    struct FailedToEncodeURLQuery: LocalizedError {
-        let query: String
+            lazy var errorDescription = "Failed to build URL query string from \(requestBody)"
+        }
 
-        lazy var errorDescription = "Failed to encode URL query string '\(query)'"
+        struct FailedToEncodeURLQuery: LocalizedError {
+            let query: String
+
+            lazy var errorDescription = "Failed to encode URL query string '\(query)'"
+        }
     }
 }
