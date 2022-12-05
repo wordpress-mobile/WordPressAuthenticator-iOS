@@ -29,6 +29,8 @@
 		3F55C3B0292BAB54002923B1 /* WKWebView+UserAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F55C3AF292BAB54002923B1 /* WKWebView+UserAgent.swift */; };
 		3F55C3B9292BAD5E002923B1 /* ViewController+WordPressAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A55F291E421C0000996B /* ViewController+WordPressAuthenticator.swift */; };
 		3F55C3BA292BAD61002923B1 /* ViewController+WordPressAuthenticationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A55D291E41CC0000996B /* ViewController+WordPressAuthenticationDelegate.swift */; };
+		3F87A002293E46E7005C2B48 /* AuthenticatorDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A001293E46E7005C2B48 /* AuthenticatorDemoUITests.swift */; };
+		3F87A00B293F5AF8005C2B48 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A555291AE5F00000996B /* Secrets.swift */; };
 		3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6EE2912420E00F40408 /* AppDelegate.swift */; };
 		3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F02912420E00F40408 /* SceneDelegate.swift */; };
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
@@ -44,6 +46,13 @@
 			remoteGlobalIDString = 3F27A54E291AE3CF0000996B;
 			remoteInfo = GenerateCredentials;
 		};
+		3F87A005293E46E7005C2B48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3FB5B6E32912420E00F40408 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3FB5B6EA2912420E00F40408;
+			remoteInfo = AuthenticatorDemo;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +63,9 @@
 		3F55C3AB292BAB23002923B1 /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentation.swift"; sourceTree = "<group>"; };
 		3F55C3AC292BAB23002923B1 /* UIAlertController+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Utils.swift"; sourceTree = "<group>"; };
 		3F55C3AF292BAB54002923B1 /* WKWebView+UserAgent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKWebView+UserAgent.swift"; sourceTree = "<group>"; };
+		3F879FFF293E46E7005C2B48 /* AuthenticatorDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F87A001293E46E7005C2B48 /* AuthenticatorDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorDemoUITests.swift; sourceTree = "<group>"; };
+		3F87A00A293E4765005C2B48 /* UITests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = UITests.xctestplan; sourceTree = "<group>"; };
 		3FB5B6EB2912420E00F40408 /* AuthenticatorDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuthenticatorDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB5B6EE2912420E00F40408 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB5B6F02912420E00F40408 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +79,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3F879FFC293E46E7005C2B48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FB5B6E82912420E00F40408 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -78,10 +97,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F87A000293E46E7005C2B48 /* AuthenticatorDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3F87A001293E46E7005C2B48 /* AuthenticatorDemoUITests.swift */,
+				3F87A00A293E4765005C2B48 /* UITests.xctestplan */,
+			);
+			path = AuthenticatorDemoUITests;
+			sourceTree = "<group>";
+		};
 		3FB5B6E22912420E00F40408 = {
 			isa = PBXGroup;
 			children = (
 				3FB5B6ED2912420E00F40408 /* AuthenticatorDemo */,
+				3F87A000293E46E7005C2B48 /* AuthenticatorDemoUITests */,
 				3FB5B6EC2912420E00F40408 /* Products */,
 				B3ACA7C5B5F26F3C9C315ED8 /* Pods */,
 				7845A9AC647B3C5B233BAAE6 /* Frameworks */,
@@ -92,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				3FB5B6EB2912420E00F40408 /* AuthenticatorDemo.app */,
+				3F879FFF293E46E7005C2B48 /* AuthenticatorDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,6 +167,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3F879FFE293E46E7005C2B48 /* AuthenticatorDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3F87A009293E46E7005C2B48 /* Build configuration list for PBXNativeTarget "AuthenticatorDemoUITests" */;
+			buildPhases = (
+				3F879FFB293E46E7005C2B48 /* Sources */,
+				3F879FFC293E46E7005C2B48 /* Frameworks */,
+				3F879FFD293E46E7005C2B48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F87A006293E46E7005C2B48 /* PBXTargetDependency */,
+			);
+			name = AuthenticatorDemoUITests;
+			productName = AuthenticatorDemoUITests;
+			productReference = 3F879FFF293E46E7005C2B48 /* AuthenticatorDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		3FB5B6EA2912420E00F40408 /* AuthenticatorDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3FB5B6FF2912420F00F40408 /* Build configuration list for PBXNativeTarget "AuthenticatorDemo" */;
@@ -164,11 +212,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1400;
+				LastSwiftUpdateCheck = 1410;
 				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					3F27A54E291AE3CF0000996B = {
 						CreatedOnToolsVersion = 14.1;
+					};
+					3F879FFE293E46E7005C2B48 = {
+						CreatedOnToolsVersion = 14.1;
+						TestTargetID = 3FB5B6EA2912420E00F40408;
 					};
 					3FB5B6EA2912420E00F40408 = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -190,11 +242,19 @@
 			targets = (
 				3FB5B6EA2912420E00F40408 /* AuthenticatorDemo */,
 				3F27A54E291AE3CF0000996B /* GenerateCredentials */,
+				3F879FFE293E46E7005C2B48 /* AuthenticatorDemoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3F879FFD293E46E7005C2B48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FB5B6E92912420E00F40408 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -269,6 +329,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3F879FFB293E46E7005C2B48 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F87A002293E46E7005C2B48 /* AuthenticatorDemoUITests.swift in Sources */,
+				3F87A00B293F5AF8005C2B48 /* Secrets.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3FB5B6E72912420E00F40408 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -293,6 +362,11 @@
 			isa = PBXTargetDependency;
 			target = 3F27A54E291AE3CF0000996B /* GenerateCredentials */;
 			targetProxy = 3F27A553291AE4030000996B /* PBXContainerItemProxy */;
+		};
+		3F87A006293E46E7005C2B48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3FB5B6EA2912420E00F40408 /* AuthenticatorDemo */;
+			targetProxy = 3F87A005293E46E7005C2B48 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -324,6 +398,40 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				PRODUCT_NAME = GenerateCredentials;
+			};
+			name = Release;
+		};
+		3F87A007293E46E7005C2B48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.wordpress.AuthenticatorDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AuthenticatorDemo;
+			};
+			name = Debug;
+		};
+		3F87A008293E46E7005C2B48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = org.wordpress.AuthenticatorDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = AuthenticatorDemo;
 			};
 			name = Release;
 		};
@@ -503,6 +611,15 @@
 			buildConfigurations = (
 				3F55C3B3292BABF8002923B1 /* Debug */,
 				3F55C3B4292BABF8002923B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3F87A009293E46E7005C2B48 /* Build configuration list for PBXNativeTarget "AuthenticatorDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F87A007293E46E7005C2B48 /* Debug */,
+				3F87A008293E46E7005C2B48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
