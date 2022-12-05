@@ -1,34 +1,23 @@
-enum OAuthError {
+enum OAuthError: LocalizedError {
 
-    enum ASWebAuthenticationSession {
+    case inconsistentWebAuthenticationSessionCompletion
 
-        struct InconsistentSessionCompletion: LocalizedError {
-            let errorDescription = "ASWebAuthenticationSession authentication finished with neither a callback URL nor error"
-        }
-    }
+    case failedToBuildURLQuery
 
-    enum TokenRequestBody {
+    case failedToEncodeURLQuery(query: String)
 
-        struct FailedToBuildURLQuery: LocalizedError {
-            let requestBody: OAuthTokenRequestBody
+    case tokenURLDidNotContainCodeParameter(url: URL)
 
-            lazy var errorDescription = "Failed to build URL query string from \(requestBody)"
-        }
-
-        struct FailedToEncodeURLQuery: LocalizedError {
-            let query: String
-
-            lazy var errorDescription = "Failed to encode URL query string '\(query)'"
-        }
-    }
-
-    enum TokenResponse {
-
-        struct URLDidNotContainCodeParameter: LocalizedError {
-
-            let url: URL
-
-            lazy var errorDescription = "Could not find 'code' parameter in URL '\(url)"
+    var errorDescription: String {
+        switch self {
+        case .failedToBuildURLQuery:
+            return "Failed to build URL query string"
+        case .failedToEncodeURLQuery(let query):
+            return "Failed to encode URL query string '\(query)'"
+        case .inconsistentWebAuthenticationSessionCompletion:
+            return "ASWebAuthenticationSession authentication finished with neither a callback URL nor error"
+        case .tokenURLDidNotContainCodeParameter(let url):
+            return "Could not find 'code' parameter in URL '\(url)"
         }
     }
 }

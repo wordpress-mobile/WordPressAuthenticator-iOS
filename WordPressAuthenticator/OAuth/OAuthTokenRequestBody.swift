@@ -34,11 +34,11 @@ struct OAuthTokenRequestBody: Encodable {
         components.queryItems = items
 
         guard let query = components.query else {
-            throw OAuthError.TokenRequestBody.FailedToBuildURLQuery(requestBody: self)
+            throw OAuthError.failedToBuildURLQuery
         }
 
         guard let data = query.data(using: .utf8) else {
-            throw OAuthError.TokenRequestBody.FailedToEncodeURLQuery(query: query)
+            throw OAuthError.failedToEncodeURLQuery(query: query)
         }
 
         return data

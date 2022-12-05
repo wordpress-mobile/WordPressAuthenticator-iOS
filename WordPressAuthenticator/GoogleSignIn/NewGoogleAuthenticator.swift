@@ -73,7 +73,7 @@ public class NewGoogleAuthenticator: NSObject {
             .queryItems?
             .first(where: { $0.name == "code" })?
             .value else {
-            throw OAuthError.TokenResponse.URLDidNotContainCodeParameter(url: url)
+            throw OAuthError.tokenURLDidNotContainCodeParameter(url: url)
         }
 
         return try await oauthTokenGetter
