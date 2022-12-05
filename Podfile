@@ -28,8 +28,8 @@ def wordpress_authenticator_pods
   ##
   pod 'Gridicons', '~> 1.0-beta' # Don't change this until we hit 2.0 in Gridicons
   pod 'WordPressUI', '~> 1.7-beta' # Don't change this until we hit 2.0 in WordPressUI
-  pod 'WordPressKit', '~> 4.18-beta' # Don't change this until we hit 5.0 in WPKit
-  pod 'WordPressShared', '~> 1.12-beta' # Don't change this until we hit 2.0 in WPShared
+  pod 'WordPressKit', '~> 5.0-beta' # Don't change this until we hit 5.0 in WPKit
+  pod 'WordPressShared', '~> 2.0-beta' # Don't change this until we hit 2.0 in WPShared
 
   third_party_pods
 end
