@@ -77,4 +77,15 @@ extension ViewController {
             )
         )
     }
+
+    func newGoogleSignInFlow() {
+        Task.init {
+            do {
+                let token = try await self.googleAuthenticator.authenticate()
+                presentAlert(title: "🎉", message: token, onDismiss: {})
+            } catch {
+                presentAlert(title: "❌", message: error.localizedDescription, onDismiss: {})
+            }
+        }
+    }
 }

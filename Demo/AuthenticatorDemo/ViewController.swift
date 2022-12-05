@@ -1,3 +1,4 @@
+import AuthenticationServices
 import UIKit
 import WordPressAuthenticator
 
@@ -10,11 +11,22 @@ class ViewController: UIViewController {
         CellConfiguration(text: "Show Login") { [weak self] in
             guard let self else { fatalError() }
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
+        },
+        CellConfiguration(text: "New Google SignIn") { [weak self] in
+            guard let self else { fatalError() }
+            self.newGoogleSignInFlow()
         }
     ]
 
     let tableView = UITableView(frame: .zero, style: .grouped)
     let reuseIdentifier = "cell"
+
+    lazy var googleAuthenticator = NewGoogleAuthenticator(
+        clientId: GoogleClientId(string: APICredentials.googleLoginClientId)!,
+        scheme: APICredentials.googleLoginSchemeId,
+        contextProvider: self,
+        urlSession: URLSession.shared
+    )
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,5 +102,11 @@ extension ViewController {
     func configuration(for indexPath: IndexPath) -> CellConfiguration? {
         guard configuration.count > indexPath.row else { return .none }
         return configuration[indexPath.row]
+    }
+}
+
+extension ViewController: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return view.window!
     }
 }
