@@ -21,4 +21,14 @@ enum OAuthError {
             lazy var errorDescription = "Failed to encode URL query string '\(query)'"
         }
     }
+
+    enum TokenResponse {
+
+        struct URLDidNotContainCodeParameter: LocalizedError {
+
+            let url: URL
+
+            lazy var errorDescription = "Could not find 'code' parameter in URL '\(url)"
+        }
+    }
 }
