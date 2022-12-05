@@ -48,6 +48,13 @@ _None._
 
 _None._
 
+## 4.3.0
+
+### New Features
+
+- Make XMLRPC URL optional when verifying WP.com email [#711]
+- A new config is added to skip the XMLRPC check for the site discovery flow [#711]
+
 ## 4.2.0
 
 ### New Features
