@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-- Remove CocoaLumberjack. Use `WPAuthenticatorSetLoggingDelegate` to assign a logger to this library. [#708]
+_None._
 
 ### New Features
 
@@ -47,6 +47,12 @@ _None._
 ### Internal Changes
 
 _None._
+
+## [5.0.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.0.0)
+
+### Breaking Changes
+
+- Remove CocoaLumberjack. Use `WPAuthenticatorSetLoggingDelegate` to assign a logger to this library. [#708]
 
 ## 4.3.0
 
