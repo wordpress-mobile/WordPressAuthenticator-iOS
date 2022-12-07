@@ -30,10 +30,10 @@ class ContinueWithGoogleAlert: ScreenObject {
         cancelButton.tap()
     }
 
-    func `continue`(app: XCUIApplication) throws -> GoogleSignInSafariScreen {
+    func `continue`(app: XCUIApplication) -> GoogleSignInSafariScreen {
         continueButton.tap()
 
-        return try GoogleSignInSafariScreen(app: app)
+        return GoogleSignInSafariScreen(app: app)
     }
 }
 
