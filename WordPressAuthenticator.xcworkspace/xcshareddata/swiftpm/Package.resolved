@@ -1,12 +1,30 @@
 {
   "pins" : [
     {
+      "identity" : "screenobject",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/automattic/screenobject",
+      "state" : {
+        "revision" : "cb38a32bbcc733ba03e307ca7bcae63f8c5de729",
+        "version" : "0.2.2"
+      }
+    },
+    {
       "identity" : "test-collector-swift",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/buildkite/test-collector-swift",
       "state" : {
         "revision" : "77c7f492f5c1c9ca159f73d18f56bbd1186390b0",
         "version" : "0.3.0"
+      }
+    },
+    {
+      "identity" : "xcuitesthelpers",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/automattic/xcuitesthelpers",
+      "state" : {
+        "revision" : "5179cb69d58b90761cc713bdee7740c4889d3295",
+        "version" : "0.4.0"
       }
     }
   ],
