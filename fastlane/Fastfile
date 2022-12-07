@@ -30,7 +30,9 @@ platform :ios do
       scheme: 'UITests',
       prelaunch_simulator: true,
       buildlog_path: BUILD_LOG_PATH,
-      derived_data_path: DERIVED_DATA_PATH
+      derived_data_path: DERIVED_DATA_PATH,
+      result_bundle: true,
+      device: 'iPhone 14'
     )
   end
 
