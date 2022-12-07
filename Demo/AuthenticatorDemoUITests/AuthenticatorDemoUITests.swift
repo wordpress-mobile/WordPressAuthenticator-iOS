@@ -18,4 +18,18 @@ final class AuthenticatorDemoUITests: XCTestCase {
 
         XCTAssertTrue(try GetStartedScreen(app: app).isLoaded)
     }
+
+    func testGoogleLoginForUnlinkedAccountShowsSignUpScreen() throws {
+        let app = XCUIApplication()
+        app.launch()
+
+        try StartScreen(app: app)
+            .showLogin()
+            .selectContinue()
+            .continueWithGoogle()
+            .continue(app: app)
+            .authenticate()
+
+        XCTAssertTrue(app.staticTexts["Sign Up"].waitForExistence(timeout: 10))
+    }
 }
