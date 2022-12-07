@@ -36,6 +36,7 @@
 		3F87A02A29409C4F005C2B48 /* PrologueScreenObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A02929409C4F005C2B48 /* PrologueScreenObject.swift */; };
 		3F87A02C29409FDB005C2B48 /* GetStartedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A02B29409FDB005C2B48 /* GetStartedScreen.swift */; };
 		3F87A02E2940A013005C2B48 /* ContinueWithGoogleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F87A02D2940A013005C2B48 /* ContinueWithGoogleAlert.swift */; };
+		3F87A02F2940A3AA005C2B48 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F27A555291AE5F00000996B /* Secrets.swift */; };
 		3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6EE2912420E00F40408 /* AppDelegate.swift */; };
 		3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F02912420E00F40408 /* SceneDelegate.swift */; };
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
@@ -357,6 +358,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3F87A02C29409FDB005C2B48 /* GetStartedScreen.swift in Sources */,
+				3F87A02F2940A3AA005C2B48 /* Secrets.swift in Sources */,
 				3F87A02A29409C4F005C2B48 /* PrologueScreenObject.swift in Sources */,
 				3F87A0282940996B005C2B48 /* StartScreen.swift in Sources */,
 				3F87A02E2940A013005C2B48 /* ContinueWithGoogleAlert.swift in Sources */,
