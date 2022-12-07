@@ -52,7 +52,7 @@ struct GoogleSignInSafariScreen {
         self.app = app
     }
 
-    func authenticate() {
+    func authenticate(file: StaticString = #file, line: UInt = #line) {
         // The device in which we're running the tests might have pre-existing accounts available.
         let emailField = app.staticTexts[email]
         let selectDifferentAccount = app.staticTexts[Labels.selectDifferentAccount]
@@ -65,6 +65,11 @@ struct GoogleSignInSafariScreen {
             typeEmail()
             typePassword()
         }
+
+        // To make sure the credentials input screen is gone, check none of the input elemets are
+        // on screen.
+        XCTAssertFalse(app.textFields.firstMatch.exists, file: file, line: line)
+        XCTAssertFalse(app.secureTextFields.firstMatch.exists, file: file, line: line)
     }
 
     private func typeEmail() {
