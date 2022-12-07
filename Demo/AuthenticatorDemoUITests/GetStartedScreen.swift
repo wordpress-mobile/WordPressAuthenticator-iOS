@@ -23,6 +23,8 @@ class GetStartedScreen: ScreenObject {
     func continueWithGoogle() throws -> ContinueWithGoogleAlert {
         continueWithGoogleButton.tap()
 
+        XCTAssertTrue(app.staticTexts["Waiting for Google to complete…"].waitForExistence(timeout: 3))
+
         return try ContinueWithGoogleAlert()
     }
 }
