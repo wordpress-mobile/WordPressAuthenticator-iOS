@@ -6,10 +6,16 @@ final class AuthenticatorDemoUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    func testExample() throws {
+    func testCancellingContinueWithGooglePromptReturnsToGetStartedScreen() throws {
         let app = XCUIApplication()
         app.launch()
 
-        try StartScreen(app: app).showLogin()
+        try StartScreen(app: app)
+            .showLogin()
+            .selectContinue()
+            .continueWithGoogle()
+            .cancel()
+
+        XCTAssertTrue(try GetStartedScreen(app: app).isLoaded)
     }
 }
