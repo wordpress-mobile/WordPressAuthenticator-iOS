@@ -23,7 +23,7 @@ steps:
     plugins: *common_plugins
     artifact_paths:
       - "fastlane/test_output/*"
-      - ".build/screenshots/*"
+      - ".build/screenshots/failure-*"
 
   #################
   # Validate Podspec

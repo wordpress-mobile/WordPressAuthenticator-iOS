@@ -35,6 +35,17 @@ final class AuthenticatorDemoUITests: XCTestCase {
 
     override func record(_ issue: XCTIssue) {
         let screenshot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+
+        let separator = "-"
+        let name = issue.description
+            .replacing(" ", with: separator)
+            .replacing(":", with: separator)
+            .replacing("\(separator)\(separator)", with: separator)
+            .lowercased()
+        // - Add a custom prefix to identify these screenshots from those automatically taken
+        // - Need to append an extension for the image to be properly extracted
+        screenshot.name = "failure-\(name).png"
+
         screenshot.lifetime = .keepAlways
 
         add(screenshot)
