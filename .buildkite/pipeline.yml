@@ -17,7 +17,7 @@ steps:
     plugins: *common_plugins
 
   - label: ":calling: UI Test Demo App"
-    key: "build-demo-app"
+    key: "ui-test-demo-app"
     command: .buildkite/ui-test-demo-app.sh
     env: *common_env
     plugins: *common_plugins
@@ -57,7 +57,7 @@ steps:
       - "test"
       - "validate"
       - "lint"
-      - "build-demo-app"
+      - "ui-test-demo-app"
     if: build.tag != null
     agents:
       queue: "mac"
