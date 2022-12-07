@@ -14,6 +14,7 @@ Naming/FileName:
 Metrics/BlockLength:
   Exclude:
     - 'WordPressAuthenticator.podspec'
+    - 'fastlane/Fastfile'
 
 # Override the maximum line length
 Layout/LineLength:
