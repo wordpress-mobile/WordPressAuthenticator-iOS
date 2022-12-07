@@ -10,6 +10,6 @@ final class AuthenticatorDemoUITests: XCTestCase {
         let app = XCUIApplication()
         app.launch()
 
-        XCTAssertTrue(app.staticTexts["Show Login"].exists)
+        try StartScreen(app: app).showLogin()
     }
 }
