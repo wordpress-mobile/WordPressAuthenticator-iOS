@@ -21,6 +21,9 @@ steps:
     command: .buildkite/ui-test-demo-app.sh
     env: *common_env
     plugins: *common_plugins
+    artifact_paths:
+      - "fastlane/test_output/*"
+      - ".build/screenshots/*"
 
   #################
   # Validate Podspec

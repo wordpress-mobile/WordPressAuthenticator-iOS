@@ -32,4 +32,13 @@ final class AuthenticatorDemoUITests: XCTestCase {
 
         XCTAssertTrue(app.staticTexts["Sign Up"].waitForExistence(timeout: 10))
     }
+
+    override func record(_ issue: XCTIssue) {
+        let screenshot = XCTAttachment(screenshot: XCUIScreen.main.screenshot())
+        screenshot.lifetime = .keepAlways
+
+        add(screenshot)
+
+        super.record(issue)
+    }
 }
