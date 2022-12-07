@@ -9,7 +9,9 @@ class StartScreen: ScreenObject {
         )
     }
 
-    func showLogin() {
+    func showLogin() throws -> PrologueScreen {
         expectedElement.tap()
+
+        return try PrologueScreen(app: app)
     }
 }
