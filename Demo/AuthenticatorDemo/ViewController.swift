@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     lazy var googleAuthenticator = NewGoogleAuthenticator(
         clientId: GoogleClientId(string: APICredentials.googleLoginClientId)!,
         scheme: APICredentials.googleLoginSchemeId,
+        audience: APICredentials.googleLoginServerClientId,
         contextProvider: self,
         urlSession: URLSession.shared
     )
