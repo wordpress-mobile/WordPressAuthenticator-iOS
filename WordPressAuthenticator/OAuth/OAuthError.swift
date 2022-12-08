@@ -5,6 +5,7 @@ enum OAuthError: LocalizedError {
 
     // OAuth token response
     case urlDidNotContainCodeParameter(url: URL)
+    case tokenResponseDidNotIncludeIdToken
 
     var errorDescription: String {
         switch self {
@@ -12,6 +13,8 @@ enum OAuthError: LocalizedError {
             return "ASWebAuthenticationSession authentication finished with neither a callback URL nor error"
         case .urlDidNotContainCodeParameter(let url):
             return "Could not find 'code' parameter in URL '\(url)'"
+        case .tokenResponseDidNotIncludeIdToken:
+            return "OAuth token response did not include idToken"
         }
     }
 }
