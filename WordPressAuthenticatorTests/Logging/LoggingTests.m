@@ -35,6 +35,18 @@
     [self.errorLogs addObject:str];
 }
 
+- (void)logDebug:(nonnull NSString *)str {
+    // no-op
+}
+
+- (void)logVerbose:(nonnull NSString *)str {
+    // no-op
+}
+
+- (void)logWarning:(nonnull NSString *)str {
+    // no-op
+}
+
 @end
 #pragma clang diagnostic pop
 
