@@ -4,6 +4,7 @@ public class NewGoogleAuthenticator: NSObject {
 
     let clientId: GoogleClientId
     let scheme: String
+    let audience: String
     let contextProvider: ASWebAuthenticationPresentationContextProviding
 
     let oauthTokenGetter: GoogleOAuthTokenGetting
@@ -11,12 +12,14 @@ public class NewGoogleAuthenticator: NSObject {
     public convenience init(
         clientId: GoogleClientId,
         scheme: String,
+        audience: String,
         contextProvider: ASWebAuthenticationPresentationContextProviding,
         urlSession: URLSession
     ) {
         self.init(
             clientId: clientId,
             scheme: scheme,
+            audience: audience,
             contextProvider: contextProvider,
             oautTokenGetter: GoogleOAuthTokenGetter(dataGetter: urlSession)
         )
@@ -25,11 +28,13 @@ public class NewGoogleAuthenticator: NSObject {
     init(
         clientId: GoogleClientId,
         scheme: String,
+        audience: String,
         contextProvider: ASWebAuthenticationPresentationContextProviding,
         oautTokenGetter: GoogleOAuthTokenGetting
     ) {
         self.clientId = clientId
         self.scheme = scheme
+        self.audience = audience
         self.oauthTokenGetter = oautTokenGetter
         self.contextProvider = contextProvider
     }
@@ -39,7 +44,7 @@ public class NewGoogleAuthenticator: NSObject {
         // FIXME: Use proper entropy and encryption!
         let pkce = ProofKeyForCodeExchange(codeVerifier: "code", method: .plain)
         let url = try await getURL(clientId: clientId, scheme: scheme, pkce: pkce)
-        return try await requestOAuthToken(url: url, clientId: clientId, pkce: pkce)
+        return try await requestOAuthToken(url: url, clientId: clientId, audience: audience, pkce: pkce)
     }
 
     func getURL(clientId: GoogleClientId, scheme: String, pkce: ProofKeyForCodeExchange) async throws -> URL {
@@ -67,6 +72,7 @@ public class NewGoogleAuthenticator: NSObject {
     func requestOAuthToken(
         url: URL,
         clientId: GoogleClientId,
+        audience: String,
         pkce: ProofKeyForCodeExchange
     ) async throws -> String {
         guard let authCode = URLComponents(url: url, resolvingAgainstBaseURL: false)?
@@ -77,7 +83,7 @@ public class NewGoogleAuthenticator: NSObject {
         }
 
         return try await oauthTokenGetter
-            .getToken(clientId: clientId, authCode: authCode, pkce: pkce)
+            .getToken(clientId: clientId, audience: audience, authCode: authCode, pkce: pkce)
             .accessToken
     }
 }
