@@ -1,5 +1,6 @@
 import WebKit
 import WordPressAuthenticator
+import WordPressKit
 
 extension ViewController {
 
@@ -82,7 +83,43 @@ extension ViewController {
         Task.init {
             do {
                 let token = try await self.googleAuthenticator.authenticate()
-                presentAlert(title: "🎉", message: token, onDismiss: {})
+
+                let wpComOAuthClient = WordPressComOAuthClientFacade(
+                    client: APICredentials.client,
+                    secret: APICredentials.secret
+                )
+
+                wpComOAuthClient?.authenticate(
+                    withSocialIDToken: token,
+                    service: SocialServiceName.google.rawValue,
+                    success: { [weak self] string in
+                        self?.presentAlert(
+                            title: "🎉",
+                            message: "Suceeded with '\(string ?? "no value")'", onDismiss: {}
+                        )
+                    },
+                    needsMultiFactor: { intValue, optionalSocialLogin2FANonce in
+                        print("needs multifactor")
+                    },
+                    existingUserNeedsConnection: { string in
+                        if let string {
+                            print("Got a string '\(string)'")
+                        } else {
+                            print("Succeeded, but with no string")
+                        }
+                    },
+                    failure: { [weak self] error in
+                        if let error {
+                            self?.presentAlert(title: "❌", message: error.localizedDescription, onDismiss: {})
+                        } else {
+                            self?.presentAlert(
+                                title: "❌",
+                                message: "Failed in WordPressComOAuthClientFacade with no error",
+                                onDismiss: {}
+                            )
+                        }
+                    }
+                )
             } catch {
                 presentAlert(title: "❌", message: error.localizedDescription, onDismiss: {})
             }
