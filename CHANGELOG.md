@@ -54,14 +54,14 @@ _None._
 
 - Remove CocoaLumberjack. Use `WPAuthenticatorSetLoggingDelegate` to assign a logger to this library. [#708]
 
-## 4.3.0
+## [4.3.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.3.0)
 
 ### New Features
 
 - Make XMLRPC URL optional when verifying WP.com email [#711]
 - A new config is added to skip the XMLRPC check for the site discovery flow [#711]
 
-## 4.2.0
+## [4.2.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.2.0)
 
 ### New Features
 
