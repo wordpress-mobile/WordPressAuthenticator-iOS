@@ -1,0 +1,25 @@
+{
+  "configurations" : [
+    {
+      "id" : "A1417FA2-3B24-4168-9020-C800CF6CF093",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "testRepetitionMode" : "retryOnFailure",
+    "testTimeoutsEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:AuthenticatorDemo.xcodeproj",
+        "identifier" : "3F87A00F29409767005C2B48",
+        "name" : "AuthenticatorDemoUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

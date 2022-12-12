@@ -24,6 +24,18 @@ platform :ios do
     )
   end
 
+  desc 'Run UI tests on the demo app'
+  lane :ui_test_demo_app do
+    run_tests(
+      scheme: 'UITests',
+      prelaunch_simulator: true,
+      buildlog_path: BUILD_LOG_PATH,
+      derived_data_path: DERIVED_DATA_PATH,
+      result_bundle: true,
+      device: 'iPhone 14'
+    )
+  end
+
   lane :build_demo_app do
     build_app(
       scheme: 'AuthenticatorDemo',
