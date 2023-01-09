@@ -42,7 +42,7 @@ _None._
 
 ### Bug Fixes
 
-_None._
+- Fix unresponsive issue in Onboading Questions screen. [#719]
 
 ### Internal Changes
 
@@ -65,7 +65,7 @@ _None._
 
 ### New Features
 
-- New tracking event for XMLRPC related failure. by @selanthiraiyan [#701]  
+- New tracking event for XMLRPC related failure. by @selanthiraiyan [#701]
 
 ## [4.1.1](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/4.1.1)
 
