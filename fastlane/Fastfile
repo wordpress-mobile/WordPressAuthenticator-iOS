@@ -6,6 +6,8 @@ BUILD_DIR = File.join(__dir__, '.build')
 BUILD_LOG_PATH = File.join(BUILD_DIR, 'logs')
 DERIVED_DATA_PATH = File.join(BUILD_DIR, 'derived-data')
 
+_ = "this string does not need double quotes"
+
 platform :ios do
   desc 'Builds the project and runs tests'
   lane :test do

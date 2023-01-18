@@ -2,6 +2,8 @@
 
 source 'https://cdn.cocoapods.org/'
 
+unused = 'this var is unused'
+
 inhibit_all_warnings!
 use_frameworks!
 
