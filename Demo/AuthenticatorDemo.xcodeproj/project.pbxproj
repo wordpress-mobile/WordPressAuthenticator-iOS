@@ -34,6 +34,7 @@
 		3FB5B6F32912420E00F40408 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F22912420E00F40408 /* ViewController.swift */; };
 		3FB5B6F82912420F00F40408 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F72912420F00F40408 /* Assets.xcassets */; };
 		3FB5B6FB2912420F00F40408 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5B6F92912420F00F40408 /* LaunchScreen.storyboard */; };
+		3FCF1A5129793D69002632D2 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCF1A5029793D69002632D2 /* ConsoleLogger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		3FB5B6F72912420F00F40408 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FB5B6FA2912420F00F40408 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3FB5B6FC2912420F00F40408 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FCF1A5029793D69002632D2 /* ConsoleLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
 		8EA9B92A13352F8E6893C418 /* Pods-AuthenticatorDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticatorDemo.debug.xcconfig"; path = "Target Support Files/Pods-AuthenticatorDemo/Pods-AuthenticatorDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		AF02C0C8B7B005AAE3C08BD9 /* Pods_AuthenticatorDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AuthenticatorDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2CF1D70C197A00030221283 /* Pods-AuthenticatorDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AuthenticatorDemo.release.xcconfig"; path = "Target Support Files/Pods-AuthenticatorDemo/Pods-AuthenticatorDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				3FB5B6EE2912420E00F40408 /* AppDelegate.swift */,
+				3FCF1A5029793D69002632D2 /* ConsoleLogger.swift */,
 				3FB5B6F72912420F00F40408 /* Assets.xcassets */,
 				3F55C3A7292BAAE0002923B1 /* CellConfiguration.swift */,
 				3FB5B6FC2912420F00F40408 /* Info.plist */,
@@ -281,6 +284,7 @@
 				3FB5B6EF2912420E00F40408 /* AppDelegate.swift in Sources */,
 				3F55C3A8292BAAE0002923B1 /* CellConfiguration.swift in Sources */,
 				3F55C3B0292BAB54002923B1 /* WKWebView+UserAgent.swift in Sources */,
+				3FCF1A5129793D69002632D2 /* ConsoleLogger.swift in Sources */,
 				3F55C3AE292BAB23002923B1 /* UIAlertController+Utils.swift in Sources */,
 				3FB5B6F12912420E00F40408 /* SceneDelegate.swift in Sources */,
 			);
