@@ -35,12 +35,20 @@ steps:
   #################
   # Lint
   #################
-  - label: "🧹 Lint"
+  - label: "🧹 Lint Pod"
     key: "lint"
     command: |
       lint_pod
     env: *common_env
     plugins: *common_plugins
+
+  - label: ":rubocop: Lint Ruby Tooling"
+    command: .buildkite/rubocop-via-danger.sh
+    plugins: *common_plugins
+    agents:
+      # We only need Ruby for this step; using the android queue is cheaper
+      # than the macOS one.
+      queue: android
 
   #################
   # Publish the Podspec (if we're building a tag)
