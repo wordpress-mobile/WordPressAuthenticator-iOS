@@ -1,4 +1,5 @@
 import UIKit
+import WordPressKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -10,7 +11,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // crash the app if the value it finds is nil.
     var window: UIWindow?
 
+    let logger = ConsoleLogger()
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        WPKitSetLoggingDelegate(logger)
         return true
     }
 
