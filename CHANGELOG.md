@@ -43,6 +43,7 @@ _None._
 ### Bug Fixes
 
 - Fix unresponsive issue in Onboading Questions screen. [#719]
+- Use configuration flag to log custom `step` event for `GetStartedViewController`. [#724]
 
 ### Internal Changes
 
