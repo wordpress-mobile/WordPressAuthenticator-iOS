@@ -47,7 +47,7 @@ _None._
 
 ### Internal Changes
 
-_None._
+- Change minimum version of WordPressKit to 6.0.
 
 ## [5.0.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.0.0)
 
