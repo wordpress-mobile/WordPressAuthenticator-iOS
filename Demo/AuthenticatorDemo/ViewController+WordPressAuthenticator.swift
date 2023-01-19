@@ -79,6 +79,7 @@ extension ViewController {
         )
     }
 
+    // TODO: Need to handle new user flow
     func newGoogleSignInFlow() {
         Task.init {
             do {
@@ -89,14 +90,34 @@ extension ViewController {
                     secret: APICredentials.secret
                 )
 
+                // This is what `LoginFacade` uses under the hood of its
+                // `loginToWordPressDoCom(withSocialIDToken:, ...)` method.
+                //
+                // That method is what `GoogleAuthenticator` calls after a successful login, in
+                // `didSignIn(for user: GIDGoogleUser?, error: Error?)`
                 wpComOAuthClient?.authenticate(
                     withSocialIDToken: token,
                     service: SocialServiceName.google.rawValue,
-                    success: { [weak self] string in
-                        self?.presentAlert(
-                            title: "🎉",
-                            message: "Suceeded with '\(string ?? "no value")'", onDismiss: {}
+                    success: { [weak self] receivedAuthToken in
+                        guard let receivedAuthToken else {
+                            fatalError("Received no auth token – Likely an Objective-C types byproduct.")
+                        }
+
+                        let credentials = AuthenticatorCredentials(
+                            wpcom: WordPressComCredentials(
+                                authToken: receivedAuthToken,
+                                isJetpackLogin: false, // TODO: Make this configurable in demo app
+                                multifactor: false,
+                                siteURL: "" // "The site address if logging in via the self-hosted flow."
+                            )
                         )
+
+                        // This is a method from `WordPressAuthenticationDelegate`.
+                        // The demo app doesn't _have_ to call this, but I'm leaving it here as a
+                        // breadcrumb for what's happening in the clients right now.
+                        self?.sync(credentials: credentials) {
+                            print("Syncing credentials, done")
+                        }
                     },
                     needsMultiFactor: { intValue, optionalSocialLogin2FANonce in
                         print("needs multifactor")
