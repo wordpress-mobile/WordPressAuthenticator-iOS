@@ -38,6 +38,20 @@ _None._
 
 ### New Features
 
+_None._
+
+### Bug Fixes
+
+_None._
+
+### Internal Changes
+
+_None._
+
+## [5.1.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.1.0)
+
+### New Features
+
 - New configuration for site address login only on the prologue screen. [#725]
 
 ### Bug Fixes
