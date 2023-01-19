@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- New configuration for site address login only on the prologue screen. [#725]
 
 ### Bug Fixes
 
