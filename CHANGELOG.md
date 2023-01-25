@@ -48,7 +48,13 @@ _None._
 
 _None._
 
-## [5.1.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.1.0)
+## [5.2.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.0.0)
+
+### Internal Changes
+
+- Change minimum version of WordPressKit to 6.0.
+
+## [5.1.0]
 
 ### New Features
 
@@ -58,10 +64,6 @@ _None._
 
 - Fix unresponsive issue in Onboading Questions screen. [#719]
 - Use configuration flag to log custom `step` event for `GetStartedViewController`. [#724]
-
-### Internal Changes
-
-- Change minimum version of WordPressKit to 6.0.
 
 ## [5.0.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.0.0)
 
