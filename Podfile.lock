@@ -15,7 +15,7 @@ PODS:
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.6.1)
-  - NSObject-SafeExpectations (0.0.4)
+  - NSObject-SafeExpectations (0.0.6)
   - "NSURL+IDN (0.4)"
   - OCMock (3.8.1)
   - Specta (1.0.7)
@@ -27,18 +27,18 @@ PODS:
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
-    - WordPressKit (~> 5.0-beta)
+    - WordPressKit (~> 6.0-beta)
     - WordPressShared (~> 2.0-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (5.0.0):
+  - WordPressKit (6.0.0-beta.1):
     - Alamofire (~> 4.8.0)
-    - NSObject-SafeExpectations (= 0.0.4)
+    - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
     - WordPressShared (~> 2.0-beta)
-    - wpxmlrpc (~> 0.9)
+    - wpxmlrpc (~> 0.10)
   - WordPressShared (2.0.0-beta.2)
   - WordPressUI (1.7.0)
-  - wpxmlrpc (0.9.0)
+  - wpxmlrpc (0.10.0)
 
 DEPENDENCIES:
   - Expecta (= 1.0.6)
@@ -50,7 +50,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (~> 0.49)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (~> 5.0-beta)
+  - WordPressKit (~> 6.0-beta)
   - WordPressShared (~> 2.0-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -87,19 +87,19 @@ SPEC CHECKSUMS:
   Gridicons: 8e19276b20bb15d1fda1d4d0db96d066d170135b
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 36689134877faeb055b27dfa4ccc9ceaa42e029e
-  NSObject-SafeExpectations: ab8fe623d36b25aa1f150affa324e40a2f3c0374
+  NSObject-SafeExpectations: c01c8881cbd97efad6f668286b913cd0b7d62ab5
   "NSURL+IDN": afc873e639c18138a1589697c3add197fe8679ca
   OCMock: 29f6e52085b4e7d9b075cbf03ed7c3112f82f934
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
   UIDeviceIdentifier: f33af270ba9045ea18b31d9aab88e42a0082ea67
-  WordPressAuthenticator: 2d060dd8cc44981718b9241754d29cadfbbde1e2
-  WordPressKit: 202f529323b079a344f7bc1493b7ebebfd9ed4b5
+  WordPressAuthenticator: e7a75ce102a8697de751cfd7e62bc2475605873e
+  WordPressKit: 08da0bc981f6398ef7a32e523fd054de7d7c7069
   WordPressShared: 04403b43f821c4ed2b84a2112ef9f64f1e7cdceb
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
-  wpxmlrpc: bf55a43a7e710bd2a4fb8c02dfe83b1246f14f13
+  wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 690fadf8a4be5a584143139abdd447fd97da0b2d
+PODFILE CHECKSUM: f1d40bf767881fbe9b0328b875768ee4a60a113f
 
 COCOAPODS: 1.11.3
