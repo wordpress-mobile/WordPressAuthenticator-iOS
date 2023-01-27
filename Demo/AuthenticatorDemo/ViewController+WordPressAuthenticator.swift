@@ -4,7 +4,7 @@ import WordPressKit
 
 extension ViewController {
 
-    func initializeWordPressAuthenticator() {
+    func initializeWordPressAuthenticator(withoutGoogleSDK: Bool) {
         // In a proper app, we'd want to split this call to keep the code readable. Here, it's
         // useful to keep it all in one block to show how insanely long it is.
         WordPressAuthenticator.initialize(
@@ -29,7 +29,8 @@ extension ViewController {
                 enableUnifiedCarousel: true,
                 // Notice that this is required as well as `enableSignupWithGoogle` to show the
                 // option to login with Google.
-                enableSocialLogin: true
+                enableSocialLogin: true,
+                googleLoginWithoutSDK: withoutGoogleSDK
             ),
             style: WordPressAuthenticatorStyle(
                 // Primary (normal and highlight) is the color of buttons such as "Log in or signup
@@ -77,6 +78,8 @@ extension ViewController {
                 navTitleTextColor: .white
             )
         )
+
+        WordPressAuthenticator.shared.delegate = self
     }
 
     // TODO: Need to handle new user flow

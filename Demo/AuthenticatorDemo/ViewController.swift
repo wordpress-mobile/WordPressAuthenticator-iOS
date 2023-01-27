@@ -8,12 +8,22 @@ class ViewController: UIViewController {
 
     /// Add `CellConfiguration` items to add new actionable rows to the table view in `ViewController`.
     lazy var configuration: [CellConfiguration] = [
-        CellConfiguration(text: "Show Login") { [weak self] in
+        CellConfiguration(text: "Show Login - With Google SDK") { [weak self] in
             guard let self else { fatalError() }
+
+            self.initializeWordPressAuthenticator(withoutGoogleSDK: false)
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
         },
-        CellConfiguration(text: "New Google SignIn") { [weak self] in
+        CellConfiguration(text: "Show Login - Without Google SDK") { [weak self] in
             guard let self else { fatalError() }
+
+            self.initializeWordPressAuthenticator(withoutGoogleSDK: false)
+            WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
+        },
+        CellConfiguration(text: " Google SignIn - Standalone, Wihout SDK") { [weak self] in
+            guard let self else { fatalError() }
+
+            self.initializeWordPressAuthenticator(withoutGoogleSDK: false)
             self.newGoogleSignInFlow()
         }
     ]
@@ -35,9 +45,6 @@ class ViewController: UIViewController {
         title = "Authenticator Demo 🔐"
 
         setUpTableView()
-
-        initializeWordPressAuthenticator()
-        WordPressAuthenticator.shared.delegate = self
     }
 
     func setUpTableView() {
