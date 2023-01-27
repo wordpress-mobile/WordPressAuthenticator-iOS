@@ -96,7 +96,7 @@ extension ViewController {
                 // That method is what `GoogleAuthenticator` calls after a successful login, in
                 // `didSignIn(for user: GIDGoogleUser?, error: Error?)`
                 wpComOAuthClient?.authenticate(
-                    withSocialIDToken: token,
+                    withSocialIDToken: token.encodedValue,
                     service: SocialServiceName.google.rawValue,
                     success: { [weak self] receivedAuthToken in
                         guard let receivedAuthToken else {

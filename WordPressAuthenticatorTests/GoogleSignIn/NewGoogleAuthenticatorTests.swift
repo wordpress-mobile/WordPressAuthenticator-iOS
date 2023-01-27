@@ -101,7 +101,7 @@ class NewGoogleAuthenticatorTests: XCTestCase {
                 audience: "audience",
                 pkce: ProofKeyForCodeExchange(codeVerifier: "code", method: .plain)
             )
-            XCTAssertEqual(response, "token")
+            XCTAssertEqual(response.encodedValue, "token")
         } catch {
             XCTFail("Expected value, got error '\(error)'")
         }

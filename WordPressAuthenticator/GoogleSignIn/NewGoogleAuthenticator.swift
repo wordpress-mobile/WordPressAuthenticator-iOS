@@ -40,8 +40,7 @@ public class NewGoogleAuthenticator: NSObject {
     }
 
     /// Get the user's OAuth token from their Google account. This token can be used to authenticate with the WordPress backend.
-    // FIXME: We'll want something better that `String` as the return type
-    public func getOAuthToken() async throws -> String {
+    public func getOAuthToken() async throws -> IDToken {
         // FIXME: Use proper entropy and encryption!
         let pkce = ProofKeyForCodeExchange(codeVerifier: "code", method: .plain)
         let url = try await getURL(clientId: clientId, scheme: scheme, pkce: pkce)
@@ -75,7 +74,7 @@ public class NewGoogleAuthenticator: NSObject {
         clientId: GoogleClientId,
         audience: String,
         pkce: ProofKeyForCodeExchange
-    ) async throws -> String {
+    ) async throws -> IDToken {
         guard let authCode = URLComponents(url: url, resolvingAgainstBaseURL: false)?
             .queryItems?
             .first(where: { $0.name == "code" })?
@@ -90,10 +89,10 @@ public class NewGoogleAuthenticator: NSObject {
             pkce: pkce
         )
 
-        guard let idToken = response.idToken else {
+        guard let rawToken = response.idToken else {
             throw OAuthError.tokenResponseDidNotIncludeIdToken
         }
 
-        return idToken
+        return IDToken(jwt: rawToken)
     }
 }
