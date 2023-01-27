@@ -83,7 +83,7 @@ extension ViewController {
     func newGoogleSignInFlow() {
         Task.init {
             do {
-                let token = try await self.googleAuthenticator.authenticate()
+                let token = try await self.googleAuthenticator.getOAuthToken()
 
                 let wpComOAuthClient = WordPressComOAuthClientFacade(
                     client: APICredentials.client,
