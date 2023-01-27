@@ -85,61 +85,10 @@ extension ViewController {
             do {
                 let token = try await self.googleAuthenticator.getOAuthToken()
 
-                let wpComOAuthClient = WordPressComOAuthClientFacade(
-                    client: APICredentials.client,
-                    secret: APICredentials.secret
-                )
-
-                // This is what `LoginFacade` uses under the hood of its
-                // `loginToWordPressDoCom(withSocialIDToken:, ...)` method.
-                //
-                // That method is what `GoogleAuthenticator` calls after a successful login, in
-                // `didSignIn(for user: GIDGoogleUser?, error: Error?)`
-                wpComOAuthClient?.authenticate(
-                    withSocialIDToken: token,
-                    service: SocialServiceName.google.rawValue,
-                    success: { [weak self] receivedAuthToken in
-                        guard let receivedAuthToken else {
-                            fatalError("Received no auth token – Likely an Objective-C types byproduct.")
-                        }
-
-                        let credentials = AuthenticatorCredentials(
-                            wpcom: WordPressComCredentials(
-                                authToken: receivedAuthToken,
-                                isJetpackLogin: false, // TODO: Make this configurable in demo app
-                                multifactor: false,
-                                siteURL: "" // "The site address if logging in via the self-hosted flow."
-                            )
-                        )
-
-                        // This is a method from `WordPressAuthenticationDelegate`.
-                        // The demo app doesn't _have_ to call this, but I'm leaving it here as a
-                        // breadcrumb for what's happening in the clients right now.
-                        self?.sync(credentials: credentials) {
-                            print("Syncing credentials, done")
-                        }
-                    },
-                    needsMultiFactor: { intValue, optionalSocialLogin2FANonce in
-                        print("needs multifactor")
-                    },
-                    existingUserNeedsConnection: { string in
-                        if let string {
-                            print("Got a string '\(string)'")
-                        } else {
-                            print("Succeeded, but with no string")
-                        }
-                    },
-                    failure: { [weak self] error in
-                        if let error {
-                            self?.presentAlert(title: "❌", message: error.localizedDescription, onDismiss: {})
-                        } else {
-                            self?.presentAlert(
-                                title: "❌",
-                                message: "Failed in WordPressComOAuthClientFacade with no error",
-                                onDismiss: {}
-                            )
-                        }
-                    }
+                presentAlert(
+                    title: "🎉",
+                    message: "Successfully authenticated with Google.\n\nEmail in received token: \(token.email ?? "none")",
+                    onDismiss: {}
                 )
             } catch {
                 presentAlert(title: "❌", message: error.localizedDescription, onDismiss: {})
