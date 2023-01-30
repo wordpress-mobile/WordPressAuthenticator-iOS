@@ -42,5 +42,5 @@ Pod::Spec.new do |s|
   # If you want to update which of these is used, specify it in the host app.
   s.dependency 'WordPressUI', '~> 1.7-beta'
   s.dependency 'WordPressKit', '~> 6.0-beta'
-  s.dependency 'WordPressShared', '~> 2.0-beta'
+  s.dependency 'WordPressShared', '~> 2.1-beta'
 end
