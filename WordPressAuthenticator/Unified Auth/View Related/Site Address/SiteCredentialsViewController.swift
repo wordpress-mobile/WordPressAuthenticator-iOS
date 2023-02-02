@@ -428,6 +428,52 @@ private extension SiteCredentialsViewController {
         return loginFields
     }
 
+    func validateFormAndTriggerDelegate() {
+        view.endEditing(true)
+        displayError(message: "")
+
+        // Is everything filled out?
+        if !loginFields.validateFieldsPopulatedForSignin() {
+            let errorMsg = NSLocalizedString("Please fill out all the fields",
+                                             comment: "A short prompt asking the user to properly fill out all login fields.")
+            displayError(message: errorMsg)
+
+            return
+        }
+
+        configureViewLoading(true)
+
+        guard let delegate = WordPressAuthenticator.shared.delegate else {
+            fatalError("Error: Where did the delegate go?")
+        }
+        // manually construct the XMLRPC since this is needed to get the site address later
+        let xmlrpc = loginFields.siteAddress + "/xmlrpc.php"
+        let wporg = WordPressOrgCredentials(username: loginFields.username,
+                                            password: loginFields.password,
+                                            xmlrpc: xmlrpc,
+                                            options: [:])
+        delegate.handleSiteCredentialLogin(credentials: wporg, onLoading: { [weak self] shouldShowLoading in
+            self?.configureViewLoading(shouldShowLoading)
+        }, onSuccess: { [weak self] in
+            self?.finishedLogin(withUsername: wporg.username,
+                                password: wporg.password,
+                                xmlrpc: wporg.xmlrpc,
+                                options: wporg.options)
+        }, onFailure: { [weak self] error, incorrectCredentials in
+            self?.handleLoginFailure(error: error, incorrectCredentials: incorrectCredentials)
+        })
+    }
+
+    func handleLoginFailure(error: Error, incorrectCredentials: Bool) {
+        configureViewLoading(false)
+        if incorrectCredentials {
+            let message = NSLocalizedString("It looks like this username/password isn't associated with this site.",
+                                            comment: "An error message shown during log in when the username or password is incorrect.")
+            displayError(message: message, moveVoiceOverFocus: true)
+        } else {
+            displayError(error as NSError, sourceTag: sourceTag)
+        }
+    }
     // MARK: - Private Constants
 
     /// Rows listed in the order they were created.
@@ -474,7 +520,12 @@ extension SiteCredentialsViewController {
     /// proceeds with the submit action.
     ///
     @objc func validateForm() {
-        validateFormAndLogin()
+        guard WordPressAuthenticator.shared.configuration.enableManualSiteCredentialLogin else {
+            return validateFormAndLogin() // handles login with XMLRPC normally
+        }
+
+        // asks the delegate to handle the login
+        validateFormAndTriggerDelegate()
     }
 
     func finishedLogin(withUsername username: String, password: String, xmlrpc: String, options: [AnyHashable: Any]) {

@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+-  Add new config to remove XMLRPC check for site address login [#736]
 
 ### Bug Fixes
 
