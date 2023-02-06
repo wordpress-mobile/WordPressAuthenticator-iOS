@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
--  Add new config to remove XMLRPC check for site address login [#736]
+_None._
 
 ### Bug Fixes
 
@@ -47,6 +47,12 @@ _None._
 ### Internal Changes
 
 _None._
+
+## [5.3.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.3.0)
+
+### New Features
+
+-  Add new config to remove XMLRPC check for site address login [#736]
 
 ## [5.2.0](https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/releases/tag/5.2.0)
 
