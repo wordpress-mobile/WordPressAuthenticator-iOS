@@ -90,7 +90,7 @@ extension ViewController {
 
                 presentAlert(
                     title: "🎉",
-                    message: "Successfully authenticated with Google.\n\nEmail in received token: \(token.email ?? "none")",
+                    message: "Successfully authenticated with Google.\n\nEmail in received token: \(token.email)",
                     onDismiss: {}
                 )
             } catch {
