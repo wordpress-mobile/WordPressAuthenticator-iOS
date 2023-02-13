@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+-  New configuration to disable site credential login on Get Started screen for the site address login flow [#742]
 
 ### Bug Fixes
 
