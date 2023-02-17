@@ -18,7 +18,7 @@ _None._
 
 ### New Features
 
-_None._
+- It's now possible to authenticate with a Google account without using the Google SDK, via the `googleLoginWithoutSDK` configuration. [#743]
 
 ### Bug Fixes
 
