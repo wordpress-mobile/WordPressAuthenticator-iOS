@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
--  New configuration to disable site credential login on Get Started screen for the site address login flow [#742]
+_None._
 
 ### Bug Fixes
 
@@ -47,6 +47,12 @@ _None._
 ### Internal Changes
 
 _None._
+
+## 5.4.0
+
+### New Features
+
+-  New configuration to disable site credential login on Get Started screen for the site address login flow [#742]
 
 ## 5.3.0
 
