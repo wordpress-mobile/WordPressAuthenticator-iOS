@@ -1,6 +1,5 @@
 import UIKit
 import WordPressKit
-import WordPressShared
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
