@@ -84,7 +84,7 @@ extension ViewController {
 
     // TODO: Need to handle new user flow
     func newGoogleSignInFlow() {
-        Task.init {
+        Task {
             do {
                 let token = try await self.googleAuthenticator.getOAuthToken()
 
