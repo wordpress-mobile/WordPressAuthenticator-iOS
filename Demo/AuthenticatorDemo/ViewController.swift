@@ -11,19 +11,19 @@ class ViewController: UIViewController {
         CellConfiguration(text: "Show Login - With Google SDK") { [weak self] in
             guard let self else { fatalError() }
 
-            self.initializeWordPressAuthenticator(withoutGoogleSDK: false)
+            self.initializeWordPressAuthenticator(withGoogleSDK: true)
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
         },
         CellConfiguration(text: "Show Login - Without Google SDK") { [weak self] in
             guard let self else { fatalError() }
 
-            self.initializeWordPressAuthenticator(withoutGoogleSDK: false)
+            self.initializeWordPressAuthenticator(withGoogleSDK: false)
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
         },
         CellConfiguration(text: " Google SignIn - Standalone, Wihout SDK") { [weak self] in
             guard let self else { fatalError() }
 
-            self.initializeWordPressAuthenticator(withoutGoogleSDK: false)
+            self.initializeWordPressAuthenticator(withGoogleSDK: false)
             self.newGoogleSignInFlow()
         }
     ]
