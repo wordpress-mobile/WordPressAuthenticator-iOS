@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Make `WordPressComAccountService` public to external access [#746]
 
 ### Bug Fixes
 
