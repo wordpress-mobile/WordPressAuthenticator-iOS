@@ -42,7 +42,7 @@ _None._
 
 ### Bug Fixes
 
-_None._
+- Track `signed_in` event when the site credential login is handled by the client. [#748]
 
 ### Internal Changes
 
