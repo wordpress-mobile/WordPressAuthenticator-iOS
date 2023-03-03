@@ -12,7 +12,7 @@ class ContinueWithGoogleAlert: ScreenObject {
     private var continueButton: XCUIElement { alertGetter(app).buttons["Continue"] }
 
     init() throws {
-        // Usually, one wuold use addUIInterruptionMonitor to handle the alert iOS shows to hand
+        // Usually, one would use addUIInterruptionMonitor to handle the alert iOS shows to hand
         // over to the Safari view controller to continue with Google.
         // Unfortunately, that seems to clash with the other alerts prestend during the flow,
         // with the handler being called for them, too, dismissing them, and making the following
