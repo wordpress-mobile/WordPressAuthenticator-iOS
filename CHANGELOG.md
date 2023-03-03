@@ -39,6 +39,7 @@ _None._
 ### New Features
 
 - Make `WordPressComAccountService` public to external access [#746]
+- Make `MailPresenter` and `AppSelector` public to external access [#749]
 
 ### Bug Fixes
 
