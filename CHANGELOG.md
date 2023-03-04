@@ -38,8 +38,7 @@ _None._
 
 ### New Features
 
-- Make `WordPressComAccountService` public to external access [#746]
-- Make `MailPresenter` and `AppSelector` public to external access [#749]
+_None._
 
 ### Bug Fixes
 
@@ -48,6 +47,13 @@ _None._
 ### Internal Changes
 
 _None._
+
+## 5.5.0
+
+### New Features
+
+- Make `WordPressComAccountService` public to external access [#746]
+- Make `MailPresenter` and `AppSelector` public to external access [#749]
 
 ## 5.4.0
 
