@@ -44,3 +44,17 @@ fastlane/test_output
 !.configure-files/*.enc
 # If the user created a local secrets file, ignore it
 Demo/Secrets.swift
+
+# VS Code settings
+#
+# See https://github.com/github/gitignore/blob/4488915eec0b3a45b5c63ead28f286819c0917de/Global/VisualStudioCode.gitignore
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+# Local History for Visual Studio Code
+.history/
+# Built Visual Studio Code Extensions
+*.vsix
