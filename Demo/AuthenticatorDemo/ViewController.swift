@@ -35,7 +35,7 @@ class ViewController: UIViewController {
         clientId: GoogleClientId(string: APICredentials.googleLoginClientId)!,
         scheme: APICredentials.googleLoginSchemeId,
         audience: APICredentials.googleLoginServerClientId,
-        contextProvider: self,
+        viewController: self,
         urlSession: URLSession.shared
     )
 
@@ -110,11 +110,5 @@ extension ViewController {
     func configuration(for indexPath: IndexPath) -> CellConfiguration? {
         guard configuration.count > indexPath.row else { return .none }
         return configuration[indexPath.row]
-    }
-}
-
-extension ViewController: ASWebAuthenticationPresentationContextProviding {
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return view.window!
     }
 }
