@@ -20,11 +20,11 @@ class ViewController: UIViewController {
             self.initializeWordPressAuthenticator(withGoogleSDK: false)
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
         },
-        CellConfiguration(text: " Google SignIn - Standalone, Wihout SDK") { [weak self] in
+        CellConfiguration(text: "Get Google token only - Standalone, Wihout SDK") { [weak self] in
             guard let self else { fatalError() }
 
             self.initializeWordPressAuthenticator(withGoogleSDK: false)
-            self.newGoogleSignInFlow()
+            self.getAuthTokenFromGoogle()
         }
     ]
 
