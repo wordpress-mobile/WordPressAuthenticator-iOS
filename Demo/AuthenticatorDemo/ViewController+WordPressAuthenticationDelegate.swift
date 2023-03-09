@@ -70,7 +70,7 @@ extension ViewController: WordPressAuthenticatorDelegate {
 
     func sync(credentials: AuthenticatorCredentials, onCompletion: @escaping () -> Void) {
         dismiss(animated: true) { [weak self] in
-            self?.sync(credentials: credentials, onSynced: onCompletion)
+            self?.sync(credentials: credentials)
         }
     }
 
@@ -98,7 +98,7 @@ extension ViewController {
     // - WordPressAuthenticationManager sync(credentials:, onCompletion:)
     // - WordPressAuthenticationManager syncWPCom(authToken:, isJetpackLogin:, onCompletion:)
     // - AccountService createOrUpdateAccountWithAuthToken:success:failure:
-    private func sync(credentials: AuthenticatorCredentials, onSynced: @escaping () -> Void) {
+    private func sync(credentials: AuthenticatorCredentials) {
         switch (credentials.wpcom, credentials.wporg) {
         case (.none, .none), (.some, .some):
             fatalError("Inconsistent state!")
