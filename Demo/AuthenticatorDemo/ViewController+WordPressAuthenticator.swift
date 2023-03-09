@@ -85,7 +85,7 @@ extension ViewController {
     // Note that this method does not try to authenticate the user with the WordPress backend.
     // It only verifies that we can get a token from Google.
     func getAuthTokenFromGoogle() {
-        Task {
+        Task { @MainActor in
             do {
                 let token = try await self.googleAuthenticator.getOAuthToken()
 
