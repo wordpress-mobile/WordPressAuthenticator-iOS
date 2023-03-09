@@ -94,8 +94,10 @@ extension ViewController {
                     message: "Successfully authenticated with Google.\n\nEmail in received token: \(token.email)",
                     onDismiss: {}
                 )
+            } catch let error as OAuthError {
+                presentAlert(title: "❌", message: error.errorDescription, onDismiss: {})
             } catch {
-                presentAlert(title: "❌", message: error.localizedDescription, onDismiss: {})
+                fatalError("Caught an error that was not of the expected `OAuthError` type: \(error)")
             }
         }
     }
