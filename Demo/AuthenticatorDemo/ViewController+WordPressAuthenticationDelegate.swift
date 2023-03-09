@@ -1,4 +1,6 @@
+import WebKit
 import WordPressAuthenticator
+import WordPressKit
 
 extension ViewController: WordPressAuthenticatorDelegate {
 
@@ -68,11 +70,7 @@ extension ViewController: WordPressAuthenticatorDelegate {
 
     func sync(credentials: AuthenticatorCredentials, onCompletion: @escaping () -> Void) {
         dismiss(animated: true) { [weak self] in
-            self?.presentAlert(
-                title: "Authentication Successful",
-                message: "Next step will be syncing credentials",
-                onDismiss: {}
-            )
+            self?.sync(credentials: credentials)
         }
     }
 
@@ -88,5 +86,48 @@ extension ViewController: WordPressAuthenticatorDelegate {
     func track(event: WPAnalyticsStat, error: Error) {
         print(event)
         print(error)
+    }
+}
+
+extension ViewController {
+
+    // This is just so we can avoid nesting within a dismiss block and the weak self dance.
+    //
+    // See WordPress iOS
+    //
+    // - WordPressAuthenticationManager sync(credentials:, onCompletion:)
+    // - WordPressAuthenticationManager syncWPCom(authToken:, isJetpackLogin:, onCompletion:)
+    // - AccountService createOrUpdateAccountWithAuthToken:success:failure:
+    private func sync(credentials: AuthenticatorCredentials) {
+        switch (credentials.wpcom, credentials.wporg) {
+        case (.none, .none), (.some, .some):
+            fatalError("Inconsistent state!")
+        case (.none, .some):
+            fatalError("Not implemented yet")
+        case (.some(let wpComCredentials), .none):
+            let api = WordPressComRestApi(
+                oAuthToken: wpComCredentials.authToken,
+                // TODO: there should be a way to read the user agent from the library configs
+                userAgent: WKWebView.userAgent
+            )
+            let remote = AccountServiceRemoteREST(wordPressComRestApi: api)
+
+            remote.getAccountDetails(
+                success: { [weak self] remoteUser in
+                    guard let remoteUser else {
+                        fatalError("Received no RemoteUser – Likely an Objective-C types byproduct.")
+                    }
+
+                    self?.presentAlert(
+                        title: "🎉",
+                        message: "Welcome \(remoteUser.displayName ?? "'no display name'")",
+                        onDismiss: {}
+                    )
+                },
+                failure: { error in
+                    print(error!.localizedDescription)
+                }
+            )
+        }
     }
 }

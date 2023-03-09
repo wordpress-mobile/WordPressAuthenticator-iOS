@@ -1,3 +1,4 @@
+import AuthenticationServices
 import UIKit
 import WordPressAuthenticator
 
@@ -7,14 +8,36 @@ class ViewController: UIViewController {
 
     /// Add `CellConfiguration` items to add new actionable rows to the table view in `ViewController`.
     lazy var configuration: [CellConfiguration] = [
-        CellConfiguration(text: "Show Login") { [weak self] in
+        CellConfiguration(text: "Show Login - With Google SDK") { [weak self] in
             guard let self else { fatalError() }
+
+            self.initializeWordPressAuthenticator(withGoogleSDK: true)
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
+        },
+        CellConfiguration(text: "Show Login - Without Google SDK") { [weak self] in
+            guard let self else { fatalError() }
+
+            self.initializeWordPressAuthenticator(withGoogleSDK: false)
+            WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
+        },
+        CellConfiguration(text: "Get Google token only - Standalone, Wihout SDK") { [weak self] in
+            guard let self else { fatalError() }
+
+            self.initializeWordPressAuthenticator(withGoogleSDK: false)
+            self.getAuthTokenFromGoogle()
         }
     ]
 
     let tableView = UITableView(frame: .zero, style: .grouped)
     let reuseIdentifier = "cell"
+
+    lazy var googleAuthenticator = NewGoogleAuthenticator(
+        clientId: GoogleClientId(string: APICredentials.googleLoginClientId)!,
+        scheme: APICredentials.googleLoginSchemeId,
+        audience: APICredentials.googleLoginServerClientId,
+        viewController: self,
+        urlSession: URLSession.shared
+    )
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +45,6 @@ class ViewController: UIViewController {
         title = "Authenticator Demo 🔐"
 
         setUpTableView()
-
-        initializeWordPressAuthenticator()
-        WordPressAuthenticator.shared.delegate = self
     }
 
     func setUpTableView() {

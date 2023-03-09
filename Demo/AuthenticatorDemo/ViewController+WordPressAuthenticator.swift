@@ -1,9 +1,10 @@
 import WebKit
 import WordPressAuthenticator
+import WordPressKit
 
 extension ViewController {
 
-    func initializeWordPressAuthenticator() {
+    func initializeWordPressAuthenticator(withGoogleSDK: Bool) {
         // In a proper app, we'd want to split this call to keep the code readable. Here, it's
         // useful to keep it all in one block to show how insanely long it is.
         WordPressAuthenticator.initialize(
@@ -28,7 +29,8 @@ extension ViewController {
                 enableUnifiedCarousel: true,
                 // Notice that this is required as well as `enableSignupWithGoogle` to show the
                 // option to login with Google.
-                enableSocialLogin: true
+                enableSocialLogin: true,
+                googleLoginWithoutSDK: withGoogleSDK == false
             ),
             style: WordPressAuthenticatorStyle(
                 // Primary (normal and highlight) is the color of buttons such as "Log in or signup
@@ -76,5 +78,27 @@ extension ViewController {
                 navTitleTextColor: .white
             )
         )
+
+        WordPressAuthenticator.shared.delegate = self
+    }
+
+    // Note that this method does not try to authenticate the user with the WordPress backend.
+    // It only verifies that we can get a token from Google.
+    func getAuthTokenFromGoogle() {
+        Task { @MainActor in
+            do {
+                let token = try await self.googleAuthenticator.getOAuthToken()
+
+                presentAlert(
+                    title: "🎉",
+                    message: "Successfully authenticated with Google.\n\nEmail in received token: \(token.email)",
+                    onDismiss: {}
+                )
+            } catch let error as OAuthError {
+                presentAlert(title: "❌", message: error.errorDescription, onDismiss: {})
+            } catch {
+                fatalError("Caught an error that was not of the expected `OAuthError` type: \(error)")
+            }
+        }
     }
 }
