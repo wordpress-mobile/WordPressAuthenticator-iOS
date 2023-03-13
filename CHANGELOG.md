@@ -48,6 +48,12 @@ _None._
 
 _None._
 
+## 5.6.0
+
+### Internal Changes
+
+- Change minimum version of WordPressKit to 7.0.
+
 ## 5.5.0
 
 ### New Features
