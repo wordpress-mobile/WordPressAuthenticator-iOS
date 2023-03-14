@@ -87,7 +87,7 @@ extension ViewController {
     func getAuthTokenFromGoogle() {
         Task { @MainActor in
             do {
-                let token = try await self.googleAuthenticator.getOAuthToken()
+                let token = try await self.googleAuthenticator.getOAuthToken(from: self)
 
                 presentAlert(
                     title: "🎉",
