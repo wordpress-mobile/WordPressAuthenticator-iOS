@@ -35,7 +35,6 @@ class ViewController: UIViewController {
         clientId: GoogleClientId(string: APICredentials.googleLoginClientId)!,
         scheme: APICredentials.googleLoginSchemeId,
         audience: APICredentials.googleLoginServerClientId,
-        viewController: self,
         urlSession: URLSession.shared
     )
 
