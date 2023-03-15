@@ -47,12 +47,22 @@ struct GoogleSignInSafariScreen {
     }
 
     private func typeEmail() {
-        app.textFields.firstMatch.typeText(email)
+        let emailInput = app.textFields.firstMatch
+        // Depending on whether the Simulator has the software keyboard enabled or not, we might
+        // need to tap the text field before being able to type on it. Luckily, tapping when it's
+        // not neccessary doesn't affect the typing behavior.
+        emailInput.tap()
+        emailInput.typeText(email)
         continueFromKeyboardOrScreen()
     }
 
     private func typePassword() {
-        app.secureTextFields.firstMatch.typeText(password)
+        let passwordInput = app.secureTextFields.firstMatch
+        // Depending on whether the Simulator has the software keyboard enabled or not, we might
+        // need to tap the secure text field before being able to type on it. Luckily, tapping when
+        // it's not neccessary doesn't affect the typing behavior.
+        passwordInput.tap()
+        passwordInput.firstMatch.typeText(password)
         continueFromKeyboardOrScreen()
     }
 
