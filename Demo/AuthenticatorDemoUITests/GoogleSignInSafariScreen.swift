@@ -8,6 +8,14 @@ struct GoogleSignInSafariScreen {
     private let password = APICredentials.Tests.GoogleAccount.password
 
     enum Labels {
+        // This screen object is an interface with the Safari modal screen presented by the
+        // authentication process. This means the elements we interact with are from a web page
+        // and don't have any accessibility identifier that we can control to decouple the
+        // selectors from any given locale.
+        //
+        // English is used here as the standard language for testing. Depending on where you are
+        // located when running these tests locally, you might have to update the values in your
+        // locale, or VPN to an English speaking country.
         static let selectDifferentAccount = "Use another account"
         static let next = "Next"
     }
