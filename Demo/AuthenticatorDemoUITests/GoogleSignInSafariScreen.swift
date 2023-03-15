@@ -42,7 +42,11 @@ struct GoogleSignInSafariScreen {
 
         // To make sure the credentials input screen is gone, check none of the input elements are
         // on screen.
-        XCTAssertFalse(app.textFields.firstMatch.exists, file: file, line: line)
+        XCTAssertFalse(
+            app.textFields.firstMatch.waitForExistence(timeout: 5),
+            file: file,
+            line: line
+        )
         XCTAssertFalse(app.secureTextFields.firstMatch.exists, file: file, line: line)
     }
 
