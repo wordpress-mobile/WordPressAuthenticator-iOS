@@ -25,11 +25,13 @@ struct GoogleSignInSafariScreen {
     }
 
     func authenticate(file: StaticString = #file, line: UInt = #line) {
-        // The device in which we're running the tests might have pre-existing accounts available.
-        let emailField = app.staticTexts[email]
+        let existingAccountEntry = app.staticTexts[email]
         let selectDifferentAccount = app.staticTexts[Labels.selectDifferentAccount]
-        if emailField.waitForExistence(timeout: 5) {
-            emailField.tap()
+
+        // The device in which we're running the tests might have pre-existing accounts available.
+        // If there is one, we'll need to select it.
+        if existingAccountEntry.waitForExistence(timeout: 5) {
+            existingAccountEntry.tap()
         } else {
             if selectDifferentAccount.waitForExistence(timeout: 5) {
                 selectDifferentAccount.tap()
