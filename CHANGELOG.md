@@ -46,7 +46,7 @@ _None._
 
 ### Internal Changes
 
-_None._
+- Change minimum version of WordPressKit to 7.0 [#754]
 
 ## 5.5.0
 
