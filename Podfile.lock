@@ -50,7 +50,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (~> 0.49)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `add/media-videopress-token`)
+  - WordPressKit (~> 7.0-beta)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -70,6 +70,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
     - UIDeviceIdentifier
+    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
@@ -77,14 +78,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
-  WordPressKit:
-    :branch: add/media-videopress-token
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
-
-CHECKOUT OPTIONS:
-  WordPressKit:
-    :commit: 7946aa5616737c2fac6be14d843419a2f01afba8
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -107,6 +100,6 @@ SPEC CHECKSUMS:
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 713d21ace7d1e7464704514af139dd8d76f3fcf0
+PODFILE CHECKSUM: 7c35f7d30c7c7864a85d92a354a22ddcb8f087df
 
 COCOAPODS: 1.11.3

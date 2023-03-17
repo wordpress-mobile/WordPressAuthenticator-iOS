@@ -28,8 +28,7 @@ def wordpress_authenticator_pods
   ##
   pod 'Gridicons', '~> 1.0-beta' # Don't change this until we hit 2.0 in Gridicons
   pod 'WordPressUI', '~> 1.7-beta' # Don't change this until we hit 2.0 in WordPressUI
-  # pod 'WordPressKit', '~> 7.0-beta' # Don't change this until we hit 8.0 in WPKit
-  pod 'WordPressKit', git: 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', branch: 'add/media-videopress-token'
+  pod 'WordPressKit', '~> 7.0-beta' # Don't change this until we hit 8.0 in WPKit
   pod 'WordPressShared', '~> 2.1-beta'
 
   third_party_pods
