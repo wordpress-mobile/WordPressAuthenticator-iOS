@@ -307,19 +307,15 @@ extension GoogleAuthenticator {
 
         trackRequestAuthorizitation(type: authType)
 
-        // We might want to change this in subsequent iterations, perhaps by moving the
-        // `contextProvider` to the `getOAuthToken()` method so to allow it to be stored
-        // as a `lazy` property?
         let sdkLessGoogleAuthenticator = NewGoogleAuthenticator(
             clientId: authConfig.googleClientId,
             scheme: authConfig.googleLoginScheme,
             audience: authConfig.googleLoginServerClientId,
-            contextProvider: WebAuthenticationPresentationContext(viewController: viewController),
             urlSession: .shared
         )
 
         await SVProgressHUD.show()
-        return try await sdkLessGoogleAuthenticator.getOAuthToken()
+        return try await sdkLessGoogleAuthenticator.getOAuthToken(from: viewController)
     }
 }
 

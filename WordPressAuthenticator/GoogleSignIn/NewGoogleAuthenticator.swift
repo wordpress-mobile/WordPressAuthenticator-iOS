@@ -5,38 +5,18 @@ public class NewGoogleAuthenticator: NSObject {
     let clientId: GoogleClientId
     let scheme: String
     let audience: String
-    let contextProvider: ASWebAuthenticationPresentationContextProviding
-
     let oauthTokenGetter: GoogleOAuthTokenGetting
 
     public convenience init(
         clientId: GoogleClientId,
         scheme: String,
         audience: String,
-        viewController: UIViewController,
         urlSession: URLSession
     ) {
         self.init(
             clientId: clientId,
             scheme: scheme,
             audience: audience,
-            contextProvider: WebAuthenticationPresentationContext(viewController: viewController),
-            oautTokenGetter: GoogleOAuthTokenGetter(dataGetter: urlSession)
-        )
-    }
-
-    public convenience init(
-        clientId: GoogleClientId,
-        scheme: String,
-        audience: String,
-        contextProvider: ASWebAuthenticationPresentationContextProviding,
-        urlSession: URLSession
-    ) {
-        self.init(
-            clientId: clientId,
-            scheme: scheme,
-            audience: audience,
-            contextProvider: contextProvider,
             oautTokenGetter: GoogleOAuthTokenGetter(dataGetter: urlSession)
         )
     }
@@ -45,24 +25,46 @@ public class NewGoogleAuthenticator: NSObject {
         clientId: GoogleClientId,
         scheme: String,
         audience: String,
-        contextProvider: ASWebAuthenticationPresentationContextProviding,
         oautTokenGetter: GoogleOAuthTokenGetting
     ) {
         self.clientId = clientId
         self.scheme = scheme
         self.audience = audience
         self.oauthTokenGetter = oautTokenGetter
-        self.contextProvider = contextProvider
     }
 
     /// Get the user's OAuth token from their Google account. This token can be used to authenticate with the WordPress backend.
-    public func getOAuthToken() async throws -> IDToken {
+    ///
+    /// The app will present the browser to hand over authentication to Google from the given `UIViewController`.
+    public func getOAuthToken(from viewController: UIViewController) async throws -> IDToken {
+        return try await getOAuthToken(
+            from: WebAuthenticationPresentationContext(viewController: viewController)
+        )
+    }
+
+    /// Get the user's OAuth token from their Google account. This token can be used to authenticate with the WordPress backend.
+    ///
+    /// The app will present the browser to hand over authentication to Google using the given
+    /// `ASWebAuthenticationPresentationContextProviding`.
+    public func getOAuthToken(
+        from contextProvider: ASWebAuthenticationPresentationContextProviding
+    ) async throws -> IDToken {
         let pkce = try ProofKeyForCodeExchange()
-        let url = try await getURL(clientId: clientId, scheme: scheme, pkce: pkce)
+        let url = try await getURL(
+            clientId: clientId,
+            scheme: scheme,
+            pkce: pkce,
+            contextProvider: contextProvider
+        )
         return try await requestOAuthToken(url: url, clientId: clientId, audience: audience, pkce: pkce)
     }
 
-    func getURL(clientId: GoogleClientId, scheme: String, pkce: ProofKeyForCodeExchange) async throws -> URL {
+    func getURL(
+        clientId: GoogleClientId,
+        scheme: String,
+        pkce: ProofKeyForCodeExchange,
+        contextProvider: ASWebAuthenticationPresentationContextProviding
+    ) async throws -> URL {
         let url = try URL.googleSignInAuthURL(clientId: clientId, pkce: pkce)
         return try await withCheckedThrowingContinuation { continuation in
             let session = ASWebAuthenticationSession(
