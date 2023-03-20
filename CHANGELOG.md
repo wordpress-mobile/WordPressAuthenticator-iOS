@@ -50,17 +50,9 @@ _None._
 
 ## 5.6.0
 
-### Breaking Changes
-
-_None._
-
 ### New Features
 
 - It's now possible to authenticate with a Google account without using the Google SDK, via the `googleLoginWithoutSDK` configuration. [#743]
-
-### Bug Fixes
-
-_None._
 
 ### Internal Changes
 
