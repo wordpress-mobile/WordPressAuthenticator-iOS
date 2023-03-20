@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- New configuration and delegate method to handle site credential login failure manually. [#758]
 
 ### Bug Fixes
 
