@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-- New configuration and delegate method to handle site credential login failure manually. [#758]
+_None._
 
 ### Bug Fixes
 
@@ -47,6 +47,12 @@ _None._
 ### Internal Changes
 
 _None._
+
+## 5.7.0
+
+### New Features
+
+- New configuration and delegate method to handle site credential login failure manually. [#758]
 
 ## 5.6.0
 
