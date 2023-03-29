@@ -97,9 +97,8 @@ extension ViewController {
                 )
             } catch let error as OAuthError {
                 presentAlert(title: "❌", message: error.errorDescription, onDismiss: {})
-            } catch let error as NSError where
-                error.domain == ASWebAuthenticationSessionError.errorDomain
-                && error.code == ASWebAuthenticationSessionError.Code.canceledLogin.rawValue {
+            } catch let error as ASWebAuthenticationSessionError
+                where error.code == ASWebAuthenticationSessionError.canceledLogin {
                 // In a production app, the UX would be better if we didn't present an alert.
                 // But here, it's useful to show it to make the error handling visible for reference.
                 presentAlert(title: "", message: "User cancelled", onDismiss: {})
