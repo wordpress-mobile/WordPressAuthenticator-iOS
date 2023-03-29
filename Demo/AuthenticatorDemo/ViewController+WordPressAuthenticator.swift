@@ -92,7 +92,7 @@ extension ViewController {
 
                 presentAlert(
                     title: "🎉",
-                    message: "Successfully authenticated with Google.\n\nEmail in received token: \(token.email)",
+                    message: "Successfully authenticated with Google.\n\nEmail in received token: \(token.email)\n\nName: \(token.name)",
                     onDismiss: {}
                 )
             } catch let error as OAuthError {

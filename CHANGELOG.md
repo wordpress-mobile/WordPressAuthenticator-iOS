@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Google's `IDToken` now exposes the user's full name via `name`. [#761]
 
 ### Bug Fixes
 
