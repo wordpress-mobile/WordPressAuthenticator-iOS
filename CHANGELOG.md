@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-_None._
+- `SocialService` `apple` associated type is now `User` instead of `AppleUser`. [#763]
 
 ### New Features
 
