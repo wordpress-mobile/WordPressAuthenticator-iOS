@@ -1,7 +1,6 @@
 import AuthenticationServices
 import WebKit
 import WordPressAuthenticator
-import WordPressKit
 
 extension ViewController {
 
