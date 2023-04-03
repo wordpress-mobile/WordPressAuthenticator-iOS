@@ -35,6 +35,7 @@ _None._
 ### Breaking Changes
 
 - `SocialService` `apple` associated type is now `User` instead of `AppleUser`. [#763]
+- `SocialService` `google` associated type is now `User` instead of `GIDGoogleUser`. [#764]
 
 ### New Features
 
