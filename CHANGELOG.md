@@ -34,12 +34,11 @@ _None._
 
 ### Breaking Changes
 
-- `SocialService` `apple` associated type is now `User` instead of `AppleUser`. [#763]
-- `SocialService` `google` associated type is now `User` instead of `GIDGoogleUser`. [#764]
+_None._
 
 ### New Features
 
-- Google's `IDToken` now exposes the user's full name via `name`. [#761]
+_None._
 
 ### Bug Fixes
 
@@ -48,6 +47,17 @@ _None._
 ### Internal Changes
 
 _None._
+
+## 6.0.0
+
+### Breaking Changes
+
+- `SocialService` `apple` associated type is now `User` instead of `AppleUser`. [#763]
+- `SocialService` `google` associated type is now `User` instead of `GIDGoogleUser`. [#764]
+
+### New Features
+
+- Google's `IDToken` now exposes the user's full name via `name`. [#761]
 
 ## 5.7.0
 
