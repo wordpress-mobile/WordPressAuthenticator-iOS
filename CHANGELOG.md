@@ -30,7 +30,7 @@ _None._
 
 -->
 
-## Unreleased
+## 6.1.0
 
 ### Breaking Changes
 
@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Support navigating to the WPCom login flow with an existing email through `NavigateToEnterAccount`. [#767]
 
 ### Bug Fixes
 
