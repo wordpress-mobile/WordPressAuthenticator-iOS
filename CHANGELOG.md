@@ -30,7 +30,7 @@ _None._
 
 -->
 
-## Unreleased
+## 6.0.1
 
 ### Breaking Changes
 
@@ -42,7 +42,7 @@ _None._
 
 ### Bug Fixes
 
-_None._
+- Always trigger `completionHandler` if possible when site credential login finishes. [#768]
 
 ### Internal Changes
 
