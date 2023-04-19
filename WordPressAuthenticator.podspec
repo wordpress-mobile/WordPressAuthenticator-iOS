@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name          = 'WordPressAuthenticator'
-  s.version       = '6.1.0-beta.1'
+  s.version       = '6.1.0'
 
   s.summary       = 'WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps.'
   s.description   = <<-DESC
@@ -41,6 +41,6 @@ Pod::Spec.new do |s|
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.
   s.dependency 'WordPressUI', '~> 1.7-beta'
-  s.dependency 'WordPressKit', '~> 7.0-beta'
+  s.dependency 'WordPressKit', '~> 8.0-beta'
   s.dependency 'WordPressShared', '~> 2.1-beta'
 end
