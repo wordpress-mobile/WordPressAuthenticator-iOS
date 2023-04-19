@@ -46,7 +46,7 @@ _None._
 
 ### Internal Changes
 
-_None._
+- Bump WordPressKit dependency to `~> 8.0-beta`
 
 ## 6.0.0
 
