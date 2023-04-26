@@ -30,7 +30,7 @@ _None._
 
 -->
 
-## Unreleased
+## 6.2.0-beta.1
 
 ### Breaking Changes
 
@@ -42,7 +42,7 @@ _None._
 
 ### Bug Fixes
 
-_None._
+- Remove the redundant and ambiguous config `enableSiteCredentialLoginForJetpackSites`. [#771]
 
 ### Internal Changes
 
