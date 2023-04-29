@@ -30,7 +30,7 @@ _None._
 
 -->
 
-## 6.2.0-beta.1
+## Unreleased
 
 ### Breaking Changes
 
@@ -42,11 +42,17 @@ _None._
 
 ### Bug Fixes
 
-- Remove the redundant and ambiguous config `enableSiteCredentialLoginForJetpackSites`. [#771]
+_None._
 
 ### Internal Changes
 
 _None._
+
+## 6.2.0
+
+### Bug Fixes
+
+- Remove the redundant and ambiguous config `enableSiteCredentialLoginForJetpackSites`. [#771]
 
 ## 6.1.0
 
