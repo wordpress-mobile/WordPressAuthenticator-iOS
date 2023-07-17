@@ -48,6 +48,12 @@ _None._
 
 _None._
 
+## 6.3.0
+
+### Bug Fixes
+
+- Fix retain cycles by using `weak self` in action closures. [#775]
+
 ## 6.2.0
 
 ### Bug Fixes
