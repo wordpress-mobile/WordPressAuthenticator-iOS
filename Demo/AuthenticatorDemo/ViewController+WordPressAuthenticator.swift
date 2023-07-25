@@ -4,7 +4,7 @@ import WordPressAuthenticator
 
 extension ViewController {
 
-    func initializeWordPressAuthenticator(withGoogleSDK: Bool) {
+    func initializeWordPressAuthenticator() {
         // In a proper app, we'd want to split this call to keep the code readable. Here, it's
         // useful to keep it all in one block to show how insanely long it is.
         WordPressAuthenticator.initialize(
