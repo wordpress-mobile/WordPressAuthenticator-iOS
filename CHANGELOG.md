@@ -50,6 +50,10 @@ _None._
 
 ## 7.0.0
 
+### Breaking Changes
+
+- Removed dependency GoogleSignIn SDK and flags to configure it [#777]
+
 ## 6.3.0
 
 _Note: This should have been 6.2.1 because it contained only a bug fix. Unfortunately we currently don't have automation in place to enfore SemVer. Given a beta had already been released, we went with 6.3.0 stable._

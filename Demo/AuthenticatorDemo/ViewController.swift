@@ -8,22 +8,16 @@ class ViewController: UIViewController {
 
     /// Add `CellConfiguration` items to add new actionable rows to the table view in `ViewController`.
     lazy var configuration: [CellConfiguration] = [
-        CellConfiguration(text: "Show Login - With Google SDK") { [weak self] in
+        CellConfiguration(text: "Show Login") { [weak self] in
             guard let self else { fatalError() }
 
-            self.initializeWordPressAuthenticator(withGoogleSDK: true)
+            self.initializeWordPressAuthenticator()
             WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
         },
-        CellConfiguration(text: "Show Login - Without Google SDK") { [weak self] in
+        CellConfiguration(text: "Get Google token only") { [weak self] in
             guard let self else { fatalError() }
 
-            self.initializeWordPressAuthenticator(withGoogleSDK: false)
-            WordPressAuthenticator.showLoginFromPresenter(self, animated: true)
-        },
-        CellConfiguration(text: "Get Google token only - Standalone, Wihout SDK") { [weak self] in
-            guard let self else { fatalError() }
-
-            self.initializeWordPressAuthenticator(withGoogleSDK: false)
+            self.initializeWordPressAuthenticator()
             self.getAuthTokenFromGoogle()
         }
     ]
