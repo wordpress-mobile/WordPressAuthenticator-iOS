@@ -53,6 +53,9 @@ _None._
 ### Breaking Changes
 
 - Removed dependency GoogleSignIn SDK and flags to configure it [#777]
+- Made `LoginFieldsMeta` `internal`, forwarding the few properties read by clients to `LoginFields` [#778]
+- Restructured `SocialService` into `SocialUser`, removing the `SocialServiceName` `SocialService` `enum` cases duplicity [#778]
+- Made `presentSignupEpilogue` in `WordPressAuthenticatorDelegateProtocol` use `SocialUser` instead of `SocialService` [#778]
 
 ## 6.3.0
 
