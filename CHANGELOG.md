@@ -56,6 +56,7 @@ _None._
 - Made `LoginFieldsMeta` `internal`, forwarding the few properties read by clients to `LoginFields` [#778]
 - Restructured `SocialService` into `SocialUser`, removing the `SocialServiceName` `SocialService` `enum` cases duplicity [#778]
 - Made `presentSignupEpilogue` in `WordPressAuthenticatorDelegateProtocol` use `SocialUser` instead of `SocialService` [#778]
+- Bumped minimum iOS deployment target to iOS 15.0 [#780]
 
 ## 6.3.0
 
