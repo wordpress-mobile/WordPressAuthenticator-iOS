@@ -1,10 +1,10 @@
 extension UIPasteboard {
 
-    /// Detects patterns and values from the UIPasteboard. This will not trigger the pasteboard alert in iOS 14.
+    /// Detects patterns and values from the `UIPasteboard`.
+    ///
     /// - Parameters:
     ///   - patterns: The patterns to detect.
     ///   - completion: Called with the patterns and values if any were detected, otherwise contains the errors from UIPasteboard.
-    @available(iOS 14.0, *)
     func detect(patterns: Set<UIPasteboard.DetectionPattern>, completion: @escaping (Result<[UIPasteboard.DetectionPattern: Any], Error>) -> Void) {
         UIPasteboard.general.detectPatterns(for: patterns) { result in
             switch result {
@@ -30,7 +30,6 @@ extension UIPasteboard {
     /// Expects to run on main thread.
     /// - Parameters:
     ///   - completion: Called with a length digit authentication code on success
-    @available(iOS 14.0, *)
     public func detectAuthenticatorCode(length: Int = 6, completion: @escaping (Result<String, Error>) -> Void) {
         UIPasteboard.general.detect(patterns: [.number]) { result in
             switch result {
