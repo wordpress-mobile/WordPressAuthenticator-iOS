@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-- Update button style and position on the prologue screen when `enableSiteCreation` config is enabled.
+- Update button style and position on the prologue screen when `enableSiteCreation` and `enableSiteAddressLoginOnlyInPrologue` configs are enabled.
 
 ### Bug Fixes
 
