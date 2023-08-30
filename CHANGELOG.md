@@ -30,7 +30,7 @@ _None._
 
 -->
 
-## Unreleased
+## 6.4.0
 
 ### Breaking Changes
 
@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Update button style and position on the prologue screen when `enableSiteCreation` and `enableSiteAddressLoginOnlyInPrologue` configs are enabled.
 
 ### Bug Fixes
 
