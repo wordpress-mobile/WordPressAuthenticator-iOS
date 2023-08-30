@@ -48,6 +48,15 @@ _None._
 
 _None._
 
+## 7.0.0
+
+### Breaking Changes
+
+- Removed dependency GoogleSignIn SDK and flags to configure it [#777]
+- Made `LoginFieldsMeta` `internal`, forwarding the few properties read by clients to `LoginFields` [#778]
+- Restructured `SocialService` into `SocialUser`, removing the `SocialServiceName` `SocialService` `enum` cases duplicity [#778]
+- Made `presentSignupEpilogue` in `WordPressAuthenticatorDelegateProtocol` use `SocialUser` instead of `SocialService` [#778]
+
 ## 6.3.0
 
 _Note: This should have been 6.2.1 because it contained only a bug fix. Unfortunately we currently don't have automation in place to enfore SemVer. Given a beta had already been released, we went with 6.3.0 stable._

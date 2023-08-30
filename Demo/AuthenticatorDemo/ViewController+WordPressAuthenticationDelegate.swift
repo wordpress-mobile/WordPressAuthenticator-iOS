@@ -37,7 +37,7 @@ extension ViewController: WordPressAuthenticatorDelegate {
         fatalError("TODO")
     }
 
-    func presentSignupEpilogue(in navigationController: UINavigationController, for credentials: AuthenticatorCredentials, service: SocialService?) {
+    func presentSignupEpilogue(in navigationController: UINavigationController, for credentials: AuthenticatorCredentials, socialUser: SocialUser?) {
         fatalError("TODO")
     }
 
