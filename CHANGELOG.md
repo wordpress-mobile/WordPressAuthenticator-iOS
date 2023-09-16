@@ -30,24 +30,6 @@ _None._
 
 -->
 
-## 6.4.0
-
-### Breaking Changes
-
-_None._
-
-### New Features
-
-- Update button style and position on the prologue screen when `enableSiteCreation` and `enableSiteAddressLoginOnlyInPrologue` configs are enabled.
-
-### Bug Fixes
-
-_None._
-
-### Internal Changes
-
-_None._
-
 ## 7.0.0
 
 ### Breaking Changes
@@ -56,6 +38,12 @@ _None._
 - Made `LoginFieldsMeta` `internal`, forwarding the few properties read by clients to `LoginFields` [#778]
 - Restructured `SocialService` into `SocialUser`, removing the `SocialServiceName` `SocialService` `enum` cases duplicity [#778]
 - Made `presentSignupEpilogue` in `WordPressAuthenticatorDelegateProtocol` use `SocialUser` instead of `SocialService` [#778]
+
+## 6.4.0
+
+### New Features
+
+- Update button style and position on the prologue screen when `enableSiteCreation` and `enableSiteAddressLoginOnlyInPrologue` configs are enabled.
 
 ## 6.3.0
 
