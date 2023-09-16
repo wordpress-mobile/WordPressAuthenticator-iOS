@@ -9,7 +9,7 @@ PODS:
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.49.1)
   - UIDeviceIdentifier (2.2.0)
-  - WordPressAuthenticator (7.0.0-beta.1):
+  - WordPressAuthenticator (7.0.0):
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
@@ -71,7 +71,7 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
   UIDeviceIdentifier: f33af270ba9045ea18b31d9aab88e42a0082ea67
-  WordPressAuthenticator: 31b2b358ec1b5c724998f3944b20c29be9be1c95
+  WordPressAuthenticator: 6ae29636e22143b6237a841708713b308503d10c
   WordPressKit: 8e1c5a64645a59493a7316f38468ac036de9c79b
   WordPressShared: 0aa459e5257a77184db87805a998f447443c9706
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
