@@ -35,7 +35,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (~> 0.49)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, commit `50737b238ebaea29642bbd57ed574e4fa5a6f2b5`)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `ec/add-webauth-challenge-endpoints`)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -59,7 +59,7 @@ EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
   WordPressKit:
-    :commit: 50737b238ebaea29642bbd57ed574e4fa5a6f2b5
+    :branch: ec/add-webauth-challenge-endpoints
     :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 CHECKOUT OPTIONS:
