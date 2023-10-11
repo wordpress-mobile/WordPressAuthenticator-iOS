@@ -51,6 +51,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
     - UIDeviceIdentifier
+    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
