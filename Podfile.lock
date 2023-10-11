@@ -9,14 +9,14 @@ PODS:
   - SVProgressHUD (2.2.5)
   - SwiftLint (0.49.1)
   - UIDeviceIdentifier (2.3.0)
-  - WordPressAuthenticator (7.1.0-beta.1):
+  - WordPressAuthenticator (7.2.0):
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
-    - WordPressKit (~> 8.6.0-beta.2)
+    - WordPressKit (~> 8.7-beta)
     - WordPressShared (~> 2.1-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (8.6.0-beta.2):
+  - WordPressKit (8.7.0):
     - Alamofire (~> 4.8.0)
     - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
@@ -35,7 +35,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (~> 0.49)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `ec/add-webauth-challenge-endpoints`)
+  - WordPressKit (~> 8.7-beta)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -51,6 +51,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
     - UIDeviceIdentifier
+    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
@@ -58,14 +59,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
-  WordPressKit:
-    :branch: ec/add-webauth-challenge-endpoints
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
-
-CHECKOUT OPTIONS:
-  WordPressKit:
-    :commit: 50737b238ebaea29642bbd57ed574e4fa5a6f2b5
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -78,12 +71,12 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
-  WordPressAuthenticator: 8c6361487bf2de33e65a977b9c580c739733bc09
-  WordPressKit: dcde9ce63318b5d856681b1a33f42ed6b9adf3a7
+  WordPressAuthenticator: 1990484092eef67843515a5ed90f3e7db41caf35
+  WordPressKit: a5432c2e3c2247c2b83b3ebf0acec75ae00782ef
   WordPressShared: 0aa459e5257a77184db87805a998f447443c9706
   WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 86b383484af275922e9bb3c47c47563fb8e9b810
+PODFILE CHECKSUM: 537f0cb26852aae6d94a89c678a95bc8bd640a01
 
 COCOAPODS: 1.11.3
