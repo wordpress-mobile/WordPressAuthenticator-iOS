@@ -39,6 +39,10 @@ class LoginFieldsValidationTests: XCTestCase {
         loginFields.siteAddress = "https://hostname"
         XCTAssert(loginFields.validateSiteForSignin(), "Since we want to validate simple mistakes, to use a hostname you'll need an http:// or https:// prefix.")
 
+        loginFields.siteAddress = "https://host name.com"
+        XCTAssertFalse(loginFields.validateSiteForSignin(), "Hostname with spaces should not validate.")
+
+        XCTExpectFailure("Starting iOS 17 (?) URL(string:), which we use under the hood, will percent-escape spaces in input strings without the protocol (e.g. http://).")
         loginFields.siteAddress = "host name.com"
         XCTAssertFalse(loginFields.validateSiteForSignin(), "Hostname with spaces should not validate.")
     }
