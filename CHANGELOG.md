@@ -30,6 +30,16 @@ _None._
 
 -->
 
+## 7.2.0
+
+### New Features
+
+- Added security keys support as a two-factor authentication method.
+
+### Internal Changes
+
+- Bump WordPressKit dependency to `~> 8.7-beta`
+
 ## 7.0.0
 
 ### Breaking Changes
