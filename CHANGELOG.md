@@ -30,6 +30,12 @@ _None._
 
 -->
 
+## 7.2.1
+
+### Bug Fixes
+
+- Fix an issue where `guessXMLRPCURL` was called with an URL without a scheme resulting in an error [#792]
+
 ## 7.2.0
 
 ### New Features
