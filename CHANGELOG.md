@@ -34,7 +34,8 @@ _None._
 
 ### Bug Fixes
 
-- Fix an issue where `guessXMLRPCURL` was called with an URL without a scheme resulting in an error [#792]
+- Fix an issue where `guessXMLRPCURL` was called with an URL without a scheme resulting in an error. [#792]
+- Fix an issue that leads to an ambiguous error message when an incorrect SMS 2FA code is submitted. [#793]
 
 ## 7.2.0
 
