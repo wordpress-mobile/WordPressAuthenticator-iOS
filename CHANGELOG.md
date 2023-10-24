@@ -34,7 +34,8 @@ _None._
 
 ### Bug Fixes
 
-- Fix an issue where `guessXMLRPCURL` was called with an URL without a scheme resulting in an error [#792]
+- Fix an issue where `guessXMLRPCURL` was called with an URL without a scheme resulting in an error. [#792]
+- Fix an issue where two 2FA controllers were being opened at the same time when logging in. [#794]
 
 ## 7.2.0
 
