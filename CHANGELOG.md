@@ -30,6 +30,13 @@ _None._
 
 -->
 
+## 7.3.0
+
+### New Features
+
+- Make extensions for `LoginFacade` and `Data` public to be accessible from external modules.
+
+
 ## 7.2.1
 
 ### Bug Fixes
