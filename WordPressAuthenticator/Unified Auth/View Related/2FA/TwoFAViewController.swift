@@ -191,6 +191,10 @@ private extension TwoFAViewController {
             return validateFormAndLogin()
         }
 
+        if nonceInfo.supportedAuthTypes == ["webauthn"] {
+            return displayError(message: LocalizedText.securityKeyEnabledMessage, moveVoiceOverFocus: true)
+        }
+
         let (authType, nonce) = nonceInfo.authTypeAndNonce(for: loginFields.multifactorCode)
         if nonce.isEmpty {
             return displayError(message: LocalizedText.bad2FAMessage, moveVoiceOverFocus: true)
@@ -630,6 +634,7 @@ private extension TwoFAViewController {
     }
 
     enum LocalizedText {
+        static let securityKeyEnabledMessage = NSLocalizedString("Whoops, a security key is enabled for this account. Please use your security key to log in.", comment: "Error message shown when a security key is enabled for an account but a different type of two factor code is provided.")
         static let bad2FAMessage = NSLocalizedString("Whoops, that's not a valid two-factor verification code. Double-check your code and try again!", comment: "Error message shown when an incorrect two factor code is provided.")
         static let numericalCode = NSLocalizedString("A verification code will only contain numbers.", comment: "Shown when a user types a non-number into the two factor field.")
         static let invalidCode = NSLocalizedString("That doesn't appear to be a valid verification code.", comment: "Shown when a user pastes a code into the two factor field that contains letters or is the wrong length")
