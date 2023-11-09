@@ -30,6 +30,13 @@ _None._
 
 -->
 
+## 7.3.1
+
+### Bug Fixes
+
+- Fix a regression where app-based 2FA stopped working on accounts with passkeys enabled
+
+
 ## 7.3.0
 
 ### New Features
