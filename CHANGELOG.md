@@ -48,17 +48,16 @@ _None._
 
 _None._
 
-## 7.3.1
-
-### Bug Fixes
-
-- Fix a regression where app-based 2FA stopped working on accounts with passkeys enabled. [#802]
-
 ## 7.3.0
 
 ### New Features
 
 - Make extensions for `LoginFacade` and `Data` public to be accessible from external modules. [#798]
+
+### Bug Fixes
+
+- Fix a regression where app-based 2FA stopped working on accounts with passkeys enabled. [#802]
+
 
 ## 7.2.1
 
