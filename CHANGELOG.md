@@ -48,6 +48,11 @@ _None._
 
 _None._
 
+## 7.3.1
+
+### Bug Fixes
+- Fix an issue where self-hosted sites are incorrectly flagged as non WordPress sites. [#796]
+
 ## 7.3.0
 
 ### New Features
