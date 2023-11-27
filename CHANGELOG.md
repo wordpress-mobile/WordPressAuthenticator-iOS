@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-_None._
+* `WordPressComOAuthClientFacade` API has changed. But its features hasn't.
 
 ### New Features
 
