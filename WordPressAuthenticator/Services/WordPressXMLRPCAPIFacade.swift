@@ -11,7 +11,7 @@ public extension WordPressXMLRPCAPIFacade {
             return error
         }
 
-        return WordPressAuthenticatorError.xmlrpcUnavailable
+        return WordPressAuthenticatorError.xmlrpcUnavailable(underlyingError: error)
     }
 
 }

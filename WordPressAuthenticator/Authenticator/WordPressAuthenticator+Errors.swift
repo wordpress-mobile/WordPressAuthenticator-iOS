@@ -1,7 +1,7 @@
 import Foundation
 
 enum WordPressAuthenticatorError: Error {
-    case xmlrpcUnavailable
+    case xmlrpcUnavailable(underlyingError: Error)
 }
 
 extension WordPressAuthenticatorError: LocalizedError {
@@ -13,6 +13,14 @@ extension WordPressAuthenticatorError: LocalizedError {
                 "We're not able to connect to the Jetpack site at that URL.  Contact us for assistance.",
                 comment: "Error message shown when having trouble connecting to a Jetpack site."
             )
+        }
+    }
+
+    var failureReason: String? {
+        switch self {
+        case let .xmlrpcUnavailable(original):
+            // FIXME: Do not convert to `NSError` once the `original` is refactored be a concrete type.
+            return (original as NSError).localizedDescription
         }
     }
 
