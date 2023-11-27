@@ -36,31 +36,9 @@ NSString *const XMLRPCOriginalErrorKey = @"XMLRPCOriginalErrorKey";
                              success:success
                              failure:^(NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            failure([self errorForGuessXMLRPCApiFailure:error]);
+            failure([self parseGuessXMLRPCAPIFailure:error]);
         });
     }];
-}
-
-- (NSError *)errorForGuessXMLRPCApiFailure:(NSError *)error
-{
-    WPAuthenticatorLogError(@"Error on trying to guess XMLRPC site: %@", error);
-    NSArray *errorCodes = @[
-                            @(NSURLErrorUserCancelledAuthentication),
-                            @(NSURLErrorNotConnectedToInternet),
-                            @(NSURLErrorNetworkConnectionLost),
-                            ];
-    if ([error.domain isEqual:NSURLErrorDomain] && [errorCodes containsObject:@(error.code)]) {
-        return error;
-    } else {
-        NSDictionary *userInfo = @{
-                                   NSLocalizedDescriptionKey: NSLocalizedString(@"Unable to read the WordPress site at that URL. Tap 'Need more help?' to view the FAQ.", nil),
-                                   NSLocalizedFailureReasonErrorKey: error.localizedDescription,
-                                   XMLRPCOriginalErrorKey: error
-                                   };
-
-        NSError *err = [NSError errorWithDomain:WordPressAuthenticator.errorDomain code:NSURLErrorBadURL userInfo:userInfo];
-        return err;
-    }
 }
 
 - (void)getBlogOptionsWithEndpoint:(NSURL *)xmlrpc

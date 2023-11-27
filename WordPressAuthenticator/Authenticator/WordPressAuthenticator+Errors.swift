@@ -1,7 +1,24 @@
 import Foundation
 
-// MARK: - WordPressAuthenticator Error Constants. Once the entire code is Swifted, let's *PLEASE* have a
-//          beautiful Error `Swift Enum`.
+enum WordPressAuthenticatorError: Error {
+    case xmlrpcUnavailable
+}
+
+extension WordPressAuthenticatorError: LocalizedError {
+
+    var errorDescription: String? {
+        switch self {
+        case .xmlrpcUnavailable:
+            return NSLocalizedString(
+                "We're not able to connect to the Jetpack site at that URL.  Contact us for assistance.",
+                comment: "Error message shown when having trouble connecting to a Jetpack site."
+            )
+        }
+    }
+
+}
+
+// MARK: - WordPressAuthenticator Error Constants.
 //
 extension WordPressAuthenticator {
 
