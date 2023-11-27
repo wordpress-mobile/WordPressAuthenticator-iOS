@@ -510,13 +510,12 @@ private extension SiteAddressViewController {
                     return
                 }
 
-                let err = self.originalErrorOrError(error: error as NSError)
+                let err = self.originalErrorOrError(error: error)
 
                 let errorMessage: String? = {
                     if let xmlrpcValidatorError = err as? WordPressOrgXMLRPCValidatorError {
                         return xmlrpcValidatorError.localizedDescription
-                    } else if (err.domain == NSURLErrorDomain && err.code == NSURLErrorCannotFindHost) ||
-                                (err.domain == NSURLErrorDomain && err.code == NSURLErrorNetworkConnectionLost) {
+                    } else if let urlError = err as? URLError, [.cannotFindHost, .networkConnectionLost].contains(urlError.code) {
                         // NSURLErrorNetworkConnectionLost can be returned when an invalid URL is entered.
                         let msg = NSLocalizedString(
                             "The site at this address is not a WordPress site. For us to connect to it, the site must use WordPress.",
@@ -629,12 +628,11 @@ private extension SiteAddressViewController {
         })
     }
 
-    func originalErrorOrError(error: NSError) -> NSError {
-        guard let err = error.userInfo[XMLRPCOriginalErrorKey] as? NSError else {
-            return error
+    func originalErrorOrError(error: Error) -> Error {
+        if case let WordPressAuthenticatorError.xmlrpcUnavailable(underlyingError) = error {
+            return underlyingError
         }
-
-        return err
+        return error
     }
 
     /// Here we will continue with the self-hosted flow.

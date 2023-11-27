@@ -171,13 +171,12 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
             WordPressAuthenticator.track(.loginFailed, error: error)
             self.configureViewLoading(false)
 
-            let err = self.originalErrorOrError(error: error as NSError)
+            let err = self.originalErrorOrError(error: error)
 
             if let xmlrpcValidatorError = err as? WordPressOrgXMLRPCValidatorError {
                 self.displayError(message: xmlrpcValidatorError.localizedDescription, moveVoiceOverFocus: true)
 
-            } else if (err.domain == NSURLErrorDomain && err.code == NSURLErrorCannotFindHost) ||
-                (err.domain == NSURLErrorDomain && err.code == NSURLErrorNetworkConnectionLost) {
+            } else if let urlError = err as? URLError, [.cannotFindHost, .networkConnectionLost].contains(urlError.code) {
                 // NSURLErrorNetworkConnectionLost can be returned when an invalid URL is entered.
                 let msg = NSLocalizedString(
                     "The site at this address is not a WordPress site. For us to connect to it, the site must use WordPress.",
@@ -235,11 +234,11 @@ class LoginSiteAddressViewController: LoginViewController, NUXKeyboardResponder 
         })
     }
 
-    @objc func originalErrorOrError(error: NSError) -> NSError {
-        guard let err = error.userInfo[XMLRPCOriginalErrorKey] as? NSError else {
-            return error
+    @objc func originalErrorOrError(error: Error) -> Error {
+        if case let WordPressAuthenticatorError.xmlrpcUnavailable(underlyingError) = error {
+            return underlyingError
         }
-        return err
+        return error
     }
 
     /// Here we will continue with the self-hosted flow.

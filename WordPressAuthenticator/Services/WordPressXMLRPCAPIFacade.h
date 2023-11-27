@@ -2,8 +2,6 @@
 
 @protocol WordPressXMLRPCAPIFacadeProtocol
 
-extern NSString *const XMLRPCOriginalErrorKey;
-
 - (instancetype)initWithUserAgent:(NSString *)userAgent;
 
 - (void)guessXMLRPCURLForSite:(NSString *)url

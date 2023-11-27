@@ -12,8 +12,6 @@
 
 @end
 
-NSString *const XMLRPCOriginalErrorKey = @"XMLRPCOriginalErrorKey";
-
 @implementation WordPressXMLRPCAPIFacade
 
 - (instancetype)initWithUserAgent:(NSString *)userAgent
