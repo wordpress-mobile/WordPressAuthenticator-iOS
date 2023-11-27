@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@protocol WordPressXMLRPCAPIFacade
+@protocol WordPressXMLRPCAPIFacadeProtocol
 
 extern NSString *const XMLRPCOriginalErrorKey;
 
@@ -18,6 +18,6 @@ extern NSString *const XMLRPCOriginalErrorKey;
 
 @end
 
-@interface WordPressXMLRPCAPIFacade : NSObject<WordPressXMLRPCAPIFacade>
+@interface WordPressXMLRPCAPIFacade : NSObject<WordPressXMLRPCAPIFacadeProtocol>
 
 @end
