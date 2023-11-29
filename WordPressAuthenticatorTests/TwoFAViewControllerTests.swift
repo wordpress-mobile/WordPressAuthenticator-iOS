@@ -7,19 +7,19 @@ import XCTest
 class TwoFAViewControllerTests: XCTestCase {
 
     func testLoadRowsWithNoErrorAndNoPasskeys() {
-        let defualtRows: [TwoFAViewController.Row] = [.instructions, .code, .alternateInstructions, .sendCode]
+        let defaultRows: [TwoFAViewController.Row] = [.instructions, .code, .alternateInstructions, .sendCode]
 
         XCTAssertEqual(
             TwoFAViewController.computeRows(errorMessage: nil, nonceWebauthn: nil, passkeysEnabled: false),
-            defualtRows
+            defaultRows
         )
         XCTAssertEqual(
             TwoFAViewController.computeRows(errorMessage: nil, nonceWebauthn: nil, passkeysEnabled: true),
-            defualtRows
+            defaultRows
         )
         XCTAssertEqual(
             TwoFAViewController.computeRows(errorMessage: nil, nonceWebauthn: "some error", passkeysEnabled: false),
-            defualtRows
+            defaultRows
         )
     }
 
