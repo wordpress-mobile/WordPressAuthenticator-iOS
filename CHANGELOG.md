@@ -48,6 +48,15 @@ _None._
 
 _None._
 
+## 7.3.1
+
+_Shipped as a patch even though it contains only a new feature to prioritize releasing the change fast._
+_See https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/pull/809#issuecomment-1832211708._
+
+### New Features
+
+- Add an `enablePasskeys` option to `WordPressAuthenticatorConfiguration` to allow disabling the Passkeys support. For backward compatibility, the default value is set to `true` (enabled) [#809]
+
 ## 7.3.0
 
 ### New Features
