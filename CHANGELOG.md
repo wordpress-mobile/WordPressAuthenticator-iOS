@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Add an `enablePasskeys` option to `WordPressAuthenticatorConfiguration` to allow disabling the Passkeys support. For backward compatibility, the default value is set to `true` (enabled) [#809]
 
 ### Bug Fixes
 
