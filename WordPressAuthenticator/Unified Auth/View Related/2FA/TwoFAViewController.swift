@@ -456,6 +456,37 @@ private extension TwoFAViewController {
 
 }
 
+extension TwoFAViewController {
+
+    /// Rows listed in the order they were created.
+    ///
+    enum Row {
+        case instructions
+        case code
+        case alternateInstructions
+        case sendCode
+        case enterSecurityKey
+        case errorMessage
+
+        var reuseIdentifier: String {
+            switch self {
+            case .instructions:
+                return TextLabelTableViewCell.reuseIdentifier
+            case .code:
+                return TextFieldTableViewCell.reuseIdentifier
+            case .alternateInstructions:
+                return TextLabelTableViewCell.reuseIdentifier
+            case .sendCode:
+                return TextLinkButtonTableViewCell.reuseIdentifier
+            case .enterSecurityKey:
+                return TextLinkButtonTableViewCell.reuseIdentifier
+            case .errorMessage:
+                return TextLabelTableViewCell.reuseIdentifier
+            }
+        }
+    }
+}
+
 // MARK: - Table Management
 
 private extension TwoFAViewController {
@@ -477,17 +508,11 @@ private extension TwoFAViewController {
     /// Describes how the tableView rows should be rendered.
     ///
     func loadRows() {
-        rows = [.instructions, .code]
-
-        if let errorText = errorMessage, !errorText.isEmpty {
-            rows.append(.errorMessage)
-        }
-
-        rows.append(.alternateInstructions)
-        rows.append(.sendCode)
-        if #available(iOS 16, *), WordPressAuthenticator.shared.configuration.enablePasskeys, loginFields.nonceInfo?.nonceWebauthn != nil {
-            rows.append(.enterSecurityKey)
-        }
+        rows = TwoFAViewController.computeRows(
+            errorMessage: errorMessage,
+            nonceWebauthn: loginFields.nonceInfo?.nonceWebauthn,
+            passkeysEnabled: WordPressAuthenticator.shared.configuration.enablePasskeys
+        )
     }
 
     /// Configure cells.
@@ -600,34 +625,6 @@ private extension TwoFAViewController {
         UIAccessibility.post(notification: .screenChanged, argument: codeField)
     }
 
-    /// Rows listed in the order they were created.
-    ///
-    enum Row {
-        case instructions
-        case code
-        case alternateInstructions
-        case sendCode
-        case enterSecurityKey
-        case errorMessage
-
-        var reuseIdentifier: String {
-            switch self {
-            case .instructions:
-                return TextLabelTableViewCell.reuseIdentifier
-            case .code:
-                return TextFieldTableViewCell.reuseIdentifier
-            case .alternateInstructions:
-                return TextLabelTableViewCell.reuseIdentifier
-            case .sendCode:
-                return TextLinkButtonTableViewCell.reuseIdentifier
-            case .enterSecurityKey:
-                return TextLinkButtonTableViewCell.reuseIdentifier
-            case .errorMessage:
-                return TextLabelTableViewCell.reuseIdentifier
-            }
-        }
-    }
-
     enum LocalizedText {
         static let bad2FAMessage = NSLocalizedString("Whoops, that's not a valid two-factor verification code. Double-check your code and try again!", comment: "Error message shown when an incorrect two factor code is provided.")
         static let numericalCode = NSLocalizedString("A verification code will only contain numbers.", comment: "Shown when a user types a non-number into the two factor field.")
@@ -640,4 +637,28 @@ private extension TwoFAViewController {
         static let unknownError = NSLocalizedString("Whoops, something went wrong. Please try again!", comment: "Generic error on the 2FA screen")
     }
 
+}
+
+extension TwoFAViewController {
+
+    static func computeRows(
+        errorMessage: String?,
+        nonceWebauthn: String?,
+        passkeysEnabled: Bool
+    ) -> [Row] {
+        var rows: [Row] = [.instructions, .code]
+
+        if let errorText = errorMessage, !errorText.isEmpty {
+            rows.append(.errorMessage)
+        }
+
+        rows.append(.alternateInstructions)
+        rows.append(.sendCode)
+
+        if #available(iOS 16, *), passkeysEnabled, nonceWebauthn != nil {
+            rows.append(.enterSecurityKey)
+        }
+
+        return rows
+    }
 }

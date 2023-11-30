@@ -63,6 +63,7 @@
 		3F881660298150FB00AEC4C0 /* URLSesison+DataGetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F88165F298150FB00AEC4C0 /* URLSesison+DataGetting.swift */; };
 		3F8816702983EB4A00AEC4C0 /* IDToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F88166F2983EB4A00AEC4C0 /* IDToken.swift */; };
 		3F9439BE27D6F9B60067183A /* LoginPrologueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F9439BD27D6F9B60067183A /* LoginPrologueViewController.swift */; };
+		3FD6950F2B16C0D7005397E3 /* TwoFAViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD6950E2B16C0D7005397E3 /* TwoFAViewControllerTests.swift */; };
 		3FE8071529364C410088420C /* Result+ConvenienceInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE8071429364C410088420C /* Result+ConvenienceInitTests.swift */; };
 		3FE80717293650190088420C /* Result+ConvenienceInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE80716293650190088420C /* Result+ConvenienceInit.swift */; };
 		3FE8071B2936515F0088420C /* ASWebAuthenticationSession+Utils.swift .swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE8071A2936515F0088420C /* ASWebAuthenticationSession+Utils.swift .swift */; };
@@ -323,6 +324,7 @@
 		3F88165F298150FB00AEC4C0 /* URLSesison+DataGetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSesison+DataGetting.swift"; sourceTree = "<group>"; };
 		3F88166F2983EB4A00AEC4C0 /* IDToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDToken.swift; sourceTree = "<group>"; };
 		3F9439BD27D6F9B60067183A /* LoginPrologueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPrologueViewController.swift; sourceTree = "<group>"; };
+		3FD6950E2B16C0D7005397E3 /* TwoFAViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoFAViewControllerTests.swift; sourceTree = "<group>"; };
 		3FE8071429364C410088420C /* Result+ConvenienceInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+ConvenienceInitTests.swift"; sourceTree = "<group>"; };
 		3FE80716293650190088420C /* Result+ConvenienceInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+ConvenienceInit.swift"; sourceTree = "<group>"; };
 		3FE8071A2936515F0088420C /* ASWebAuthenticationSession+Utils.swift .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ASWebAuthenticationSession+Utils.swift .swift"; sourceTree = "<group>"; };
@@ -965,6 +967,7 @@
 				F18DF0E32525009200D83AFE /* SupportingFiles */,
 				3F338B6B289B87E60014ADC5 /* UnitTests.xctestplan */,
 				0193F7742A615521004D7C16 /* MemoryManagementTests.swift */,
+				3FD6950E2B16C0D7005397E3 /* TwoFAViewControllerTests.swift */,
 			);
 			path = WordPressAuthenticatorTests;
 			sourceTree = "<group>";
@@ -1583,6 +1586,7 @@
 				3F86A84829D2A42D005D20C0 /* WordPressAuthenticator+TestsUtils.swift in Sources */,
 				3F879FF4293A7F46005C2B48 /* GoogleOAuthTokenGetterTests.swift in Sources */,
 				B501C048208FC79C00D1E58F /* LoginFacadeTests.m in Sources */,
+				3FD6950F2B16C0D7005397E3 /* TwoFAViewControllerTests.swift in Sources */,
 				3F879FD7293A44F2005C2B48 /* OAuthTokenRequestBodyTests.swift in Sources */,
 				3108613125AFA4830022F75E /* PasteboardTests.swift in Sources */,
 				3FE8071F2936558F0088420C /* URL+GoogleSignInTests.swift in Sources */,
