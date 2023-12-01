@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-_None._
+* `WordPressComOAuthClientFacade` API has changed. But its features hasn't.
 
 ### New Features
 
@@ -48,10 +48,20 @@ _None._
 
 _None._
 
-## 7.3.1
+## 7.3.2
 
 ### Bug Fixes
+
 - Fix an issue where self-hosted sites are incorrectly flagged as non WordPress sites. [#796]
+
+## 7.3.1
+
+_Shipped as a patch even though it contains only a new feature to prioritize releasing the change fast._
+_See https://github.com/wordpress-mobile/WordPressAuthenticator-iOS/pull/809#issuecomment-1832211708._
+
+### New Features
+
+- Add an `enablePasskeys` option to `WordPressAuthenticatorConfiguration` to allow disabling the Passkeys support. For backward compatibility, the default value is set to `true` (enabled) [#809]
 
 ## 7.3.0
 
