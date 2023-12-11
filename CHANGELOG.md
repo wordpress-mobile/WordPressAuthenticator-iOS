@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-* `WordPressComOAuthClientFacade` API has changed. But its features hasn't.
+_None._
 
 ### New Features
 
@@ -43,6 +43,16 @@ _None._
 ### Bug Fixes
 
 _None._
+
+### Internal Changes
+
+_None._
+
+## 8.0.0
+
+### Breaking Changes
+
+* `WordPressComOAuthClientFacade` API has changed. But its features hasn't.
 
 ### Internal Changes
 
