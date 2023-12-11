@@ -40,6 +40,8 @@ Pod::Spec.new do |s|
   # Use a loose restriction that allows both production and beta versions, up to the next major version.
   # If you want to update which of these is used, specify it in the host app.
   s.dependency 'WordPressUI', '~> 1.7-beta'
+  # TODO: Update to latest version after the PR below is merged and released
+  # https://github.com/wordpress-mobile/WordPressKit-iOS/pull/650
   s.dependency 'WordPressKit', '~> 8.7-beta'
   s.dependency 'WordPressShared', '~> 2.1-beta'
 end
