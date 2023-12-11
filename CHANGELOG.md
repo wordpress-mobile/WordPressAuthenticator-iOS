@@ -46,7 +46,7 @@ _None._
 
 ### Internal Changes
 
-_None._
+* Depend on WordPressKit 9.0.0 and make necessary code changes to adopt the new API. [808]
 
 ## 7.3.1
 
