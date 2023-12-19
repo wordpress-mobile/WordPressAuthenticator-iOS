@@ -331,7 +331,11 @@ extension TwoFAViewController: ASAuthorizationControllerDelegate, ASAuthorizatio
 
     func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
         WPAuthenticatorLogError("Error signing challenge: \(error.localizedDescription)")
-        displaySecurityKeyErrorMessageAndExitFlow()
+        if (error as? ASAuthorizationError)?.code == .canceled {
+            // Do nothing
+        } else {
+            displaySecurityKeyErrorMessageAndExitFlow()
+        }
     }
 
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
