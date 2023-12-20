@@ -1,29 +1,29 @@
 PODS:
   - Alamofire (4.8.2)
   - Expecta (1.0.6)
-  - Gridicons (1.0.1)
+  - Gridicons (1.2.0)
   - NSObject-SafeExpectations (0.0.6)
   - "NSURL+IDN (0.4)"
-  - OCMock (3.8.1)
+  - OCMock (3.9.3)
   - Specta (1.0.7)
   - SVProgressHUD (2.2.5)
-  - SwiftLint (0.49.1)
+  - SwiftLint (0.54.0)
   - UIDeviceIdentifier (2.3.0)
-  - WordPressAuthenticator (7.3.1):
+  - WordPressAuthenticator (8.0.0):
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
-    - WordPressKit (~> 8.7-beta)
+    - WordPressKit (~> 9.0.0)
     - WordPressShared (~> 2.1-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (8.11.0):
+  - WordPressKit (9.0.0):
     - Alamofire (~> 4.8.0)
     - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
     - WordPressShared (~> 2.0-beta)
     - wpxmlrpc (~> 0.10)
-  - WordPressShared (2.1.0)
-  - WordPressUI (1.7.0)
+  - WordPressShared (2.2.0)
+  - WordPressUI (1.15.0)
   - wpxmlrpc (0.10.0)
 
 DEPENDENCIES:
@@ -35,7 +35,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (~> 0.49)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (~> 8.7-beta)
+  - WordPressKit (~> 9.0.0)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -63,20 +63,20 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  Gridicons: 8e19276b20bb15d1fda1d4d0db96d066d170135b
+  Gridicons: 4455b9f366960121430e45997e32112ae49ffe1d
   NSObject-SafeExpectations: c01c8881cbd97efad6f668286b913cd0b7d62ab5
   "NSURL+IDN": afc873e639c18138a1589697c3add197fe8679ca
-  OCMock: 29f6e52085b4e7d9b075cbf03ed7c3112f82f934
+  OCMock: 300b1b1b9155cb6378660b981c2557448830bdc6
   Specta: 3e1bd89c3517421982dc4d1c992503e48bd5fe66
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftLint: 32ee33ded0636d0905ef6911b2b67bbaeeedafa5
+  SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
-  WordPressAuthenticator: 503a174d8ccc0781a0f5769e5e284e07cb294dc0
-  WordPressKit: 13e01ed70f6ab2397c228959bc47cb2073521f63
-  WordPressShared: 0aa459e5257a77184db87805a998f447443c9706
-  WordPressUI: 1cf47a3b78154faf69caa18569ee7ece1e510fa0
+  WordPressAuthenticator: 738d6423d11db1927b4f30dec8c4b90a442df8fc
+  WordPressKit: 3f599b50b996e4352efa5594e6de95e53315da12
+  WordPressShared: 87f3ee89b0a3e83106106f13a8b71605fb8eb6d2
+  WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 537f0cb26852aae6d94a89c678a95bc8bd640a01
+PODFILE CHECKSUM: 53b90d4674a5a238bb3fca5e6e500c0a2d220ca6
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.14.3

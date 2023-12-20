@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-* `WordPressComOAuthClientFacade` API has changed. But its features hasn't.
+_None._
 
 ### New Features
 
@@ -48,11 +48,22 @@ _None._
 
 _None._
 
-## 7.3.2
+## 8.0.1
 
 ### Bug Fixes
 
 - Fix an issue where self-hosted sites are incorrectly flagged as non WordPress sites. [#796]
+
+## 8.0.0
+
+### Breaking Changes
+
+* `WordPressComOAuthClientFacade` API has changed. But its features hasn't.
+
+### Internal Changes
+
+* Depend on WordPressKit 9.0.0 and make necessary code changes to adopt the new API. [808]
+>>>>>>> trunk
 
 ## 7.3.1
 
