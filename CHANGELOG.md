@@ -63,7 +63,6 @@ _None._
 ### Internal Changes
 
 * Depend on WordPressKit 9.0.0 and make necessary code changes to adopt the new API. [808]
->>>>>>> trunk
 
 ## 7.3.1
 
