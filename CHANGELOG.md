@@ -48,6 +48,12 @@ _None._
 
 _None._
 
+## 8.0.1
+
+### Bug Fixes
+
+- Fix an issue where self-hosted sites are incorrectly flagged as non WordPress sites. [#796]
+
 ## 8.0.0
 
 ### Breaking Changes
@@ -57,6 +63,7 @@ _None._
 ### Internal Changes
 
 * Depend on WordPressKit 9.0.0 and make necessary code changes to adopt the new API. [808]
+>>>>>>> trunk
 
 ## 7.3.1
 
