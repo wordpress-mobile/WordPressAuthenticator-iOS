@@ -6,7 +6,7 @@ import WordPressKit
 class LoginPrologueViewController: LoginViewController {
 
     @IBOutlet private weak var topContainerView: UIView!
-    @IBOutlet private weak var buttonBlurEffectView: UIVisualEffectView!
+    @IBOutlet private weak var buttonBackgroundView: UIView!
     private var buttonViewController: NUXButtonViewController?
     private var stackedButtonsViewController: NUXStackedButtonsViewController?
     var showCancel = false
@@ -202,7 +202,6 @@ class LoginPrologueViewController: LoginViewController {
         }
 
         buttonViewController.backgroundColor = style.buttonViewBackgroundColor
-        buttonBlurEffectView.isHidden = true
     }
 
     /// Displays the Unified prologue buttons.
@@ -356,6 +355,7 @@ class LoginPrologueViewController: LoginViewController {
     private func setButtonViewControllerBackground() {
         // Fallback to setting the button background color to clear so the blur effect blurs the Prologue background color.
         let buttonsBackgroundColor = WordPressAuthenticator.shared.unifiedStyle?.prologueButtonsBackgroundColor ?? .clear
+        buttonBackgroundView.backgroundColor = WordPressAuthenticator.shared.unifiedStyle?.prologueButtonsBackgroundColor ?? .clear
         buttonViewController?.backgroundColor = buttonsBackgroundColor
         stackedButtonsViewController?.backgroundColor = buttonsBackgroundColor
 
@@ -364,20 +364,20 @@ class LoginPrologueViewController: LoginViewController {
         /// 2. Set the background color of the view controller to prologueViewBackgroundColor
         let prologueViewBackgroundColor = WordPressAuthenticator.shared.unifiedStyle?.prologueViewBackgroundColor ?? .clear
 
-        guard prologueViewBackgroundColor.cgColor == buttonsBackgroundColor.cgColor else {
-            buttonBlurEffectView.effect = UIBlurEffect(style: blurEffect)
-            return
-        }
+//        guard prologueViewBackgroundColor.cgColor == buttonsBackgroundColor.cgColor else {
+//            buttonBlurEffectView.effect = UIBlurEffect(style: blurEffect)
+//            return
+//        }
         // do not set background color if we've set a background image earlier
         if WordPressAuthenticator.shared.unifiedStyle?.prologueBackgroundImage == nil {
             view.backgroundColor = prologueViewBackgroundColor
         }
         // if a blur effect for the buttons was passed, use it; otherwise hide the view.
-        guard let blurEffect = WordPressAuthenticator.shared.unifiedStyle?.prologueButtonsBlurEffect else {
-            buttonBlurEffectView.isHidden = true
-            return
-        }
-        buttonBlurEffectView.effect = blurEffect
+//        guard let blurEffect = WordPressAuthenticator.shared.unifiedStyle?.prologueButtonsBlurEffect else {
+//            buttonBlurEffectView.isHidden = true
+//            return
+//        }
+//        buttonBlurEffectView.effect = blurEffect
     }
 
     // MARK: - Actions
