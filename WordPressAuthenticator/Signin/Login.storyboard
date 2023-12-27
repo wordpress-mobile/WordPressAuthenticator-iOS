@@ -88,7 +88,7 @@
                                 </connections>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjF-XB-q1T">
-                                <rect key="frame" x="16" y="501" width="343" height="166"/>
+                                <rect key="frame" x="0.0" y="501" width="375" height="166"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G3G-Ap-6ix">
@@ -100,15 +100,15 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="6cw-FO-hjb" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leading" id="7Z8-mD-FWN"/>
+                            <constraint firstItem="PjF-XB-q1T" firstAttribute="leading" secondItem="6cw-FO-hjb" secondAttribute="leading" id="91F-Sf-R3P"/>
                             <constraint firstAttribute="trailing" secondItem="G3G-Ap-6ix" secondAttribute="trailing" id="96a-eB-JlD"/>
                             <constraint firstItem="PjF-XB-q1T" firstAttribute="top" secondItem="G3G-Ap-6ix" secondAttribute="top" id="B2V-ma-dxV"/>
                             <constraint firstItem="G3G-Ap-6ix" firstAttribute="top" secondItem="6cw-FO-hjb" secondAttribute="bottom" id="Cuw-sd-C5k"/>
                             <constraint firstAttribute="trailing" secondItem="6cw-FO-hjb" secondAttribute="trailing" id="Hgo-qC-AqF"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PjF-XB-q1T" secondAttribute="trailing" id="VXy-Pl-fpe"/>
+                            <constraint firstItem="PjF-XB-q1T" firstAttribute="trailing" secondItem="6cw-FO-hjb" secondAttribute="trailing" id="QiR-7V-V8u"/>
                             <constraint firstItem="PjF-XB-q1T" firstAttribute="bottom" secondItem="G3G-Ap-6ix" secondAttribute="bottom" id="aiT-Bm-G1p"/>
                             <constraint firstItem="6cw-FO-hjb" firstAttribute="top" secondItem="EnO-7f-1yO" secondAttribute="top" id="dXg-NZ-hRY"/>
                             <constraint firstAttribute="bottom" secondItem="G3G-Ap-6ix" secondAttribute="bottom" id="lOP-Up-00c"/>
-                            <constraint firstItem="PjF-XB-q1T" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leadingMargin" id="pcs-VQ-oSl"/>
                             <constraint firstItem="G3G-Ap-6ix" firstAttribute="leading" secondItem="EnO-7f-1yO" secondAttribute="leading" id="uzT-mw-eJq"/>
                         </constraints>
                     </view>
