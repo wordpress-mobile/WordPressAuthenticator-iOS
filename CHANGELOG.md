@@ -53,6 +53,7 @@ _None._
 ### Bug Fixes
 
 - Fix an issue where self-hosted sites are incorrectly flagged as non WordPress sites. [#796]
+- Fix background color issue on login prologue's button section on iPad. [#821]
 
 ## 8.0.0
 
