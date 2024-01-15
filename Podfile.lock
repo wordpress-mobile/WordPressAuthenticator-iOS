@@ -13,10 +13,10 @@ PODS:
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
-    - WordPressKit (~> 9.0)
+    - WordPressKit (~> 10.0)
     - WordPressShared (~> 2.1-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (9.0.0):
+  - WordPressKit (10.0.0):
     - Alamofire (~> 4.8.0)
     - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
@@ -35,7 +35,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (~> 0.49)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (~> 9.0.0)
+  - WordPressKit (~> 10.0)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -71,12 +71,12 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
-  WordPressAuthenticator: f351f1efbf0cc4970c3c9c9e983cf7780b967442
-  WordPressKit: 3f599b50b996e4352efa5594e6de95e53315da12
+  WordPressAuthenticator: 34fd67adc5569963af1cfd71b5ad7446d7b79b09
+  WordPressKit: dec055e14413d6674c3f44e86391015da6d0e754
   WordPressShared: 87f3ee89b0a3e83106106f13a8b71605fb8eb6d2
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 53b90d4674a5a238bb3fca5e6e500c0a2d220ca6
+PODFILE CHECKSUM: 415362dc6847c42b46cb67776a65fddd8c091cd1
 
 COCOAPODS: 1.14.3
