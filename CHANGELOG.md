@@ -46,8 +46,7 @@ _None._
 
 ### Internal Changes
 
-- Relax WordPressKit dependency to `~> 9.0` [#824]
-- Depend on WordPressKit 10.0.0 [#826]
+- Change WordPressKit dependency version [#824, #826]
 
 ## 8.0.1
 
