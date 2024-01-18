@@ -12,7 +12,7 @@ extension ViewController {
                 wpcomClientId: APICredentials.client,
                 wpcomSecret: APICredentials.secret,
                 wpcomScheme: "wordpress-authenticator-ios-demo",
-                wpcomTermsOfServiceURL: "https://wordpress.com/tos/",
+                wpcomTermsOfServiceURL: URL(string: "https://wordpress.com/tos/")!,
                 wpcomBaseURL: URL(string: "https://wordpress.com")!,
                 wpcomAPIBaseURL: URL(string: "https://public-api.wordpress.com/")!,
                 googleLoginClientId: APICredentials.googleLoginClientId,

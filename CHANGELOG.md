@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-_None._
+- Declare URL properties in `WordPressAuthenticatorConfiguration` as `URL`, instead of `String`.
 
 ### New Features
 
