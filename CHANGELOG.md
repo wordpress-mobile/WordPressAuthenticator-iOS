@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-- Declare URL properties in `WordPressAuthenticatorConfiguration` as `URL`, instead of `String`. [#827]
+_None._
 
 ### New Features
 
@@ -43,6 +43,16 @@ _None._
 ### Bug Fixes
 
 _None._
+
+### Internal Changes
+
+_None._
+
+## 9.0.0
+
+### Breaking Changes
+
+- Declare URL properties in `WordPressAuthenticatorConfiguration` as `URL`, instead of `String`. [#827]
 
 ### Internal Changes
 
