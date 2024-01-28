@@ -13,10 +13,10 @@ PODS:
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
-    - WordPressKit (~> 11.0)
+    - WordPressKit (~> 12.0)
     - WordPressShared (~> 2.1-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (11.0.0):
+  - WordPressKit (12.0.0):
     - Alamofire (~> 4.8.0)
     - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
@@ -35,7 +35,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (~> 0.49)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `trunk`)
+  - WordPressKit (~> 12.0)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -51,6 +51,7 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
     - UIDeviceIdentifier
+    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
@@ -58,14 +59,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
-  WordPressKit:
-    :branch: trunk
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
-
-CHECKOUT OPTIONS:
-  WordPressKit:
-    :commit: e9afb3126f7616a6120ae86f7df9bf2705d99336
-    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
@@ -78,12 +71,12 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
-  WordPressAuthenticator: 5a6c02f010a7c2c6a9ca17b15233b25f74b3ad33
-  WordPressKit: c9ec8dd6ea731af5a2d7cadb9944b67be716d63e
+  WordPressAuthenticator: ce9688b78d71e296ea54159c4eef3a1ea5cc1838
+  WordPressKit: 25452ae322f6fcb605f816caec2ff8ac707c7d9d
   WordPressShared: 87f3ee89b0a3e83106106f13a8b71605fb8eb6d2
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: ac7ef971bb63d2048dcc09cce1a5d3e40e8e94c4
+PODFILE CHECKSUM: 133f1b432d72077ba5e993fac2fe6831d9d0ff1d
 
 COCOAPODS: 1.14.3
