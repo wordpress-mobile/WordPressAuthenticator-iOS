@@ -46,6 +46,12 @@ _None._
 
 ### Internal Changes
 
+_None._
+
+## 9.0.1
+
+### Internal Changes
+
 - Depend on WordPressKit 12.0. [#829]
 
 ## 9.0.0
