@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 source 'https://cdn.cocoapods.org/'
+# It can take CocoaPods some time to propagate new versions.
+# To avoid waiting, we also publish our pods to our own specs repo.
+source 'https://github.com/wordpress-mobile/cocoapods-specs.git'
 
 inhibit_all_warnings!
 use_frameworks!
@@ -28,7 +31,7 @@ def wordpress_authenticator_pods
   ## These should match the version requirement from the podspec.
   pod 'Gridicons', '~> 1.0'
   pod 'WordPressUI', '~> 1.7-beta'
-  pod 'WordPressKit', '~> 12.0'
+  pod 'WordPressKit', '~> 13.0'
   pod 'WordPressShared', '~> 2.1-beta'
 
   third_party_pods
