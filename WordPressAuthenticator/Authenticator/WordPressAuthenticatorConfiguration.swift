@@ -174,6 +174,11 @@ public struct WordPressAuthenticatorConfiguration {
     ///
     let enableSiteAddressLoginOnlyInPrologue: Bool
 
+    /// Whether to use `URLSession` or Alamofire for certain requests.
+    ///
+    /// Defaults to `false` but will soon become `true` as we are actively working to remove Alamofire.
+    let useURLSession: Bool
+
     /// Designated Initializer
     ///
     public init (wpcomClientId: String,
@@ -210,7 +215,8 @@ public struct WordPressAuthenticatorConfiguration {
                  enableManualSiteCredentialLogin: Bool = false,
                  enableManualErrorHandlingForSiteCredentialLogin: Bool = false,
                  useEnterEmailAddressAsStepValueForGetStartedVC: Bool = false,
-                 enableSiteAddressLoginOnlyInPrologue: Bool = false
+                 enableSiteAddressLoginOnlyInPrologue: Bool = false,
+                 useURLSession: Bool = false
     ) {
 
         self.wpcomClientId = wpcomClientId
@@ -248,5 +254,6 @@ public struct WordPressAuthenticatorConfiguration {
         self.enableManualErrorHandlingForSiteCredentialLogin = enableManualErrorHandlingForSiteCredentialLogin
         self.useEnterEmailAddressAsStepValueForGetStartedVC = useEnterEmailAddressAsStepValueForGetStartedVC
         self.enableSiteAddressLoginOnlyInPrologue = enableSiteAddressLoginOnlyInPrologue
+        self.useURLSession = useURLSession
     }
 }

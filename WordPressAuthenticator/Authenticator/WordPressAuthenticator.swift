@@ -77,6 +77,9 @@ import WordPressKit
         self.unifiedStyle = unifiedStyle
         self.displayImages = displayImages
         self.displayStrings = displayStrings
+
+        WordPressOrgXMLRPCApi.useURLSession = configuration.useURLSession
+        WordPressComRestApi.useURLSession = configuration.useURLSession
     }
 
     /// Initializes the WordPressAuthenticator with the specified Configuration.
