@@ -1,5 +1,3 @@
-import Foundation
-
 import WordPressKit
 
 @objc public protocol WordPressComOAuthClientFacadeProtocol {
