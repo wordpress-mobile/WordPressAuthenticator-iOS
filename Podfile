@@ -31,7 +31,8 @@ def wordpress_authenticator_pods
   ## These should match the version requirement from the podspec.
   pod 'Gridicons', '~> 1.0'
   pod 'WordPressUI', '~> 1.7-beta'
-  pod 'WordPressKit', '~> 13.0'
+  # pod 'WordPressKit', '~> 13.0'
+  pod 'WordPressKit', git: 'https://github.com/wordpress-mobile/WordPressKit-iOS.git', commit: 'd6dce6de4277a7e2046fef76c71de570d2a8acd0'
   pod 'WordPressShared', '~> 2.1-beta'
 
   third_party_pods
