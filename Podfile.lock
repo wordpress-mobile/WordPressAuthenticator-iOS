@@ -33,7 +33,7 @@ DEPENDENCIES:
   - OCMock (~> 3.4)
   - Specta (= 1.0.7)
   - SVProgressHUD (= 2.2.5)
-  - SwiftLint (~> 0.49)
+  - SwiftLint (= 0.54.0)
   - WordPressAuthenticator (from `.`)
   - WordPressKit (~> 13.0)
   - WordPressShared (~> 2.1-beta)
@@ -78,6 +78,6 @@ SPEC CHECKSUMS:
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 403e1fb88c6b793469ae1895887ac6fdca395e9f
+PODFILE CHECKSUM: 7a63d2e16ee1b72e07e52ac84a3695578b714447
 
 COCOAPODS: 1.14.3
