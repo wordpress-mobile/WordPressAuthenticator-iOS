@@ -1,4 +1,3 @@
-import Foundation
 import AuthenticationServices
 import WordPressKit
 import SVProgressHUD
