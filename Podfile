@@ -63,9 +63,17 @@ target 'AuthenticatorDemo' do
   pod 'WordPressAuthenticator', path: '.'
 end
 
-# Used to donwload CLI tools.
+## Tools
+## ==========
+##
+def swiftlint_version
+  require 'yaml'
+
+  YAML.load_file('.swiftlint.yml')['swiftlint_version']
+end
+
 abstract_target 'Tools' do
-  pod 'SwiftLint', '~> 0.49'
+  pod 'SwiftLint', swiftlint_version
 end
 
 post_install do |installer|
