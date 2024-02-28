@@ -467,17 +467,19 @@ private extension SiteCredentialsViewController {
 
     func handleLoginFailure(error: Error, incorrectCredentials: Bool) {
         configureViewLoading(false)
+
+        if incorrectCredentials {
+            let message = NSLocalizedString("It looks like this username/password isn't associated with this site.",
+                                            comment: "An error message shown during log in when the username or password is incorrect.")
+            return displayError(message: message, moveVoiceOverFocus: true)
+        }
+
         guard configuration.enableManualErrorHandlingForSiteCredentialLogin == false else {
             WordPressAuthenticator.shared.delegate?.handleSiteCredentialLoginFailure(error: error, for: loginFields.siteAddress, in: self)
             return
         }
-        if incorrectCredentials {
-            let message = NSLocalizedString("It looks like this username/password isn't associated with this site.",
-                                            comment: "An error message shown during log in when the username or password is incorrect.")
-            displayError(message: message, moveVoiceOverFocus: true)
-        } else {
-            displayError(error, sourceTag: sourceTag)
-        }
+
+        displayError(error, sourceTag: sourceTag)
     }
 
     func syncDataOrPresentWPComLogin(with wporgCredentials: WordPressOrgCredentials) {
