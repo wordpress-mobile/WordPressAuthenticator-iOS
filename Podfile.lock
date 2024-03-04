@@ -1,5 +1,4 @@
 PODS:
-  - Alamofire (4.8.2)
   - Expecta (1.0.6)
   - Gridicons (1.2.0)
   - NSObject-SafeExpectations (0.0.6)
@@ -13,11 +12,10 @@ PODS:
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
-    - WordPressKit (~> 13.0)
+    - WordPressKit (~> 14.0)
     - WordPressShared (~> 2.1-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (13.0.0):
-    - Alamofire (~> 4.8.0)
+  - WordPressKit (14.0.0):
     - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
     - WordPressShared (~> 2.0-beta)
@@ -35,7 +33,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (= 0.54.0)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (~> 13.0)
+  - WordPressKit (~> 14.0)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -43,7 +41,6 @@ SPEC REPOS:
   https://github.com/wordpress-mobile/cocoapods-specs.git:
     - WordPressKit
   trunk:
-    - Alamofire
     - Expecta
     - Gridicons
     - NSObject-SafeExpectations
@@ -62,7 +59,6 @@ EXTERNAL SOURCES:
     :path: "."
 
 SPEC CHECKSUMS:
-  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
   Gridicons: 4455b9f366960121430e45997e32112ae49ffe1d
   NSObject-SafeExpectations: c01c8881cbd97efad6f668286b913cd0b7d62ab5
@@ -72,12 +68,12 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
-  WordPressAuthenticator: ba69878bfa1368636e92d29fcfb5bd1e0a11a3ef
-  WordPressKit: 5eb7d27d27f84e875266a72281d0a4b80c825b74
+  WordPressAuthenticator: 1c443a174ceaa74664f4d8920956291c82cd7dea
+  WordPressKit: 6fbe0528c43df471a73de17909413a1e42f862b1
   WordPressShared: 87f3ee89b0a3e83106106f13a8b71605fb8eb6d2
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 7a63d2e16ee1b72e07e52ac84a3695578b714447
+PODFILE CHECKSUM: d7dd88d5316c6df1fdd7e05964da727e51783ba1
 
 COCOAPODS: 1.14.3
