@@ -48,6 +48,12 @@ _None._
 
 _None._
 
+## 9.0.2
+
+### Internal Changes
+
+- Depend on WordPressKit 14.0. [#840]
+
 ## 9.0.1
 
 ### Internal Changes
