@@ -42,7 +42,7 @@ _None._
 
 ### Bug Fixes
 
-_None._
+- Detect invalid WordPress site address. [#841]
 
 ### Internal Changes
 
