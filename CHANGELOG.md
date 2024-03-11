@@ -42,11 +42,17 @@ _None._
 
 ### Bug Fixes
 
-- Detect invalid WordPress site address. [#841]
+_None._
 
 ### Internal Changes
 
 _None._
+
+## 9.0.3
+
+### Bug Fixes
+
+- Detect invalid WordPress site address. [#841]
 
 ## 9.0.2
 
