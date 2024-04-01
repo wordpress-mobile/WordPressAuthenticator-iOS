@@ -48,7 +48,7 @@ _None._
 
 _None._
 
-## 9.0.5
+## 9.0.6
 
 ### Breaking Changes
 
