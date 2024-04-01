@@ -38,6 +38,24 @@ _None._
 
 ### New Features
 
+_None._
+
+### Bug Fixes
+
+_None._
+
+### Internal Changes
+
+_None._
+
+## 9.0.5
+
+### Breaking Changes
+
+_None._
+
+### New Features
+
 - Add an option to show site creation guide on the prologue screen [#844]
 
 ### Bug Fixes
