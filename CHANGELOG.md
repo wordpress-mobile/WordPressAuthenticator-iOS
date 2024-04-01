@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Add an option to show site creation guide on the prologue screen [#844]
 
 ### Bug Fixes
 

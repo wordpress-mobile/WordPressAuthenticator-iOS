@@ -45,7 +45,10 @@ class LoginPrologueViewController: LoginViewController {
     /// Return`true` to use new `NUXStackedButtonsViewController` instead of `NUXButtonViewController` to create buttons
     ///
     private var useStackedButtonsViewController: Bool {
-        configuration.enableWPComLoginOnlyInPrologue || configuration.enableSiteCreation
+        configuration.enableWPComLoginOnlyInPrologue ||
+        configuration.enableSiteCreation ||
+        configuration.enableSiteAddressLoginOnlyInPrologue ||
+        configuration.enableSiteCreationGuide
     }
 
     // MARK: - Lifecycle Methods
@@ -268,13 +271,22 @@ class LoginPrologueViewController: LoginViewController {
         let displayStrings = WordPressAuthenticator.shared.displayStrings
         let buttons: [StackedButton]
 
-        let continueWithWPButton = StackedButton(title: displayStrings.continueWithWPButtonTitle,
-                                                 isPrimary: true,
-                                                 configureBodyFontForTitle: true,
-                                                 accessibilityIdentifier: "Prologue Continue Button",
-                                                 style: primaryButtonStyle,
-                                                 onTap: loginTapCallback())
-        let enterYourSiteAddressButton: StackedButton = {
+        let continueWithWPButton: StackedButton? = {
+            guard !configuration.enableSiteAddressLoginOnlyInPrologue else {
+                return nil
+            }
+            return StackedButton(title: displayStrings.continueWithWPButtonTitle,
+                                 isPrimary: true,
+                                 configureBodyFontForTitle: true,
+                                 accessibilityIdentifier: "Prologue Continue Button",
+                                 style: primaryButtonStyle,
+                                 onTap: loginTapCallback())
+        }()
+
+        let enterYourSiteAddressButton: StackedButton? = {
+            guard !configuration.enableWPComLoginOnlyInPrologue else {
+                return nil
+            }
             let isPrimary = configuration.enableSiteAddressLoginOnlyInPrologue && !configuration.enableSiteCreation
             return StackedButton(title: displayStrings.enterYourSiteAddressButtonTitle,
                                  isPrimary: isPrimary,
@@ -283,7 +295,11 @@ class LoginPrologueViewController: LoginViewController {
                                  style: secondaryButtonStyle,
                                  onTap: siteAddressTapCallback())
         }()
-        let createSiteButton: StackedButton = {
+
+        let createSiteButton: StackedButton? = {
+            guard configuration.enableSiteCreation else {
+                return nil
+            }
             let isPrimary = configuration.enableSiteAddressLoginOnlyInPrologue
             return StackedButton(title: displayStrings.siteCreationButtonTitle,
                                  isPrimary: isPrimary,
@@ -293,25 +309,33 @@ class LoginPrologueViewController: LoginViewController {
                                  onTap: simplifiedLoginSiteCreationCallback())
         }()
 
-        if configuration.enableWPComLoginOnlyInPrologue && configuration.enableSiteCreation {
-            buttons = [continueWithWPButton,
-                       createSiteButton]
-        } else if configuration.enableWPComLoginOnlyInPrologue {
-            buttons = [continueWithWPButton]
-        } else if configuration.enableSiteAddressLoginOnlyInPrologue && configuration.enableSiteCreation {
-            buttons = [createSiteButton, enterYourSiteAddressButton]
-        } else if configuration.enableSiteAddressLoginOnlyInPrologue {
-            buttons = [enterYourSiteAddressButton]
-        } else if configuration.enableSiteCreation {
-            let createSiteButtonForBottomStackView = StackedButton(using: createSiteButton,
-                                                                   stackView: .bottom)
-            buttons = [continueWithWPButton,
-                       enterYourSiteAddressButton,
-                       createSiteButtonForBottomStackView]
-        } else {
-            WPAuthenticatorLogError("Failed to create `StackedButton`s in login prologue screen.")
-            buttons = []
-        }
+        let createSiteButtonForBottomStackView: StackedButton? = {
+            guard let createSiteButton else {
+                return nil
+            }
+            return StackedButton(using: createSiteButton, stackView: .bottom)
+        }()
+
+        let siteCreationGuideButton: StackedButton? = {
+            guard configuration.enableSiteCreationGuide else {
+                return nil
+            }
+            return StackedButton(title: displayStrings.siteCreationGuideButtonTitle,
+                                 isPrimary: false,
+                                 configureBodyFontForTitle: true,
+                                 accessibilityIdentifier: "Prologue Site Creation Guide button",
+                                 style: NUXButtonStyle.linkButtonStyle,
+                                 onTap: siteCreationGuideCallback())
+        }()
+
+        let showBothLoginOptions = continueWithWPButton != nil && enterYourSiteAddressButton != nil
+        buttons = [
+            continueWithWPButton,
+            !showBothLoginOptions ? createSiteButton : nil,
+            enterYourSiteAddressButton,
+            showBothLoginOptions ? createSiteButtonForBottomStackView : nil,
+            siteCreationGuideButton
+        ].compactMap { $0 }
 
         let showDivider = configuration.enableWPComLoginOnlyInPrologue == false &&
             configuration.enableSiteCreation == true &&
@@ -342,6 +366,14 @@ class LoginPrologueViewController: LoginViewController {
             guard let self = self, let navigationController = self.navigationController else { return }
             // triggers the delegate to ask the host app to handle site creation
             WordPressAuthenticator.shared.delegate?.showSiteCreation(in: navigationController)
+        }
+    }
+
+    private func siteCreationGuideCallback() -> NUXButtonViewController.CallBackType {
+        { [weak self] in
+            guard let self, let navigationController else { return }
+            // triggers the delegate to ask the host app to handle site creation guide
+            WordPressAuthenticator.shared.delegate?.showSiteCreationGuide(in: navigationController)
         }
     }
 
