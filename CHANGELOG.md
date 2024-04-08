@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Show social login options in site credentials login mode [#849]
 
 ### Bug Fixes
 
