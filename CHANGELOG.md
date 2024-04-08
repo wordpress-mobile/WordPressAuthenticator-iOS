@@ -34,11 +34,11 @@ _None._
 
 ### Breaking Changes
 
-_None._
+- Show social login options in site credentials login mode [#849]
 
 ### New Features
 
-- Show social login options in site credentials login mode [#849]
+_None._
 
 ### Bug Fixes
 
