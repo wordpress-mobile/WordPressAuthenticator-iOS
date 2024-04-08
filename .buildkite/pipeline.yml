@@ -28,7 +28,9 @@ steps:
   - label: "🔬 Validate Podspec"
     key: "validate"
     command: |
-      validate_podspec --patch-cocoapods
+      # This library use deprecated Gravatar API in WordPressUI.
+      # Allow warning for now, until we are ready to migrate to Gravatar SDK.
+      validate_podspec --patch-cocoapods --allow-warnings
     env: *common_env
     plugins: *common_plugins
 
