@@ -1,6 +1,5 @@
 PODS:
   - Expecta (1.0.6)
-  - Gravatar (1.0.0)
   - Gridicons (1.2.0)
   - NSObject-SafeExpectations (0.0.6)
   - "NSURL+IDN (0.4)"
@@ -10,7 +9,6 @@ PODS:
   - SwiftLint (0.54.0)
   - UIDeviceIdentifier (2.3.0)
   - WordPressAuthenticator (9.0.6):
-    - Gravatar (= 1.0.0)
     - Gridicons (~> 1.0)
     - "NSURL+IDN (= 0.4)"
     - SVProgressHUD (~> 2.2.5)
@@ -22,13 +20,12 @@ PODS:
     - UIDeviceIdentifier (~> 2.0)
     - WordPressShared (~> 2.0-beta)
     - wpxmlrpc (~> 0.10)
-  - WordPressShared (2.3.1)
-  - WordPressUI (1.16.0)
+  - WordPressShared (2.2.0)
+  - WordPressUI (1.15.0)
   - wpxmlrpc (0.10.0)
 
 DEPENDENCIES:
   - Expecta (= 1.0.6)
-  - Gravatar (= 1.0.0)
   - Gridicons (~> 1.0)
   - "NSURL+IDN (= 0.4)"
   - OCMock (~> 3.4)
@@ -41,11 +38,8 @@ DEPENDENCIES:
   - WordPressUI (~> 1.7-beta)
 
 SPEC REPOS:
-  https://github.com/wordpress-mobile/cocoapods-specs.git:
-    - WordPressShared
   trunk:
     - Expecta
-    - Gravatar
     - Gridicons
     - NSObject-SafeExpectations
     - "NSURL+IDN"
@@ -55,6 +49,7 @@ SPEC REPOS:
     - SwiftLint
     - UIDeviceIdentifier
     - WordPressKit
+    - WordPressShared
     - WordPressUI
     - wpxmlrpc
 
@@ -64,7 +59,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
-  Gravatar: bdd3950c5128304b51a9e655e4145334f23201d1
   Gridicons: 4455b9f366960121430e45997e32112ae49ffe1d
   NSObject-SafeExpectations: c01c8881cbd97efad6f668286b913cd0b7d62ab5
   "NSURL+IDN": afc873e639c18138a1589697c3add197fe8679ca
@@ -73,12 +67,12 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
-  WordPressAuthenticator: 74ecafa75a2296c744145f8d443f1fe96b4ef9c7
+  WordPressAuthenticator: 0c5cc3fb336855cb82022aa25897de4b0e4cf934
   WordPressKit: f6dc2acce37a526ddb59e02388b3d59da50918ed
-  WordPressShared: 3beca50eacae53611b62fc449470e84bb6b21e29
-  WordPressUI: ec5ebcf7e63e797ba51d07513e340c1b14cf45a4
+  WordPressShared: 87f3ee89b0a3e83106106f13a8b71605fb8eb6d2
+  WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 0a479f7bcbd2374345bc6cbf8e2da1393f970c1f
+PODFILE CHECKSUM: ce2d9c056b5321bd076856e0f02f7b50485b0798
 
 COCOAPODS: 1.14.3

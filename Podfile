@@ -8,7 +8,7 @@ source 'https://github.com/wordpress-mobile/cocoapods-specs.git'
 inhibit_all_warnings!
 use_frameworks!
 
-ios_deployment_target = Gem::Version.new('15.0')
+ios_deployment_target = Gem::Version.new('13.0')
 
 platform :ios, ios_deployment_target
 
@@ -33,7 +33,6 @@ def wordpress_authenticator_pods
   pod 'WordPressUI', '~> 1.7-beta'
   pod 'WordPressKit', '~> 16.0'
   pod 'WordPressShared', '~> 2.1-beta'
-  pod 'Gravatar', '1.0.0'
 
   third_party_pods
 end
