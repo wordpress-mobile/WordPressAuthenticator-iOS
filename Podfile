@@ -8,7 +8,7 @@ source 'https://github.com/wordpress-mobile/cocoapods-specs.git'
 inhibit_all_warnings!
 use_frameworks!
 
-ios_deployment_target = Gem::Version.new('13.0')
+ios_deployment_target = Gem::Version.new('15.0')
 
 platform :ios, ios_deployment_target
 
