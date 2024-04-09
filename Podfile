@@ -33,6 +33,7 @@ def wordpress_authenticator_pods
   pod 'WordPressUI', '~> 1.7-beta'
   pod 'WordPressKit', '~> 16.0'
   pod 'WordPressShared', '~> 2.1-beta'
+  pod 'Gravatar', '1.0.0'
 
   third_party_pods
 end

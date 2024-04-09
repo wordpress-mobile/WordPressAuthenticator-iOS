@@ -42,4 +42,5 @@ Pod::Spec.new do |s|
   s.dependency 'WordPressUI', '~> 1.7-beta'
   s.dependency 'WordPressKit', '~> 16.0'
   s.dependency 'WordPressShared', '~> 2.1-beta'
+  s.dependency 'Gravatar', '1.0.0'
 end
