@@ -34,7 +34,7 @@ _None._
 
 ### Breaking Changes
 
-- Show social login options in site credentials login mode [#849]
+_None._
 
 ### New Features
 
@@ -47,6 +47,12 @@ _None._
 ### Internal Changes
 
 _None._
+
+## 9.0.7
+
+### Bug Fixes
+
+- Show social login options in site credentials login mode [#849]
 
 ## 9.0.6
 
