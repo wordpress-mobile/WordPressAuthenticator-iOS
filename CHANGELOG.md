@@ -48,6 +48,13 @@ _None._
 
 _None._
 
+## 9.0.8
+
+### Internal Changes
+
+- Allow warnings also on publish_private_pod [#853]
+- Depend on WPKit 17.0 [#854]
+
 ## 9.0.7
 
 ### Bug Fixes
