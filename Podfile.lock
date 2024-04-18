@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (= 0.54.0)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (~> 17.0)
+  - "WordPressKit (from `git@github.com:wordpress-mobile/wordpresskit-ios`, commit `e8ee86f3ae8251e8b01b57d9b740665e2a2b5fb0`)"
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -48,7 +48,6 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
     - UIDeviceIdentifier
-    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
@@ -56,6 +55,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
+  WordPressKit:
+    :commit: e8ee86f3ae8251e8b01b57d9b740665e2a2b5fb0
+    :git: "git@github.com:wordpress-mobile/wordpresskit-ios"
+
+CHECKOUT OPTIONS:
+  WordPressKit:
+    :commit: e8ee86f3ae8251e8b01b57d9b740665e2a2b5fb0
+    :git: "git@github.com:wordpress-mobile/wordpresskit-ios"
 
 SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
@@ -73,6 +80,6 @@ SPEC CHECKSUMS:
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 98c48a8558a07d876e1720351adcb835bc40ce14
+PODFILE CHECKSUM: c1e27135dc26c833d20d9224f553e85d129ca707
 
 COCOAPODS: 1.14.3

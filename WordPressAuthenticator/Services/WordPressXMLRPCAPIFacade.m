@@ -76,7 +76,7 @@ NSString *const XMLRPCOriginalErrorKey = @"XMLRPCOriginalErrorKey";
             if (![responseObject isKindOfClass:[NSDictionary class]]) {
                 if (failure) {
                     NSDictionary *userInfo = @{NSLocalizedDescriptionKey: NSLocalizedString(@"Unable to read the WordPress site at that URL. Tap 'Need more help?' to view the FAQ.", nil)};
-                    NSError *error = [NSError errorWithDomain:WordPressOrgXMLRPCApiErrorDomain code:WordPressOrgXMLRPCApiErrorResponseSerializationFailed userInfo:userInfo];
+                    NSError *error = [NSError errorWithDomain:WordPressOrgXMLRPCApiErrorDomain code:WordPressComRestApiErrorCodeResponseSerializationFailed userInfo:userInfo];
                     failure(error);
                 }
                 return;
