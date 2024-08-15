@@ -42,7 +42,7 @@ _None._
 
 ### Bug Fixes
 
-_None._
+- Hide site credential login option from Get Started screen after entering a WPCom site address [#855]
 
 ### Internal Changes
 
