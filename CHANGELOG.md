@@ -46,6 +46,12 @@ _None._
 
 ### Internal Changes
 
+_None._
+
+## 9.10.0
+
+### Internal Changes
+
 - Fixed compiler issues for Xcode 16 support [#856]
 
 ## 9.0.9
