@@ -15,7 +15,7 @@ PODS:
     - WordPressKit (~> 17.0)
     - WordPressShared (~> 2.1-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (17.0.0):
+  - WordPressKit (17.2.0):
     - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
     - WordPressShared (~> 2.0-beta)
@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (= 0.54.0)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (~> 17.0)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `magic-link-create-account`)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -48,7 +48,6 @@ SPEC REPOS:
     - SVProgressHUD
     - SwiftLint
     - UIDeviceIdentifier
-    - WordPressKit
     - WordPressShared
     - WordPressUI
     - wpxmlrpc
@@ -56,6 +55,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
+  WordPressKit:
+    :branch: magic-link-create-account
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
+
+CHECKOUT OPTIONS:
+  WordPressKit:
+    :commit: f731cfaf2ccdb26604c9ac251d1a87d488910f4c
+    :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
   Expecta: 3b6bd90a64b9a1dcb0b70aa0e10a7f8f631667d5
@@ -68,11 +75,11 @@ SPEC CHECKSUMS:
   SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
   WordPressAuthenticator: d151cc7ebc1cfcbf5c28bb2c9afe760a75b49ba6
-  WordPressKit: a71cc550f4b525ab5eef057984c8de071462edd5
+  WordPressKit: 98809cdb460bacc6634b49079335a5ccace34e59
   WordPressShared: 87f3ee89b0a3e83106106f13a8b71605fb8eb6d2
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 98c48a8558a07d876e1720351adcb835bc40ce14
+PODFILE CHECKSUM: d8b7855d6992f09af642898ba31d030f8b8b8a2b
 
 COCOAPODS: 1.14.3
