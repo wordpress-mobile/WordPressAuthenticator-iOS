@@ -38,7 +38,7 @@ _None._
 
 ### New Features
 
-_None._
+- Add support for logging in into WPCOM suspended sites.
 
 ### Bug Fixes
 
