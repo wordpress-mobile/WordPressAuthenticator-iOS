@@ -39,6 +39,7 @@ _None._
 ### New Features
 
 - Add support for logging in into WPCOM suspended sites.
+- Update `WordPressComAccountService/requestAuthenticationLink` with a new argument `createAccountIfNotFound` to allow creating new accounts.
 
 ### Bug Fixes
 
