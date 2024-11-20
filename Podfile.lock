@@ -15,7 +15,7 @@ PODS:
     - WordPressKit (~> 17.0)
     - WordPressShared (~> 2.1-beta)
     - WordPressUI (~> 1.7-beta)
-  - WordPressKit (17.2.0):
+  - WordPressKit (17.3.0):
     - NSObject-SafeExpectations (~> 0.0.4)
     - UIDeviceIdentifier (~> 2.0)
     - WordPressShared (~> 2.0-beta)
@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (= 0.54.0)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, commit `a005f59565e5d12dbd8f13ed31061ff8dd2c43ff`)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, commit `ba7389db54376be9c657b29316ef65b308405c3b`)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -56,12 +56,12 @@ EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
   WordPressKit:
-    :commit: a005f59565e5d12dbd8f13ed31061ff8dd2c43ff
+    :commit: ba7389db54376be9c657b29316ef65b308405c3b
     :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 CHECKOUT OPTIONS:
   WordPressKit:
-    :commit: a005f59565e5d12dbd8f13ed31061ff8dd2c43ff
+    :commit: ba7389db54376be9c657b29316ef65b308405c3b
     :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
@@ -75,11 +75,11 @@ SPEC CHECKSUMS:
   SwiftLint: c1de071d9d08c8aba837545f6254315bc900e211
   UIDeviceIdentifier: 442b65b4ff1832d4ca9c2a157815cb29ad981b17
   WordPressAuthenticator: d151cc7ebc1cfcbf5c28bb2c9afe760a75b49ba6
-  WordPressKit: 98809cdb460bacc6634b49079335a5ccace34e59
+  WordPressKit: faf8c6de7c2acfe71cf95b4db896901060967089
   WordPressShared: 87f3ee89b0a3e83106106f13a8b71605fb8eb6d2
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: 5f9339b1c70a28569504b553d7dde7d2f4b285bc
+PODFILE CHECKSUM: e9ff0e92f3449391df3719ac05bdf9b98f1da7ff
 
 COCOAPODS: 1.14.3
