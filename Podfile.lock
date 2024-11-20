@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SVProgressHUD (= 2.2.5)
   - SwiftLint (= 0.54.0)
   - WordPressAuthenticator (from `.`)
-  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, branch `magic-link-create-account`)
+  - WordPressKit (from `https://github.com/wordpress-mobile/WordPressKit-iOS.git`, commit `a005f59565e5d12dbd8f13ed31061ff8dd2c43ff`)
   - WordPressShared (~> 2.1-beta)
   - WordPressUI (~> 1.7-beta)
 
@@ -56,12 +56,12 @@ EXTERNAL SOURCES:
   WordPressAuthenticator:
     :path: "."
   WordPressKit:
-    :branch: magic-link-create-account
+    :commit: a005f59565e5d12dbd8f13ed31061ff8dd2c43ff
     :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 CHECKOUT OPTIONS:
   WordPressKit:
-    :commit: f731cfaf2ccdb26604c9ac251d1a87d488910f4c
+    :commit: a005f59565e5d12dbd8f13ed31061ff8dd2c43ff
     :git: https://github.com/wordpress-mobile/WordPressKit-iOS.git
 
 SPEC CHECKSUMS:
@@ -80,6 +80,6 @@ SPEC CHECKSUMS:
   WordPressUI: a491454affda3b0fb812812e637dc5e8f8f6bd06
   wpxmlrpc: 68db063041e85d186db21f674adf08d9c70627fd
 
-PODFILE CHECKSUM: d8b7855d6992f09af642898ba31d030f8b8b8a2b
+PODFILE CHECKSUM: 5f9339b1c70a28569504b553d7dde7d2f4b285bc
 
 COCOAPODS: 1.14.3
