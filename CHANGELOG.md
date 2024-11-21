@@ -40,6 +40,7 @@ _None._
 
 - Add support for logging in into WPCOM suspended sites.
 - Update `WordPressComAccountService/requestAuthenticationLink` with a new argument `createAccountIfNotFound` to allow creating new accounts.
+- Add support for requesting account creation when sending auth magic link [#861]
 
 ### Bug Fixes
 
