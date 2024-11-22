@@ -38,8 +38,7 @@ _None._
 
 ### New Features
 
-- Add support for logging in into WPCOM suspended sites. [#858]
-- Update `WordPressComAccountService/requestAuthenticationLink` with a new argument `createAccountIfNotFound` to allow creating new accounts. [#861]
+_None._
 
 ### Bug Fixes
 
@@ -48,6 +47,13 @@ _None._
 ### Internal Changes
 
 _None._
+
+## 9.10.1
+
+### New Features
+
+- Add support for logging in into WPCOM suspended sites. [#858]
+- Update `WordPressComAccountService/requestAuthenticationLink` with a new argument `createAccountIfNotFound` to allow creating new accounts. [#861]
 
 ## 9.10.0
 
