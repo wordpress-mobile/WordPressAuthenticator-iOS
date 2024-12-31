@@ -18,7 +18,8 @@ _None._
 
 ### New Features
 
-_None._
+- Allow setting both a color and an image as prologue background simultaneously [#867]
+- Add support for customizing the tertiary button style on the prologue screen [#867]
 
 ### Bug Fixes
 
