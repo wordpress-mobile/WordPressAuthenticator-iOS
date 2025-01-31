@@ -49,6 +49,12 @@ _None._
 
 _None._
 
+## 9.10.2
+
+### New Features
+
+- Woo Brand Update [#867]
+
 ## 9.10.1
 
 ### New Features
