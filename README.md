@@ -1,3 +1,11 @@
+<!-- red -->
+> [!CAUTION]
+> This repository has been archived and its functionality has been merged into its only two former clients: [WordPress/Jetpack iOS](https://github.com/wordpress-mobile/WordPress-iOS/tree/07ce020686a324112941274e8e5536682ded9278/WordPressAuthenticator) and [WooCommerce iOS](https://github.com/woocommerce/woocommerce-ios/pull/15000).
+> 
+> Future development will continue in those repositories.
+
+---
+ 
 # WordPressAuthenticator-iOS
 
 WordPressAuthenticator implements an easy and elegant way to authenticate your WordPress Apps. 
